@@ -127,14 +127,3 @@ def trim_background(problem):
         return new_problem
     else:
         return None
-
-
-def split_into_2_by_color_line(problem):
-
-    new_problem = problem.copy()
-    new_problem.train_case_list = []
-    new_problem.test_case_list = []
-
-    do_flag = True
-
-    return None
