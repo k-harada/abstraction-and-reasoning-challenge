@@ -8,6 +8,12 @@ def trim_background(m):
 
     x_sum = (m.value != m.background_color).sum(axis=1)
     y_sum = (m.value != m.background_color).sum(axis=0)
+
+    if x_sum.sum() == 0:
+        matter_c = Matter(m.value)
+        matter_c.placement = [0, 0]
+        return matter_c
+
     min_x = min([i for i in range(m.shape[0]) if x_sum[i]])
     max_x = max([i for i in range(m.shape[0]) if x_sum[i]])
     min_y = min([i for i in range(m.shape[1]) if y_sum[i]])
