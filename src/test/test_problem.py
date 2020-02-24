@@ -9,3 +9,5 @@ if __name__ == "__main__":
     print(p)
     q = p.copy()
     print(q)
+    r = q.deep_copy()
+    print(r)

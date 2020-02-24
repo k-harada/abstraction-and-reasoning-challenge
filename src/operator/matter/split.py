@@ -10,10 +10,10 @@ def split_color(m):
     for c in range(10):
         if c == m.background_color:
             continue
-        if (m.value == c).sum() == 0:
+        if (m.values == c).sum() == 0:
             continue
         new_m_value = np.ones(m.shape, dtype=np.int) * m.background_color
-        new_m_value[m.value == c] = c
+        new_m_value[m.values == c] = c
         matter_c = Matter(new_m_value)
         matter_c.color = c
         res_list.append(matter_c)
@@ -24,18 +24,18 @@ def split_color(m):
 def split_row_2(m):
     mrh = m.shape[0] // 2
     if mrh == 0:
-        return [Matter(m.value)]
+        return [Matter(m.values)]
     elif m.shape[0] % 2 == 0:
-        return [Matter(m.value[:mrh, :]), Matter(m.value[mrh:, :])]
+        return [Matter(m.values[:mrh, :]), Matter(m.values[mrh:, :])]
     else:
-        return [Matter(m.value[:mrh, :]), Matter(m.value[mrh + 1:, :])]
+        return [Matter(m.values[:mrh, :]), Matter(m.values[mrh + 1:, :])]
 
 
 def split_col_2(m):
     mch = m.shape[1] // 2
     if mch == 0:
-        return [Matter(m.value)]
+        return [Matter(m.values)]
     elif m.shape[1] % 2 == 0:
-        return [Matter(m.value[:, :mch]), Matter(m.value[:, mch:])]
+        return [Matter(m.values[:, :mch]), Matter(m.values[:, mch:])]
     else:
-        return [Matter(m.value[:, :mch]), Matter(m.value[:, mch + 1:])]
+        return [Matter(m.values[:, :mch]), Matter(m.values[:, mch + 1:])]

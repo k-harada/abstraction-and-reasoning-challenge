@@ -25,11 +25,26 @@ class Matter:
         """
         :param x_list: List[List[int]] or np.array
         """
-        self.value = np.array(x_list)
-        self.shape = self.value.shape
+        self.values = np.array(x_list)
+        self.shape = self.values.shape
         self.placement = [0, 0]
         self.color = -1
         self.background_color = 0
+        self.base_value = 0
+
+    def __repr__(self):
+        return "|" + "|".join(["".join(map(str, x)) for x in self.values.tolist()]) + "|"
+
+    def copy(self):
+        m = Matter(self.values)
+        m.placement = self.placement.copy()
+        m.color = self.color
+        m.background_color = self.background_color
+        m.base_value = self.base_value
+        return m
+
+    def deep_copy(self):
+        return self.copy()
 
 
 @dataclass
@@ -38,6 +53,10 @@ class CaseData:
     base_value: np.int = 0
     color_value: np.array = np.zeros(10, dtype=np.int)
     background_color: np.int = 0
+    color: np.int = -1
+
+    def copy(self):
+        return CaseData(self.base_value, self.color_value.copy(), self.background_color)
 
 
 class TrainCase:
@@ -63,19 +82,28 @@ class TrainCase:
         s_list = sum_up(self.matter_list, self.metadata.background_color)
         res_s = []
         for s in s_list:
-            res_s.append("|" + "|".join(["".join(map(str, x)) for x in s.value.tolist()]) + "|")
+            res_s.append("|" + "|".join(["".join(map(str, x)) for x in s.values.tolist()]) + "|")
         t_list = sum_up(self.output_matter_list, self.metadata.background_color)
         res_t = []
         for t in t_list:
-            res_t.append("|" + "|".join(["".join(map(str, x)) for x in t.value.tolist()]) + "|")
+            res_t.append("|" + "|".join(["".join(map(str, x)) for x in t.values.tolist()]) + "|")
         return ",".join(res_s) + "<->" + ",".join(res_t)
 
     def copy(self):
 
         new_case = TrainCase()
-        new_case.metadata = self.metadata  # refer
+        new_case.metadata = self.metadata.copy()
         new_case.matter_list = self.matter_list[:]  # shallow copy
         new_case.output_matter_list = self.output_matter_list[:]  # shallow copy
+
+        return new_case
+
+    def deep_copy(self):
+
+        new_case = TrainCase()
+        new_case.metadata = self.metadata.copy()
+        new_case.matter_list = [m.deep_copy() for m in self.matter_list]
+        new_case.output_matter_list = [m.deep_copy() for m in self.output_matter_list]
 
         return new_case
 
@@ -100,14 +128,22 @@ class TestCase:
         s_list = sum_up(self.matter_list, self.metadata.background_color)
         res_s = []
         for s in s_list:
-            res_s.append("|" + "|".join(["".join(map(str, x)) for x in s.value.tolist()]) + "|")
+            res_s.append("|" + "|".join(["".join(map(str, x)) for x in s.values.tolist()]) + "|")
         return ",".join(res_s)
 
     def copy(self):
 
         new_case = TestCase()
-        new_case.metadata = self.metadata  # refer
+        new_case.metadata = self.metadata.copy()
         new_case.matter_list = self.matter_list[:]  # shallow copy
+
+        return new_case
+
+    def deep_copy(self):
+
+        new_case = TestCase()
+        new_case.metadata = self.metadata.copy()
+        new_case.matter_list = [m.deep_copy() for m in self.matter_list]
 
         return new_case
 
@@ -119,6 +155,10 @@ class ProblemData:
     color_value: np.array = np.zeros(10, dtype=np.int)
     background_color: np.int = 0
     cost: np.float = 0
+    color: np.int = -1
+
+    def copy(self):
+        return ProblemData(self.base_value, self.color_value.copy(), self.background_color, self.cost)
 
 
 class Problem:
@@ -159,8 +199,17 @@ class Problem:
     def copy(self):
 
         new_problem = Problem()
-        new_problem.metadata = self.metadata  # refer
+        new_problem.metadata = self.metadata.copy()
         new_problem.train_case_list = self.train_case_list[:]  # shallow copy
         new_problem.test_case_list = self.test_case_list[:]  # shallow copy
+
+        return new_problem
+
+    def deep_copy(self):
+
+        new_problem = Problem()
+        new_problem.metadata = self.metadata.copy()
+        new_problem.train_case_list = [c.deep_copy() for c in self.train_case_list]
+        new_problem.test_case_list = [c.deep_copy() for c in self.test_case_list]
 
         return new_problem
