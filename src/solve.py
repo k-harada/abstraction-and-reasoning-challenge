@@ -5,7 +5,7 @@ from src.data import Problem
 from src.runner import Operator, all_operators
 from src.evaluator import eval_distance
 
-CNT_MAX = 30000
+CNT_MAX = 1000
 
 
 def main(data):
@@ -32,19 +32,29 @@ def main(data):
         if cnt >= CNT_MAX:
             break
     # print(cnt)
-    r = heappop(heap_res)
-    if r[0] == 0:
-        return 0
-    else:
-        return 1
+    return heappop(heap_res)
 
 
 if __name__ == "__main__":
 
     for i, f in enumerate(list(sorted(os.listdir("../input/training/")))):
+        if i != 0:
+            continue
         if f[-5:] == ".json":
             sample_data = json.load(open(f'../input/training/{f}', "r"))
-            if main(sample_data) == 0:
-                print(i, f)
+            r = main(sample_data)
+            if r[0] == 0:
+                print(i, f, r[1], r[2])
+                # print(r)
     print(len(os.listdir("../input/training/")))
+    """
+    for i, f in enumerate(list(sorted(os.listdir("../input/evaluation/")))):
 
+        if f[-5:] == ".json":
+            sample_data = json.load(open(f'../input/evaluation/{f}', "r"))
+            r = main(sample_data)
+            if r[0] == 0:
+                print(i, f, r[1], r[2])
+                # print(r)
+    print(len(os.listdir("../input/evaluation/")))
+    """

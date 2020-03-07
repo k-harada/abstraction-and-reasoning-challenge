@@ -1,50 +1,23 @@
 import numpy as np
-from src.operator.matter.transform import pick_one_color
+from src.data import MatterFactory, CaseFactory
 
 
-def pick_color(case):
-
-    new_case = case.copy()
-    new_case.matter_list = []
-    for m in case.matter_list:
-        new_case.matter_list.append(pick_one_color(m, case.metadata.color))
+def pick_max_color(case):
+    color_count_temp = case.color_count.copy()
+    color_count_temp[case.background_color] = 0
+    new_color = color_count_temp.argmax()
+    new_case = CaseFactory.from_matter_list(
+        [m.copy() for m in case.matter_list if m.color == new_color], case.shape, case.background_color
+    )
     return new_case
 
 
-def max_color(case):
-
-    if case.metadata.color_value.sum() == 0:
-        new_case = count_color(case)
-    else:
-        new_case = case.deep_copy()
-    v = new_case.metadata.color_value.copy()
-    if new_case.metadata.background_color != -1:
-        v[new_case.metadata.background_color] = 0
-    new_case.metadata.color = np.argmax(v)
-
+def pick_min_color(case):
+    color_count_temp = case.color_count.copy()
+    color_count_temp[case.background_color] = 0
+    color_count_temp[color_count_temp == 0] = 100000
+    new_color = color_count_temp.argmin()
+    new_case = CaseFactory.from_matter_list(
+        [m.copy() for m in case.matter_list if m.color == new_color], case.shape, case.background_color
+    )
     return new_case
-
-
-def min_color(case):
-
-    if case.metadata.color_value.sum() == 0:
-        new_case = count_color(case)
-    else:
-        new_case = case.deep_copy()
-    v = new_case.metadata.color_value.copy()
-    v[v == 0] = 1000000
-    v[new_case.metadata.background_color] = 1000000
-    new_case.metadata.color = np.argmin(v)
-
-    return new_case
-
-
-def count_color(case):
-
-    new_case = case.deep_copy()
-    new_case.metadata.color_value *= 0
-    for m in new_case.matter_list:
-        for c in range(10):
-            new_case.metadata.color_value[c] += (m.values == c).sum()
-    return new_case
-
