@@ -1,3 +1,3 @@
-from .matter import Matter, MatterFactory
-from .case import Case, CaseFactory
+from .matter import Matter
+from .case import Case
 from .problem import Problem

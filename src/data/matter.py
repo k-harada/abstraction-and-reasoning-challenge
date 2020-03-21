@@ -3,127 +3,103 @@ import numpy as np
 
 class Matter:
     """Class for objects inside case"""
-    def __init__(self, values: np.array, x0: np.int = 0, y0: np.int = 0, background_color: np.int = 0):
-
+    def __init__(self, values: np.array, x0: np.int8 = 0, y0: np.int8 = 0, background_color: np.int8 = 0):
+        """
+        :param values: np.array(np.int8) main values
+        :param x0: np.int8, position to show in result, x0:x0+shape[0], y0:y0+shape[1]
+        :param y0: np.int8, position to show in result, x0:x0+shape[0], y0:y0+shape[1]
+        :param background_color: np.int8, color to be treated as background
+        """
+        # values
         self.values = values
-        self.x0 = x0
-        self.y0 = y0
-        self.x1 = self.x0 + self.values.shape[0]
-        self.y1 = self.y0 + self.values.shape[1]
-
-        # background
-        self.background_color = background_color
-
-        # color_count
-        self.color_count = np.array([(self.values == c).sum() for c in range(10)]).astype(np.int).copy()
-
-        # n_color
-        self.n_color = np.int(sum([self.color_count[c] > 0 for c in range(10)]))
-
-        # n_cell
-        self.n_cell = np.int((self.values != self.background_color).sum())
-
         # shape
         self.shape = self.values.shape
+        # background
+        self.background_color = background_color
+        # position
+        self.x0 = x0
+        self.y0 = y0
+        # color_count
+        self.color_count = np.array([(self.values == c).sum() for c in range(10)]).astype(np.int8)
 
-        # square
-        if self.shape[0] == self.shape[1]:
-            self.is_square = True
-        else:
-            self.is_square = False
+        # initialize_attributes
+        self.n_row, self.n_col = self.values.shape
+        self.m_row, self.m_col = 2, 2
+        self.is_square = (self.n_row == self.n_col)
+        self.bool_represents = (self.values != self.background_color).astype(np.bool)
+        self.bool_copy = (self.values != self.background_color).astype(np.bool)
+        self.a = self.n_color()
+        self.b = self.n_cell()
+        self.color_a = self.max_color()
+        self.color_b = self.min_color()
+        self.bool_show = True
+        self.is_mesh = False
 
-        # color
-        if self.n_color == 1:
-            self.color = np.argmax(self.n_color)
-            self.max_color = self.color
-        elif self.n_color == 2 and self.color_count[self.background_color] > 0:
-            color_count_temp = self.color_count.copy()
-            color_count_temp[self.background_color] = 0
-            self.color = np.argmax(color_count_temp)
-            self.max_color = self.color
-        else:
-            color_count_temp = self.color_count.copy()
-            color_count_temp[self.background_color] = 0
-            self.color = -1
-            self.max_color = np.argmax(color_count_temp)
-
-        # bool repr
-        if self.color != -1:
-            self.bool_repr = (self.values != self.background_color).astype(np.int)
-            self.bool_repr_force = self.bool_repr
-        else:
-            self.bool_repr = None
-            self.bool_repr_force = (self.values != self.background_color).astype(np.int)
-
-    def __repr__(self):
-        return str(self.values)
-
-    def copy(self):
-        return MatterFactory.copy(self)
-
-    def deep_copy(self):
-        return MatterFactory.deep_copy(self)
-
-
-class MatterFactory:
-
-    @classmethod
-    def new(cls, values: np.array, x0: np.int = 0, y0: np.int = 0, background_color: np.int = 0):
-        return Matter(values, x0, y0, background_color)
-
-    @classmethod
-    def copy(cls, m):
+    def color_count(self):
         """
-        :param m: matter
-        :return: new Matter
+        :return: np.array(10, int8), number of cells for each color
         """
-        return Matter(m.values, m.x0, m.y0, m.background_color)
+        return self.color_count
 
-    @classmethod
-    def deep_copy(cls, m):
+    def n_color(self):
         """
-        :param m: matter
-        :return: new Matter
+        :return: np.int8, number of colors other than background
         """
-        return Matter(m.values.copy(), m.x0, m.y0, m.background_color)
+        return np.int8(sum([self.color_count[c] > 0 for c in range(10) if c != self.background_color]))
 
-    @classmethod
-    def slice(cls, m, x0, x1, y0, y1):
+    def repr_values(self):
         """
-        :param m: matter
-        :param x0: region to pick
-        :param x1:
-        :param y0:
-        :param y1:
-        :return: new Matter
+        :return: np.array(self.shape, int8), simply return self.values
         """
-        return Matter(m.values[x0:x1, y0:y1].copy(), x0, y0, m.background_color)
+        return self.values
 
-    @classmethod
-    def pick_one_color(cls, m, c):
+    def n_cell(self):
         """
-        :param m: matter
-        :param c: int, color to pick up
-        :return: new Matter
+        :return: np.int8, number of cells not background
         """
-        new_values = np.ones(m.values.shape, dtype=np.int) * m.background_color
-        new_values[m.values == c] = c
-        return Matter(new_values, m.x0, m.y0, m.background_color)
+        return np.int8((self.values != self.background_color).sum())
 
-    @classmethod
-    def paste_one_color(cls, m, c):
+    def max_color(self):
         """
-        :param m: matter
-        :param c: int, color to paste
-        :return: new Matter
+        :return: np.int8, maximal color other than background
         """
-        new_values = np.ones(m.values.shape, dtype=np.int) * c
-        return Matter(new_values, m.x0, m.y0, m.background_color)
+        c_max = self.background_color
+        temp = 0
+        for c in range(10):
+            if c == self.background_color:
+                continue
+            if self.color_count[c] > temp:
+                temp = self.color_count[c]
+                c_max = c
+        return np.int8(c_max)
 
-    @classmethod
-    def paste_max_color(cls, m):
+    def min_color(self):
         """
-        :param m: matter
-        :return: new Matter
+        :return: np.int8, minimal color that exists other than background
         """
-        return cls.paste_one_color(m, m.max_color)
+        c_min = self.background_color
+        temp = 999
+        for c in range(10):
+            if c == self.background_color:
+                continue
+            if 0 < self.color_count[c] < temp:
+                temp = self.color_count[c]
+                c_min = c
+        return np.int8(c_min)
+
+    def set_attr(self, key, value):
+        """
+        sugar function for setattr, also set children
+        :param key:
+        :param value:
+        :return:
+        """
+        self.__setattr__(key, value)
+
+
+if __name__ == "__main__":
+    m0 = Matter(np.array([[1, 2, 3], [2, 3, 5], [4, 8, 2]]))
+    print(m0.color_count)
+    print(m0.color_a)
+    m0.set_attr("color_a", 9)
+    print(m0.color_a)

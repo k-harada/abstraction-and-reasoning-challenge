@@ -2,9 +2,10 @@ from collections import deque
 import numpy as np
 
 
-def interior(x_arr):
+def interior_dir4_zero(x_arr: np.array) -> np.array:
     """
-    :param x_arr: np.array(bool or int)
+    find interiors of x_arr that is background
+    :param x_arr: np.array(bool or int8), if int8, background is 0
     :return: np.array(bool)
     """
     res = np.ones(x_arr.shape, dtype=np.bool)
@@ -65,4 +66,4 @@ if __name__ == "__main__":
     x[4, :] = 1
     x[:, 1] = 1
     x[:, 3] = 1
-    print(interior(x))
+    print(interior_dir4_zero(x))

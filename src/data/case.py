@@ -3,135 +3,119 @@ from src.data.matter import Matter
 
 
 class Case:
-
+    """
+    class for case data, responsible for reducers
+    """
     def __init__(self):
         self.matter_list = []
         self.background_color = None
         self.shape = None
-        self.repr_values = None
+        self.color_map = None
         self.color_count = None
+        # initialize_attributes
+        self.n_row, self.n_col = None, None
+        self.m_row, self.m_col = None, None
+        self.a = None
+        self.b = None
+        self.color_a = None
+        self.color_b = None
 
-    def initialize(self, values, background_color=0):
-        self.matter_list = [Matter(values=values, background_color=background_color)]
+    def initialize(self, values: np.array, background_color: np.int8 = 0):
+        self.matter_list.append(Matter(values, background_color=background_color))
         self.background_color = background_color
         self.shape = values.shape
-        self.repr_values = values
-        self.color_count = np.array([(self.repr_values == c).sum() for c in range(10)], dtype=np.int)
+        self.color_map = {np.int8(i): np.int8(i) for i in range(10)}
+        self.color_count = np.array([(values == c).sum() for c in range(10)]).astype(np.int8)
+        # initialize_attributes
+        self.n_row, self.n_col = self.shape
+        self.m_row, self.m_col = 2, 2
+        self.color_a = self.max_color()
+        self.color_b = self.min_color()
 
-    def update(self, shape, background_color):
-        self.shape = shape
-        self.background_color = background_color
-        # shape
-        # repr_values
-        # color_count
-        self.repr_values = np.ones(self.shape, dtype=np.int) * self.background_color
-        for m in self.matter_list:
-            self.repr_values[m.x0:m.x1, m.y0:m.y1] = m.values
-        self.color_count = np.array([(self.repr_values == c).sum() for c in range(10)], dtype=np.int)
+    def color_count(self):
+        """
+        :return: np.array(10, int8), number of cells for each color
+        """
+        return self.color_count
 
-    def __repr__(self):
-        return "|" + "|".join(["".join(map(str, x)) for x in self.repr_values.tolist()]) + "|"
+    def n_color(self):
+        """
+        :return: np.int8, number of colors other than background
+        """
+        return np.int8(sum([self.color_count[c] > 0 for c in range(10) if c != self.background_color]))
+
+    def max_color(self):
+        """
+        :return: np.int8, maximal color other than background
+        """
+        c_max = self.background_color
+        temp = 0
+        for c in range(10):
+            if c == self.background_color:
+                continue
+            if self.color_count[c] > temp:
+                temp = self.color_count[c]
+                c_max = c
+        return np.int8(c_max)
+
+    def min_color(self):
+        """
+        :return: np.int8, minimal color that exists other than background
+        """
+        c_min = self.background_color
+        temp = 999
+        for c in range(10):
+            if c == self.background_color:
+                continue
+            if 0 < self.color_count[c] < temp:
+                temp = self.color_count[c]
+                c_min = c
+        return np.int8(c_min)
+
+    def set_attr(self, key, value):
+        """
+        sugar function for setattr, also set children
+        :param key:
+        :param value:
+        :return:
+        """
+        self.__setattr__(key, value)
 
     def copy(self):
-        return CaseFactory.copy(self)
-
-    def deep_copy(self):
-        return CaseFactory.deep_copy(self)
-
-
-class CaseFactory:
-
-    @classmethod
-    def copy(cls, c):
         new_case = Case()
-        new_case.matter_list = c.matter_list[:]
-        new_case.background_color = c.background_color
-        new_case.shape = c.shape
-        new_case.repr_values = c.repr_values
-        new_case.color_count = c.color_count
+        new_case.background_color = self.background_color
+        new_case.shape = self.shape
+        new_case.color_map = self.color_map
+        new_case.color_count = self.color_count
+        # initialize_attributes
+        new_case.n_row, new_case.n_col = self.n_row, self.n_col
+        new_case.m_row, new_case.m_col = self.m_row, self.m_col
+        new_case.a = self.a
+        new_case.b = self.b
+        new_case.color_a = self.color_a
+        new_case.color_b = self.color_b
         return new_case
 
-    @classmethod
-    def deep_copy(cls, c):
-        new_case = Case()
-        new_case.matter_list = [m.deep_copy() for m in c.matter_list[:]]
-        new_case.background_color = c.background_color
-        new_case.shape = c.shape
-        new_case.repr_values = c.repr_values.copy()
-        new_case.color_count = c.color_count.copy()
-        return new_case
+    def __repr__(self):
+        return "|" + "|".join(["".join(map(str, x)) for x in self.repr_values().tolist()]) + "|"
 
-    @classmethod
-    def from_values(cls, values, background_color=0):
-        new_case = Case()
-        new_case.initialize(values, background_color)
-        return new_case
+    def repr_values(self) -> np.array:
+        # paste background
+        repr_values = np.ones(self.shape, dtype=np.int8) * self.background_color
+        # collect values
+        for m in self.matter_list:
+            if not m.bool_show:
+                continue
+            for i in range(m.shape[0]):
+                for j in range(m.shape[1]):
+                    if m.values[i, j] != m.background_color:
+                        repr_values[m.x0 + i, m.y0 + j] = m.values[i, j]
+        # color map
+        for i in range(self.shape[0]):
+            for j in range(self.shape[1]):
+                repr_values[i, j] = self.color_map[repr_values[i, j]]
 
-    @classmethod
-    def from_matter_list(cls, matter_list, shape, background_color):
-        new_case = Case()
-        new_case.matter_list = matter_list
-        new_case.update(shape, background_color)
-        return new_case
-
-    @classmethod
-    def trim_background(cls, c):
-
-        repr_values = c.repr_values
-
-        x_sum = (repr_values != c.background_color).sum(axis=1)
-        y_sum = (repr_values != c.background_color).sum(axis=0)
-
-        assert x_sum.sum() >= 0
-
-        min_x = min([i for i in range(repr_values.shape[0]) if x_sum[i]])
-        max_x = max([i for i in range(repr_values.shape[0]) if x_sum[i]])
-        min_y = min([i for i in range(repr_values.shape[1]) if y_sum[i]])
-        max_y = max([i for i in range(repr_values.shape[1]) if y_sum[i]])
-
-        new_values = repr_values[min_x:max_x + 1, min_y:max_y + 1].copy()
-        new_case = Case()
-        new_case.initialize(new_values, c.background_color)
-        return new_case
-
-    @classmethod
-    def resize(cls, c, mr, mc):
-
-        assert max(c.shape[0] * mr, c.shape[1] * mc) <= 30
-        repr_values = c.repr_values
-        new_values = np.repeat(np.repeat(repr_values, mr, axis=0), mc, axis=1)
-        new_case = Case()
-        new_case.initialize(new_values, c.background_color)
-        return new_case
-
-    @classmethod
-    def fractal(cls, c):
-
-        assert max(c.shape[0] ** 2, c.shape[1] ** 2) <= 30
-        repr_values = c.repr_values
-        new_values = np.ones((c.shape[0] ** 2, c.shape[1] ** 2), dtype=np.int) * c.background_color
-
-        for i in range(c.shape[0]):
-            for j in range(c.shape[1]):
-                if repr_values[i, j] != c.background_color:
-                    new_values[i * c.shape[0]:(i + 1) * c.shape[0], j * c.shape[1]:(j + 1) * c.shape[1]] = repr_values
-
-        new_case = Case()
-        new_case.initialize(new_values, c.background_color)
-        return new_case
-
-    @classmethod
-    def color_transform(cls, c, transform_rule):
-
-        repr_values = c.repr_values
-        new_values = np.zeros(repr_values.shape, dtype=np.int)
-
-        for i in range(10):
-            new_values[repr_values == i] = transform_rule[i]
-
-        new_case = Case()
-        new_case.initialize(new_values, transform_rule[c.background_color])
-        return new_case
+        return repr_values
 
 
 if __name__ == "__main__":
@@ -140,6 +124,4 @@ if __name__ == "__main__":
     x[-1, :] = 0
     c = Case()
     c.initialize(x)
-    d = CaseFactory.trim_background(c)
     print(c)
-    print(d)
