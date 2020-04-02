@@ -21,7 +21,7 @@ class Problem:
         self.m_row, self.m_col = 2, 2
         self.a = None
         self.b = None
-        self.color_a = None
+        self.color_add = None
         self.color_b = None
 
     def initialize(self, data):
@@ -68,7 +68,7 @@ class Problem:
         new_problem.m_row, new_problem.m_col = self.m_row, self.m_col
         new_problem.a = self.a
         new_problem.b = self.b
-        new_problem.color_a = self.color_a
+        new_problem.color_add = self.color_add
         new_problem.color_b = self.color_b
 
         return new_problem

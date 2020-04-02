@@ -1,4 +1,4 @@
-from src.data import Case
+from src.data import Matter, Case
 from src.operator.matter import map as matter_map
 
 
@@ -10,14 +10,26 @@ def color(c: Case) -> Case:
 
 
 def fractal(c: Case) -> Case:
-    assert len(c.matter_list) == 1
-    new_case = c.copy()
-    m = c.matter_list[0]
-    new_case.matter_list = matter_map.fractal(m)
-    r1, c1 = m.shape
-    r2, c2 = m.bool_copy.shape
-    new_case.shape = r1 * r2, c1 * c2
-    return new_case
+    m0: Matter
+    m1: Matter
+    assert len(c.matter_list) == 1 or len(c.matter_list) == 2
+    if len(c.matter_list) == 1:
+        new_case = c.copy()
+        m0 = c.matter_list[0]
+        new_case.matter_list = matter_map.fractal(m0, m0)
+        r1, c1 = m0.shape
+        r2, c2 = m0.shape
+        new_case.shape = r1 * r2, c1 * c2
+        return new_case
+    else:
+        new_case = c.copy()
+        m0 = c.matter_list[0]
+        m1 = c.matter_list[1]
+        new_case.matter_list = matter_map.fractal(m0, m1)
+        r1, c1 = m0.shape
+        r2, c2 = m1.shape
+        new_case.shape = r1 * r2, c1 * c2
+        return new_case
 
 
 def interior_dir4_zero(c: Case) -> Case:

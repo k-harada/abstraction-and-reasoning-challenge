@@ -17,7 +17,7 @@ class Case:
         self.m_row, self.m_col = None, None
         self.a = None
         self.b = None
-        self.color_a = None
+        self.color_add = None
         self.color_b = None
 
     def initialize(self, values: np.array, background_color: np.int8 = 0):
@@ -29,7 +29,7 @@ class Case:
         # initialize_attributes
         self.n_row, self.n_col = self.shape
         self.m_row, self.m_col = 2, 2
-        self.color_a = self.max_color()
+        self.color_add = self.max_color()
         self.color_b = self.min_color()
 
     def color_count(self):
@@ -92,7 +92,7 @@ class Case:
         new_case.m_row, new_case.m_col = self.m_row, self.m_col
         new_case.a = self.a
         new_case.b = self.b
-        new_case.color_a = self.color_a
+        new_case.color_add = self.color_add
         new_case.color_b = self.color_b
         return new_case
 
@@ -117,11 +117,26 @@ class Case:
 
         return repr_values
 
+    def repr_binary_values(self) -> np.array:
+        # paste background
+        repr_binary_values = np.zeros(self.shape, dtype=np.bool)
+        # collect values
+        for m in self.matter_list:
+            if not m.bool_show:
+                continue
+            binary_matter = m.bool_represents()
+            for i in range(m.shape[0]):
+                for j in range(m.shape[1]):
+                    if binary_matter[i, j]:
+                        repr_binary_values[m.x0 + i, m.y0 + j] = True
+
+        return repr_binary_values
+
 
 if __name__ == "__main__":
-    x = (np.arange(30) % 10).reshape((5, 6)).astype(np.int)
-    x[0, :] = 0
-    x[-1, :] = 0
-    c = Case()
-    c.initialize(x)
-    print(c)
+    xv = (np.arange(30) % 10).reshape((5, 6)).astype(np.int)
+    xv[0, :] = 0
+    xv[-1, :] = 0
+    case = Case()
+    case.initialize(xv)
+    print(case)

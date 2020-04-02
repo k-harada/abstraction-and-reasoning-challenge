@@ -19,33 +19,38 @@ class Matter:
         # position
         self.x0 = x0
         self.y0 = y0
-        # color_count
-        self.color_count = np.array([(self.values == c).sum() for c in range(10)]).astype(np.int8)
 
         # initialize_attributes
-        self.n_row, self.n_col = self.values.shape
-        self.m_row, self.m_col = 2, 2
-        self.is_square = (self.n_row == self.n_col)
-        self.bool_represents = (self.values != self.background_color).astype(np.bool)
-        self.bool_copy = (self.values != self.background_color).astype(np.bool)
-        self.a = self.n_color()
-        self.b = self.n_cell()
-        self.color_a = self.max_color()
-        self.color_b = self.min_color()
+        self.m_row, self.m_col = 1, 1
+        self.d_row, self.d_col = 1, 1
+        self.a = None
+        self.b = None
+        self.color_add = None
+        self.color_delete = None
         self.bool_show = True
         self.is_mesh = False
+
+    def bool_represents(self):
+        return (self.values != self.background_color).astype(np.bool)
+
+    def is_square(self):
+        if self.shape[0] == self.shape[1]:
+            return True
+        else:
+            return False
 
     def color_count(self):
         """
         :return: np.array(10, int8), number of cells for each color
         """
-        return self.color_count
+        return np.array([(self.values == c).sum() for c in range(10)]).astype(np.int8)
 
     def n_color(self):
         """
         :return: np.int8, number of colors other than background
         """
-        return np.int8(sum([self.color_count[c] > 0 for c in range(10) if c != self.background_color]))
+        color_count = self.color_count()
+        return np.int8(sum([color_count[c] > 0 for c in range(10) if c != self.background_color]))
 
     def repr_values(self):
         """
@@ -63,13 +68,14 @@ class Matter:
         """
         :return: np.int8, maximal color other than background
         """
+        color_count = self.color_count()
         c_max = self.background_color
         temp = 0
         for c in range(10):
             if c == self.background_color:
                 continue
-            if self.color_count[c] > temp:
-                temp = self.color_count[c]
+            if color_count[c] > temp:
+                temp = color_count[c]
                 c_max = c
         return np.int8(c_max)
 
@@ -77,13 +83,14 @@ class Matter:
         """
         :return: np.int8, minimal color that exists other than background
         """
+        color_count = self.color_count()
         c_min = self.background_color
         temp = 999
         for c in range(10):
             if c == self.background_color:
                 continue
-            if 0 < self.color_count[c] < temp:
-                temp = self.color_count[c]
+            if 0 < color_count[c] < temp:
+                temp = color_count[c]
                 c_min = c
         return np.int8(c_min)
 
@@ -96,10 +103,20 @@ class Matter:
         """
         self.__setattr__(key, value)
 
+    def copy(self):
+        new_matter = Matter(self.values, self.x0, self.y0, self.background_color)
+        # copy attributes
+        new_matter.m_row, new_matter.m_col = self.m_row, self.m_col
+        new_matter.d_row, new_matter.d_col = self.d_row, self.d_col
+        new_matter.a = self.a
+        new_matter.b = self.b
+        new_matter.color_add = self.color_add
+        new_matter.color_delete = self.color_delete
+        new_matter.bool_show = self.bool_show
+        new_matter.is_mesh = self.is_mesh
+        return new_matter
+
 
 if __name__ == "__main__":
     m0 = Matter(np.array([[1, 2, 3], [2, 3, 5], [4, 8, 2]]))
-    print(m0.color_count)
-    print(m0.color_a)
-    m0.set_attr("color_a", 9)
-    print(m0.color_a)
+    print(m0.color_count())
