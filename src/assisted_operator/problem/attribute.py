@@ -11,3 +11,10 @@ def set_color_add(p: Problem, color_add: np.int8) -> Problem:
     q.test_x_list = [attr_case.set_color_add(x, color_add) for x in p.test_x_list]
     q.train_y_list = [x for x in p.train_y_list]
     return q
+
+
+def set_is_pattern(p: Problem, is_pattern: np.bool) -> Problem:
+    q: Problem
+    q = p.copy()
+    q.is_pattern = is_pattern
+    return q

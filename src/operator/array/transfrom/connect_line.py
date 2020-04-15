@@ -41,6 +41,32 @@ def connect_col(x_arr: np.array, background: np.int8 = 0) -> np.array:
     return new_x_arr
 
 
+def connect_row_col(x_arr: np.array, background: np.int8 = 0) -> np.array:
+    """
+    :param x_arr: np.array(np.int8)
+    :param background: np.int8, must be one of 0-9
+    :return: new_array connected, colors over color, map-apply-reduce if necessary
+    """
+    new_x_arr = x_arr.copy()
+    for c in range(10):
+        if c == background:
+            continue
+        # row
+        for i in range(x_arr.shape[0]):
+            if c in x_arr[i, :]:
+                j0 = min([j for j in range(x_arr.shape[1]) if x_arr[i, j] == c])
+                j1 = max([j for j in range(x_arr.shape[1]) if x_arr[i, j] == c])
+                new_x_arr[i, j0:j1 + 1] = c
+        # col
+        for j in range(x_arr.shape[1]):
+            if c in x_arr[:, j]:
+                i0 = min([i for i in range(x_arr.shape[0]) if x_arr[i, j] == c])
+                i1 = max([i for i in range(x_arr.shape[0]) if x_arr[i, j] == c])
+                new_x_arr[i0:i1 + 1, j] = c
+
+    return new_x_arr
+
+
 def connect_diagonal(x_arr: np.array, background: np.int8 = 0) -> np.array:
     """
     :param x_arr: np.array(np.int8)

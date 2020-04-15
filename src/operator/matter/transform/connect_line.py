@@ -12,6 +12,11 @@ def connect_col(m: Matter) -> Matter:
     return Matter(new_values, m.x0, m.y0, m.background_color)
 
 
+def connect_row_col(m: Matter) -> Matter:
+    new_values = connect_line.connect_row_col(m.values, m.background_color)
+    return Matter(new_values, m.x0, m.y0, m.background_color)
+
+
 def connect_diagonal(m: Matter) -> Matter:
     new_values = connect_line.connect_diagonal(m.values, m.background_color)
     return Matter(new_values, m.x0, m.y0, m.background_color)

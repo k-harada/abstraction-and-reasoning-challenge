@@ -4,7 +4,7 @@ from src.data import Matter
 
 def transpose(m: Matter) -> Matter:
     assert m.is_square
-    return Matter(rotations.transpose(m.values), m.x0, m.y0, m.background_color)
+    return Matter(rotations.transpose(m.values), m.y0, m.x0, m.background_color)
 
 
 def rev_row(m: Matter) -> Matter:
@@ -21,14 +21,14 @@ def rot_180(m: Matter) -> Matter:
 
 def rot_rev_180(m: Matter) -> Matter:
     assert m.is_square
-    return Matter(rotations.rot_rev_180(m.values), m.x0, m.y0, m.background_color)
+    return Matter(rotations.rot_rev_180(m.values), m.y0, m.x0, m.background_color)
 
 
 def rot_90(m: Matter) -> Matter:
     assert m.is_square
-    return Matter(rotations.rot_90(m.values), m.x0, m.y0, m.background_color)
+    return Matter(rotations.rot_90(m.values), m.y0, m.x0, m.background_color)
 
 
 def rot_270(m: Matter) -> Matter:
     assert m.is_square
-    return Matter(rotations.rot_270(m.values), m.x0, m.y0, m.background_color)
+    return Matter(rotations.rot_270(m.values), m.y0, m.x0, m.background_color)

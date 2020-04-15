@@ -20,7 +20,7 @@ def trim_background(x_arr, background=0):
     max_y = max([i for i in range(x_arr.shape[1]) if y_sum[i]])
 
     new_values = x_arr[min_x:max_x + 1, min_y:max_y + 1].copy()
-    return new_values, (min_x, min_y)
+    return new_values, (0, 0)
 
 
 if __name__ == "__main__":

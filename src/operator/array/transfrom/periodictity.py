@@ -44,8 +44,8 @@ def fill_periodicity_row(x_arr, p, background=0):
     :return: np.array(int), filled array
     """
     # assertion failed
-    if x_arr.min() < 0:
-        return x_arr.copy()
+    assert x_arr.shape[0] > 0
+    assert x_arr.min() >= 0
 
     # trivial case
     if p == x_arr.shape[0]:

@@ -23,6 +23,7 @@ class Problem:
         self.b = None
         self.color_add = None
         self.color_b = None
+        self.is_pattern = False
 
     def initialize(self, data):
 
@@ -70,6 +71,7 @@ class Problem:
         new_problem.b = self.b
         new_problem.color_add = self.color_add
         new_problem.color_b = self.color_b
+        new_problem.is_pattern = self.is_pattern
 
         return new_problem
 

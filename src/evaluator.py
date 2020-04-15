@@ -34,3 +34,5 @@ def eval_distance(problem: Problem) -> np.int:
                 res += (s[i] != t[i]) * VAL_DIFF
 
     return res
+
+

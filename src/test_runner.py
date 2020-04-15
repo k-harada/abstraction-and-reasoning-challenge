@@ -3,7 +3,7 @@ import json
 from heapq import heappush, heappop
 
 from src.data import Problem
-from src.runner import Runner, mappers, transformers, reducers, all_operators
+from src.runner import Runner, mappers, transformers, reducers, all_operators, static_solvers
 from src.evaluator import eval_distance
 
 
@@ -26,15 +26,47 @@ def test_0():
     print(eval_distance(q))
 
 
+def test_1():
+    p = problem_load(1)
+    print(eval_distance(p))
+    q = Runner.run_solve(p, "set_problem_color")
+    print(eval_distance(q))
+    r = Runner.run_map(q, "interior_dir4_zero")
+    print(eval_distance(r))
+
+
 def test_5():
     p = problem_load(5)
     print(eval_distance(p))
-    q = Runner.run_map(p, "mesh")
+    # static solvers
+    for op in static_solvers:
+        try:
+            p = Runner.run_solve(p, op)
+        except AssertionError:
+            pass
+    q = Runner.run_map(p, "mesh_align")
     print(eval_distance(q))
-    r = Runner.run_transform(q, "set_problem_color")
-    print(eval_distance(r))
-    s = Runner.run_reduce(r, "bitwise_and")
+    s = Runner.run_reduce(q, "bitwise_and")
     print(eval_distance(s))
+    # print(s)
+
+
+def test_6():
+    p = problem_load(6)
+    print(eval_distance(p))
+    q = Runner.run_solve(p, "set_is_pattern")
+    print(eval_distance(q))
+    r = Runner.run_solve(q, "fill_pattern")
+    print(eval_distance(r))
+
+
+def test_8():
+    p = problem_load(8)
+    print(eval_distance(p))
+    q = Runner.run_map(p, "mesh_2")
+    print(eval_distance(q))
+    r = Runner.run_transform(q, "connect_row_col")
+    print(eval_distance(r))
 
 
 def test_16():
@@ -47,9 +79,9 @@ def test_16():
 def test_25():
     p = problem_load(25)
     print(eval_distance(p))
-    q = Runner.run_map(p, "mesh")
+    q = Runner.run_map(p, "mesh_split")
     print(eval_distance(q))
-    r = Runner.run_transform(q, "set_problem_color")
+    r = Runner.run_solve(q, "set_problem_color")
     print(eval_distance(r))
     s = Runner.run_reduce(r, "bitwise_not_or")
     print(eval_distance(s))
@@ -64,7 +96,10 @@ def test_30():
 
 if __name__ == "__main__":
     test_0()
+    test_1()
     test_5()
+    test_6()
+    test_8()
     test_16()
     test_25()
     test_30()
