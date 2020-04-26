@@ -9,6 +9,8 @@ class Problem:
         self.train_x_list = []
         self.train_y_list = []
         self.test_x_list = []
+        self.train_x_initial_list = []
+        self.test_x_initial_list = []
         self.len_train = 0
         self.len_test = 0
 
@@ -33,6 +35,7 @@ class Problem:
             c = Case()
             c.initialize(np.array(x["input"]), self.background_color)
             self.train_x_list.append(c)
+            self.train_x_initial_list.append(c)
             c = Case()
             c.initialize(np.array(x["output"]), self.background_color)
             self.train_y_list.append(c)
@@ -40,6 +43,7 @@ class Problem:
             c = Case()
             c.initialize(np.array(x["input"]), self.background_color)
             self.test_x_list.append(c)
+            self.test_x_initial_list.append(c)
 
     def __repr__(self):
 
@@ -57,6 +61,8 @@ class Problem:
         new_problem.train_x_list = self.train_x_list[:]  # shallow copy
         new_problem.train_y_list = self.train_y_list[:]  # shallow copy
         new_problem.test_x_list = self.test_x_list[:]  # shallow copy
+        new_problem.train_x_initial_list = self.train_x_initial_list[:]  # shallow copy
+        new_problem.test_x_initial_list = self.test_x_initial_list[:]  # shallow copy
 
         new_problem.len_train = self.len_train
         new_problem.len_test = self.len_test

@@ -1,4 +1,5 @@
 from .color import color
+from .connect import connect
 from .fractal import fractal
 from .interior import interior_dir4_zero
 from .mesh import mesh_split, mesh_2, mesh_align

@@ -19,10 +19,8 @@ def split_color(x_arr: np.array, background: np.int8 = 0) -> List[np.array]:
         new_m_value[x_arr == c] = c
         res_list.append(new_m_value)
 
-    if len(res_list) == 0:
-        return [x_arr.copy()]
-    else:
-        return res_list
+    assert len(res_list) > 0
+    return list(sorted(res_list, key=lambda res: (res != background).sum()))
 
 
 if __name__ == "__main__":

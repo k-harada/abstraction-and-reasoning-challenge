@@ -64,7 +64,7 @@ def split_connect(x_arr: np.array, allow_diagonal: bool = True, background: np.i
         x_arr_s[con_map != s + 1] = background
         res_list.append(x_arr_s)
 
-    return res_list
+    return list(sorted(res_list, key=lambda res: -(res != background).sum()))
 
 
 if __name__ == "__main__":

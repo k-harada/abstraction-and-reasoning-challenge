@@ -19,6 +19,8 @@ class Case:
         self.b = None
         self.color_add = None
         self.color_b = None
+        self.reducer = None
+        self.pick_ind = None
 
     def initialize(self, values: np.array, background_color: np.int8 = 0):
         self.matter_list.append(Matter(values, background_color=background_color))
@@ -31,6 +33,8 @@ class Case:
         self.m_row, self.m_col = 2, 2
         self.color_add = self.max_color()
         self.color_b = self.min_color()
+        self.reducer = "simple"
+        self.pick_ind = 0
 
     def color_count(self):
         """
@@ -72,15 +76,6 @@ class Case:
                 c_min = c
         return np.int8(c_min)
 
-    def set_attr(self, key, value):
-        """
-        sugar function for setattr, also set children
-        :param key:
-        :param value:
-        :return:
-        """
-        self.__setattr__(key, value)
-
     def copy(self):
         new_case = Case()
         new_case.background_color = self.background_color
@@ -94,6 +89,8 @@ class Case:
         new_case.b = self.b
         new_case.color_add = self.color_add
         new_case.color_b = self.color_b
+        new_case.reducer = self.reducer
+        new_case.pick_ind = self.pick_ind
         return new_case
 
     def __repr__(self):
@@ -101,15 +98,7 @@ class Case:
 
     def repr_values(self) -> np.array:
         # paste background
-        repr_values = np.ones(self.shape, dtype=np.int8) * self.background_color
-        # collect values
-        for m in self.matter_list:
-            if not m.bool_show:
-                continue
-            for i in range(m.shape[0]):
-                for j in range(m.shape[1]):
-                    if m.values[i, j] != m.background_color:
-                        repr_values[m.x0 + i, m.y0 + j] = m.values[i, j]
+        repr_values = self.reduce_values()
         # color map
         for i in range(self.shape[0]):
             for j in range(self.shape[1]):
@@ -131,6 +120,68 @@ class Case:
                         repr_binary_values[m.x0 + i, m.y0 + j] = True
 
         return repr_binary_values
+
+    def reduce_values(self) -> np.array:
+
+        if self.reducer == "simple":
+            # pile up from 0
+            # paste background
+            repr_values = np.ones(self.shape, dtype=np.int8) * self.background_color
+            # collect values
+            for m in self.matter_list:
+                if not m.bool_show:
+                    continue
+                for i in range(m.shape[0]):
+                    for j in range(m.shape[1]):
+                        if m.values[i, j] != m.background_color:
+                            repr_values[m.x0 + i, m.y0 + j] = m.values[i, j]
+            return repr_values
+
+        elif self.reducer == "pick":
+            # trim and pick one
+            pick_ind = self.pick_ind % len(self.matter_list)
+            repr_values = self.matter_list[pick_ind].values
+            self.shape = repr_values.shape
+            return repr_values
+
+        elif self.reducer == "bitwise":
+            assert len(self.matter_list) >= 2
+            m0 = self.matter_list[0]
+            m1 = self.matter_list[1 % len(self.matter_list)]
+
+            assert m0.shape == m1.shape
+            # reshape
+            self.shape = m0.shape
+
+            # fit color later
+            repr_values = np.zeros(self.shape, dtype=np.int8)
+
+            for i in range(m0.shape[0]):
+                for j in range(m0.shape[1]):
+                    if m0.values[i, j] != m0.background_color:
+                        repr_values[i, j] += 1
+
+            for i in range(m1.shape[0]):
+                for j in range(m1.shape[1]):
+                    if m1.values[i, j] != m1.background_color:
+                        repr_values[i, j] += 2
+            return repr_values
+
+        elif self.reducer == "fractal":
+
+            m1 = self.matter_list[0]
+            m2 = self.matter_list[1 % len(self.matter_list)]
+
+            r1, c1 = m1.shape
+            r2, c2 = m2.shape
+            assert max(r1 * r2, c1 * c2) <= 30
+            self.shape = (r1 * r2, c1 * c2)
+            repr_values = np.ones(self.shape, dtype=np.int8) * self.background_color
+            for i in range(r2):
+                for j in range(c2):
+                    if m2.values[i, j] != m2.background_color:
+                        repr_values[(i * r1):((i + 1) * r1), (j * c1):((j + 1) * c1)] = m1.values
+            return repr_values
 
 
 if __name__ == "__main__":

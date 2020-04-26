@@ -94,17 +94,24 @@ class Matter:
                 c_min = c
         return np.int8(c_min)
 
-    def set_attr(self, key, value):
-        """
-        sugar function for setattr, also set children
-        :param key:
-        :param value:
-        :return:
-        """
-        self.__setattr__(key, value)
-
     def copy(self):
         new_matter = Matter(self.values, self.x0, self.y0, self.background_color)
+        # copy attributes
+        new_matter.m_row, new_matter.m_col = self.m_row, self.m_col
+        new_matter.d_row, new_matter.d_col = self.d_row, self.d_col
+        new_matter.a = self.a
+        new_matter.b = self.b
+        new_matter.color_add = self.color_add
+        new_matter.color_delete = self.color_delete
+        new_matter.bool_show = self.bool_show
+        new_matter.is_mesh = self.is_mesh
+        return new_matter
+
+    def paste_color(self):
+        assert self.a is not None
+        new_values = self.values.copy()
+        new_values[self.values != self.background_color] = self.a % 10
+        new_matter = Matter(new_values, self.x0, self.y0, self.background_color)
         # copy attributes
         new_matter.m_row, new_matter.m_col = self.m_row, self.m_col
         new_matter.d_row, new_matter.d_col = self.d_row, self.d_col

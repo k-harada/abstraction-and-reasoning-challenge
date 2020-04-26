@@ -2,7 +2,7 @@ import os
 import json
 import pandas as pd
 
-from src.local_eval import auto_solve
+from src.auto_solve import auto_solve
 
 
 def main(dir_path, time_limit):
