@@ -8,10 +8,8 @@ from src.data import Problem
 from src.runner import Runner, mappers, reducers, transformers, static_solvers, dynamic_solvers
 from src.evaluator import eval_distance
 
-TIME_LIMIT = 2.0
 
-train_file_list = list(sorted(os.listdir("../input/training/")))
-eval_file_list = list(sorted(os.listdir("../input/evaluation/")))
+TIME_LIMIT = 2.0
 
 
 def auto_solve(data, time_limit=TIME_LIMIT):
@@ -108,6 +106,10 @@ def auto_solve(data, time_limit=TIME_LIMIT):
 
 
 def data_load_eval(i, file_list="train"):
+
+    train_file_list = list(sorted(os.listdir("../input/training/")))
+    eval_file_list = list(sorted(os.listdir("../input/evaluation/")))
+
     # load
     if file_list == "train":
         data = json.load(open(f"../input/training/{train_file_list[i]}", "r"))
@@ -134,5 +136,6 @@ def data_load_eval(i, file_list="train"):
 
 
 if __name__ == "__main__":
+
     for i in range(100):
         data_load_eval(i, "train")
