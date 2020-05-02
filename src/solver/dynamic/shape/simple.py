@@ -17,6 +17,8 @@ def is_multiple(p: Problem) -> bool:
     cx0: Case = p.train_x_list[0]
     cy0: Case = p.train_y_list[0]
 
+    if cx0.shape[0] == 0 or cx0.shape[1] == 0:
+        return False
     if cy0.shape[0] % cx0.shape[0] != 0 or cy0.shape[1] % cx0.shape[1] != 0:
         return False
     m_row: int = cy0.shape[0] // cx0.shape[0]

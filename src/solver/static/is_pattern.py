@@ -4,7 +4,7 @@ from src.assisted_operator.problem import attribute as attr_prob
 
 
 def set_is_pattern(p: Problem) -> Problem:
-    res = True
+    
     case_y: Case
     y_values_new_list = []
     for case_y in p.train_y_list:

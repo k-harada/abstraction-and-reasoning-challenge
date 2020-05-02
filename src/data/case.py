@@ -99,10 +99,13 @@ class Case:
     def repr_values(self) -> np.array:
         # paste background
         repr_values = self.reduce_values()
-        # color map
-        for i in range(self.shape[0]):
-            for j in range(self.shape[1]):
-                repr_values[i, j] = self.color_map[repr_values[i, j]]
+        try:
+            # color map
+            for i in range(self.shape[0]):
+                for j in range(self.shape[1]):
+                    repr_values[i, j] = self.color_map[repr_values[i, j]]
+        except KeyError:  # sometimes -1
+            pass
 
         return repr_values
 
@@ -174,14 +177,17 @@ class Case:
 
             r1, c1 = m1.shape
             r2, c2 = m2.shape
-            assert max(r1 * r2, c1 * c2) <= 30
-            self.shape = (r1 * r2, c1 * c2)
-            repr_values = np.ones(self.shape, dtype=np.int8) * self.background_color
-            for i in range(r2):
-                for j in range(c2):
-                    if m2.values[i, j] != m2.background_color:
-                        repr_values[(i * r1):((i + 1) * r1), (j * c1):((j + 1) * c1)] = m1.values
-            return repr_values
+            if max(r1 * r2, c1 * c2) <= 30:
+                self.shape = (r1 * r2, c1 * c2)
+                repr_values = np.ones(self.shape, dtype=np.int8) * self.background_color
+                for i in range(r2):
+                    for j in range(c2):
+                        if m2.values[i, j] != m2.background_color:
+                            repr_values[(i * r1):((i + 1) * r1), (j * c1):((j + 1) * c1)] = m1.values
+                return repr_values
+            else:
+                self.shape = (30, 30)
+                return np.zeros((30, 30), dtype=np.int8)
 
 
 if __name__ == "__main__":

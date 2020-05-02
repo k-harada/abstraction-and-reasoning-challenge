@@ -38,8 +38,10 @@ def new_color(p: Problem) -> np.int8:
 
 
 def set_problem_color(p: Problem) -> Problem:
+    # only one color
     color_add = monotone_color(p)
     if color_add == -1:
+        # one color added
         color_add = new_color(p)
     assert color_add != -1
     q: Problem

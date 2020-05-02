@@ -1,8 +1,8 @@
 from src.data import Problem
 from src.operator.problem.map_reduce import set_map_reduce
 from src.operator.problem.transform import run_transform
-from src.solver.static import set_problem_color, set_is_pattern
-from src.solver.dynamic import fill_pattern
+from src.solver.static import set_problem_color, set_is_pattern, set_problem_shape
+from src.solver.dynamic import fill_pattern, fit_replace_rule_33, fit_replace_rule_33_all, duplicate
 
 
 mappers = [
@@ -11,12 +11,12 @@ mappers = [
 ]
 reducers = ["simple", "pick", "bitwise", "fractal"]
 transformers = [
-    "connect_row", "connect_col", "connect_row_col", "connect_diagonal", "auto_fill_row_col",
+    "connect_row", "connect_col", "connect_row_col", "connect_diagonal", "auto_fill_row_col",  "extend_shape",
     "transpose", "rev_row", "rev_col", "rot_180",
     "rot_rev_180", "rot_90", "rot_270", "trim_background", "paste_color", "n_cell", "arg_sort"
 ]
-static_solvers = ["set_problem_color", "set_is_pattern"]
-dynamic_solvers = ["fill_pattern"]
+static_solvers = ["set_problem_color", "set_is_pattern", "set_problem_shape"]
+dynamic_solvers = ["fill_pattern", "fit_replace_rule_33", "fit_replace_rule_33_all", "duplicate"]
 
 
 class Runner:

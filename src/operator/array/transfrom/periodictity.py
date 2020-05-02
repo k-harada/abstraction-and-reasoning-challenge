@@ -38,14 +38,13 @@ def find_periodicity_col(x_arr, background=0):
 
 def fill_periodicity_row(x_arr, p, background=0):
     """
-    :param x_arr: np.array(int), must be >= 0 otherwise returns x_arr.copy()
+    :param x_arr: np.array(int)
     :param p: period
     :param background: int
     :return: np.array(int), filled array
     """
     # assertion
     assert x_arr.shape[0] > 0 and x_arr.shape[1] > 0
-    assert x_arr.min() >= 0
 
     # trivial case
     if p == x_arr.shape[0]:
@@ -148,3 +147,9 @@ if __name__ == "__main__":
     print(fill_periodicity_row(x, 2))
     print(auto_fill_row(x))
     print(auto_fill_row_col(x))
+
+    x = np.ones((5, 3), dtype=np.int)
+    x[1, :] = 3
+    x[3:, :] = -1
+    print(x)
+    print(auto_fill_row_col(x, -1))

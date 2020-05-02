@@ -14,6 +14,7 @@ def problem_load(i, file_list="train"):
     if file_list == "train":
         sample_data = json.load(open(f"../input/training/{train_file_list[i]}", "r"))
         # print(sample_data)
+        print(file_list, i)
         problem = Problem()
         problem.initialize(sample_data)
         # static solvers
@@ -40,6 +41,15 @@ def test_1():
     print(eval_distance(q))
 
 
+def test_2():
+    p = problem_load(2)
+    print(eval_distance(p))
+    q = Runner.run_transform(p, "extend_shape")
+    print(eval_distance(q))
+    r = Runner.run_transform(q, "auto_fill_row_col")
+    print(eval_distance(r))
+
+
 def test_5():
     p = problem_load(5)
     print(eval_distance(p))
@@ -63,6 +73,17 @@ def test_8():
     print(eval_distance(r))
 
 
+def test_9():
+    p = problem_load(9)
+    print(eval_distance(p))
+    q = Runner.set_map_reduce(p, "connect", "simple")
+    print(eval_distance(q))
+    r = Runner.run_transform(q, "arg_sort")
+    print(eval_distance(r))
+    s = Runner.run_transform(r, "paste_color")
+    print(eval_distance(s))
+
+
 def test_13():
     p = problem_load(13)
     print(eval_distance(p))
@@ -72,11 +93,27 @@ def test_13():
     print(eval_distance(r))
 
 
+def test_14():
+    p = problem_load(14)
+    print(eval_distance(p))
+    q = Runner.run_solve(p, "fit_replace_rule_33")
+    print(eval_distance(q))
+
+
 def test_16():
     p = problem_load(16)
     print(eval_distance(p))
     q = Runner.run_transform(p, "auto_fill_row_col")
     print(eval_distance(q))
+
+
+def test_18():
+    p = problem_load(18)
+    print(eval_distance(p))
+    q = Runner.run_solve(p, "duplicate")
+    print(eval_distance(q))
+    r = Runner.run_solve(q, "fit_replace_rule_33_all")
+    print(eval_distance(r))
 
 
 def test_25():
@@ -93,13 +130,37 @@ def test_30():
     print(eval_distance(q))
 
 
+def test_91():
+    p = problem_load(91)
+    print(eval_distance(p))
+    q = Runner.run_transform(p, "connect_row")
+    print(eval_distance(q))
+    r = Runner.run_transform(q, "connect_col")
+    print(eval_distance(r))
+
+
+def test_216():
+    p = problem_load(216)
+    print(eval_distance(p))
+    q = Runner.set_map_reduce(p, "identity", "fractal")
+    print(eval_distance(q))
+    r = Runner.run_transform(q, "trim_background")
+    print(eval_distance(r))
+
+
 if __name__ == "__main__":
     test_0()
     test_1()
+    test_2()
     test_5()
     test_6()
     test_8()
+    test_9()
     test_13()
+    test_14()
     test_16()
+    test_18()
     test_25()
     test_30()
+    test_91()
+    test_216()

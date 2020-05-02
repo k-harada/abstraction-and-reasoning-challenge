@@ -20,6 +20,7 @@ def connect(c: Case) -> Case:
     assert len(c.matter_list) == 1
     new_case = c.copy()
     new_case.matter_list = matter_map.connect(c.matter_list[0])
+    # a <- n_cell by default
     for m in new_case.matter_list:
         m.a = m.n_cell()
     return new_case

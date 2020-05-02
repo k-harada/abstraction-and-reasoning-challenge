@@ -137,5 +137,4 @@ def data_load_eval(i, file_list="train"):
 
 if __name__ == "__main__":
 
-    for i in range(100):
-        data_load_eval(i, "train")
+    data_load_eval(18, "train")
