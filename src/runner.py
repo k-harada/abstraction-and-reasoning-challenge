@@ -1,8 +1,9 @@
 from src.data import Problem
 from src.mapper.map_reduce import set_map_reduce
-from src.operator.problem.transform import run_transform
-from src.solver.dynamic import *
+from src.operator.problem_transform import run_transform
 from src.solver.static import *
+from src.solver.dynamic import *
+
 
 mappers = [
     "identity", "color", "connect", "interior_dir4_zero", "mesh_split", "mesh_2", "mesh_align", "split_row_col"
