@@ -1,7 +1,7 @@
 import os
 import json
 from src.data import Problem
-from src.operator.problem import run_map, run_reduce, run_transform
+from src.transformer.problem import run_map, run_reduce, run_transform
 from src.solver.static.periodicity import is_periodic_row, is_periodic_col
 
 

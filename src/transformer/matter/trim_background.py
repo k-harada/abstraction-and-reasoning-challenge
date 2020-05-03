@@ -1,4 +1,4 @@
-from src.operator.array.trim_background import trim_background as trim_background_array
+from src.transformer.array.trim_background import trim_background as trim_background_array
 from src.data import Matter
 
 

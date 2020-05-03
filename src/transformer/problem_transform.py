@@ -1,6 +1,6 @@
 import numpy as np
 from src.data import Problem, Case
-from src.operator.case import *
+from src.transformer.case import *
 
 
 def run_transform(p: Problem, command: str) -> Problem:

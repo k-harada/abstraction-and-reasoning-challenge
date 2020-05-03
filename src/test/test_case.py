@@ -5,8 +5,8 @@ import numpy as np
 
 from src.data import Case
 from src.mapper.case_map import fractal, color, interior_dir4_zero, mesh
-from src.operator.case.reduce import bitwise_or
-from src.operator.case.transform import connect_row, auto_fill_row_col, trim_background
+from src.transformer.case.reduce import bitwise_or
+from src.transformer.case.transform import connect_row, auto_fill_row_col, trim_background
 
 
 train_names = list(sorted(os.listdir("../../input/training/")))

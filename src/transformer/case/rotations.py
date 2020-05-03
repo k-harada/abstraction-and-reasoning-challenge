@@ -1,4 +1,4 @@
-from src.operator.matter import rotations as rot_mat
+from src.transformer.matter import rotations as rot_mat
 from src.data import Case
 
 

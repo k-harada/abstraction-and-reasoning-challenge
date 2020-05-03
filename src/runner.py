@@ -1,6 +1,6 @@
 from src.data import Problem
 from src.mapper.map_reduce import set_map_reduce
-from src.operator.problem_transform import run_transform
+from src.transformer.problem_transform import run_transform
 from src.solver.static import *
 from src.solver.dynamic import *
 

@@ -1,4 +1,4 @@
-from src.operator.array import rotations
+from src.transformer.array import rotations
 from src.data import Matter
 
 

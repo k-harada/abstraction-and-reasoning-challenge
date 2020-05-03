@@ -1,5 +1,5 @@
 from src.data import Case
-from src.operator.matter import connect_line as cnl_mat
+from src.transformer.matter import connect_line as cnl_mat
 
 
 def connect_row(c: Case) -> Case:

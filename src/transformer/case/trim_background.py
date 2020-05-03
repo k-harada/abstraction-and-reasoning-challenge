@@ -1,4 +1,4 @@
-from src.operator.matter.trim_background import trim_background as tbm
+from src.transformer.matter.trim_background import trim_background as tbm
 from src.data import Case
 
 

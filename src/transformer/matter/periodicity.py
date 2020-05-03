@@ -1,4 +1,4 @@
-from src.operator.array import periodictity
+from src.transformer.array import periodictity
 from src.data import Matter
 
 

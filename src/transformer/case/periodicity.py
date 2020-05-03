@@ -1,5 +1,5 @@
 from src.data import Case
-from src.operator.matter import periodicity as per_mat
+from src.transformer.matter import periodicity as per_mat
 
 
 def auto_fill_row_col(c: Case) -> Case:

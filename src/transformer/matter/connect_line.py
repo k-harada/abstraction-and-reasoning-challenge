@@ -1,4 +1,4 @@
-from src.operator.array import connect_line
+from src.transformer.array import connect_line
 from src.data import Matter
 
 
