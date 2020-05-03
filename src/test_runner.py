@@ -19,10 +19,7 @@ def problem_load(i, file_list="train"):
         problem.initialize(sample_data)
         # static solvers
         for op in static_solvers:
-            try:
-                problem = Runner.pre_solve(problem, op)
-            except AssertionError:
-                pass
+            Runner.pre_solve(problem, op)
         # print("|" + "|".join(["".join(map(str, x)) for x in sample_data["test"][0]["output"]]) + "|")
         return problem
 
@@ -139,6 +136,13 @@ def test_91():
     print(eval_distance(r))
 
 
+def test_126():
+    p = problem_load(126)
+    print(eval_distance(p))
+    q = Runner.run_solve(p, "fit_replace_rule_33")
+    print(eval_distance(q))
+
+
 def test_216():
     p = problem_load(216)
     print(eval_distance(p))
@@ -146,6 +150,13 @@ def test_216():
     print(eval_distance(q))
     r = Runner.run_transform(q, "trim_background")
     print(eval_distance(r))
+
+
+def test_226():
+    p = problem_load(226)
+    print(eval_distance(p))
+    q = Runner.set_map_reduce(p, "split_row_col", "bitwise")
+    print(eval_distance(q))
 
 
 if __name__ == "__main__":
@@ -163,4 +174,6 @@ if __name__ == "__main__":
     test_25()
     test_30()
     test_91()
+    test_126()
     test_216()
+    test_226()

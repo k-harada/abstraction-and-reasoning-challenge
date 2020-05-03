@@ -15,17 +15,18 @@ class Problem:
         self.len_test = 0
 
         # initialize_attributes
-        self.background_color = np.int8(0)
-        self.shape = None
+        self.background_color = np.int(0)
         self.color_map = None
         self.color_count = None
         self.n_row, self.n_col = None, None
-        self.m_row, self.m_col = 2, 2
+        self.m_row, self.m_col = 1, 1
+        self.d_row, self.d_col = 1, 1
         self.a = None
         self.b = None
         self.color_add = None
         self.color_b = None
         self.is_pattern = False
+        self.is_same_shape = False
 
     def initialize(self, data):
 
@@ -33,15 +34,15 @@ class Problem:
         Problem.len_test = len(data["test"])
         for x in data["train"]:
             c = Case()
-            c.initialize(np.array(x["input"], dtype=np.int8), self.background_color)
+            c.initialize(np.array(x["input"], dtype=np.int), self.background_color)
             self.train_x_list.append(c)
             self.train_x_initial_list.append(c)
             c = Case()
-            c.initialize(np.array(x["output"], dtype=np.int8), self.background_color)
+            c.initialize(np.array(x["output"], dtype=np.int), self.background_color)
             self.train_y_list.append(c)
         for x in data["test"]:
             c = Case()
-            c.initialize(np.array(x["input"], dtype=np.int8), self.background_color)
+            c.initialize(np.array(x["input"], dtype=np.int), self.background_color)
             self.test_x_list.append(c)
             self.test_x_initial_list.append(c)
 
@@ -68,16 +69,17 @@ class Problem:
         new_problem.len_test = self.len_test
 
         new_problem.background_color = self.background_color
-        new_problem.shape = self.shape
         new_problem.color_map = self.color_map
         new_problem.color_count = self.color_count
         new_problem.n_row, new_problem.n_col = self.n_row, self.n_col
         new_problem.m_row, new_problem.m_col = self.m_row, self.m_col
+        new_problem.d_row, new_problem.d_col = self.d_row, self.d_col
         new_problem.a = self.a
         new_problem.b = self.b
         new_problem.color_add = self.color_add
         new_problem.color_b = self.color_b
         new_problem.is_pattern = self.is_pattern
+        new_problem.is_same_shape = self.is_same_shape
 
         return new_problem
 

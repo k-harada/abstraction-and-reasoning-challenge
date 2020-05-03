@@ -1,9 +1,8 @@
 import numpy as np
 from src.data import Problem, Case
-from src.assisted_operator.problem import attribute as attr_prob
 
 
-def set_is_pattern(p: Problem) -> Problem:
+def set_is_pattern(p: Problem) -> None:
     
     case_y: Case
     y_values_new_list = []
@@ -18,9 +17,10 @@ def set_is_pattern(p: Problem) -> Problem:
                     c += 1
         y_values_new_list.append(y_values_new)
     for k in range(1, len(y_values_new_list)):
-        assert y_values_new_list[0].shape == y_values_new_list[k].shape
-        assert np.abs(y_values_new_list[0] - y_values_new_list[k]).sum() == 0
+        if y_values_new_list[0].shape != y_values_new_list[k].shape:
+            return None
+        if np.abs(y_values_new_list[0] - y_values_new_list[k]).sum() != 0:
+            return None
 
-    q: Problem
-    q = attr_prob.set_is_pattern(p, is_pattern=True)
-    return q
+    p.is_pattern = True
+    return None

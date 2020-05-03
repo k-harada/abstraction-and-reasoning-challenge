@@ -6,7 +6,7 @@ from src.data.matter import Matter
 class MatterFactory:
 
     @classmethod
-    def new(cls, values: np.array, x0: np.int8 = 0, y0: np.int8 = 0, background_color: np.int8 = 0):
+    def new(cls, values: np.array, x0: np.int = 0, y0: np.int = 0, background_color: np.int = 0):
         return Matter(values, x0, y0, background_color)
 
     @classmethod

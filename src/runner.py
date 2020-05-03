@@ -1,13 +1,11 @@
 from src.data import Problem
-from src.operator.problem.map_reduce import set_map_reduce
+from src.mapper.map_reduce import set_map_reduce
 from src.operator.problem.transform import run_transform
-from src.solver.static import set_problem_color, set_is_pattern, set_problem_shape
-from src.solver.dynamic import fill_pattern, fit_replace_rule_33, fit_replace_rule_33_all, duplicate
-
+from src.solver.dynamic import *
+from src.solver.static import *
 
 mappers = [
-    "identity", "color", "connect", "interior_dir4_zero", "mesh_split", "mesh_2", "mesh_align",
-    "split_row_col", "split_row", "split_col"
+    "identity", "color", "connect", "interior_dir4_zero", "mesh_split", "mesh_2", "mesh_align", "split_row_col"
 ]
 reducers = ["simple", "pick", "bitwise", "fractal"]
 transformers = [
@@ -39,9 +37,10 @@ class Runner:
             raise NotImplementedError
 
     @classmethod
-    def pre_solve(cls, problem: Problem, command: str) -> Problem:
+    def pre_solve(cls, problem: Problem, command: str) -> None:
         if command in static_solvers:
-            return eval(f'{command}(problem)')
+            eval(f'{command}(problem)')
+            return None
         else:
             raise NotImplementedError
 

@@ -27,10 +27,7 @@ def auto_solve(data, time_limit=TIME_LIMIT):
     t0 = time.time()
     # static solvers
     for op in static_solvers:
-        try:
-            p = Runner.pre_solve(p, op)
-        except AssertionError:
-            pass
+        Runner.pre_solve(p, op)
 
     heap_queue = []
     heap_res = []
@@ -137,4 +134,4 @@ def data_load_eval(i, file_list="train"):
 
 if __name__ == "__main__":
 
-    data_load_eval(18, "train")
+    data_load_eval(226, "train")

@@ -44,9 +44,9 @@ def eval_distance(problem: Problem) -> np.int:
     if 0 < res < SHAPE_DIFF_FLAG and keep_flag:
         for i in range(10):
             if len(color_map_list[i]) > 0:
-                color_map[np.int8(i)] = np.int8(color_map_list[i])
+                color_map[i] = color_map_list[i][0]
             else:
-                color_map[np.int8(i)] = np.int8(i)
+                color_map[i] = i
         res = 0
         for case in problem.train_x_list:
             case.color_map = color_map

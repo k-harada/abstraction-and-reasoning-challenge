@@ -15,6 +15,7 @@ class Case:
         # initialize_attributes
         self.n_row, self.n_col = None, None
         self.m_row, self.m_col = None, None
+        self.d_row, self.d_col = None, None
         self.a = None
         self.b = None
         self.color_add = None
@@ -22,15 +23,16 @@ class Case:
         self.reducer = None
         self.pick_ind = None
 
-    def initialize(self, values: np.array, background_color: np.int8 = 0):
+    def initialize(self, values: np.array, background_color: int = 0):
         self.matter_list.append(Matter(values, background_color=background_color))
         self.background_color = background_color
         self.shape = values.shape
-        self.color_map = {np.int8(i): np.int8(i) for i in range(10)}
-        self.color_count = np.array([(values == c).sum() for c in range(10)]).astype(np.int8)
+        self.color_map = {np.int(i): np.int(i) for i in range(10)}
+        self.color_count = np.array([(values == c).sum() for c in range(10)]).astype(np.int)
         # initialize_attributes
         self.n_row, self.n_col = self.shape
-        self.m_row, self.m_col = 2, 2
+        self.m_row, self.m_col = 1, 1
+        self.d_row, self.d_col = 1, 1
         self.color_add = self.max_color()
         self.color_b = self.min_color()
         self.reducer = "simple"
@@ -38,19 +40,19 @@ class Case:
 
     def color_count(self):
         """
-        :return: np.array(10, int8), number of cells for each color
+        :return: np.array(10, int), number of cells for each color
         """
         return self.color_count
 
     def n_color(self):
         """
-        :return: np.int8, number of colors other than background
+        :return: int, number of colors other than background
         """
-        return np.int8(sum([self.color_count[c] > 0 for c in range(10) if c != self.background_color]))
+        return int(sum([self.color_count[c] > 0 for c in range(10) if c != self.background_color]))
 
     def max_color(self):
         """
-        :return: np.int8, maximal color other than background
+        :return: int, maximal color other than background
         """
         c_max = self.background_color
         temp = 0
@@ -60,11 +62,11 @@ class Case:
             if self.color_count[c] > temp:
                 temp = self.color_count[c]
                 c_max = c
-        return np.int8(c_max)
+        return int(c_max)
 
     def min_color(self):
         """
-        :return: np.int8, minimal color that exists other than background
+        :return: int, minimal color that exists other than background
         """
         c_min = self.background_color
         temp = 999
@@ -74,7 +76,7 @@ class Case:
             if 0 < self.color_count[c] < temp:
                 temp = self.color_count[c]
                 c_min = c
-        return np.int8(c_min)
+        return int(c_min)
 
     def copy(self):
         new_case = Case()
@@ -85,6 +87,7 @@ class Case:
         # initialize_attributes
         new_case.n_row, new_case.n_col = self.n_row, self.n_col
         new_case.m_row, new_case.m_col = self.m_row, self.m_col
+        new_case.d_row, new_case.d_col = self.d_row, self.d_col
         new_case.a = self.a
         new_case.b = self.b
         new_case.color_add = self.color_add
@@ -129,7 +132,7 @@ class Case:
         if self.reducer == "simple":
             # pile up from 0
             # paste background
-            repr_values = np.ones(self.shape, dtype=np.int8) * self.background_color
+            repr_values = np.ones(self.shape, dtype=np.int) * self.background_color
             # collect values
             for m in self.matter_list:
                 if not m.bool_show:
@@ -157,7 +160,7 @@ class Case:
             self.shape = m0.shape
 
             # fit color later
-            repr_values = np.zeros(self.shape, dtype=np.int8)
+            repr_values = np.zeros(self.shape, dtype=np.int)
 
             for i in range(m0.shape[0]):
                 for j in range(m0.shape[1]):
@@ -179,7 +182,7 @@ class Case:
             r2, c2 = m2.shape
             if max(r1 * r2, c1 * c2) <= 30:
                 self.shape = (r1 * r2, c1 * c2)
-                repr_values = np.ones(self.shape, dtype=np.int8) * self.background_color
+                repr_values = np.ones(self.shape, dtype=np.int) * self.background_color
                 for i in range(r2):
                     for j in range(c2):
                         if m2.values[i, j] != m2.background_color:
@@ -187,7 +190,7 @@ class Case:
                 return repr_values
             else:
                 self.shape = (30, 30)
-                return np.zeros((30, 30), dtype=np.int8)
+                return np.zeros((30, 30), dtype=np.int)
 
 
 if __name__ == "__main__":

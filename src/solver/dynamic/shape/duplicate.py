@@ -1,16 +1,13 @@
 import numpy as np
 from src.data import Problem, Case, Matter
-from .simple import is_multiple
+from src.solver.common.shape import is_multiple
 
 
 def duplicate(p: Problem) -> Problem:
 
-    assert is_multiple(p)
+    flag, m_row, m_col= is_multiple(p)
 
-    cx0: Case = p.train_x_list[0]
-    cy0: Case = p.train_y_list[0]
-    m_row: int = cy0.shape[0] // cx0.shape[0]
-    m_col: int = cy0.shape[1] // cx0.shape[1]
+    assert flag
 
     q: Problem
     q = p.copy()
@@ -23,7 +20,7 @@ def duplicate(p: Problem) -> Problem:
         base_values = c_x.repr_values()
         n_row, n_col = base_values.shape
         c_x_new.shape = m_row * n_row, m_col * n_col
-        new_values = np.zeros((m_row * n_row, m_col * n_col), dtype=np.int8)
+        new_values = np.zeros((m_row * n_row, m_col * n_col), dtype=np.int)
         for i in range(m_row):
             for j in range(m_col):
                 new_values[i * n_row:(i + 1) * n_row, j * n_col:(j + 1) * n_col] = base_values
@@ -35,7 +32,7 @@ def duplicate(p: Problem) -> Problem:
         base_values = c_x.repr_values()
         n_row, n_col = base_values.shape
         c_x_new.shape = m_row * n_row, m_col * n_col
-        new_values = np.zeros((m_row * n_row, m_col * n_col), dtype=np.int8)
+        new_values = np.zeros((m_row * n_row, m_col * n_col), dtype=np.int)
         for i in range(m_row):
             for j in range(m_col):
                 new_values[i * n_row:(i + 1) * n_row, j * n_col:(j + 1) * n_col] = base_values

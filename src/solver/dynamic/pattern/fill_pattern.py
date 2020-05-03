@@ -39,7 +39,7 @@ def fill_pattern(p: Problem) -> Problem:
     base_values = p.train_y_list[0].repr_values()
     for c_x in p.test_x_list:
         old_values = c_x.repr_values()
-        new_values = np.ones(c_x.shape, dtype=np.int8) * c_x.background_color
+        new_values = np.ones(c_x.shape, dtype=np.int) * c_x.background_color
         assert old_values.shape == base_values.shape
         for i in range(old_values.shape[0]):
             for j in range(old_values.shape[1]):

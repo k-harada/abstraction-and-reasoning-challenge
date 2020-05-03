@@ -1,28 +1,42 @@
-from src.data import Case, Problem
 import numpy as np
-from src.data import Problem, Case
+from src.data import Problem, Case, Matter
 from src.assisted_operator.problem import attribute as attr_prob
+from src.solver.common.shape import is_same, is_constant, is_multiple, is_division
 
 
-def is_constant(p: Problem) -> bool:
+def set_problem_shape(p: Problem) -> None:
+    c: Case
+    m: Matter
 
-    cy0: Case = p.train_y_list[0]
-
-    size_row: int = cy0.shape[0]
-    size_col: int = cy0.shape[1]
-
-    cy: Case
-
-    for cy in p.train_y_list:
-        if cy.shape[0] != size_row or cy.shape[1] != size_col:
-            return False
-    return True
-
-
-def set_problem_shape(p: Problem) -> Problem:
     # same
-    assert is_constant(p)
-    cy0: Case = p.train_y_list[0]
-    q: Problem
-    q = attr_prob.set_shape(p, new_shape=cy0.shape)
-    return q
+    p.is_same_shape = is_same(p)
+
+    # constant
+    flag, n_row, n_col = is_constant(p)
+    if flag:
+        p.n_row, p.n_col = n_row, n_col
+        for c in p.train_x_list:
+            c.n_row, c.n_col = n_row, n_col
+        for c in p.test_x_list:
+            c.n_row, c.n_col = n_row, n_col
+
+    # multiple
+    flag, m_row, m_col = is_multiple(p)
+    if flag:
+        p.m_row, p.m_col = m_row, m_col
+        for c in p.train_x_list:
+            c.m_row, c.m_col = m_row, m_col
+        for c in p.test_x_list:
+            c.m_row, c.m_col = m_row, m_col
+
+    # division
+    flag, d_row, d_col = is_division(p)
+    if flag:
+        p.d_row, p.d_col = d_row, d_col
+        for c in p.train_x_list:
+            c.d_row, c.d_col = d_row, d_col
+        for c in p.test_x_list:
+            c.d_row, c.d_col = d_row, d_col
+
+    return None
+
