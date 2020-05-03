@@ -40,7 +40,7 @@ def local_eval(dir_path, time_limit=TIME_LIMIT):
         kbn = "training"
     pct = 1 - total_ac / (total_ac + total_wa)
     print(f'{dir_path} done, AC: {total_ac}, total: {total_ac + total_wa}, {pct}')
-    np.save(f'../local_eval_log/{kbn}-{TIME_LIMIT}-{pct}-{datetime.datetime.now()}', np.array(res_list))
+    np.save(f'../local_eval_log/{kbn}-{TIME_LIMIT}-{pct}', np.array(res_list))
 
 
 if __name__ == "__main__":
