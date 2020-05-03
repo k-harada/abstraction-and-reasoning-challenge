@@ -97,7 +97,7 @@ class Case:
         return new_case
 
     def __repr__(self):
-        return "|" + "|".join(["".join(map(str, x)) for x in self.repr_values().tolist()]) + "|"
+        return "|" + "|".join(["".join(map(str, x)) for x in self.repr_values()]) + "|"
 
     def repr_values(self) -> np.array:
         # paste background
@@ -111,21 +111,6 @@ class Case:
             pass
 
         return repr_values
-
-    def repr_binary_values(self) -> np.array:
-        # paste background
-        repr_binary_values = np.zeros(self.shape, dtype=np.bool)
-        # collect values
-        for m in self.matter_list:
-            if not m.bool_show:
-                continue
-            binary_matter = m.bool_represents()
-            for i in range(m.shape[0]):
-                for j in range(m.shape[1]):
-                    if binary_matter[i, j]:
-                        repr_binary_values[m.x0 + i, m.y0 + j] = True
-
-        return repr_binary_values
 
     def reduce_values(self) -> np.array:
 

@@ -6,7 +6,7 @@ from src.mapper.interior import array
 
 
 def interior_dir4_zero(m: Matter) -> List[Matter]:
-    res_bool = array.interior_dir4_zero(m.bool_represents())
+    res_bool = array.interior_dir4_zero(m.values)
     if m.color_add is not None:
         new_values = res_bool.astype(np.int) * m.color_add
     else:

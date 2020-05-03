@@ -21,17 +21,12 @@ class Matter:
         self.y0 = y0
 
         # initialize_attributes
-        # self.m_row, self.m_col = 1, 1
-        # self.d_row, self.d_col = 1, 1
         self.a = None
         self.b = None
         self.color_add = None
         self.color_delete = None
         self.bool_show = True
         self.is_mesh = False
-
-    def bool_represents(self):
-        return (self.values != self.background_color).astype(bool)
 
     def is_square(self):
         if self.shape[0] == self.shape[1]:
@@ -97,8 +92,6 @@ class Matter:
     def copy(self):
         new_matter = Matter(self.values, self.x0, self.y0, self.background_color)
         # copy attributes
-        # new_matter.m_row, new_matter.m_col = self.m_row, self.m_col
-        # new_matter.d_row, new_matter.d_col = self.d_row, self.d_col
         new_matter.a = self.a
         new_matter.b = self.b
         new_matter.color_add = self.color_add
@@ -113,8 +106,6 @@ class Matter:
         new_values[self.values != self.background_color] = self.a % 10
         new_matter = Matter(new_values, self.x0, self.y0, self.background_color)
         # copy attributes
-        # new_matter.m_row, new_matter.m_col = self.m_row, self.m_col
-        # new_matter.d_row, new_matter.d_col = self.d_row, self.d_col
         new_matter.a = self.a
         new_matter.b = self.b
         new_matter.color_add = self.color_add
