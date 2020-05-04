@@ -151,18 +151,19 @@ def test_35():
     print(eval_distance(r))
 
 
-def test_50():
-    p = problem_load(35)
-    print(eval_distance(p))
-    q = Runner.run_transform(p, "trim_background")
-    print(eval_distance(q))
-
-
 def test_49():
     p = problem_load(49)
     print(eval_distance(p))
-    print(p.color_add)
     q = Runner.run_transform(p, "connect_row_col")
+    print(eval_distance(q))
+    r = Runner.run_transform(q, "diff_color")
+    print(eval_distance(r))
+
+
+def test_67():
+    p = problem_load(67)
+    print(eval_distance(p))
+    q = Runner.run_transform(p, "trim_background")
     print(eval_distance(q))
 
 

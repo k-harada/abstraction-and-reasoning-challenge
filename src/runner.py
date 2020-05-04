@@ -11,7 +11,8 @@ mappers = [
 ]
 transformers = [
     "connect_row", "connect_col", "connect_row_col", "connect_diagonal", "auto_fill_row_col",
-    "interior_dir4_zero", "trim_background", "paste_color", "n_cell", "arg_sort", "fill_rectangle"
+    "interior_dir4_zero", "trim_background", "paste_color", "n_cell", "arg_sort", "fill_rectangle",
+    "diff_color"
 ]
 static_solvers = ["set_problem_color", "set_is_pattern"]
 dynamic_solvers = [
