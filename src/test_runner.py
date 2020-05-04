@@ -45,13 +45,19 @@ def test_2():
     print(eval_distance(q))
     r = Runner.run_transform(q, "auto_fill_row_col")
     print(eval_distance(r))
+    s = Runner.run_solve(r, "color_change")
+    print(eval_distance(s))
 
 
 def test_5():
     p = problem_load(5)
     print(eval_distance(p))
-    q = Runner.set_map_reduce(p, "mesh_align", "bitwise")
+    q = Runner.set_map_reduce(p, "mesh_align", "simple")
     print(eval_distance(q))
+    r = Runner.run_solve(q, "reduce_bitwise")
+    print(eval_distance(r))
+    s = Runner.run_solve(r, "color_change")
+    print(eval_distance(s))
 
 
 def test_6():
@@ -79,6 +85,8 @@ def test_9():
     print(eval_distance(r))
     s = Runner.run_transform(r, "paste_color")
     print(eval_distance(s))
+    #t = Runner.run_solve(s, "color_change")
+    #print(eval_distance(t))
 
 
 def test_13():
@@ -94,6 +102,13 @@ def test_14():
     p = problem_load(14)
     print(eval_distance(p))
     q = Runner.run_solve(p, "fit_replace_rule_33")
+    print(eval_distance(q))
+
+
+def test_15():
+    p = problem_load(15)
+    print(eval_distance(p))
+    q = Runner.run_solve(p, "color_change")
     print(eval_distance(q))
 
 
@@ -116,8 +131,12 @@ def test_18():
 def test_25():
     p = problem_load(25)
     print(eval_distance(p))
-    q = Runner.set_map_reduce(p, "mesh_split", "bitwise")
+    q = Runner.set_map_reduce(p, "mesh_align", "simple")
     print(eval_distance(q))
+    r = Runner.run_solve(q, "reduce_bitwise")
+    print(eval_distance(r))
+    s = Runner.run_solve(r, "color_change")
+    print(eval_distance(s))
 
 
 def test_30():
@@ -155,8 +174,12 @@ def test_216():
 def test_226():
     p = problem_load(226)
     print(eval_distance(p))
-    q = Runner.set_map_reduce(p, "split_row_col", "bitwise")
+    q = Runner.set_map_reduce(p, "split_row_col", "simple")
     print(eval_distance(q))
+    r = Runner.run_solve(q, "reduce_bitwise")
+    print(eval_distance(r))
+    s = Runner.run_solve(r, "color_change")
+    print(eval_distance(s))
 
 
 if __name__ == "__main__":
@@ -169,6 +192,7 @@ if __name__ == "__main__":
     test_9()
     test_13()
     test_14()
+    test_15()
     test_16()
     test_18()
     test_25()

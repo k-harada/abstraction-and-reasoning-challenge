@@ -19,8 +19,8 @@ def fill_pattern(p: Problem) -> Problem:
                 assert x_values[i, j] == case_x.background_color or x_values[i, j] == y_values[i, j]
 
         # all color appear
-        x_cnt = case_x.color_count
-        y_cnt = case_y.color_count
+        x_cnt = case_x.color_count()
+        y_cnt = case_y.color_count()
         for c in range(10):
             if y_cnt[c] > 0:
                 assert x_cnt[c] > 0

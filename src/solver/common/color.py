@@ -3,7 +3,7 @@ from src.data import Problem, Case
 
 
 def monotone_color(p: Problem) -> np.int:
-    color_count = np.array([case.color_count for case in p.train_y_list]).sum(axis=0)
+    color_count = np.array([case.color_count() for case in p.train_y_list]).sum(axis=0)
     # ignore background
     color_count[p.background_color] = 0
     # only color other than background

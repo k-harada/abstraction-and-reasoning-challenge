@@ -10,8 +10,8 @@ class Case:
         self.matter_list = []
         self.background_color = None
         self.shape = None
-        self.color_map = None
-        self.color_count = None
+        # self.color_map = None
+        # self.color_count = None
         # initialize_attributes
         self.n_row, self.n_col = None, None
         self.m_row, self.m_col = None, None
@@ -27,28 +27,30 @@ class Case:
         self.matter_list.append(Matter(values, background_color=background_color))
         self.background_color = background_color
         self.shape = values.shape
-        self.color_map = {np.int(i): np.int(i) for i in range(10)}
-        self.color_count = np.array([(values == c).sum() for c in range(10)]).astype(np.int)
+        # self.color_map = {np.int(i): np.int(i) for i in range(10)}
+        # self.color_count = np.array([(values == c).sum() for c in range(10)]).astype(np.int)
         # initialize_attributes
+        self.reducer = "simple"
         self.n_row, self.n_col = self.shape
         self.m_row, self.m_col = 1, 1
         self.d_row, self.d_col = 1, 1
         self.color_add = self.max_color()
         self.color_b = self.min_color()
-        self.reducer = "simple"
         self.pick_ind = 0
 
     def color_count(self):
         """
         :return: np.array(10, int), number of cells for each color
         """
-        return self.color_count
+        # self.color_count = np.array([(self.values == c).sum() for c in range(10)]).astype(np.int)
+        repr_values = self.repr_values()
+        return np.array([(repr_values == c).sum() for c in range(10)]).astype(np.int)
 
     def n_color(self):
         """
         :return: int, number of colors other than background
         """
-        return int(sum([self.color_count[c] > 0 for c in range(10) if c != self.background_color]))
+        return int(sum([self.color_count()[c] > 0 for c in range(10) if c != self.background_color]))
 
     def max_color(self):
         """
@@ -59,8 +61,8 @@ class Case:
         for c in range(10):
             if c == self.background_color:
                 continue
-            if self.color_count[c] > temp:
-                temp = self.color_count[c]
+            if self.color_count()[c] > temp:
+                temp = self.color_count()[c]
                 c_max = c
         return int(c_max)
 
@@ -73,8 +75,8 @@ class Case:
         for c in range(10):
             if c == self.background_color:
                 continue
-            if 0 < self.color_count[c] < temp:
-                temp = self.color_count[c]
+            if 0 < self.color_count()[c] < temp:
+                temp = self.color_count()[c]
                 c_min = c
         return int(c_min)
 
@@ -82,8 +84,8 @@ class Case:
         new_case = Case()
         new_case.background_color = self.background_color
         new_case.shape = self.shape
-        new_case.color_map = self.color_map
-        new_case.color_count = self.color_count
+        # new_case.color_map = self.color_map
+        # new_case.color_count = self.color_count
         # initialize_attributes
         new_case.n_row, new_case.n_col = self.n_row, self.n_col
         new_case.m_row, new_case.m_col = self.m_row, self.m_col
@@ -102,13 +104,13 @@ class Case:
     def repr_values(self) -> np.array:
         # paste background
         repr_values = self.reduce_values()
-        try:
-            # color map
-            for i in range(self.shape[0]):
-                for j in range(self.shape[1]):
-                    repr_values[i, j] = self.color_map[repr_values[i, j]]
-        except KeyError:  # sometimes -1
-            pass
+        # try:
+        #    # color map
+        #    for i in range(self.shape[0]):
+        #        for j in range(self.shape[1]):
+        #            repr_values[i, j] = self.color_map[repr_values[i, j]]
+        #except KeyError:  # sometimes -1
+        #    pass
 
         return repr_values
 
