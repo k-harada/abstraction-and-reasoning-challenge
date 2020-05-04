@@ -25,8 +25,6 @@ class Matter:
         # initialize_attributes
         self.a = None
         self.b = None
-        self.color_add = None
-        self.color_delete = None
         self.bool_show = True
         self.is_mesh = False
 
@@ -92,12 +90,10 @@ class Matter:
         return int(c_min)
 
     def copy(self):
-        new_matter = Matter(self.values, self.x0, self.y0, self.background_color)
+        new_matter = Matter(self.values.copy(), self.x0, self.y0, self.background_color)
         # copy attributes
         new_matter.a = self.a
         new_matter.b = self.b
-        new_matter.color_add = self.color_add
-        new_matter.color_delete = self.color_delete
         new_matter.bool_show = self.bool_show
         new_matter.is_mesh = self.is_mesh
         return new_matter
@@ -110,8 +106,6 @@ class Matter:
         # copy attributes
         new_matter.a = self.a
         new_matter.b = self.b
-        new_matter.color_add = self.color_add
-        new_matter.color_delete = self.color_delete
         new_matter.bool_show = self.bool_show
         new_matter.is_mesh = self.is_mesh
         return new_matter

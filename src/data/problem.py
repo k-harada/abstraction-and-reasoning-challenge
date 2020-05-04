@@ -25,6 +25,7 @@ class Problem:
         self.is_pattern = False
         self.is_same_shape = False
         self.history = []
+        self.mapper = "identity"
 
     def initialize(self, data):
 
@@ -76,7 +77,7 @@ class Problem:
         new_problem.is_pattern = self.is_pattern
         new_problem.is_same_shape = self.is_same_shape
         new_problem.history = self.history.copy()
-
+        new_problem.mapper = self.mapper
         return new_problem
 
     def judge(self):

@@ -26,6 +26,7 @@ def solve_rotations(p: Problem) -> Problem:
     for case_x, case_y in zip(p.train_x_list, p.train_y_list):
         # assert same size
         assert case_x.shape == case_y.shape
+        assert (case_x.color_count() == case_y.color_count()).min()
 
         y_repr = case_y.repr_values()
         good_operations = np.ones((base_len, 8), dtype=np.int)

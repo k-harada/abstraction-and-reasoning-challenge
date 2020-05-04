@@ -5,7 +5,7 @@ import time
 from heapq import heappush, heappop
 
 from src.data import Problem
-from src.runner import Runner, mappers, reducers, transformers, static_solvers, dynamic_solvers, final_solvers
+from src.runner import Runner, mappers, transformers, static_solvers, dynamic_solvers, final_solvers
 from src.evaluator import eval_distance
 
 
@@ -38,17 +38,16 @@ def auto_solve(data, time_limit=TIME_LIMIT):
 
     # mappers and reducers
     for map_op in mappers:
-        for reduce_op in reducers:
-            try:
-                q = Runner.set_map_reduce(p, map_op, reduce_op)
-                # evaluate
-                d = eval_distance(q)
-                heappush(heap_queue, (1 + d // 10000, 0, cnt, q))
-                heappush(heap_res, (d, 0, cnt, q))
-                cnt += 1
-                # print(map_op, reduce_op, d)
-            except AssertionError:
-                pass
+        try:
+            q = Runner.run_map(p, map_op)
+            # evaluate
+            d = eval_distance(q)
+            heappush(heap_queue, (1 + d // 10000, 0, cnt, q))
+            heappush(heap_res, (d, 0, cnt, q))
+            cnt += 1
+            # print(map_op, reduce_op, d)
+        except AssertionError:
+            pass
 
     # main search
     while len(heap_queue) > 0:
@@ -157,4 +156,5 @@ def data_load_eval(i, file_list="train"):
 
 
 if __name__ == "__main__":
-    data_load_eval(67, "train")
+    for i in range(50):
+        data_load_eval(i, "train")

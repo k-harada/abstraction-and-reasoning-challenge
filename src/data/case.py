@@ -17,6 +17,7 @@ class Case:
         self.b = None
         self.color_add = None
         self.color_b = None
+        self.mapper = None
         self.reducer = None
         self.pick_ind = None
 
@@ -27,6 +28,7 @@ class Case:
         # self.color_map = {np.int(i): np.int(i) for i in range(10)}
         # self.color_count = np.array([(values == c).sum() for c in range(10)]).astype(np.int)
         # initialize_attributes
+        self.mapper = "identity"
         self.reducer = "simple"
         self.color_add = self.max_color()
         self.color_b = self.min_color()
@@ -85,6 +87,7 @@ class Case:
         new_case.b = self.b
         new_case.color_add = self.color_add
         new_case.color_b = self.color_b
+        new_case.mapper = self.mapper
         new_case.reducer = self.reducer
         new_case.pick_ind = self.pick_ind
         return new_case
@@ -95,28 +98,7 @@ class Case:
     def repr_values(self) -> np.array:
 
         try:
-            if self.reducer == "simple":
-                # pile up from 0
-                # paste background
-                repr_values = np.ones(self.shape, dtype=np.int) * self.background_color
-                # collect values
-                for m in self.matter_list:
-                    if not m.bool_show:
-                        continue
-                    for i in range(m.shape[0]):
-                        for j in range(m.shape[1]):
-                            if m.values[i, j] != m.background_color:
-                                repr_values[m.x0 + i, m.y0 + j] = m.values[i, j]
-                return repr_values
-
-            elif self.reducer == "pick":
-                # trim and pick one
-                pick_ind = self.pick_ind % len(self.matter_list)
-                repr_values = self.matter_list[pick_ind].values
-                self.shape = repr_values.shape
-                return repr_values
-
-            elif self.reducer == "fractal":
+            if self.mapper == "fractal":
 
                 m1 = self.matter_list[0]
                 m2 = self.matter_list[1 % len(self.matter_list)]
@@ -134,6 +116,19 @@ class Case:
                 else:
                     self.shape = (30, 30)
                     return np.zeros((30, 30), dtype=np.int)
+            else:
+                # pile up from 0
+                # paste background
+                repr_values = np.ones(self.shape, dtype=np.int) * self.background_color
+                # collect values
+                for m in self.matter_list:
+                    if not m.bool_show:
+                        continue
+                    for i in range(m.shape[0]):
+                        for j in range(m.shape[1]):
+                            if m.values[i, j] != m.background_color:
+                                repr_values[m.x0 + i, m.y0 + j] = m.values[i, j]
+                return repr_values
         except IndexError:
             print([(m.values, m.x0, m.y0, m.background_color) for m in self.matter_list])
             print(self.shape)

@@ -1,6 +1,7 @@
 from src.data import Problem
 from src.transformer.case import *
 from .interior.case import interior_dir4_zero
+from .fill_rectangle.case import fill_rectangle
 
 
 def run_transform(p: Problem, command: str) -> Problem:

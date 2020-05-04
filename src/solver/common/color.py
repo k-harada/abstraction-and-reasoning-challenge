@@ -1,3 +1,4 @@
+from typing import List
 import numpy as np
 from src.data import Problem, Case
 
@@ -14,7 +15,7 @@ def monotone_color(p: Problem) -> np.int:
     return np.int(color_add)
 
 
-def new_color(p: Problem) -> np.int:
+def new_color(p: Problem) -> List[int]:
     case_x: Case
     case_y: Case
     new_color_count = np.zeros(10, dtype=np.int)
@@ -22,15 +23,11 @@ def new_color(p: Problem) -> np.int:
         y_values = case_y.repr_values()
         x_values = case_x.repr_values()
         if x_values.shape != y_values.shape:
-            return np.int(-1)
+            return []
         # find not equal, add y color
         for i in range(y_values.shape[0]):
             for j in range(y_values.shape[1]):
                 if y_values[i, j] != x_values[i, j]:
                     new_color_count[y_values[i, j]] += 1
 
-    if (new_color_count > 0).sum() == 1:
-        color_add = new_color_count.argmax()
-    else:
-        color_add = -1
-    return np.int(color_add)
+    return [c for c in range(10) if new_color_count[c] > 0]

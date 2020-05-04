@@ -27,7 +27,7 @@ def problem_load(i, file_list="train"):
 def test_0():
     p = problem_load(0)
     print(eval_distance(p))
-    q = Runner.set_map_reduce(p, "identity", "fractal")
+    q = Runner.run_map(p, "fractal")
     print(eval_distance(q))
 
 
@@ -52,7 +52,7 @@ def test_2():
 def test_5():
     p = problem_load(5)
     print(eval_distance(p))
-    q = Runner.set_map_reduce(p, "mesh_align", "simple")
+    q = Runner.run_map(p, "mesh_align")
     print(eval_distance(q))
     r = Runner.run_solve(q, "reduce_bitwise")
     print(eval_distance(r))
@@ -68,7 +68,7 @@ def test_6():
 def test_8():
     p = problem_load(8)
     print(eval_distance(p))
-    q = Runner.set_map_reduce(p, "mesh_2", "simple")
+    q = Runner.run_map(p, "mesh_2")
     print(eval_distance(q))
     r = Runner.run_transform(q, "connect_row_col")
     print(eval_distance(r))
@@ -77,7 +77,7 @@ def test_8():
 def test_9():
     p = problem_load(9)
     print(eval_distance(p))
-    q = Runner.set_map_reduce(p, "connect", "simple")
+    q = Runner.run_map(p, "connect")
     print(eval_distance(q))
     r = Runner.run_transform(q, "arg_sort")
     print(eval_distance(r))
@@ -90,7 +90,7 @@ def test_9():
 def test_13():
     p = problem_load(13)
     print(eval_distance(p))
-    q = Runner.set_map_reduce(p, "color", "pick")
+    q = Runner.run_map(p, "color")
     print(eval_distance(q))
     r = Runner.run_transform(q, "trim_background")
     print(eval_distance(r))
@@ -129,12 +129,10 @@ def test_18():
 def test_25():
     p = problem_load(25)
     print(eval_distance(p))
-    q = Runner.set_map_reduce(p, "mesh_align", "simple")
+    q = Runner.run_map(p, "mesh_align")
     print(eval_distance(q))
     r = Runner.run_solve(q, "reduce_bitwise")
     print(eval_distance(r))
-    s = Runner.run_solve(r, "color_change")
-    print(eval_distance(s))
 
 
 def test_30():
@@ -142,6 +140,39 @@ def test_30():
     print(eval_distance(p))
     q = Runner.run_transform(p, "trim_background")
     print(eval_distance(q))
+
+
+def test_35():
+    p = problem_load(35)
+    print(eval_distance(p))
+    q = Runner.run_map(p, "color")
+    print(eval_distance(q))
+    r = Runner.run_transform(q, "trim_background")
+    print(eval_distance(r))
+
+
+def test_50():
+    p = problem_load(35)
+    print(eval_distance(p))
+    q = Runner.run_transform(p, "trim_background")
+    print(eval_distance(q))
+
+
+def test_49():
+    p = problem_load(49)
+    print(eval_distance(p))
+    print(p.color_add)
+    q = Runner.run_transform(p, "connect_row_col")
+    print(eval_distance(q))
+
+
+def test_80():
+    p = problem_load(80)
+    print(eval_distance(p))
+    q = Runner.run_map(p, "connect")
+    print(eval_distance(q))
+    r = Runner.run_transform(q, "fill_rectangle")
+    print(eval_distance(r))
 
 
 def test_91():
@@ -172,7 +203,7 @@ def test_176():
 def test_210():
     p = problem_load(210)
     print(eval_distance(p))
-    q = Runner.set_map_reduce(p, "spread_row_col", "simple")
+    q = Runner.run_map(p, "spread_row_col")
     print(eval_distance(q))
     r = Runner.run_solve(q, "rotations")
     print(eval_distance(r))
@@ -181,7 +212,7 @@ def test_210():
 def test_216():
     p = problem_load(216)
     print(eval_distance(p))
-    q = Runner.set_map_reduce(p, "identity", "fractal")
+    q = Runner.run_map(p, "fractal")
     print(eval_distance(q))
     r = Runner.run_transform(q, "trim_background")
     print(eval_distance(r))
@@ -190,12 +221,10 @@ def test_216():
 def test_226():
     p = problem_load(226)
     print(eval_distance(p))
-    q = Runner.set_map_reduce(p, "divide_row_col", "simple")
+    q = Runner.run_map(p, "divide_row_col")
     print(eval_distance(q))
     r = Runner.run_solve(q, "reduce_bitwise")
     print(eval_distance(r))
-    s = Runner.run_solve(r, "color_change")
-    print(eval_distance(s))
 
 
 if __name__ == "__main__":
@@ -213,6 +242,9 @@ if __name__ == "__main__":
     test_18()
     test_25()
     test_30()
+    test_35()
+    test_49()
+    test_80()
     test_91()
     test_126()
     test_176()
