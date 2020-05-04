@@ -91,17 +91,14 @@ def auto_solve(data, time_limit=TIME_LIMIT):
                 q = Runner.run_solve(p, op)
                 # evaluate
                 d = eval_distance(q)
-                if d > 0:
-                    pass
-                else:
-                    heappush(heap_res, (d, v + 1, cnt, q))
+                heappush(heap_res, (d, v + 1, cnt, q))
             except AssertionError:
                 pass
 
         # break by time
         if time.time() >= t0 + time_limit:
             break
-    print(cnt, v)
+    # print(cnt, v)
 
     # output
     for sub_id in range(len_test):
