@@ -14,6 +14,8 @@ def local_eval(dir_path, time_limit=TIME_LIMIT):
     total_ac = 0
     total_wa = 0
     res_list = []
+    p_list = []
+    ind_list = []
 
     for i, f in tqdm.tqdm(enumerate(list(sorted(os.listdir(dir_path))))):
         if f[-5:] == ".json":
@@ -26,6 +28,8 @@ def local_eval(dir_path, time_limit=TIME_LIMIT):
                     print(i, j, len(solved_dict[j]))
                 answer_arr = sample_data["test"][j]["output"]
                 answer_str = "|" + "|".join(["".join(map(str, x)) for x in answer_arr]) + "|"
+                p_list.append(i)
+                ind_list.append(j)
                 if answer_str in solved_dict[j]:
                     # print(f'AC: {i, j}')
                     total_ac += 1
@@ -40,7 +44,10 @@ def local_eval(dir_path, time_limit=TIME_LIMIT):
         kbn = "training"
     pct = 1 - total_ac / (total_ac + total_wa)
     print(f'{dir_path} done, AC: {total_ac}, total: {total_ac + total_wa}, {pct}')
-    np.save(f'../local_eval_log/{kbn}-{TIME_LIMIT}-{pct}', np.array(res_list))
+    res_arr = np.concatenate(
+        [np.array(res_list).reshape((-1, 1)), np.array(p_list).reshape((-1, 1)), np.array(ind_list).reshape((-1, 1))],
+        axis=1)
+    np.save(f'../local_eval_log/{kbn}-{TIME_LIMIT}-{pct}', res_arr)
 
 
 if __name__ == "__main__":

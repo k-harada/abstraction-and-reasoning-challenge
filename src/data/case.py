@@ -93,82 +93,51 @@ class Case:
         return "|" + "|".join(["".join(map(str, x)) for x in self.repr_values()]) + "|"
 
     def repr_values(self) -> np.array:
-        # paste background
-        repr_values = self.reduce_values()
-        # try:
-        #    # color map
-        #    for i in range(self.shape[0]):
-        #        for j in range(self.shape[1]):
-        #            repr_values[i, j] = self.color_map[repr_values[i, j]]
-        #except KeyError:  # sometimes -1
-        #    pass
 
-        return repr_values
-
-    def reduce_values(self) -> np.array:
-
-        if self.reducer == "simple":
-            # pile up from 0
-            # paste background
-            repr_values = np.ones(self.shape, dtype=np.int) * self.background_color
-            # collect values
-            for m in self.matter_list:
-                if not m.bool_show:
-                    continue
-                for i in range(m.shape[0]):
-                    for j in range(m.shape[1]):
-                        if m.values[i, j] != m.background_color:
-                            repr_values[m.x0 + i, m.y0 + j] = m.values[i, j]
-            return repr_values
-
-        elif self.reducer == "pick":
-            # trim and pick one
-            pick_ind = self.pick_ind % len(self.matter_list)
-            repr_values = self.matter_list[pick_ind].values
-            self.shape = repr_values.shape
-            return repr_values
-
-        elif self.reducer == "bitwise":
-            assert len(self.matter_list) >= 2
-            m0 = self.matter_list[0]
-            m1 = self.matter_list[1 % len(self.matter_list)]
-
-            assert m0.shape == m1.shape
-            # reshape
-            self.shape = m0.shape
-
-            # fit color later
-            repr_values = np.zeros(self.shape, dtype=np.int)
-
-            for i in range(m0.shape[0]):
-                for j in range(m0.shape[1]):
-                    if m0.values[i, j] != m0.background_color:
-                        repr_values[i, j] += 1
-
-            for i in range(m1.shape[0]):
-                for j in range(m1.shape[1]):
-                    if m1.values[i, j] != m1.background_color:
-                        repr_values[i, j] += 2
-            return repr_values
-
-        elif self.reducer == "fractal":
-
-            m1 = self.matter_list[0]
-            m2 = self.matter_list[1 % len(self.matter_list)]
-
-            r1, c1 = m1.shape
-            r2, c2 = m2.shape
-            if max(r1 * r2, c1 * c2) <= 30:
-                self.shape = (r1 * r2, c1 * c2)
+        try:
+            if self.reducer == "simple":
+                # pile up from 0
+                # paste background
                 repr_values = np.ones(self.shape, dtype=np.int) * self.background_color
-                for i in range(r2):
-                    for j in range(c2):
-                        if m2.values[i, j] != m2.background_color:
-                            repr_values[(i * r1):((i + 1) * r1), (j * c1):((j + 1) * c1)] = m1.values
+                # collect values
+                for m in self.matter_list:
+                    if not m.bool_show:
+                        continue
+                    for i in range(m.shape[0]):
+                        for j in range(m.shape[1]):
+                            if m.values[i, j] != m.background_color:
+                                repr_values[m.x0 + i, m.y0 + j] = m.values[i, j]
                 return repr_values
-            else:
-                self.shape = (30, 30)
-                return np.zeros((30, 30), dtype=np.int)
+
+            elif self.reducer == "pick":
+                # trim and pick one
+                pick_ind = self.pick_ind % len(self.matter_list)
+                repr_values = self.matter_list[pick_ind].values
+                self.shape = repr_values.shape
+                return repr_values
+
+            elif self.reducer == "fractal":
+
+                m1 = self.matter_list[0]
+                m2 = self.matter_list[1 % len(self.matter_list)]
+
+                r1, c1 = m1.shape
+                r2, c2 = m2.shape
+                if max(r1 * r2, c1 * c2) <= 30:
+                    self.shape = (r1 * r2, c1 * c2)
+                    repr_values = np.ones(self.shape, dtype=np.int) * self.background_color
+                    for i in range(r2):
+                        for j in range(c2):
+                            if m2.values[i, j] != m2.background_color:
+                                repr_values[(i * r1):((i + 1) * r1), (j * c1):((j + 1) * c1)] = m1.values
+                    return repr_values
+                else:
+                    self.shape = (30, 30)
+                    return np.zeros((30, 30), dtype=np.int)
+        except IndexError:
+            print([(m.values, m.x0, m.y0, m.background_color) for m in self.matter_list])
+            print(self.shape)
+            raise
 
 
 if __name__ == "__main__":

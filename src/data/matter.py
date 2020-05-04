@@ -3,13 +3,15 @@ import numpy as np
 
 class Matter:
     """Class for objects inside case"""
-    def __init__(self, values: np.array, x0: np.int = 0, y0: int = 0, background_color: int = 0):
+    def __init__(self, values: np.array, x0: int = 0, y0: int = 0, background_color: int = 0):
         """
         :param values: np.array(np.int) main values
         :param x0: int, position to show in result, x0:x0+shape[0], y0:y0+shape[1]
         :param y0: int, position to show in result, x0:x0+shape[0], y0:y0+shape[1]
         :param background_color: np.int, color to be treated as background
         """
+        if x0 < 0 or y0 < 0:
+            raise ValueError
         # values
         self.values = values
         # shape

@@ -4,3 +4,4 @@ from .shape.duplicate import duplicate
 from .shape.extend_shape import extend_shape
 from .color.color_change import color_change
 from .reduce.bitwise import reduce_bitwise
+from .rotations.solve_rotations import solve_rotations as rotations

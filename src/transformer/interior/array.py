@@ -9,6 +9,8 @@ def interior_dir4_zero(x_arr: np.array) -> np.array:
     :return: np.array(bool)
     """
     res = np.ones(x_arr.shape, dtype=np.bool)
+    assert x_arr.shape[0] > 0
+    assert x_arr.shape[1] > 0
 
     queue = deque()
 

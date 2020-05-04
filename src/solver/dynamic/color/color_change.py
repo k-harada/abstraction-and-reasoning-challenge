@@ -60,6 +60,7 @@ def color_change(p: Problem) -> Problem:
 
         # one rule
         res_arr = find_color_change_rule_one(x_values, y_values)
+        # print(res_arr)
 
         for c in range(10):
             if res_arr[c] == -2:

@@ -4,7 +4,7 @@ from src.transformer.interior import array
 
 def interior_dir4_zero(m: Matter) -> Matter:
     res_bool = array.interior_dir4_zero(m.values)
-    new_values = m.values
+    new_values = m.values.copy()
 
     if m.color_add is not None:
         new_values[res_bool] = m.color_add

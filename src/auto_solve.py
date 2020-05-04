@@ -5,7 +5,7 @@ import time
 from heapq import heappush, heappop
 
 from src.data import Problem
-from src.runner import Runner, mappers, reducers, transformers, static_solvers, dynamic_solvers
+from src.runner import Runner, mappers, reducers, transformers, static_solvers, dynamic_solvers, final_solvers
 from src.evaluator import eval_distance
 
 
@@ -13,6 +13,7 @@ TIME_LIMIT = 2.0
 
 
 def auto_solve(data, time_limit=TIME_LIMIT):
+    # flag_show = 0
     p = Problem()
     cnt = 1
     p.initialize(data)
@@ -32,7 +33,7 @@ def auto_solve(data, time_limit=TIME_LIMIT):
     heap_queue = []
     heap_res = []
     d = eval_distance(p)
-    heappush(heap_queue, (1, 0, 0, p))
+    heappush(heap_queue, (0, 0, 0, p))
     heappush(heap_res, (d, 0, 0, p))
 
     # mappers and reducers
@@ -42,17 +43,21 @@ def auto_solve(data, time_limit=TIME_LIMIT):
                 q = Runner.set_map_reduce(p, map_op, reduce_op)
                 # evaluate
                 d = eval_distance(q)
-                heappush(heap_queue, (d, 0, cnt, q))
+                heappush(heap_queue, (1 + d // 10000, 0, cnt, q))
                 heappush(heap_res, (d, 0, cnt, q))
                 cnt += 1
+                # print(map_op, reduce_op, d)
             except AssertionError:
                 pass
 
     # main search
     while len(heap_queue) > 0:
-        _, v, cnt_old, p = heappop(heap_queue)
+        prev_d, v, cnt_old, p = heappop(heap_queue)
+        # print("prev_d", prev_d, cnt_old, p)
+        # print(p.history)
         p: Problem
         for op in transformers:
+            # print(op)
             cnt += 1
             try:
                 # print(op, cnt)
@@ -60,25 +65,43 @@ def auto_solve(data, time_limit=TIME_LIMIT):
                 q = Runner.run_transform(p, op)
                 # evaluate
                 d = eval_distance(q)
-                heappush(heap_queue, (d, v + 1, cnt, q))
+                if d > 0:
+                    heappush(heap_queue, (v + 1 + d // 10000, v + 1, cnt, q))
                 heappush(heap_res, (d, v + 1, cnt, q))
             except AssertionError:
                 pass
 
         for op in dynamic_solvers:
+            # print(op)
             cnt += 1
             try:
                 q = Runner.run_solve(p, op)
                 # evaluate
                 d = eval_distance(q)
-                heappush(heap_queue, (d, v + 1, cnt, q))
+                if d > 0:
+                    heappush(heap_queue, (v + 1 + d // 10000, v + 1, cnt, q))
                 heappush(heap_res, (d, v + 1, cnt, q))
             except AssertionError:
                 pass
+
+        for op in final_solvers:
+            # print(op)
+            cnt += 1
+            try:
+                q = Runner.run_solve(p, op)
+                # evaluate
+                d = eval_distance(q)
+                if d > 0:
+                    pass
+                else:
+                    heappush(heap_res, (d, v + 1, cnt, q))
+            except AssertionError:
+                pass
+
         # break by time
         if time.time() >= t0 + time_limit:
             break
-    # print(cnt)
+    print(cnt, v)
 
     # output
     for sub_id in range(len_test):
@@ -91,11 +114,14 @@ def auto_solve(data, time_limit=TIME_LIMIT):
                 s = r.test_x_list[sub_id].__repr__()
                 if s not in res_dict[sub_id]:
                     if len(res_dict[sub_id]) < 3:
+                        # print(r.history)
                         res_dict[sub_id].append(s)
                     elif min([len(res_dict[sub_id]) for sub_id in range(len_test)]) >= 3:
                         go_flg = False
                     else:
                         pass
+            except IndexError:
+                print(r.history)
             except AssertionError:
                 pass
 
@@ -134,5 +160,4 @@ def data_load_eval(i, file_list="train"):
 
 
 if __name__ == "__main__":
-
-    data_load_eval(226, "train")
+    data_load_eval(67, "train")

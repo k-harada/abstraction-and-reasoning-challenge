@@ -24,6 +24,7 @@ class Problem:
         self.color_b = None
         self.is_pattern = False
         self.is_same_shape = False
+        self.history = []
 
     def initialize(self, data):
 
@@ -74,6 +75,7 @@ class Problem:
         new_problem.color_b = self.color_b
         new_problem.is_pattern = self.is_pattern
         new_problem.is_same_shape = self.is_same_shape
+        new_problem.history = self.history.copy()
 
         return new_problem
 

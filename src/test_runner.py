@@ -1,11 +1,11 @@
 import os
 import json
-from heapq import heappush, heappop
 
 from src.data import Problem
-from src.runner import Runner, mappers, transformers, reducers, static_solvers
+from src.runner import Runner, static_solvers
 from src.evaluator import eval_distance
 
+from src.solver.dynamic.rotations.solve_rotations import solve_rotations
 
 train_file_list = list(sorted(os.listdir("../input/training/")))
 
@@ -56,8 +56,6 @@ def test_5():
     print(eval_distance(q))
     r = Runner.run_solve(q, "reduce_bitwise")
     print(eval_distance(r))
-    s = Runner.run_solve(r, "color_change")
-    print(eval_distance(s))
 
 
 def test_6():
@@ -162,6 +160,24 @@ def test_126():
     print(eval_distance(q))
 
 
+def test_176():
+    p = problem_load(176)
+    print(eval_distance(p))
+    q = Runner.run_transform(p, "trim_background")
+    print(eval_distance(q))
+    r = Runner.run_solve(q, "rotations")
+    print(eval_distance(r))
+
+
+def test_210():
+    p = problem_load(210)
+    print(eval_distance(p))
+    q = Runner.set_map_reduce(p, "spread_row_col", "simple")
+    print(eval_distance(q))
+    r = Runner.run_solve(q, "rotations")
+    print(eval_distance(r))
+
+
 def test_216():
     p = problem_load(216)
     print(eval_distance(p))
@@ -199,5 +215,7 @@ if __name__ == "__main__":
     test_30()
     test_91()
     test_126()
+    test_176()
+    test_210()
     test_216()
     test_226()

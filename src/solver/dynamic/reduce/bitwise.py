@@ -31,5 +31,6 @@ def reduce_bitwise(p: Problem) -> Problem:
         q.train_x_list.append(bitwise_case(c))
     for c in p.test_x_list:
         q.test_x_list.append(bitwise_case(c))
-
-    return q
+    # print(q)
+    r = color_change(q)
+    return r

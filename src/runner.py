@@ -6,18 +6,19 @@ from src.solver.dynamic import *
 
 
 mappers = [
-    "identity", "color", "connect", "mesh_split", "mesh_2", "mesh_align", "divide_row_col"
+    "identity", "color", "connect", "mesh_split", "mesh_2", "mesh_align", "divide_row_col", "spread_row_col"
 ]
 reducers = ["simple", "fractal", "pick"]
 transformers = [
     "connect_row", "connect_col", "connect_row_col", "connect_diagonal", "auto_fill_row_col",
-    "transpose", "rev_row", "rev_col", "rot_180", "interior_dir4_zero",
-    "rot_rev_180", "rot_90", "rot_270", "trim_background", "paste_color", "n_cell", "arg_sort"
+    "interior_dir4_zero", "trim_background", "paste_color", "n_cell", "arg_sort"
 ]
 static_solvers = ["set_problem_color", "set_is_pattern"]
 dynamic_solvers = [
-    "fill_pattern", "fit_replace_rule_33", "fit_replace_rule_33_all", "duplicate", "color_change",
-    "reduce_bitwise", "extend_shape"
+    "duplicate", "extend_shape"
+]
+final_solvers = [
+    "fit_replace_rule_33", "fit_replace_rule_33_all", "reduce_bitwise", "color_change", "rotations", "fill_pattern"
 ]
 
 
@@ -29,14 +30,18 @@ class Runner:
     @classmethod
     def set_map_reduce(cls, problem: Problem, map_command: str, reduce_command: str) -> Problem:
         if map_command in mappers and reduce_command in reducers:
-            return set_map_reduce(problem, map_command, reduce_command)
+            new_problem = set_map_reduce(problem, map_command, reduce_command)
+            new_problem.history.append(f'{map_command}-{reduce_command}')
+            return new_problem
         else:
             raise NotImplementedError
 
     @classmethod
     def run_transform(cls, problem: Problem, command: str) -> Problem:
         if command in transformers:
-            return run_transform(problem, command)
+            new_problem = run_transform(problem, command)
+            new_problem.history.append(command)
+            return new_problem
         else:
             raise NotImplementedError
 
@@ -50,7 +55,9 @@ class Runner:
 
     @classmethod
     def run_solve(cls, problem: Problem, command: str) -> Problem:
-        if command in dynamic_solvers:
-            return eval(f'{command}(problem)')
+        if command in dynamic_solvers or command in final_solvers:
+            new_problem = eval(f'{command}(problem)')
+            new_problem.history.append(command)
+            return new_problem
         else:
             raise NotImplementedError
