@@ -6,7 +6,7 @@ from src.solver.dynamic import *
 
 
 mappers = [
-    "identity", "color", "connect", "connect4", "mesh_split", "mesh_2", "mesh_align", "divide_row_col",
+    "color", "connect", "connect4", "mesh_split", "mesh_2", "mesh_align", "divide_row_col",
     "spread_row_col", "fractal"
 ]
 transformers = [

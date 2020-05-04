@@ -42,7 +42,7 @@ def auto_solve(data, time_limit=TIME_LIMIT):
             q = Runner.run_map(p, map_op)
             # evaluate
             d = eval_distance(q)
-            heappush(heap_queue, (1 + d // 10000, 0, cnt, q))
+            heappush(heap_queue, (1, 0, cnt, q))
             heappush(heap_res, (d, 0, cnt, q))
             cnt += 1
             # print(map_op, reduce_op, d)
