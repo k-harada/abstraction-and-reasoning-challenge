@@ -1,11 +1,11 @@
 from typing import List
 
 from src.data import Matter
-from src.mapper.color.array import split_color
+from src.mapper.split_color.array import split_color as split_color_arr
 
 
-def color(m: Matter) -> List[Matter]:
-    arr_list = split_color(m.values, m.background_color)
+def split_color(m: Matter) -> List[Matter]:
+    arr_list = split_color_arr(m.values, m.background_color)
 
     # avoid meaningless
     assert len(arr_list) >= 2

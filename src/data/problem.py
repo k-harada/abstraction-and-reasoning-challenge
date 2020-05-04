@@ -18,9 +18,6 @@ class Problem:
         self.background_color = np.int(0)
         self.color_map = None
         self.color_count = None
-        self.n_row, self.n_col = None, None
-        self.m_row, self.m_col = 1, 1
-        self.d_row, self.d_col = 1, 1
         self.a = None
         self.b = None
         self.color_add = None
@@ -71,9 +68,6 @@ class Problem:
         new_problem.background_color = self.background_color
         new_problem.color_map = self.color_map
         new_problem.color_count = self.color_count
-        new_problem.n_row, new_problem.n_col = self.n_row, self.n_col
-        new_problem.m_row, new_problem.m_col = self.m_row, self.m_col
-        new_problem.d_row, new_problem.d_col = self.d_row, self.d_col
         new_problem.a = self.a
         new_problem.b = self.b
         new_problem.color_add = self.color_add

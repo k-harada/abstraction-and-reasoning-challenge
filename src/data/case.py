@@ -13,9 +13,6 @@ class Case:
         # self.color_map = None
         # self.color_count = None
         # initialize_attributes
-        self.n_row, self.n_col = None, None
-        self.m_row, self.m_col = None, None
-        self.d_row, self.d_col = None, None
         self.a = None
         self.b = None
         self.color_add = None
@@ -31,9 +28,6 @@ class Case:
         # self.color_count = np.array([(values == c).sum() for c in range(10)]).astype(np.int)
         # initialize_attributes
         self.reducer = "simple"
-        self.n_row, self.n_col = self.shape
-        self.m_row, self.m_col = 1, 1
-        self.d_row, self.d_col = 1, 1
         self.color_add = self.max_color()
         self.color_b = self.min_color()
         self.pick_ind = 0
@@ -87,9 +81,6 @@ class Case:
         # new_case.color_map = self.color_map
         # new_case.color_count = self.color_count
         # initialize_attributes
-        new_case.n_row, new_case.n_col = self.n_row, self.n_col
-        new_case.m_row, new_case.m_col = self.m_row, self.m_col
-        new_case.d_row, new_case.d_col = self.d_row, self.d_col
         new_case.a = self.a
         new_case.b = self.b
         new_case.color_add = self.color_add

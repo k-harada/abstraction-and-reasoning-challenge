@@ -2,7 +2,7 @@ from typing import List
 import numpy as np
 
 from src.data import Matter
-from src.mapper.mesh.array import split_by_mesh, find_mesh
+from src.mapper.split_mesh.array import split_by_mesh, find_mesh
 
 
 def mesh_split(m: Matter) -> List[Matter]:

@@ -34,14 +34,14 @@ def test_0():
 def test_1():
     p = problem_load(1)
     print(eval_distance(p))
-    q = Runner.set_map_reduce(p, "interior_dir4_zero", "simple")
+    q = Runner.run_transform(p, "interior_dir4_zero")
     print(eval_distance(q))
 
 
 def test_2():
     p = problem_load(2)
     print(eval_distance(p))
-    q = Runner.run_transform(p, "extend_shape")
+    q = Runner.run_solve(p, "extend_shape")
     print(eval_distance(q))
     r = Runner.run_transform(q, "auto_fill_row_col")
     print(eval_distance(r))
@@ -174,7 +174,7 @@ def test_216():
 def test_226():
     p = problem_load(226)
     print(eval_distance(p))
-    q = Runner.set_map_reduce(p, "split_row_col", "simple")
+    q = Runner.set_map_reduce(p, "divide_row_col", "simple")
     print(eval_distance(q))
     r = Runner.run_solve(q, "reduce_bitwise")
     print(eval_distance(r))

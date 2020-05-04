@@ -6,18 +6,18 @@ from src.solver.dynamic import *
 
 
 mappers = [
-    "identity", "color", "connect", "interior_dir4_zero", "mesh_split", "mesh_2", "mesh_align", "split_row_col"
+    "identity", "color", "connect", "mesh_split", "mesh_2", "mesh_align", "divide_row_col"
 ]
 reducers = ["simple", "fractal", "pick"]
 transformers = [
-    "connect_row", "connect_col", "connect_row_col", "connect_diagonal", "auto_fill_row_col",  "extend_shape",
-    "transpose", "rev_row", "rev_col", "rot_180",
+    "connect_row", "connect_col", "connect_row_col", "connect_diagonal", "auto_fill_row_col",
+    "transpose", "rev_row", "rev_col", "rot_180", "interior_dir4_zero",
     "rot_rev_180", "rot_90", "rot_270", "trim_background", "paste_color", "n_cell", "arg_sort"
 ]
-static_solvers = ["set_problem_color", "set_is_pattern", "set_problem_shape"]
+static_solvers = ["set_problem_color", "set_is_pattern"]
 dynamic_solvers = [
     "fill_pattern", "fit_replace_rule_33", "fit_replace_rule_33_all", "duplicate", "color_change",
-    "reduce_bitwise"
+    "reduce_bitwise", "extend_shape"
 ]
 
 

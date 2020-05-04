@@ -123,6 +123,7 @@ def data_load_eval(i, file_list="train"):
             print(i, j, len(solved_dict[j]))
         answer_arr = data["test"][j]["output"]
         answer_str = "|" + "|".join(["".join(map(str, x)) for x in answer_arr]) + "|"
+        print(solved_dict)
         if answer_str in solved_dict[j]:
             # print(f'AC: {i, j}')
             total_ac += 1

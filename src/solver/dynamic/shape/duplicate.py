@@ -5,7 +5,7 @@ from src.solver.common.shape import is_multiple
 
 def duplicate(p: Problem) -> Problem:
 
-    flag, m_row, m_col= is_multiple(p)
+    flag, m_row, m_col = is_multiple(p)
 
     assert flag
 
