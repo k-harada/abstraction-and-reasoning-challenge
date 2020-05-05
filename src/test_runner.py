@@ -5,7 +5,6 @@ from src.data import Problem
 from src.runner import Runner, static_solvers
 from src.evaluator import eval_distance
 
-from src.solver.dynamic.rotations.solve_rotations import solve_rotations
 
 train_file_list = list(sorted(os.listdir("../input/training/")))
 
@@ -43,7 +42,7 @@ def test_2():
     print(eval_distance(p))
     q = Runner.run_solve(p, "extend_shape")
     print(eval_distance(q))
-    r = Runner.run_transform(q, "auto_fill_row_col")
+    r = Runner.run_transform(q, "auto_fill_row_col_periodicity")
     print(eval_distance(r))
     s = Runner.run_solve(r, "color_change")
     print(eval_distance(s))
@@ -83,8 +82,8 @@ def test_9():
     print(eval_distance(r))
     s = Runner.run_transform(r, "paste_color")
     print(eval_distance(s))
-    #t = Runner.run_solve(s, "color_change")
-    #print(eval_distance(t))
+    # t = Runner.run_solve(s, "color_change")
+    # print(eval_distance(t))
 
 
 def test_13():
@@ -113,7 +112,7 @@ def test_15():
 def test_16():
     p = problem_load(16)
     print(eval_distance(p))
-    q = Runner.run_transform(p, "auto_fill_row_col")
+    q = Runner.run_transform(p, "auto_fill_row_col_periodicity")
     print(eval_distance(q))
 
 
@@ -123,6 +122,15 @@ def test_18():
     q = Runner.run_solve(p, "duplicate")
     print(eval_distance(q))
     r = Runner.run_solve(q, "fit_replace_rule_33_all")
+    print(eval_distance(r))
+
+
+def test_23():
+    p = problem_load(23)
+    print(eval_distance(p))
+    q = Runner.run_map(p, "color")
+    print(eval_distance(q))
+    r = Runner.run_solve(q, "point_cross")
     print(eval_distance(r))
 
 
@@ -148,6 +156,22 @@ def test_35():
     q = Runner.run_map(p, "color")
     print(eval_distance(q))
     r = Runner.run_transform(q, "trim_background")
+    print(eval_distance(r))
+
+
+def test_44():
+    p = problem_load(44)
+    print(eval_distance(p))
+    q = Runner.run_transform(p, "connect_row")
+    print(eval_distance(q))
+
+
+def test_46():
+    p = problem_load(46)
+    print(eval_distance(p))
+    q = Runner.run_map(p, "color")
+    print(eval_distance(q))
+    r = Runner.run_solve(q, "point_cross")
     print(eval_distance(r))
 
 
@@ -204,7 +228,7 @@ def test_176():
 def test_210():
     p = problem_load(210)
     print(eval_distance(p))
-    q = Runner.run_map(p, "spread_row_col")
+    q = Runner.run_map(p, "multiple_row_col")
     print(eval_distance(q))
     r = Runner.run_solve(q, "rotations")
     print(eval_distance(r))
@@ -228,6 +252,15 @@ def test_226():
     print(eval_distance(r))
 
 
+def test_256():
+    p = problem_load(256)
+    print(eval_distance(p))
+    q = Runner.run_map(p, "divide_row_col")
+    print(eval_distance(q))
+    r = Runner.run_solve(q, "reduce_bitwise")
+    print(eval_distance(r))
+
+
 if __name__ == "__main__":
     test_0()
     test_1()
@@ -241,9 +274,12 @@ if __name__ == "__main__":
     test_15()
     test_16()
     test_18()
+    test_23()
     test_25()
     test_30()
     test_35()
+    test_44()
+    test_46()
     test_49()
     test_80()
     test_91()

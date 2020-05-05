@@ -6,7 +6,7 @@ class Case:
     """
     class for case data, responsible for reducers
     """
-    def __init__(self):
+    def __init__(self, new=False, copy=False):
         self.matter_list = []
         self.background_color = None
         self.shape = None
@@ -20,9 +20,13 @@ class Case:
         self.mapper = None
         self.reducer = None
         self.pick_ind = None
+        if new or copy:
+            pass
+        else:
+            raise ValueError
 
     def initialize(self, values: np.array, background_color: int = 0):
-        self.matter_list.append(Matter(values, background_color=background_color))
+        self.matter_list = [Matter(values, background_color=background_color, new=True)]
         self.background_color = background_color
         self.shape = values.shape
         # self.color_map = {np.int(i): np.int(i) for i in range(10)}
@@ -77,7 +81,7 @@ class Case:
         return int(c_min)
 
     def copy(self):
-        new_case = Case()
+        new_case = Case(copy=True)
         new_case.background_color = self.background_color
         new_case.shape = self.shape
         # new_case.color_map = self.color_map

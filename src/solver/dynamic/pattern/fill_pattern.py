@@ -1,5 +1,5 @@
 import numpy as np
-from src.data import Problem, Case
+from src.data import Problem, Case, Matter
 
 
 def fill_pattern(p: Problem) -> Problem:
@@ -30,10 +30,10 @@ def fill_pattern(p: Problem) -> Problem:
     q.train_x_list = []
     c_x: Case
     c_y: Case
-    for c_y in q.train_y_list:
-        c_x = Case()
-        c_x.initialize(c_y.repr_values())
-        q.train_x_list.append(c_x)
+    for c_x, c_y in zip(p.train_x_list, p.train_y_list):
+        c_x_new = c_x.copy()
+        c_x_new.matter_list = [Matter(c_y.repr_values(), new=True)]
+        q.train_x_list.append(c_x_new)
 
     q.test_x_list = []
     base_values = p.train_y_list[0].repr_values()
@@ -45,7 +45,7 @@ def fill_pattern(p: Problem) -> Problem:
             for j in range(old_values.shape[1]):
                 if old_values[i, j] != c_x.background_color and new_values[i, j] == c_x.background_color:
                     new_values[base_values == base_values[i, j]] = old_values[i, j]
-        c_new = Case()
-        c_new.initialize(new_values)
-        q.test_x_list.append(c_new)
+        c_x_new = c_x.copy()
+        c_x_new.matter_list = [Matter(new_values, new=True)]
+        q.test_x_list.append(c_x_new)
     return q

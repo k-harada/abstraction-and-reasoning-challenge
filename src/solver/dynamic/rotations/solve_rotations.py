@@ -1,9 +1,7 @@
 import numpy as np
 
 from src.data import Problem, Case, Matter
-from src.transformer.array import rotations as rot_arr
-from src.transformer.matter import rotations as rot_mat
-
+from src.solver.dynamic.rotations import matter as rot_mat, array as rot_arr
 
 operations = ["identity", "transpose", "rev_row", "rev_col", "rot_180", "rot_rev_180", "rot_90", "rot_270"]
 

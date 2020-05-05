@@ -92,7 +92,7 @@ def color_change(p: Problem) -> Problem:
         assert new_values.min() >= 0  # no more-2
         # print(new_values)
         case_x_new = case_x.copy()
-        case_x_new.matter_list = [Matter(new_values, background_color=case_x_new.background_color)]
+        case_x_new.matter_list = [Matter(new_values, background_color=case_x_new.background_color, new=True)]
         q.test_x_list.append(case_x_new)
     # train_x
     for case_x in p.train_x_list:
@@ -107,7 +107,7 @@ def color_change(p: Problem) -> Problem:
         new_values = fit_color_change_rule_one(x_values, change_vec)
         # print(new_values)
         case_x_new = case_x.copy()
-        case_x_new.matter_list = [Matter(new_values, background_color=case_x_new.background_color)]
+        case_x_new.matter_list = [Matter(new_values, background_color=case_x_new.background_color, new=True)]
         q.train_x_list.append(case_x_new)
 
     return q

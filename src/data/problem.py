@@ -32,15 +32,15 @@ class Problem:
         Problem.len_train = len(data["train"])
         Problem.len_test = len(data["test"])
         for x in data["train"]:
-            c = Case()
+            c = Case(new=True)
             c.initialize(np.array(x["input"], dtype=np.int), self.background_color)
             self.train_x_list.append(c)
             self.train_x_initial_list.append(c)
-            c = Case()
+            c = Case(new=True)
             c.initialize(np.array(x["output"], dtype=np.int), self.background_color)
             self.train_y_list.append(c)
         for x in data["test"]:
-            c = Case()
+            c = Case(new=True)
             c.initialize(np.array(x["input"], dtype=np.int), self.background_color)
             self.test_x_list.append(c)
             self.test_x_initial_list.append(c)

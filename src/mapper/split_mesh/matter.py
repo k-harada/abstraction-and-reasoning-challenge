@@ -19,11 +19,11 @@ def mesh_split(m: Matter) -> List[Matter]:
     # split
     for arr, xy0 in arr_list:
         x0, y0 = xy0
-        new_matter = Matter(arr, x0, y0, m.background_color)
+        new_matter = Matter(arr, x0, y0, m.background_color, new=True)
         res_list.append(new_matter)
 
     # mesh
-    matter_mesh = Matter(mesh_arr, background_color=m.background_color)
+    matter_mesh = Matter(mesh_arr, background_color=m.background_color, new=True)
     matter_mesh.is_mesh = True
     res_list.append(matter_mesh)
 
@@ -47,10 +47,10 @@ def mesh_2(m: Matter) -> List[Matter]:
     mesh_values[mesh_values != c] = m.background_color
 
     # main
-    matter_main = Matter(main_values, background_color=m.background_color)
+    matter_main = Matter(main_values, background_color=m.background_color, new=True)
 
     # mesh
-    matter_mesh = Matter(mesh_values, background_color=m.background_color)
+    matter_mesh = Matter(mesh_values, background_color=m.background_color, new=True)
     matter_mesh.is_mesh = True
 
     return [matter_main, matter_mesh]
@@ -71,7 +71,7 @@ def mesh_align(m: Matter) -> List[Matter]:
     arr_0 = arr_list[0][0]
     for arr, _ in arr_list:  # drop position
         assert arr.shape == arr_0.shape
-        new_matter = Matter(arr, np.int(0), np.int(0), m.background_color)
+        new_matter = Matter(arr, np.int(0), np.int(0), m.background_color, new=True)
         res_list.append(new_matter)
 
     return res_list

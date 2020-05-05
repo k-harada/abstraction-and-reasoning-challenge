@@ -14,7 +14,7 @@ def bitwise_case(c: Case) -> Case:
     new_values = (m0.values != m0.background_color).astype(np.int64) + (
             m1.values != m1.background_color).astype(np.int64)
     new_case = c.copy()
-    new_case.matter_list = [Matter(new_values, background_color=-1)]
+    new_case.matter_list = [Matter(new_values, background_color=-1, new=True)]
     new_case.background_color = -1
     return new_case
 

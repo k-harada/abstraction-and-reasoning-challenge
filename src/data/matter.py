@@ -3,7 +3,7 @@ import numpy as np
 
 class Matter:
     """Class for objects inside case"""
-    def __init__(self, values: np.array, x0: int = 0, y0: int = 0, background_color: int = 0):
+    def __init__(self, values: np.array, x0: int = 0, y0: int = 0, background_color: int = 0, new=False, copy=False):
         """
         :param values: np.array(np.int) main values
         :param x0: int, position to show in result, x0:x0+shape[0], y0:y0+shape[1]
@@ -13,9 +13,9 @@ class Matter:
         if x0 < 0 or y0 < 0:
             raise ValueError
         # values
-        self.values = values
+        self.values = None
         # shape
-        self.shape = self.values.shape
+        self.shape = None
         # background
         self.background_color = background_color
         # position
@@ -27,6 +27,21 @@ class Matter:
         self.b = None
         self.bool_show = True
         self.is_mesh = False
+        self.color = None
+
+        # if new or copy:
+        #     pass
+        # else:
+        #     raise ValueError
+        #
+        if new:
+            self.set_values(values)
+
+    def set_values(self, values):
+        # values
+        self.values = values
+        # shape
+        self.shape = self.values.shape
 
     def is_square(self):
         if self.shape[0] == self.shape[1]:
@@ -90,24 +105,26 @@ class Matter:
         return int(c_min)
 
     def copy(self):
-        new_matter = Matter(self.values.copy(), self.x0, self.y0, self.background_color)
+        new_matter = Matter(None, self.x0, self.y0, self.background_color, copy=True)
         # copy attributes
         new_matter.a = self.a
         new_matter.b = self.b
         new_matter.bool_show = self.bool_show
         new_matter.is_mesh = self.is_mesh
+        new_matter.color = self.color
+        return new_matter
+
+    def deepcopy(self):
+        new_matter = self.copy()
+        new_matter.set_values(self.values.copy())
         return new_matter
 
     def paste_color(self):
         assert self.a is not None
+        new_matter = self.copy()
         new_values = self.values.copy()
         new_values[self.values != self.background_color] = self.a % 10
-        new_matter = Matter(new_values, self.x0, self.y0, self.background_color)
-        # copy attributes
-        new_matter.a = self.a
-        new_matter.b = self.b
-        new_matter.bool_show = self.bool_show
-        new_matter.is_mesh = self.is_mesh
+        new_matter.set_values(new_values)
         return new_matter
 
 
