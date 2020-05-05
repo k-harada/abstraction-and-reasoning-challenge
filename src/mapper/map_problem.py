@@ -1,11 +1,12 @@
 from src.data import Problem
-from .color import MapColor
-from .connect import MapConnect
-from .divide import Divide
-from .multiple import Multiple
-from .split_mesh.case import mesh_2, mesh_align, mesh_split
-from src.solver.common.shape import is_division
-from .fractal import MapFractal
+from .map_color import MapColor
+from .map_connect import MapConnect
+from .map_divide import Divide
+from .map_multiple import Multiple
+from .split_mesh_normal import SplitMesh
+from .split_mesh_2 import SplitMeshTwo
+from .split_mesh_align import SplitMeshAlign
+from .map_fractal import MapFractal
 
 
 # initial map
@@ -35,17 +36,14 @@ def run_map(p: Problem, command: str) -> Problem:
         q = Multiple.problem(p)
         q.mapper = command
     elif command == "mesh_2":
-        q.train_x_list = [mesh_2(c) for c in p.train_x_list]
-        q.test_x_list = [mesh_2(c) for c in p.test_x_list]
-        q.train_y_list = [x for x in p.train_y_list]
+        q = SplitMeshTwo.problem(p)
+        q.mapper = command
     elif command == "mesh_align":
-        q.train_x_list = [mesh_align(c) for c in p.train_x_list]
-        q.test_x_list = [mesh_align(c) for c in p.test_x_list]
-        q.train_y_list = [x for x in p.train_y_list]
+        q = SplitMeshAlign.problem(p)
+        q.mapper = command
     elif command == "mesh_split":
-        q.train_x_list = [mesh_split(c) for c in p.train_x_list]
-        q.test_x_list = [mesh_split(c) for c in p.test_x_list]
-        q.train_y_list = [x for x in p.train_y_list]
+        q = SplitMesh.problem(p)
+        q.mapper = command
     elif command == "fractal":
         q = MapFractal.problem(p)
         q.mapper = command
