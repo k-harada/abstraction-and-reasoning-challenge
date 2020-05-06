@@ -24,12 +24,10 @@ def extend_shape_case(c: Case, n_row: int, n_col: int) -> Case:
 
 def extend_shape(p: Problem) -> Problem:
     flag, n_row, n_col = is_constant(p)
-
     assert flag
 
     q: Problem
     q = p.copy()
     q.train_x_list = [extend_shape_case(c, n_row, n_col) for c in p.train_x_list]
     q.test_x_list = [extend_shape_case(c, n_row, n_col) for c in p.test_x_list]
-    q.train_y_list = [x for x in p.train_y_list]
     return q

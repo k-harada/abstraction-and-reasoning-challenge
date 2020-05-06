@@ -1,6 +1,7 @@
 from collections import deque
 import numpy as np
 from src.data import Problem, Case, Matter
+from src.solver.common.shape import is_same
 
 
 class Interior:
@@ -93,6 +94,7 @@ class Interior:
 
     @classmethod
     def problem(cls, p: Problem) -> Problem:
+        assert is_same(p)
         q: Problem = p.copy()
         q.train_x_list = [cls.case(c) for c in p.train_x_list]
         q.test_x_list = [cls.case(c) for c in p.test_x_list]

@@ -29,11 +29,10 @@ class Matter:
         self.is_mesh = False
         self.color = None
 
-        # if new or copy:
-        #     pass
-        # else:
-        #     raise ValueError
-        #
+        if new or copy:
+            pass
+        else:
+            raise ValueError
         if new:
             self.set_values(values)
 

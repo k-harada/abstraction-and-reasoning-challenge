@@ -19,6 +19,6 @@ def point_cross_fit_mat(m: Matter, op_arr: np.array) -> Matter:
     new_values[res_arr == 1] = m.color
     new_values[res_arr == 0] = m.background_color
     new_matter = m.copy()
-    new_matter.values = new_values
+    new_matter.set_values(new_values)
 
     return new_matter

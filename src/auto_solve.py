@@ -13,6 +13,19 @@ TIME_LIMIT = 2.0
 
 
 def auto_solve(data, time_limit=TIME_LIMIT):
+
+    time_record = dict()
+    for op in mappers:
+        time_record[op] = 0.0
+    for op in transformers:
+        time_record[op] = 0.0
+    for op in static_solvers:
+        time_record[op] = 0.0
+    for op in dynamic_solvers:
+        time_record[op] = 0.0
+    for op in final_solvers:
+        time_record[op] = 0.0
+
     # flag_show = 0
     p = Problem()
     cnt = 1
@@ -37,17 +50,18 @@ def auto_solve(data, time_limit=TIME_LIMIT):
     heappush(heap_res, (d, 0, 0, p))
 
     # mappers and reducers
-    for map_op in mappers:
+    for op in mappers:
+        t1 = time.time()
         try:
-            q = Runner.run_map(p, map_op)
+            q = Runner.run_map(p, op)
             # evaluate
             d = eval_distance(q)
             heappush(heap_queue, (1, 0, cnt, q))
             heappush(heap_res, (d, 0, cnt, q))
             cnt += 1
-            # print(map_op, reduce_op, d)
         except AssertionError:
             pass
+        time_record[op] += time.time() - t1
 
     # main search
     while len(heap_queue) > 0:
@@ -56,6 +70,7 @@ def auto_solve(data, time_limit=TIME_LIMIT):
         # print(p.history)
         p: Problem
         for op in transformers:
+            t1 = time.time()
             # print(op)
             cnt += 1
             try:
@@ -69,8 +84,10 @@ def auto_solve(data, time_limit=TIME_LIMIT):
                 heappush(heap_res, (d, v + 1, cnt, q))
             except AssertionError:
                 pass
+            time_record[op] += time.time() - t1
 
         for op in dynamic_solvers:
+            t1 = time.time()
             # print(op)
             cnt += 1
             try:
@@ -82,8 +99,10 @@ def auto_solve(data, time_limit=TIME_LIMIT):
                 heappush(heap_res, (d, v + 1, cnt, q))
             except AssertionError:
                 pass
+            time_record[op] += time.time() - t1
 
         for op in final_solvers:
+            t1 = time.time()
             # print(op)
             cnt += 1
             try:
@@ -93,11 +112,13 @@ def auto_solve(data, time_limit=TIME_LIMIT):
                 heappush(heap_res, (d, v + 1, cnt, q))
             except AssertionError:
                 pass
+            time_record[op] += time.time() - t1
 
         # break by time
         if time.time() >= t0 + time_limit:
             break
     # print(cnt, v)
+    print(time_record)
 
     # output
     for sub_id in range(len_test):

@@ -11,7 +11,7 @@ class NCell:
     def case(cls, c: Case) -> Case:
         m: Matter
         new_case = c.copy()
-        new_case.matter_list = [m.copy() for m in c.matter_list]
+        new_case.matter_list = [m.deepcopy() for m in c.matter_list]
         for m in new_case.matter_list:
             m.a = m.n_cell()
         return new_case

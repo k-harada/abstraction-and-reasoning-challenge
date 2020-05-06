@@ -34,8 +34,8 @@ class Case:
         # initialize_attributes
         self.mapper = "identity"
         self.reducer = "simple"
-        self.color_add = self.max_color()
-        self.color_b = self.min_color()
+        self.color_add = None
+        self.color_b = None
         self.pick_ind = 0
 
     def color_count(self):
@@ -132,6 +132,7 @@ class Case:
                         for j in range(m.shape[1]):
                             if m.values[i, j] != m.background_color:
                                 repr_values[m.x0 + i, m.y0 + j] = m.values[i, j]
+
                 return repr_values
         except IndexError:
             print([(m.values, m.x0, m.y0, m.background_color) for m in self.matter_list])

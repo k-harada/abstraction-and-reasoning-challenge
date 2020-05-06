@@ -1,5 +1,6 @@
 import numpy as np
 from src.data import Problem, Case, Matter
+from src.solver.common.shape import is_same
 
 
 class DiffColor:
@@ -24,6 +25,7 @@ class DiffColor:
 
     @classmethod
     def problem(cls, p: Problem) -> Problem:
+        assert is_same(p)
         q: Problem = p.copy()
         q.train_x_list = [cls.case_21(c1, c2) for c1, c2 in zip(p.train_x_list, p.train_x_initial_list)]
         q.test_x_list = [cls.case_21(c1, c2) for c1, c2 in zip(p.test_x_list, p.test_x_initial_list)]

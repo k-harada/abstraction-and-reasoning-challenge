@@ -31,13 +31,13 @@ def fit_replace_rule_33(p: Problem) -> Problem:
     for c_x in p.train_x_list:
         c_x_new = c_x.copy()
         new_values = fit_replace_rule_33_one(c_x.repr_values(), rule_33, p.background_color)
-        c_x_new.matter_list = [Matter(new_values, background_color=p.background_color)]
+        c_x_new.matter_list = [Matter(new_values, background_color=p.background_color, new=True)]
         q.train_x_list.append(c_x_new)
 
     for c_x in p.test_x_list:
         c_x_new = c_x.copy()
         new_values = fit_replace_rule_33_one(c_x.repr_values(), rule_33, p.background_color)
-        c_x_new.matter_list = [Matter(new_values, background_color=p.background_color)]
+        c_x_new.matter_list = [Matter(new_values, background_color=p.background_color, new=True)]
         q.test_x_list.append(c_x_new)
 
     return q
@@ -71,13 +71,13 @@ def fit_replace_rule_33_all(p: Problem) -> Problem:
     for c_x in p.train_x_list:
         c_x_new = c_x.copy()
         new_values = fit_replace_rule_33_one_all(c_x.repr_values(), rule_33, p.background_color)
-        c_x_new.matter_list = [Matter(new_values, background_color=p.background_color)]
+        c_x_new.matter_list = [Matter(new_values, background_color=p.background_color, new=True)]
         q.train_x_list.append(c_x_new)
 
     for c_x in p.test_x_list:
         c_x_new = c_x.copy()
         new_values = fit_replace_rule_33_one_all(c_x.repr_values(), rule_33, p.background_color)
-        c_x_new.matter_list = [Matter(new_values, background_color=p.background_color)]
+        c_x_new.matter_list = [Matter(new_values, background_color=p.background_color, new=True)]
         q.test_x_list.append(c_x_new)
 
     return q

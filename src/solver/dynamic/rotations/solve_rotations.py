@@ -82,7 +82,7 @@ def solve_rotations(p: Problem) -> Problem:
             m = case_x.matter_list[i]
             ind = good_operations[i].argmax()
             if ind == 0:
-                new_case_x.matter_list.append(m.copy())
+                new_case_x.matter_list.append(m.deepcopy())
             elif ind == 1:
                 new_case_x.matter_list.append(rot_mat.transpose(m))
             elif ind == 2:
@@ -106,7 +106,7 @@ def solve_rotations(p: Problem) -> Problem:
             m = case_x.matter_list[i]
             ind = good_operations[i].argmax()
             if ind == 0:
-                new_case_x.matter_list.append(m.copy())
+                new_case_x.matter_list.append(m.deepcopy())
             elif ind == 1:
                 new_case_x.matter_list.append(rot_mat.transpose(m))
             elif ind == 2:

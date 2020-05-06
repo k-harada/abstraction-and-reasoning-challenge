@@ -24,7 +24,7 @@ def duplicate(p: Problem) -> Problem:
         for i in range(m_row):
             for j in range(m_col):
                 new_values[i * n_row:(i + 1) * n_row, j * n_col:(j + 1) * n_col] = base_values
-        c_x_new.matter_list = [Matter(new_values, background_color=c_x.background_color)]
+        c_x_new.matter_list = [Matter(new_values, background_color=c_x.background_color, new=True)]
         q.train_x_list.append(c_x_new)
 
     for c_x in p.test_x_list:
@@ -36,7 +36,7 @@ def duplicate(p: Problem) -> Problem:
         for i in range(m_row):
             for j in range(m_col):
                 new_values[i * n_row:(i + 1) * n_row, j * n_col:(j + 1) * n_col] = base_values
-        c_x_new.matter_list = [Matter(new_values, background_color=c_x.background_color)]
+        c_x_new.matter_list = [Matter(new_values, background_color=c_x.background_color, new=True)]
         q.test_x_list.append(c_x_new)
 
     return q
