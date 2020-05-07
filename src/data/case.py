@@ -16,10 +16,11 @@ class Case:
         self.a = None
         self.b = None
         self.color_add = None
-        self.color_b = None
+        self.color_delete = None
         self.mapper = None
         self.reducer = None
         self.pick_ind = None
+        self.repr_values_eval = None
         if new or copy:
             pass
         else:
@@ -35,8 +36,9 @@ class Case:
         self.mapper = "identity"
         self.reducer = "simple"
         self.color_add = None
-        self.color_b = None
+        self.color_delete = None
         self.pick_ind = 0
+        self.repr_values_eval = values
 
     def color_count(self):
         """
@@ -90,16 +92,20 @@ class Case:
         new_case.a = self.a
         new_case.b = self.b
         new_case.color_add = self.color_add
-        new_case.color_b = self.color_b
+        new_case.color_delete = self.color_delete
         new_case.mapper = self.mapper
         new_case.reducer = self.reducer
         new_case.pick_ind = self.pick_ind
+        new_case.repr_values_eval = self.repr_values_eval
         return new_case
 
     def __repr__(self):
         return "|" + "|".join(["".join(map(str, x)) for x in self.repr_values()]) + "|"
 
     def repr_values(self) -> np.array:
+        return self.repr_values_eval
+
+    def repr_values_old(self) -> np.array:
 
         try:
             if self.mapper == "fractal":

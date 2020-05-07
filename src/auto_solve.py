@@ -118,7 +118,7 @@ def auto_solve(data, time_limit=TIME_LIMIT):
         if time.time() >= t0 + time_limit:
             break
     # print(cnt, v)
-    print(time_record)
+    # print(time_record)
 
     # output
     for sub_id in range(len_test):
@@ -177,5 +177,6 @@ def data_load_eval(i, file_list="train"):
 
 
 if __name__ == "__main__":
+    data_load_eval(256, "train")
     for i in range(50):
         data_load_eval(i, "train")

@@ -1,6 +1,6 @@
 import numpy as np
 from src.data import Problem, Case, Matter
-from src.solver.common.color import monotone_color, new_color
+from src.solver.common.color import monotone_color, new_color, deleted_color
 
 
 def define_color(p: Problem) -> int:
@@ -27,4 +27,26 @@ def set_problem_color(p: Problem) -> None:
             c.color_add = color_add
         for c in p.test_x_list:
             c.color_add = color_add
+
+    deleted_colors = deleted_color(p)
+
+    if len(deleted_colors) == 1:
+        color_delete = deleted_colors[0]
+    elif len(deleted_colors) == 2 and p.background_color in deleted_colors:
+        if deleted_colors[0] == p.background_color:
+            color_delete = deleted_colors[1]
+        else:
+            color_delete = deleted_colors[0]
+    else:
+        color_delete = None
+
+    if color_delete is not None:
+        p.color_delete = color_delete
+        c: Case
+        m: Matter
+        for c in p.train_x_list:
+            c.color_delete = color_delete
+        for c in p.test_x_list:
+            c.color_delete = color_delete
+
     return None

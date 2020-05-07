@@ -5,12 +5,15 @@ from src.solver.static import *
 from src.solver.dynamic import *
 
 
-static_solvers = ["set_problem_color", "set_is_pattern"]
+static_solvers = [
+    "set_problem_color", "set_is_pattern", "set_is_periodic_row", "set_is_periodic_col",
+    "set_is_line_symmetry_row", "set_is_line_symmetry_col"
+]
 mappers = [
     "color", "connect", "connect4", "mesh_split", "mesh_2", "mesh_align", "divide_row_col",
     "multiple_row_col", "fractal"
 ]
-reducers = ["auto_fill_row_col_periodicity", "diff_color"]
+reducers = ["auto_fill_row_col_periodicity", "diff_color", "auto_fill_line_symmetry"]
 usual_transformers = [
     "interior_dir4_zero", "trim_background", "paste_color", "n_cell", "arg_sort", "fill_rectangle",
     "connect_row", "connect_col", "connect_row_col", "connect_diagonal"
@@ -21,7 +24,8 @@ dynamic_solvers = [
     "duplicate", "extend_shape", "point_cross"
 ]
 final_solvers = [
-    "fit_replace_rule_33", "fit_replace_rule_33_all", "reduce_bitwise", "color_change", "rotations", "fill_pattern"
+    "fit_replace_rule_33", "fit_replace_rule_33_all", "reduce_bitwise", "color_change", "color_pile",
+    "rotations", "fill_pattern"
 ]
 
 

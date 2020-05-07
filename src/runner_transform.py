@@ -6,8 +6,9 @@ from src.transformer.connect_line.row import ConnectRow
 from src.transformer.connect_line.col import ConnectCol
 from src.transformer.connect_line.row_col import ConnectRowCol
 from src.transformer.connect_line.diagonal import ConnectDiagonal
-from src.transformer.fill_pattern.periodicity_row_col import AutoFillRowColPeriodicity
-from src.transformer.trim_background import TrimBackground
+from src.reducer.fill_pattern.periodicity_row_col import AutoFillRowColPeriodicity
+from src.reducer.fill_pattern.symmetry import AutoFillLineSymmetry
+from src.reducer.trim_background import TrimBackground
 from src.transformer.paste_color import PasteColor
 from src.transformer.arithmetic.n_cell import NCell
 from src.transformer.arithmetic.arg_sort import ArgSort
@@ -26,6 +27,8 @@ def run_transform(p: Problem, command: str) -> Problem:
         return ConnectDiagonal.problem(p)
     elif command == "auto_fill_row_col_periodicity":
         return AutoFillRowColPeriodicity.problem(p)
+    elif command == "auto_fill_line_symmetry":
+        return AutoFillLineSymmetry.problem(p)
     elif command == "trim_background":
         return TrimBackground.problem(p)
     elif command == "paste_color":

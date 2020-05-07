@@ -31,3 +31,23 @@ def new_color(p: Problem) -> List[int]:
                     new_color_count[y_values[i, j]] += 1
 
     return [c for c in range(10) if new_color_count[c] > 0]
+
+
+def deleted_color(p: Problem) -> List[int]:
+    case_x: Case
+    case_y: Case
+    deleted_color_flag = np.ones(10, dtype=np.int)
+    for case_x, case_y in zip(p.train_x_list, p.train_y_list):
+        # color count
+        y_cnt = case_y.color_count()
+        x_cnt = case_x.color_count()
+        for c in range(10):
+            if y_cnt[c] > 0 or x_cnt[c] == 0:
+                deleted_color_flag[c] = 0
+    for case_x in p.test_x_list:
+        x_cnt = case_x.color_count()
+        for c in range(10):
+            if x_cnt[c] == 0:
+                deleted_color_flag[c] = 0
+
+    return [c for c in range(10) if deleted_color_flag[c] > 0]

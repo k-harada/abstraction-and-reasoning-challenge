@@ -74,16 +74,6 @@ class AutoFillRowColPeriodicity:
         return find_periodicity_row(x_arr.transpose(), background)
 
     @classmethod
-    def fill_periodicity_col(cls, x_arr, p, background=0):
-        """
-        :param x_arr: np.array(int), must be >= 0 otherwise returns x_arr.copy()
-        :param p: period
-        :param background: int
-        :return: np.array(int), filled array
-        """
-        return fill_periodicity_row(x_arr.transpose(), p, background).transpose()
-
-    @classmethod
     def auto_fill_row(cls, x_arr, background=0):
         """
         :param x_arr: np.array(int), must be >= 0 otherwise returns x_arr.copy()
@@ -100,8 +90,7 @@ class AutoFillRowColPeriodicity:
         :param background: int
         :return: np.array(int), filled array in col_wise
         """
-        p_col = cls.find_periodicity_col(x_arr, background)
-        return cls.fill_periodicity_col(x_arr, p_col, background)
+        return cls.auto_fill_row(x_arr.transpose(), background).transpose()
 
     @classmethod
     def auto_fill_row_col(cls, x_arr, background=0):
@@ -119,11 +108,37 @@ class AutoFillRowColPeriodicity:
             if np.abs(z_arr - y_arr).sum() == 0:
                 return z_arr
             iter_times += 1
-        assert iter_times == -1
+        assert iter_times == -1  # break by assertion error
         return None
 
     @classmethod
-    def case(cls, c: Case) -> Case:
+    def auto_fill_row_col_background(cls, x_arr):
+        cost = 10000
+        background_res = 0
+        for background in range(10):
+            z_arr = cls.auto_fill_row_col(x_arr, background)
+            cost_temp = find_periodicity_row(z_arr, background) * cls.find_periodicity_col(z_arr, background)
+            if cost_temp < cost:
+                cost = cost_temp
+                background_res = background
+        return cls.auto_fill_row_col(x_arr, background_res)
+
+    @classmethod
+    def case_row(cls, c: Case) -> Case:
+        new_case = c.copy()
+        new_values = cls.auto_fill_row(c.repr_values(), c.background_color)
+        new_case.matter_list = [Matter(new_values, background_color=c.background_color, new=True)]
+        return new_case
+
+    @classmethod
+    def case_col(cls, c: Case) -> Case:
+        new_case = c.copy()
+        new_values = cls.auto_fill_col(c.repr_values(), c.background_color)
+        new_case.matter_list = [Matter(new_values, background_color=c.background_color, new=True)]
+        return new_case
+
+    @classmethod
+    def case_row_col(cls, c: Case) -> Case:
         new_case = c.copy()
         new_values = cls.auto_fill_row_col(c.repr_values(), c.background_color)
         new_case.matter_list = [Matter(new_values, background_color=c.background_color, new=True)]
@@ -132,9 +147,20 @@ class AutoFillRowColPeriodicity:
     @classmethod
     def problem(cls, p: Problem) -> Problem:
         assert is_same(p)
-        q: Problem = p.copy()
-        q.train_x_list = [cls.case(c) for c in p.train_x_list]
-        q.test_x_list = [cls.case(c) for c in p.test_x_list]
+        if p.is_periodic_row and p.is_periodic_col:
+            q: Problem = p.copy()
+            q.train_x_list = [cls.case_row_col(c) for c in p.train_x_list]
+            q.test_x_list = [cls.case_row_col(c) for c in p.test_x_list]
+        elif p.is_periodic_row:
+            q: Problem = p.copy()
+            q.train_x_list = [cls.case_row(c) for c in p.train_x_list]
+            q.test_x_list = [cls.case_row(c) for c in p.test_x_list]
+        elif p.is_periodic_col:
+            q: Problem = p.copy()
+            q.train_x_list = [cls.case_col(c) for c in p.train_x_list]
+            q.test_x_list = [cls.case_col(c) for c in p.test_x_list]
+        else:
+            raise AssertionError
         return q
 
 
@@ -162,9 +188,6 @@ if __name__ == "__main__":
     x[1, :] = 2
     print(fill_periodicity_row(x, 2, 0))
     print(fill_periodicity_row(x, 3, 0))
-    print(AutoFillRowColPeriodicity.fill_periodicity_col(x, 2))
-    x[3, 0] = 2
-    print(AutoFillRowColPeriodicity.fill_periodicity_col(x, 2))
     x = np.zeros((5, 3), dtype=np.int)
     x[:2, :2] = 1
     x[1, 1] = 2
@@ -175,7 +198,7 @@ if __name__ == "__main__":
 
     x = np.ones((5, 3), dtype=np.int)
     x[1, :] = 3
-    x[3:, :] = -1
+    x[3:, :] = 5
     print(x)
-    print(AutoFillRowColPeriodicity.auto_fill_row_col(x, -1))
+    print(AutoFillRowColPeriodicity.auto_fill_row_col_background(x))
 

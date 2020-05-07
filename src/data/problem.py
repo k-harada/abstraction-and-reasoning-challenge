@@ -21,9 +21,13 @@ class Problem:
         self.a = None
         self.b = None
         self.color_add = None
-        self.color_b = None
+        self.color_delete = None
         self.is_pattern = False
         self.is_same_shape = False
+        self.is_line_symmetry_row = False
+        self.is_line_symmetry_col = False
+        self.is_periodic_row = False
+        self.is_periodic_col = False
         self.history = []
         self.mapper = "identity"
 
@@ -73,9 +77,13 @@ class Problem:
         new_problem.a = self.a
         new_problem.b = self.b
         new_problem.color_add = self.color_add
-        new_problem.color_b = self.color_b
+        new_problem.color_delete = self.color_delete
         new_problem.is_pattern = self.is_pattern
         new_problem.is_same_shape = self.is_same_shape
+        new_problem.is_line_symmetry_row = self.is_line_symmetry_row
+        new_problem.is_line_symmetry_col = self.is_line_symmetry_col
+        new_problem.is_periodic_row = self.is_periodic_row
+        new_problem.is_periodic_col = self.is_periodic_col
         new_problem.history = self.history.copy()
         new_problem.mapper = self.mapper
         return new_problem
