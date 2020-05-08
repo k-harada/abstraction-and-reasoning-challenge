@@ -2,7 +2,7 @@ import numpy as np
 from src.data import Problem, Case, Matter
 
 
-class NCell:
+class MaxColor:
     def __init__(self):
         pass
 
@@ -12,7 +12,7 @@ class NCell:
         new_case = c.copy()
         new_case.matter_list = [m.deepcopy() for m in c.matter_list]
         for m in new_case.matter_list:
-            m.a = m.n_cell()
+            m.a = m.max_color()
         return new_case
 
     @classmethod

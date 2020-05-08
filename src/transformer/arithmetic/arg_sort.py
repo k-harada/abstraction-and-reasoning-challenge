@@ -3,7 +3,6 @@ from src.data import Problem, Case, Matter
 
 
 class ArgSort:
-    """pick first matter and trim background"""
     def __init__(self):
         pass
 

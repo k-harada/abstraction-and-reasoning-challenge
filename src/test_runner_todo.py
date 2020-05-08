@@ -54,32 +54,9 @@ def test_61():
     # print(eval_distance(r))
 
 
-def test_111():
-    p = problem_load(111)
+def test_134():
+    p = problem_load(134)
     print(eval_distance(p))
-    q = Runner.run_transform(p, "auto_fill_line_symmetry")
-    print(eval_distance(q))
-
-
-def test_112():
-    p = problem_load(112)
-    print(eval_distance(p))
-    q = Runner.run_transform(p, "auto_fill_line_symmetry")
-    print(eval_distance(q))
-
-
-def test_126():
-    p = problem_load(126)
-    print(eval_distance(p))
-    q = Runner.run_solve(p, "fit_replace_rule_33")
-    print(eval_distance(q))
-
-
-def test_128():
-    p = problem_load(128)
-    print(eval_distance(p))
-    q = Runner.run_solve(p, "fit_replace_rule_33")
-    print(eval_distance(q))
 
 
 def test_140():
@@ -91,9 +68,5 @@ if __name__ == "__main__":
     test_9()
     test_46()
     test_61()
-    test_111()
-    test_112()
-    test_126()
-    test_128()
     test_140()
 

@@ -1,6 +1,6 @@
 from src.data import Case, Problem
-from src.reducer.fill_pattern.symmetry import is_line_symmetry_row
-from src.reducer.fill_pattern.symmetry import is_line_symmetry_col
+from src.reducer.fill_pattern.symmetry_delete import is_line_symmetry_row
+from src.reducer.fill_pattern.symmetry_delete import is_line_symmetry_col
 
 IGNORE_N_LINES = 4
 

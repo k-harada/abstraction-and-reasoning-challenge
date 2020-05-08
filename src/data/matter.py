@@ -126,6 +126,13 @@ class Matter:
         new_matter.set_values(new_values)
         return new_matter
 
+    def paste_color_full(self):
+        assert self.a is not None
+        new_matter = self.copy()
+        new_values = (self.a % 10) * np.ones(self.values.shape, dtype=np.int)
+        new_matter.set_values(new_values)
+        return new_matter
+
 
 if __name__ == "__main__":
     m0 = Matter(np.array([[1, 2, 3], [2, 3, 5], [4, 8, 2]]))

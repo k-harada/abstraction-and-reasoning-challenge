@@ -173,14 +173,14 @@ class TestSolve(unittest.TestCase):
     def test_070(self):
         p = problem_load(70)
         d = eval_distance(p)
-        q = Runner.run_transform(p, "auto_fill_line_symmetry")
+        q = Runner.run_transform(p, "auto_fill_line_symmetry_del")
         d = eval_distance(q)
         self.assertEqual(d, 0)
 
     def test_073(self):
         p = problem_load(73)
         d = eval_distance(p)
-        q = Runner.run_transform(p, "auto_fill_line_symmetry")
+        q = Runner.run_transform(p, "auto_fill_line_symmetry_del")
         d = eval_distance(q)
         self.assertEqual(d, 0)
 
@@ -199,6 +199,43 @@ class TestSolve(unittest.TestCase):
         q = Runner.run_transform(p, "connect_row")
         d = eval_distance(q)
         r = Runner.run_transform(q, "connect_col")
+        d = eval_distance(r)
+        self.assertEqual(d, 0)
+
+    def test_111(self):
+        p = problem_load(111)
+        d = eval_distance(p)
+        q = Runner.run_transform(p, "auto_fill_line_symmetry_add")
+        d = eval_distance(q)
+        self.assertEqual(d, 0)
+
+    def test_112(self):
+        p = problem_load(112)
+        d = eval_distance(p)
+        q = Runner.run_transform(p, "auto_fill_line_symmetry_full")
+        d = eval_distance(q)
+        self.assertEqual(d, 0)
+
+    def test_116(self):
+        p = problem_load(116)
+        d = eval_distance(p)
+        q = Runner.run_transform(p, "auto_fill_line_symmetry_add")
+        d = eval_distance(q)
+        self.assertEqual(d, 0)
+
+    def test_126(self):
+        p = problem_load(126)
+        d = eval_distance(p)
+        q = Runner.run_solve(p, "fit_replace_rule_33")
+        d = eval_distance(q)
+        self.assertEqual(d, 0)
+
+    def test_128(self):
+        p = problem_load(128)
+        d = eval_distance(p)
+        q = Runner.run_transform(p, "max_color")
+        d = eval_distance(q)
+        r = Runner.run_transform(q, "paste_color_full")
         d = eval_distance(r)
         self.assertEqual(d, 0)
 

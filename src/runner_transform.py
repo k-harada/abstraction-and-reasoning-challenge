@@ -7,11 +7,14 @@ from src.transformer.connect_line.col import ConnectCol
 from src.transformer.connect_line.row_col import ConnectRowCol
 from src.transformer.connect_line.diagonal import ConnectDiagonal
 from src.reducer.fill_pattern.periodicity_row_col import AutoFillRowColPeriodicity
-from src.reducer.fill_pattern.symmetry import AutoFillLineSymmetry
+from src.reducer.fill_pattern.symmetry_delete import AutoFillLineSymmetryDelete
+from src.reducer.fill_pattern.symmetry_add import AutoFillLineSymmetryAdd
+from src.reducer.fill_pattern.symmetry_full import AutoFillLineSymmetryFull
 from src.reducer.trim_background import TrimBackground
 from src.transformer.paste_color import PasteColor
 from src.transformer.arithmetic.n_cell import NCell
 from src.transformer.arithmetic.arg_sort import ArgSort
+from src.transformer.arithmetic.max_color import MaxColor
 
 
 def run_transform(p: Problem, command: str) -> Problem:
@@ -27,16 +30,24 @@ def run_transform(p: Problem, command: str) -> Problem:
         return ConnectDiagonal.problem(p)
     elif command == "auto_fill_row_col_periodicity":
         return AutoFillRowColPeriodicity.problem(p)
-    elif command == "auto_fill_line_symmetry":
-        return AutoFillLineSymmetry.problem(p)
+    elif command == "auto_fill_line_symmetry_del":
+        return AutoFillLineSymmetryDelete.problem(p)
+    elif command == "auto_fill_line_symmetry_add":
+        return AutoFillLineSymmetryAdd.problem(p)
+    elif command == "auto_fill_line_symmetry_full":
+        return AutoFillLineSymmetryFull.problem(p)
     elif command == "trim_background":
         return TrimBackground.problem(p)
     elif command == "paste_color":
-        return PasteColor.problem(p)
+        return PasteColor.problem(p, False)
+    elif command == "paste_color_full":
+        return PasteColor.problem(p, True)
     elif command == "arg_sort":
         return ArgSort.problem(p)
     elif command == "n_cell":
         return NCell.problem(p)
+    elif command == "max_color":
+        return MaxColor.problem(p)
     elif command == "fill_rectangle":
         return FillRectangle.problem(p)
     elif command == "interior_dir4_zero":
