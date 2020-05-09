@@ -11,11 +11,12 @@ train_file_list = list(sorted(os.listdir("../input/training/")))
 
 def problem_load(i, file_list="train"):
     if file_list == "train":
-        sample_data = json.load(open(f"../input/training/{train_file_list[i]}", "r"))
-        # print(sample_data)
-        print(file_list, i)
-        problem = Problem()
-        problem.initialize(sample_data)
+        with open(f"../input/training/{train_file_list[i]}", "r") as f:
+            sample_data = json.load(f)
+            # print(sample_data)
+            print(file_list, i)
+            problem = Problem()
+            problem.initialize(sample_data)
         # static solvers
         for op in static_solvers:
             Runner.pre_solve(problem, op)
@@ -32,8 +33,8 @@ def test_9():
     print(eval_distance(r))
     s = Runner.run_transform(r, "paste_color")
     print(eval_distance(s))
-    # t = Runner.run_solve(s, "color_change")
-    # print(eval_distance(t))
+    t = Runner.run_solve(s, "color_change")
+    print(eval_distance(t))
 
 
 def test_46():
@@ -54,6 +55,11 @@ def test_61():
     # print(eval_distance(r))
 
 
+def test_64():
+    p = problem_load(64)
+    print(eval_distance(p))
+
+
 def test_134():
     p = problem_load(134)
     print(eval_distance(p))
@@ -64,9 +70,37 @@ def test_140():
     print(eval_distance(p))
 
 
+def test_221():
+    p = problem_load(221)
+    print(eval_distance(p))
+
+
+def test_243():
+    p = problem_load(243)
+    print(eval_distance(p))
+
+
+def test_258():
+    p = problem_load(258)
+    d = eval_distance(p)
+    q = Runner.run_transform(p, "change_background")
+    d = eval_distance(q)
+    r = Runner.run_transform(q, "trim_background")
+    d = eval_distance(r)
+    s = Runner.run_solve(r, "color_change")
+    d = eval_distance(s)
+    print(d)
+
+
+def test_261():
+    p = problem_load(261)
+    print(eval_distance(p))
+
+
 if __name__ == "__main__":
     test_9()
     test_46()
     test_61()
     test_140()
-
+    test_258()
+    test_261()

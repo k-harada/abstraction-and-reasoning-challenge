@@ -11,11 +11,12 @@ train_file_list = list(sorted(os.listdir("../input/training/")))
 
 def problem_load(i, file_list="train"):
     if file_list == "train":
-        sample_data = json.load(open(f"../input/training/{train_file_list[i]}", "r"))
-        # print(sample_data)
-        print(file_list, i)
-        problem = Problem()
-        problem.initialize(sample_data)
+        with open(f"../input/training/{train_file_list[i]}", "r") as f:
+            sample_data = json.load(f)
+            # print(sample_data)
+            # print(file_list, i)
+            problem = Problem()
+            problem.initialize(sample_data)
         # static solvers
         for op in static_solvers:
             Runner.pre_solve(problem, op)
@@ -113,6 +114,15 @@ class TestSolve(unittest.TestCase):
         q = Runner.run_solve(p, "duplicate")
         d = eval_distance(q)
         r = Runner.run_solve(q, "fit_replace_rule_33_all")
+        d = eval_distance(r)
+        self.assertEqual(d, 0)
+
+    def test_020(self):
+        p = problem_load(20)
+        d = eval_distance(p)
+        q = Runner.run_map(p, "mesh_split")
+        d = eval_distance(q)
+        r = Runner.run_transform(q, "collect_max")
         d = eval_distance(r)
         self.assertEqual(d, 0)
 
@@ -284,6 +294,26 @@ class TestSolve(unittest.TestCase):
         d = eval_distance(q)
         r = Runner.run_solve(q, "color_pile")
         d = eval_distance(r)
+        self.assertEqual(d, 0)
+
+    def test_266(self):
+        p = problem_load(266)
+        d = eval_distance(p)
+        q = Runner.run_transform(p, "switch_color")
+        d = eval_distance(q)
+        r = Runner.run_transform(q, "keep_max_color")
+        d = eval_distance(r)
+        self.assertEqual(d, 0)
+
+    def test_329(self):
+        p = problem_load(329)
+        d = eval_distance(p)
+        q = Runner.run_map(p, "connect")
+        d = eval_distance(q)
+        r = Runner.run_transform(q, "paste_color")
+        d = eval_distance(r)
+        s = Runner.run_solve(r, "color_change")
+        d = eval_distance(s)
         self.assertEqual(d, 0)
 
 

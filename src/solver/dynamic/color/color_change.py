@@ -1,6 +1,7 @@
 import numpy as np
 import numba
 from src.data import Problem, Case, Matter
+from src.common.trivial_reducer import trivial_reducer
 
 
 @numba.jit('i8[:](i8[:, :], i8[:, :])', nopython=True)
@@ -45,8 +46,11 @@ def color_change(p: Problem) -> Problem:
     for case_x, case_y in zip(p.train_x_list, p.train_y_list):
 
         # need to be one matter
-        assert len(case_x.matter_list) == len(case_y.matter_list) == 1
-        x_values = case_x.repr_values()
+        assert len(case_y.matter_list) == 1
+        if len(case_x.matter_list) == 1:
+            x_values = case_x.repr_values()
+        else:
+            x_values = trivial_reducer(case_x)
         y_values = case_y.repr_values()
 
         # same shape
@@ -71,6 +75,10 @@ def color_change(p: Problem) -> Problem:
                 assert change_vec[c] == res_arr[c]
 
     # print(change_vec)
+    # fill
+    for c in range(10):
+        if (change_vec == c).sum() >= 3:
+            change_vec[change_vec == -2] = c
 
     q: Problem
     q = p.copy()
@@ -80,8 +88,10 @@ def color_change(p: Problem) -> Problem:
     # transform
     # test_x first so that find exception faster
     for case_x in p.test_x_list:
-        assert len(case_x.matter_list) == 1
-        x_values = case_x.repr_values()
+        if len(case_x.matter_list) == 1:
+            x_values = case_x.repr_values()
+        else:
+            x_values = trivial_reducer(case_x)
         # print(x_values)
         # value range
         assert x_values.min() >= 0
@@ -96,8 +106,10 @@ def color_change(p: Problem) -> Problem:
         q.test_x_list.append(case_x_new)
     # train_x
     for case_x in p.train_x_list:
-        assert len(case_x.matter_list) == 1
-        x_values = case_x.repr_values()
+        if len(case_x.matter_list) == 1:
+            x_values = case_x.repr_values()
+        else:
+            x_values = trivial_reducer(case_x)
         # print(x_values)
         # value range
         assert x_values.min() >= 0

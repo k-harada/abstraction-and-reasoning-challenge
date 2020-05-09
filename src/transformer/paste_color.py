@@ -4,7 +4,7 @@ from src.solver.common.shape import is_same
 
 
 class PasteColor:
-    """pick first matter and trim background"""
+
     def __init__(self):
         pass
 

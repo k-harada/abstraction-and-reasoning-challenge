@@ -1,6 +1,7 @@
 import numpy as np
 from src.data import Problem, Case, Matter
 from src.solver.common.shape import is_same
+from src.common.trivial_reducer import trivial_reducer
 
 
 class DiffColor:
@@ -12,8 +13,8 @@ class DiffColor:
     def case_21(cls, c: Case, compare_c: Case) -> Case:
         assert c.color_add is not None
 
-        new_values = c.repr_values()
-        compare_values = compare_c.repr_values()
+        new_values = trivial_reducer(c)
+        compare_values = trivial_reducer(compare_c)
 
         assert new_values.shape == compare_values.shape
         new_values[new_values != compare_values] = c.color_add

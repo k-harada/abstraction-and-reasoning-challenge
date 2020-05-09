@@ -19,9 +19,10 @@ def local_eval(dir_path, time_limit=TIME_LIMIT):
 
     for i, f in tqdm.tqdm(enumerate(list(sorted(os.listdir(dir_path))))):
         if f[-5:] == ".json":
-            sample_data = json.load(open(f'{dir_path + f}', "r"))
-            # print(sample_data)
-            solved_dict = auto_solve(sample_data, time_limit=time_limit)
+            with open(f'{dir_path + f}', "r") as f:
+                sample_data = json.load(f)
+                # print(sample_data)
+                solved_dict = auto_solve(sample_data, time_limit=time_limit)
             for j in solved_dict.keys():
                 assert len(solved_dict[j]) <= 3
                 if len(solved_dict[j]) != 3:

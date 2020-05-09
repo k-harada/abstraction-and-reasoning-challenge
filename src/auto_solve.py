@@ -150,13 +150,15 @@ def data_load_eval(i, file_list="train"):
     train_file_list = list(sorted(os.listdir("../input/training/")))
     eval_file_list = list(sorted(os.listdir("../input/evaluation/")))
 
-    # load
+    # load and run
     if file_list == "train":
-        data = json.load(open(f"../input/training/{train_file_list[i]}", "r"))
+        with open(f"../input/training/{train_file_list[i]}", "r") as f:
+            data = json.load(f)
+            solved_dict = auto_solve(data, time_limit=TIME_LIMIT)
     else:
-        data = json.load(open(f"../input/evaluation/{eval_file_list[i]}", "r"))
-    # run
-    solved_dict = auto_solve(data, time_limit=TIME_LIMIT)
+        with open(f"../input/evaluation/{eval_file_list[i]}", "r") as f:
+            data = json.load(f)
+            solved_dict = auto_solve(data, time_limit=TIME_LIMIT)
     # eval
     total_ac = 0
     total_wa = 0
@@ -177,6 +179,6 @@ def data_load_eval(i, file_list="train"):
 
 
 if __name__ == "__main__":
-    data_load_eval(128, "train")
+    data_load_eval(258, "train")
     for i in range(50):
         data_load_eval(i, "train")

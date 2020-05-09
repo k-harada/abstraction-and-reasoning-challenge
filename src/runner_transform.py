@@ -11,7 +11,11 @@ from src.reducer.fill_pattern.symmetry_delete import AutoFillLineSymmetryDelete
 from src.reducer.fill_pattern.symmetry_add import AutoFillLineSymmetryAdd
 from src.reducer.fill_pattern.symmetry_full import AutoFillLineSymmetryFull
 from src.reducer.trim_background import TrimBackground
+from src.reducer.collect_mesh import CollectMax
 from src.transformer.paste_color import PasteColor
+from src.transformer.switch_color import SwitchColor
+from src.transformer.keep_max_color import KeepMaxColor
+from src.transformer.change_background import ChangeBackground
 from src.transformer.arithmetic.n_cell import NCell
 from src.transformer.arithmetic.arg_sort import ArgSort
 from src.transformer.arithmetic.max_color import MaxColor
@@ -38,10 +42,18 @@ def run_transform(p: Problem, command: str) -> Problem:
         return AutoFillLineSymmetryFull.problem(p)
     elif command == "trim_background":
         return TrimBackground.problem(p)
+    elif command == "collect_max":
+        return CollectMax.problem(p)
     elif command == "paste_color":
         return PasteColor.problem(p, False)
     elif command == "paste_color_full":
         return PasteColor.problem(p, True)
+    elif command == "switch_color":
+        return SwitchColor.problem(p)
+    elif command == "keep_max_color":
+        return KeepMaxColor.problem(p)
+    elif command == "change_background":
+        return ChangeBackground.problem(p)
     elif command == "arg_sort":
         return ArgSort.problem(p)
     elif command == "n_cell":

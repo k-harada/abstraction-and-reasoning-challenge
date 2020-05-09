@@ -14,11 +14,12 @@ mappers = [
     "multiple_row_col", "fractal"
 ]
 reducers = [
-    "auto_fill_row_col_periodicity", "diff_color",
+    "auto_fill_row_col_periodicity", "diff_color", "collect_max",
     "auto_fill_line_symmetry_del", "auto_fill_line_symmetry_add", "auto_fill_line_symmetry_full"
 ]
 usual_transformers = [
-    "interior_dir4_zero", "trim_background", "paste_color", "paste_color_full", "n_cell", "arg_sort", "max_color",
+    "interior_dir4_zero", "trim_background", "paste_color", "paste_color_full", "switch_color",
+    "n_cell", "arg_sort", "max_color", "keep_max_color", "change_background",
     "fill_rectangle", "connect_row", "connect_col", "connect_row_col", "connect_diagonal"
 ]
 transformers = reducers + usual_transformers
