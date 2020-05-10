@@ -11,16 +11,17 @@ static_solvers = [
 ]
 mappers = [
     "color", "connect", "connect4", "mesh_split", "mesh_2", "mesh_align", "divide_row_col",
-    "multiple_row_col", "fractal"
+    "multiple_row_col"
 ]
 reducers = [
-    "auto_fill_row_col_periodicity", "diff_color", "collect_max",
+    "auto_fill_row_col_periodicity", "diff_color", "collect_max", "fractal",
     "auto_fill_line_symmetry_del", "auto_fill_line_symmetry_add", "auto_fill_line_symmetry_full"
 ]
 usual_transformers = [
     "interior_dir4_zero", "trim_background", "paste_color", "paste_color_full", "switch_color",
     "n_cell", "arg_sort", "max_color", "keep_max_color", "change_background",
-    "fill_rectangle", "connect_row", "connect_col", "connect_row_col", "connect_diagonal"
+    "fill_rectangle", "connect_row", "connect_col", "connect_row_col", "connect_diagonal",
+    "shadow_bool", "shadow_same", "shadow_max"
 ]
 transformers = reducers + usual_transformers
 

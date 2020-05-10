@@ -12,6 +12,7 @@ from src.reducer.fill_pattern.symmetry_add import AutoFillLineSymmetryAdd
 from src.reducer.fill_pattern.symmetry_full import AutoFillLineSymmetryFull
 from src.reducer.trim_background import TrimBackground
 from src.reducer.collect_mesh import CollectMax
+from src.reducer.fractal import Fractal
 from src.transformer.paste_color import PasteColor
 from src.transformer.switch_color import SwitchColor
 from src.transformer.keep_max_color import KeepMaxColor
@@ -19,6 +20,7 @@ from src.transformer.change_background import ChangeBackground
 from src.transformer.arithmetic.n_cell import NCell
 from src.transformer.arithmetic.arg_sort import ArgSort
 from src.transformer.arithmetic.max_color import MaxColor
+from src.transformer.shadow import Shadow
 
 
 def run_transform(p: Problem, command: str) -> Problem:
@@ -44,6 +46,8 @@ def run_transform(p: Problem, command: str) -> Problem:
         return TrimBackground.problem(p)
     elif command == "collect_max":
         return CollectMax.problem(p)
+    elif command == "fractal":
+        return Fractal.problem(p)
     elif command == "paste_color":
         return PasteColor.problem(p, False)
     elif command == "paste_color_full":
@@ -64,5 +68,11 @@ def run_transform(p: Problem, command: str) -> Problem:
         return FillRectangle.problem(p)
     elif command == "interior_dir4_zero":
         return Interior.problem(p)
+    elif command == "shadow_bool":
+        return Shadow.problem(p, "bool")
+    elif command == "shadow_same":
+        return Shadow.problem(p, "same")
+    elif command == "shadow_max":
+        return Shadow.problem(p, "max")
     else:
         raise NotImplementedError

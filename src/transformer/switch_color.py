@@ -10,9 +10,19 @@ class SwitchColor:
     @classmethod
     def matter(cls, m: Matter) -> Matter:
         assert m.n_color() <= 2
-        if m.n_color() < 2:
+        if m.n_color() == 0:
             return m.deepcopy()
-        else:
+        elif m.n_color() == 1:
+            color_count = m.color_count()
+            for c in range(10):
+                if color_count[c] > 0 and c != m.background_color:
+                    base_color = c
+            new_matter: Matter = m.copy()
+            new_values = m.background_color * np.ones(m.shape, dtype=np.int)
+            new_values[m.values == m.background_color] = base_color
+            new_matter.set_values(new_values)
+            return new_matter
+        else:  # m.n_color() == 2
             color_count = m.color_count()
             switch = []
             for c in range(10):

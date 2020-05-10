@@ -7,6 +7,7 @@ from src.evaluator import eval_distance
 
 
 train_file_list = list(sorted(os.listdir("../input/training/")))
+eval_file_list = list(sorted(os.listdir("../input/evaluation/")))
 
 
 def problem_load(i, file_list="train"):
@@ -14,14 +15,21 @@ def problem_load(i, file_list="train"):
         with open(f"../input/training/{train_file_list[i]}", "r") as f:
             sample_data = json.load(f)
             # print(sample_data)
-            print(file_list, i)
+            # print(file_list, i)
             problem = Problem()
             problem.initialize(sample_data)
-        # static solvers
-        for op in static_solvers:
-            Runner.pre_solve(problem, op)
-        # print("|" + "|".join(["".join(map(str, x)) for x in sample_data["test"][0]["output"]]) + "|")
-        return problem
+    else:
+        with open(f"../input/evaluation/{eval_file_list[i]}", "r") as f:
+            sample_data = json.load(f)
+            # print(sample_data)
+            # print(file_list, i)
+            problem = Problem()
+            problem.initialize(sample_data)
+    # static solvers
+    for op in static_solvers:
+        Runner.pre_solve(problem, op)
+    # print("|" + "|".join(["".join(map(ptr, x)) for x in sample_data["test"][0]["output"]]) + "|")
+    return problem
 
 
 def test_9():
@@ -97,6 +105,14 @@ def test_261():
     print(eval_distance(p))
 
 
+def test_406():
+    p = problem_load(6, "eval")
+    p = Runner.run_transform(p, "shadow_bool")
+    p = Runner.run_transform(p, "switch_color")
+    p = Runner.run_transform(p, "fractal")
+    print(eval_distance(p), 0)
+
+
 if __name__ == "__main__":
     test_9()
     test_46()
@@ -104,3 +120,4 @@ if __name__ == "__main__":
     test_140()
     test_258()
     test_261()
+    test_406()

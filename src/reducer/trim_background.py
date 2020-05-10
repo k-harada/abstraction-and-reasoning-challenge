@@ -44,7 +44,6 @@ class TrimBackground:
 
     @classmethod
     def problem(cls, p: Problem) -> Problem:
-        assert not is_same(p)
         q: Problem = p.copy()
         q.train_x_list = [cls.case(c) for c in p.train_x_list]
         q.test_x_list = [cls.case(c) for c in p.test_x_list]

@@ -38,7 +38,7 @@ def is_line_symmetry_row(x_arr: np.array, background: np.int) -> np.array:
             if res == -1:
                 break
         res_arr[i0, 1] = res
-    res_arr[1, -1] = -1
+    res_arr[-1, 1] = -1
     return res_arr
 
 

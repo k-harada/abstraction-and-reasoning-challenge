@@ -179,6 +179,6 @@ def data_load_eval(i, file_list="train"):
 
 
 if __name__ == "__main__":
-    data_load_eval(258, "train")
+    data_load_eval(6, "eval")
     for i in range(50):
         data_load_eval(i, "train")
