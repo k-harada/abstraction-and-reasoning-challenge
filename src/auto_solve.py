@@ -8,6 +8,8 @@ from src.data import Problem
 from src.runner import Runner, mappers, transformers, static_solvers, dynamic_solvers, final_solvers
 from src.evaluator import eval_distance
 
+from src.mapper.one_bennchmark import BenchMark
+
 
 TIME_LIMIT = 2.0
 
@@ -48,6 +50,12 @@ def auto_solve(data, time_limit=TIME_LIMIT):
     d = eval_distance(p)
     heappush(heap_queue, (0, 0, 0, p))
     heappush(heap_res, (d, 0, 0, p))
+
+    # all ones benchmark
+    for q in BenchMark.problem(p):
+        d = eval_distance(q)
+        heappush(heap_res, (d, 0, cnt, q))
+        cnt += 1
 
     # mappers and reducers
     for op in mappers:

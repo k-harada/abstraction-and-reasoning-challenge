@@ -14,21 +14,18 @@ def problem_load(i, file_list="train"):
     if file_list == "train":
         with open(f"../input/training/{train_file_list[i]}", "r") as f:
             sample_data = json.load(f)
-            # print(sample_data)
-            # print(file_list, i)
+            print("train", i)
             problem = Problem()
             problem.initialize(sample_data)
     else:
         with open(f"../input/evaluation/{eval_file_list[i]}", "r") as f:
             sample_data = json.load(f)
-            # print(sample_data)
-            # print(file_list, i)
+            print("eval", i)
             problem = Problem()
             problem.initialize(sample_data)
     # static solvers
     for op in static_solvers:
         Runner.pre_solve(problem, op)
-    # print("|" + "|".join(["".join(map(ptr, x)) for x in sample_data["test"][0]["output"]]) + "|")
     return problem
 
 

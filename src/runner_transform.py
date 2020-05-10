@@ -10,6 +10,7 @@ from src.reducer.fill_pattern.periodicity_row_col import AutoFillRowColPeriodici
 from src.reducer.fill_pattern.symmetry_delete import AutoFillLineSymmetryDelete
 from src.reducer.fill_pattern.symmetry_add import AutoFillLineSymmetryAdd
 from src.reducer.fill_pattern.symmetry_full import AutoFillLineSymmetryFull
+from src.reducer.fill_pattern.symmetry_rot import AutoFillRotSymmetry
 from src.reducer.trim_background import TrimBackground
 from src.reducer.collect_mesh import CollectMax
 from src.reducer.fractal import Fractal
@@ -42,6 +43,8 @@ def run_transform(p: Problem, command: str) -> Problem:
         return AutoFillLineSymmetryAdd.problem(p)
     elif command == "auto_fill_line_symmetry_full":
         return AutoFillLineSymmetryFull.problem(p)
+    elif command == "auto_fill_rot":
+        return AutoFillRotSymmetry.problem(p)
     elif command == "trim_background":
         return TrimBackground.problem(p)
     elif command == "collect_max":

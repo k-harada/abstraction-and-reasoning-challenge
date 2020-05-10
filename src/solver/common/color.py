@@ -18,7 +18,9 @@ def monotone_color(p: Problem) -> np.int:
 def new_color(p: Problem) -> List[int]:
     case_x: Case
     case_y: Case
+
     new_color_count = np.zeros(10, dtype=np.int)
+    new_color_count_diff = np.zeros(10, dtype=np.int)
     for case_x, case_y in zip(p.train_x_list, p.train_y_list):
         y_values = case_y.repr_values()
         x_values = case_x.repr_values()
@@ -29,8 +31,17 @@ def new_color(p: Problem) -> List[int]:
             for j in range(y_values.shape[1]):
                 if y_values[i, j] != x_values[i, j]:
                     new_color_count[y_values[i, j]] += 1
-
-    return [c for c in range(10) if new_color_count[c] > 0]
+        # ignore colors in x
+        x_cnt = case_x.color_count()
+        for c in range(10):
+            if x_cnt[c] == 0:
+                new_color_count_diff[c] += new_color_count[c]
+    # only one color is new
+    new_color_diff = [c for c in range(10) if new_color_count_diff[c] > 0]
+    if len(new_color_diff) > 0:
+        return new_color_diff
+    else:
+        return [c for c in range(10) if new_color_count[c] > 0]
 
 
 def deleted_color(p: Problem) -> List[int]:

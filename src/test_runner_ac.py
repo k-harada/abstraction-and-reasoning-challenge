@@ -14,21 +14,16 @@ def problem_load(i, file_list="train"):
     if file_list == "train":
         with open(f"../input/training/{train_file_list[i]}", "r") as f:
             sample_data = json.load(f)
-            # print(sample_data)
-            # print(file_list, i)
             problem = Problem()
             problem.initialize(sample_data)
     else:
         with open(f"../input/evaluation/{eval_file_list[i]}", "r") as f:
             sample_data = json.load(f)
-            # print(sample_data)
-            # print(file_list, i)
             problem = Problem()
             problem.initialize(sample_data)
     # static solvers
     for op in static_solvers:
         Runner.pre_solve(problem, op)
-    # print("|" + "|".join(["".join(map(ptr, x)) for x in sample_data["test"][0]["output"]]) + "|")
     return problem
 
 
@@ -96,6 +91,11 @@ class TestSolve(unittest.TestCase):
         p = Runner.run_solve(p, "fit_replace_rule_33_all")
         self.assertEqual(eval_distance(p), 0)
 
+    def test_019(self):
+        p = problem_load(19)
+        p = Runner.run_transform(p, "auto_fill_rot")
+        self.assertEqual(eval_distance(p), 0)
+
     def test_020(self):
         p = problem_load(20)
         p = Runner.run_map(p, "mesh_split")
@@ -114,6 +114,12 @@ class TestSolve(unittest.TestCase):
         p = Runner.run_map(p, "mesh_align")
         p = Runner.run_solve(p, "reduce_bitwise")
         p = Runner.run_solve(p, "color_change")
+        self.assertEqual(eval_distance(p), 0)
+
+    def test_026(self):
+        p = problem_load(26)
+        p = Runner.run_transform(p, "auto_fill_rot")
+        p = Runner.run_transform(p, "diff_color")
         self.assertEqual(eval_distance(p), 0)
 
     def test_030(self):

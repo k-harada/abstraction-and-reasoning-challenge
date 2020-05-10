@@ -130,5 +130,5 @@ class SplitMeshTwo:
 
 if __name__ == "__main__":
     x = np.array([[0, 2, 0], [2, 2, 2], [4, 2, 9]])
-    print(SplitMesh.find_mesh(x))
-    print(SplitMesh.split_by_mesh(x))
+    print(SplitMeshTwo.find_mesh(x))
+    print(SplitMeshTwo.split_by_mesh(x))

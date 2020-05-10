@@ -97,25 +97,26 @@ class Case:
 
         if self.repr_values_ is not None:
             return self.repr_values_
-
-        try:
-            # pile up from 0
-            # paste background
-            repr_values = np.ones(self.shape, dtype=np.int) * self.background_color
-            # collect values
-            for m in self.matter_list:
-                if not m.bool_show:
-                    continue
-                for i in range(m.shape[0]):
-                    for j in range(m.shape[1]):
+        # pile up from 0
+        # paste background
+        repr_values = np.ones(self.shape, dtype=np.int) * self.background_color
+        # collect values
+        for m in self.matter_list:
+            if not m.bool_show:
+                continue
+            for i in range(m.shape[0]):
+                for j in range(m.shape[1]):
+                    if self.color_add is None:
                         if m.values[i, j] != m.background_color:
                             repr_values[m.x0 + i, m.y0 + j] = m.values[i, j]
-            self.repr_values_ = repr_values
-            return repr_values
-        except IndexError:
-            print([(m.values, m.x0, m.y0, m.background_color) for m in self.matter_list])
-            print(self.shape)
-            raise
+                    else:
+                        if m.values[i, j] != m.background_color:
+                            if m.values[i, j] != repr_values[m.x0 + i, m.y0 + j] != self.background_color:
+                                repr_values[m.x0 + i, m.y0 + j] = self.color_add
+                            else:
+                                repr_values[m.x0 + i, m.y0 + j] = m.values[i, j]
+        self.repr_values_ = repr_values
+        return repr_values
 
 
 if __name__ == "__main__":

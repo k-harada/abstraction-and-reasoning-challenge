@@ -28,13 +28,14 @@ class Problem:
         self.is_line_symmetry_col = False
         self.is_periodic_row = False
         self.is_periodic_col = False
+        self.is_rot_symmetry = False
         self.history = []
         self.mapper = "identity"
 
     def initialize(self, data):
 
-        Problem.len_train = len(data["train"])
-        Problem.len_test = len(data["test"])
+        self.len_train = len(data["train"])
+        self.len_test = len(data["test"])
         for x in data["train"]:
             c = Case(new=True)
             c.initialize(np.array(x["input"], dtype=np.int), self.background_color)
@@ -84,6 +85,7 @@ class Problem:
         new_problem.is_line_symmetry_col = self.is_line_symmetry_col
         new_problem.is_periodic_row = self.is_periodic_row
         new_problem.is_periodic_col = self.is_periodic_col
+        new_problem.is_rot_symmetry = self.is_rot_symmetry
         new_problem.history = self.history.copy()
         new_problem.mapper = self.mapper
         return new_problem

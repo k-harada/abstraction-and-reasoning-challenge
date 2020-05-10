@@ -7,7 +7,7 @@ from src.solver.dynamic import *
 
 static_solvers = [
     "set_problem_color", "set_is_pattern", "set_is_periodic_row", "set_is_periodic_col",
-    "set_is_line_symmetry_row", "set_is_line_symmetry_col"
+    "set_is_line_symmetry_row", "set_is_line_symmetry_col", "set_is_rot_symmetry"
 ]
 mappers = [
     "color", "connect", "connect4", "mesh_split", "mesh_2", "mesh_align", "divide_row_col",
@@ -15,7 +15,7 @@ mappers = [
 ]
 reducers = [
     "auto_fill_row_col_periodicity", "diff_color", "collect_max", "fractal",
-    "auto_fill_line_symmetry_del", "auto_fill_line_symmetry_add", "auto_fill_line_symmetry_full"
+    "auto_fill_line_symmetry_del", "auto_fill_line_symmetry_add", "auto_fill_line_symmetry_full", "auto_fill_rot"
 ]
 usual_transformers = [
     "interior_dir4_zero", "trim_background", "paste_color", "paste_color_full", "switch_color",
