@@ -2,27 +2,6 @@ import numpy as np
 from src.data import Problem, Case, Matter
 
 
-def fractal_arr(base_arr: np.array, shadow_arr: np.array, background: int):
-
-    r1, c1 = base_arr.shape
-    r2, c2 = shadow_arr.shape
-
-    repr_values = np.ones((r1 * r2, c1 * c2), dtype=np.int) * background
-    # basic
-    if shadow_arr.dtype == 'bool':
-        for i in range(r2):
-            for j in range(c2):
-                if shadow_arr[i, j]:
-                    repr_values[(i * r1):((i + 1) * r1), (j * c1):((j + 1) * c1)] = base_arr
-    else:
-        for i in range(r2):
-            for j in range(c2):
-                add_arr = shadow_arr[i, j] * (base_arr != background).astype(np.int)
-                repr_values[(i * r1):((i + 1) * r1), (j * c1):((j + 1) * c1)] = add_arr
-
-    return repr_values
-
-
 class Fractal:
 
     def __init__(self):
@@ -30,16 +9,8 @@ class Fractal:
 
     @classmethod
     def case(cls, c: Case) -> Case:
-        base_arr = c.repr_values()
-        if c.shadow is None:
-            shadow_arr = (base_arr != c.background_color).astype(np.bool)
-        else:
-            shadow_arr = c.shadow
 
-        assert 0 < base_arr.shape[0] * shadow_arr.shape[0] <= 30
-        assert 0 < base_arr.shape[1] * shadow_arr.shape[1] <= 30
-
-        res_arr = fractal_arr(base_arr, shadow_arr, c.background_color)
+        res_arr = c.repr_fractal_values()
 
         new_case: Case = c.copy()
         new_case.shape = res_arr.shape

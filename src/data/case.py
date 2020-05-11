@@ -118,6 +118,35 @@ class Case:
         self.repr_values_ = repr_values
         return repr_values
 
+    def repr_fractal_values(self) -> np.array:
+
+        base_arr = self.repr_values()
+        if self.shadow is None:
+            shadow_arr = (base_arr != self.background_color).astype(np.bool)
+        else:
+            shadow_arr = self.shadow
+
+        r1, c1 = base_arr.shape
+        r2, c2 = shadow_arr.shape
+
+        assert 0 < r1 * r2 <= 30
+        assert 0 < c1 * c2 <= 30
+
+        repr_values = np.ones((r1 * r2, c1 * c2), dtype=np.int) * self.background_color
+        # basic
+        if shadow_arr.dtype == 'bool':
+            for i in range(r2):
+                for j in range(c2):
+                    if shadow_arr[i, j]:
+                        repr_values[(i * r1):((i + 1) * r1), (j * c1):((j + 1) * c1)] = base_arr
+        else:
+            for i in range(r2):
+                for j in range(c2):
+                    add_arr = shadow_arr[i, j] * (base_arr != self.background_color).astype(np.int)
+                    repr_values[(i * r1):((i + 1) * r1), (j * c1):((j + 1) * c1)] = add_arr
+
+        return repr_values
+
 
 if __name__ == "__main__":
     xv = (np.arange(30) % 10).reshape((5, 6)).astype(np.int)
