@@ -1,7 +1,5 @@
 import numpy as np
-
 from src.data import Case, Problem
-from src.runner import Runner, final_solvers
 
 
 SHAPE_DIFF_FLAG = 10000
@@ -25,8 +23,10 @@ def eval_distance(problem: Problem) -> np.int:
         # normal reducer
         # shape
         if x_values.shape != y_values.shape:
+            shape_0 = min(x_values.shape[0], y_values.shape[0])
+            shape_1 = min(x_values.shape[1], y_values.shape[1])
             res_base += SHAPE_DIFF_FLAG * abs(
-                x_values.shape[0] * x_values.shape[1] - y_values.shape[0] * y_values.shape[1]
+                x_values.shape[0] * x_values.shape[1] + y_values.shape[0] * y_values.shape[1] - 2 * shape_0 * shape_1
             )
         else:
             # values
@@ -50,7 +50,11 @@ def eval_distance(problem: Problem) -> np.int:
             # normal reducer
             # shape
             if x_values.shape != y_values.shape:
-                res_fractal += SHAPE_DIFF_FLAG * abs(x_values.shape[0] * x_values.shape[1] - y_values.shape[0] * y_values.shape[1])
+                shape_0 = min(x_values.shape[0], y_values.shape[0])
+                shape_1 = min(x_values.shape[1], y_values.shape[1])
+                res_fractal += SHAPE_DIFF_FLAG * abs(
+                    x_values.shape[0] * x_values.shape[1] + y_values.shape[0] * y_values.shape[1] - 2 * shape_0 * shape_1
+                )
             else:
                 # values
                 res_fractal += VAL_DIFF * (x_values != y_values).sum()

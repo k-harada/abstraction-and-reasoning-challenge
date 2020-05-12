@@ -2,7 +2,7 @@ import os
 import json
 import pandas as pd
 
-from src.auto_solve import auto_solve
+from src.runner.runner import Runner
 
 
 def main(dir_path, time_limit):
@@ -13,11 +13,14 @@ def main(dir_path, time_limit):
     for i, file_name in enumerate(list(sorted(os.listdir(dir_path)))):
 
         if file_name[-5:] == ".json":
-            data = json.load(open(dir_path + file_name, "r"))
-            # print(len(data["test"]))
-            try:
-                solved_dict = auto_solve(data, time_limit=time_limit)
+            p = Runner()
+            with open(dir_path + file_name, "r") as file:
+                data = json.load(file)
+            p.initialize_from_data(data)
 
+            try:
+                p.auto_run(time_limit=time_limit)
+                solved_dict = p.output()
                 for j in solved_dict.keys():
                     assert len(solved_dict[j]) <= 3
 

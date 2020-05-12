@@ -3,7 +3,7 @@ import json
 
 from src.data import Problem
 from src.runner import Runner, static_solvers
-from src.evaluator import eval_distance
+from src.runner.evaluator import eval_distance
 
 
 train_file_list = list(sorted(os.listdir("../../input/training/")))

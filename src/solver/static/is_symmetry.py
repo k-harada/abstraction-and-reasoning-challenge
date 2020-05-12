@@ -81,7 +81,9 @@ def set_is_rot_symmetry(p: Problem) -> None:
         else:
             res_arr_1 = is_rot_symmetry_point(c_arr, c.color_add)
             res_arr_2 = is_rot_symmetry_valley(c_arr, c.color_add)
+        # print(c.color_add)
         # must be in center
+        # print(res_arr_1, res_arr_2)
         res_arr_1[:res_arr_1.shape[0] // 3, :] = -1
         res_arr_1[-res_arr_1.shape[0] // 3:, :] = -1
         res_arr_1[:, :res_arr_1.shape[1] // 3] = -1
@@ -90,6 +92,7 @@ def set_is_rot_symmetry(p: Problem) -> None:
         res_arr_2[-res_arr_2.shape[0] // 3:, :] = -1
         res_arr_2[:, :res_arr_2.shape[1] // 3] = -1
         res_arr_2[:, -res_arr_2.shape[1] // 3:] = -1
+        # print(res_arr_1, res_arr_2)
         if max(res_arr_1.max(), res_arr_2.max()) <= 20:
             p.is_rot_symmetry = False
             return None

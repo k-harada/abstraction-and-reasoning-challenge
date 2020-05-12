@@ -1,14 +1,13 @@
 import os
-import sys
 import json
 import time
 from heapq import heappush, heappop
 
 from src.data import Problem
 from src.runner import Runner, mappers, transformers, static_solvers, dynamic_solvers, final_solvers
-from src.evaluator import eval_distance
+from src.runner.evaluator import eval_distance
 
-from src.mapper.one_bennchmark import BenchMark
+from src.runner.one_bennchmark import BenchMark
 
 
 TIME_LIMIT = 2.0
@@ -153,18 +152,18 @@ def auto_solve(data, time_limit=TIME_LIMIT):
     return res_dict
 
 
-def data_load_eval(i, file_list="train"):
+def data_load_eval(idx, file_list="train"):
 
     train_file_list = list(sorted(os.listdir("../input/training/")))
     eval_file_list = list(sorted(os.listdir("../input/evaluation/")))
 
     # load and run
     if file_list == "train":
-        with open(f"../input/training/{train_file_list[i]}", "r") as f:
+        with open(f"../input/training/{train_file_list[idx]}", "r") as f:
             data = json.load(f)
             solved_dict = auto_solve(data, time_limit=TIME_LIMIT)
     else:
-        with open(f"../input/evaluation/{eval_file_list[i]}", "r") as f:
+        with open(f"../input/evaluation/{eval_file_list[idx]}", "r") as f:
             data = json.load(f)
             solved_dict = auto_solve(data, time_limit=TIME_LIMIT)
     # eval
@@ -173,20 +172,19 @@ def data_load_eval(i, file_list="train"):
     for j in solved_dict.keys():
         assert len(solved_dict[j]) <= 3
         if len(solved_dict[j]) != 3:
-            print(i, j, len(solved_dict[j]))
+            print(idx, j, len(solved_dict[j]))
         answer_arr = data["test"][j]["output"]
         answer_str = "|" + "|".join(["".join(map(str, x)) for x in answer_arr]) + "|"
         print(solved_dict)
         if answer_str in solved_dict[j]:
-            # print(f'AC: {i, j}')
+            # print(f'AC: {idx, j}')
             total_ac += 1
         else:
-            # print(f'WA: {i, j}')
+            # print(f'WA: {idx, j}')
             total_wa += 1
-    print(f'{file_list}_{i}: {total_ac} / {total_wa + total_ac}')
+    print(f'{file_list}_{idx}: {total_ac} / {total_wa + total_ac}')
 
 
 if __name__ == "__main__":
-    data_load_eval(6, "eval")
     for i in range(50):
-        data_load_eval(i, "train")
+        data_load_eval(i, "eval")

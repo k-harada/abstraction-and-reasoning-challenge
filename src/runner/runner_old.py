@@ -1,9 +1,6 @@
 from src.data import Problem
-from src.mapper.map_problem import run_map
-from src.runner_transform import run_transform
-from src.solver.static import *
-from src.solver.dynamic import *
-
+from src.runner.runner_map import run_map
+from src.runner.runner_transform import run_transform
 
 static_solvers = [
     "set_problem_color", "set_is_pattern", "set_is_periodic_row", "set_is_periodic_col",

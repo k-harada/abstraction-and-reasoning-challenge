@@ -36,9 +36,10 @@ def new_color(p: Problem) -> List[int]:
         for c in range(10):
             if x_cnt[c] == 0:
                 new_color_count_diff[c] += new_color_count[c]
+    # print(new_color_count_diff, new_color_count)
     # only one color is new
     new_color_diff = [c for c in range(10) if new_color_count_diff[c] > 0]
-    if len(new_color_diff) > 0:
+    if len(new_color_diff) == 1:
         return new_color_diff
     else:
         return [c for c in range(10) if new_color_count[c] > 0]

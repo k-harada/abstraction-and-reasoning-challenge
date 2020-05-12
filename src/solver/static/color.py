@@ -18,12 +18,15 @@ def define_color(p: Problem) -> int:
 def set_problem_color(p: Problem) -> None:
 
     color_add = define_color(p)
+    # print(color_add)
 
     if color_add != -1:
         p.color_add = color_add
         c: Case
         m: Matter
         for c in p.train_x_list:
+            c.color_add = color_add
+        for c in p.train_y_list:
             c.color_add = color_add
         for c in p.test_x_list:
             c.color_add = color_add
@@ -45,6 +48,8 @@ def set_problem_color(p: Problem) -> None:
         c: Case
         m: Matter
         for c in p.train_x_list:
+            c.color_delete = color_delete
+        for c in p.train_y_list:
             c.color_delete = color_delete
         for c in p.test_x_list:
             c.color_delete = color_delete
