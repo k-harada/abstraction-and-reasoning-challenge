@@ -66,11 +66,6 @@ class TestSolve(unittest.TestCase):
         p.run("fit_replace_rule_33_all")
         self.assertEqual(p.eval_distance(), 0)
 
-    def test_019(self):
-        p = Runner(19)
-        p.run("auto_fill_rot")
-        self.assertEqual(p.eval_distance(), 0)
-
     def test_020(self):
         p = Runner(20)
         p.run("mesh_split")

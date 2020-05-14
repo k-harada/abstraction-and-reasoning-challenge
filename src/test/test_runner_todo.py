@@ -3,10 +3,8 @@ from src.runner.runner import Runner
 
 def test_5():
     p = Runner(5, verbose=True)
-    print(p.problem_hand)
     for op in ['mesh_align', 'switch_color', 'fit_replace_rule_33']:
         p.run(op)
-        print(p.problem_hand)
 
 
 def test_9():
@@ -15,6 +13,12 @@ def test_9():
     p.run("arg_sort")
     p.run("paste_color")
     p.run("color_change")
+
+
+def test_019():
+    p = Runner(19)
+    # p.run("auto_fill_rot")
+    # self.assertEqual(p.eval_distance(), 0)
 
 
 def test_26():
@@ -76,6 +80,7 @@ def test_406():
 if __name__ == "__main__":
     test_5()
     test_9()
+    test_019()
     test_26()
     test_46()
     test_61()
