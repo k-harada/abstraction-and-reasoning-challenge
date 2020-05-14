@@ -34,3 +34,10 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+    - name: Upload test resulet
+      run: |
+        python src/github_eval.py > log.txt
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact
+        path: log.txt
