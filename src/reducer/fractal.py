@@ -23,10 +23,3 @@ class Fractal:
         q.train_x_list = [cls.case(c) for c in p.train_x_list]
         q.test_x_list = [cls.case(c) for c in p.test_x_list]
         return q
-
-
-if __name__ == "__main__":
-    x = np.array([[0, 2, 3], [3, 0, 0], [1, 0, 3]], dtype=np.int)
-    y = (x != 0).astype(np.bool)
-    print(fractal_arr(x, y, 0))
-    print(fractal_arr(x, x, 0))
