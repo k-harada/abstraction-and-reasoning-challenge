@@ -34,7 +34,7 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
-        python src/github_eval.py > log.txt
+        python github_eval.py > log.txt
     - name: Upload test resulet
       uses: actions/upload-artifact@v2
       with:
