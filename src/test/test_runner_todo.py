@@ -19,8 +19,8 @@ def test_9():
 
 def test_26():
     p = Runner(26, verbose=True)
-    p.run("auto_fill_rot")
-    p.run("diff_color")
+    # p.run("auto_fill_rot")
+    # p.run("diff_color")
 
 
 def test_46():
