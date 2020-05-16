@@ -1,7 +1,7 @@
 from typing import List
 import numpy as np
 from src.data import Problem, Case
-
+from src.solver.common.shape import is_same
 
 def monotone_color(p: Problem) -> np.int:
     color_count = np.array([case.color_count() for case in p.train_y_list]).sum(axis=0)
@@ -63,3 +63,21 @@ def deleted_color(p: Problem) -> List[int]:
                 deleted_color_flag[c] = 0
 
     return [c for c in range(10) if deleted_color_flag[c] > 0]
+
+
+def only_color(p: Problem) -> bool:
+
+    case_x: Case
+    case_y: Case
+
+    if not is_same(p):
+        return False
+
+    for case_x, case_y in zip(p.train_x_list, p.train_y_list):
+        x_values_bool = (case_x.repr_values() == case_x.background_color).astype(np.int)
+        y_values_bool = (case_y.repr_values() == case_y.background_color).astype(np.int)
+        if (x_values_bool * y_values_bool).sum() == x_values_bool.sum() == y_values_bool.sum():
+            pass
+        else:
+            return False
+    return True

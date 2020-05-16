@@ -118,20 +118,33 @@ class Matter:
         new_matter.set_values(self.values.copy())
         return new_matter
 
-    def paste_color(self):
-        assert self.a is not None
-        new_matter = self.copy()
-        new_values = self.values.copy()
-        new_values[self.values != self.background_color] = self.a % 10
-        new_matter.set_values(new_values)
-        return new_matter
+    def paste_color(self, color_add=None):
+        if color_add is None:
+            assert self.a is not None
+            new_matter = self.copy()
+            new_values = self.values.copy()
+            new_values[self.values != self.background_color] = self.a % 10
+            new_matter.set_values(new_values)
+            return new_matter
+        else:
+            new_matter = self.copy()
+            new_values = self.values.copy()
+            new_values[self.values != self.background_color] = color_add
+            new_matter.set_values(new_values)
+            return new_matter
 
-    def paste_color_full(self):
-        assert self.a is not None
-        new_matter = self.copy()
-        new_values = (self.a % 10) * np.ones(self.values.shape, dtype=np.int)
-        new_matter.set_values(new_values)
-        return new_matter
+    def paste_color_full(self, color_add=None):
+        if color_add is None:
+            assert self.a is not None
+            new_matter = self.copy()
+            new_values = (self.a % 10) * np.ones(self.values.shape, dtype=np.int)
+            new_matter.set_values(new_values)
+            return new_matter
+        else:
+            new_matter = self.copy()
+            new_values = color_add * np.ones(self.values.shape, dtype=np.int)
+            new_matter.set_values(new_values)
+            return new_matter
 
 
 if __name__ == "__main__":

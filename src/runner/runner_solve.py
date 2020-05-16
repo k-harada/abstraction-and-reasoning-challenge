@@ -12,6 +12,8 @@ from src.solver.dynamic.color.color_pile import color_pile
 from src.solver.dynamic.reduce.bitwise import reduce_bitwise
 from src.solver.dynamic.rotations.solve_rotations import solve_rotations as rotations
 from src.solver.dynamic.replace.point_cross.problem import point_cross
+from src.solver.dynamic.color.auto_paste import AutoPaste
+from src.solver.dynamic.color.auto_add_color import AutoAddColor
 
 
 # initial solver
@@ -59,6 +61,12 @@ def run_solve(p: Problem, command: str) -> Problem:
         q = rotations(p)
     elif command == "point_cross":
         q = point_cross(p)
+    elif command == "auto_paste":
+        q = AutoPaste.problem(p, full=False)
+    elif command == "auto_paste_full":
+        q = AutoPaste.problem(p, full=True)
+    elif command == "auto_add_color":
+        q = AutoAddColor.problem(p)
     else:
         raise NotImplementedError
 

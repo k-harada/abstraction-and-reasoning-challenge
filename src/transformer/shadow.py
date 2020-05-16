@@ -17,7 +17,8 @@ class Shadow:
             new_case.shadow = new_case.repr_values().copy()
         elif shadow_type == "max":
             new_case.shadow = (new_case.repr_values() != new_case.max_color()).astype(np.bool)
-
+        elif shadow_type == "min":
+            new_case.shadow = (new_case.repr_values() != new_case.min_color()).astype(np.bool)
         return new_case
 
     @classmethod

@@ -18,8 +18,7 @@ def test_9():
     p = Runner(9, verbose=True)
     p.run("connect")
     p.run("arg_sort")
-    p.run("paste_color")
-    p.run("color_change")
+    p.run("auto_paste")
 
 
 def test_019():
@@ -84,6 +83,19 @@ def test_406():
     p.run("fractal")
 
 
+def test_425():
+    p = Runner(25, "eval", verbose=True)
+    p.run("color_connect4")
+    p.run("auto_add_color")
+
+
+def test_433():
+    p = Runner(33, "eval", verbose=True)
+    p.run("mesh_split")
+    p.run("switch_color")
+    p.run("fractal")
+
+
 def test_446():
     p = Runner(46, "eval", verbose=True)
     p.run("mesh_split")
@@ -103,4 +115,6 @@ if __name__ == "__main__":
     test_258()
     test_261()
     test_406()
+    test_425()
+    test_433()
     test_446()

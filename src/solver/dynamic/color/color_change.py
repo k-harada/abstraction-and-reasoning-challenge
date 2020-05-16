@@ -2,6 +2,7 @@ import numpy as np
 import numba
 from src.data import Problem, Case, Matter
 from src.common.trivial_reducer import trivial_reducer
+from src.solver.common.color import only_color
 
 
 @numba.jit('i8[:](i8[:, :], i8[:, :])', nopython=True)
@@ -36,6 +37,7 @@ def fit_color_change_rule_one(x_arr, rule):
 
 
 def color_change(p: Problem) -> Problem:
+    assert only_color(p)
 
     case_x: Case
     case_y: Case

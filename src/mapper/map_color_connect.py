@@ -2,34 +2,10 @@ from collections import deque
 from typing import List
 import numpy as np
 from src.data import Problem, Case, Matter
+from src.mapper.map_connect import neighbors
 
 
-def neighbors(p, r, c, allow_diagonal=True):
-    x, y = p
-    res_list = []
-    if x > 0:
-        res_list.append((x - 1, y))
-    if x < r - 1:
-        res_list.append((x + 1, y))
-    if y > 0:
-        res_list.append((x, y - 1))
-    if y < c - 1:
-        res_list.append((x, y + 1))
-    # diagonal
-    if allow_diagonal:
-        if x > 0 and y > 0:
-            res_list.append((x - 1, y - 1))
-        if x > 0 and y < c - 1:
-            res_list.append((x - 1, y + 1))
-        if x < r - 1 and y > 0:
-            res_list.append((x + 1, y - 1))
-        if x < r - 1 and y < c - 1:
-            res_list.append((x + 1, y + 1))
-
-    return res_list
-
-
-class MapConnect:
+class MapColorConnect:
 
     def __init__(self):
         pass
@@ -56,9 +32,10 @@ class MapConnect:
                     con_map[i, j] = ind
                     while len(queue) > 0:
                         p = queue.popleft()
+                        pi, pj = p
                         for q in neighbors(p, r, c, allow_diagonal):
                             qi, qj = q
-                            if x_arr[qi, qj] != background and con_map[qi, qj] == 0:
+                            if x_arr[pi, pj] == x_arr[qi, qj] != background and con_map[qi, qj] == 0:
                                 con_map[qi, qj] = ind
                                 queue.append((qi, qj))
 
@@ -116,9 +93,9 @@ class MapConnect:
 
 
 if __name__ == "__main__":
-    xx = np.array([[1, 0, 1], [0, 1, 0], [1, 0, 1]])
-    print(MapConnect.array(xx, False))
-    print(MapConnect.array(xx, True))
+    xx = np.array([[1, 0, 1], [0, 3, 0], [1, 0, 1]])
+    print(MapColorConnect.array(xx, False))
+    print(MapColorConnect.array(xx, True))
     xx = np.array([[1, 0, 0], [0, 1, 0], [0, 0, 0], [0, 0, 1]])
-    print(MapConnect.array(xx, False))
-    print(MapConnect.array(xx, True))
+    print(MapColorConnect.array(xx, False))
+    print(MapColorConnect.array(xx, True))

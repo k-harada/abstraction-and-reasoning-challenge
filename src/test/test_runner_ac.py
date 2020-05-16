@@ -1,8 +1,9 @@
+import os
 from src.runner.runner import Runner
 
 
 def test_log():
-    with open("log.txt") as f:
+    with open(os.path.join(os.path.dirname(__file__), "log.txt")) as f:
         flag = False
         for row in f:
             if row[:5] == "train":
@@ -25,6 +26,7 @@ def test_log():
                 if wa > 0:
                     print(op_list)
                     print(ac, wa)
+                assert p.eval_distance() == 0
 
 
 if __name__ == "__main__":

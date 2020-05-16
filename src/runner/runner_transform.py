@@ -77,5 +77,7 @@ def run_transform(p: Problem, command: str) -> Problem:
         return Shadow.problem(p, "same")
     elif command == "shadow_max":
         return Shadow.problem(p, "max")
+    elif command == "shadow_min":
+        return Shadow.problem(p, "min")
     else:
         raise NotImplementedError

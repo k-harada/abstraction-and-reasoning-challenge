@@ -16,7 +16,7 @@ static_solvers = [
 ]
 mappers = [
     "color", "connect", "connect4", "mesh_split", "mesh_2", "mesh_align", "divide_row_col",
-    "multiple_row_col"
+    "multiple_row_col", "color_connect", "color_connect4"
 ]
 reducers = [
     "auto_fill_row_col_periodicity", "diff_color", "collect_max", "fractal",
@@ -26,7 +26,7 @@ usual_transformers = [
     "interior_dir4_zero", "trim_background", "paste_color", "paste_color_full", "switch_color",
     "n_cell", "arg_sort", "max_color", "keep_max_color", "change_background",
     "fill_rectangle", "connect_row", "connect_col", "connect_row_col", "connect_diagonal",
-    "shadow_bool", "shadow_same", "shadow_max"
+    "shadow_bool", "shadow_same", "shadow_max", "shadow_min"
 ]
 transformers = reducers + usual_transformers
 
@@ -35,7 +35,7 @@ dynamic_solvers = [
 ]
 final_solvers = [
     "fit_replace_rule_33", "fit_replace_rule_33_all", "reduce_bitwise", "color_change", "color_pile",
-    "rotations", "fill_pattern"
+    "rotations", "fill_pattern", "auto_paste", "auto_paste_full", "auto_add_color"
 ]
 solvers = dynamic_solvers + final_solvers
 

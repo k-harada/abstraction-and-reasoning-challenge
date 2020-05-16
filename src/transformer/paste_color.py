@@ -9,13 +9,17 @@ class PasteColor:
         pass
 
     @classmethod
+    def matter(cls, m: Matter, full: bool) -> Case:
+        if full:
+            return m.paste_color_full()
+        else:
+            return m.paste_color()
+
+    @classmethod
     def case(cls, c: Case, full: bool) -> Case:
         new_case: Case = c.copy()
         m: Matter
-        if full:
-            new_case.matter_list = [m.paste_color_full() for m in c.matter_list]
-        else:
-            new_case.matter_list = [m.paste_color() for m in c.matter_list]
+        new_case.matter_list = [cls.matter(m, full) for m in c.matter_list]
         return new_case
 
     @classmethod
