@@ -22,6 +22,7 @@ from src.transformer.arithmetic.n_cell import NCell
 from src.transformer.arithmetic.arg_sort import ArgSort
 from src.transformer.arithmetic.max_color import MaxColor
 from src.transformer.shadow import Shadow
+from src.transformer.keep_mesh import KeepMesh
 
 
 def run_transform(p: Problem, command: str) -> Problem:
@@ -79,5 +80,9 @@ def run_transform(p: Problem, command: str) -> Problem:
         return Shadow.problem(p, "max")
     elif command == "shadow_min":
         return Shadow.problem(p, "min")
+    elif command == "shadow_mesh":
+        return Shadow.problem(p, "mesh")
+    elif command == "keep_mesh":
+        return KeepMesh.problem(p)
     else:
         raise NotImplementedError

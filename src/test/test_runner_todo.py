@@ -39,10 +39,13 @@ def test_46():
     p.run("point_cross")
 
 
+def test_51():
+    p = Runner(51, verbose=True)
+    p.run("keep_mesh")
+
+
 def test_61():
     p = Runner(61, verbose=True)
-    # p.run("auto_fill_line_symmetry")
-    # p.run("color_change")
 
 
 def test_64():
@@ -91,8 +94,7 @@ def test_425():
 
 def test_433():
     p = Runner(33, "eval", verbose=True)
-    p.run("mesh_split")
-    p.run("switch_color")
+    p.run("shadow_mesh")
     p.run("fractal")
 
 
@@ -110,6 +112,7 @@ if __name__ == "__main__":
     test_019()
     test_26()
     test_46()
+    test_51()
     test_61()
     test_140()
     test_258()

@@ -1,5 +1,6 @@
 import numpy as np
 from src.data import Problem, Case, Matter
+from src.transformer.keep_mesh import keep_mesh_array
 
 
 class Shadow:
@@ -19,6 +20,8 @@ class Shadow:
             new_case.shadow = (new_case.repr_values() != new_case.max_color()).astype(np.bool)
         elif shadow_type == "min":
             new_case.shadow = (new_case.repr_values() != new_case.min_color()).astype(np.bool)
+        elif shadow_type == "mesh":
+            new_case.shadow = keep_mesh_array(new_case.repr_values())
         return new_case
 
     @classmethod
