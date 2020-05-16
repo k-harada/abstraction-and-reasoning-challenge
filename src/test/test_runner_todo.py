@@ -60,6 +60,13 @@ def test_411():
     p.run("collect_max")
 
 
+def test_412():
+    p = Runner(12, "eval", verbose=True)
+    p.run("connect")
+    p.run("count_hole")
+    p.run("auto_paste")
+
+
 def test_446():
     p = Runner(46, "eval", verbose=True)
     p.run("mesh_split")
@@ -93,6 +100,7 @@ if __name__ == "__main__":
     test_336()
     test_406()
     test_411()
+    test_412()
     test_446()
     test_458()
     test_507()

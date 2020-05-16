@@ -21,6 +21,7 @@ from src.operator.transformer.change_background import ChangeBackground
 from src.operator.transformer.arithmetic.n_cell import NCell
 from src.operator.transformer.arithmetic.arg_sort import ArgSort
 from src.operator.transformer.arithmetic.max_color import MaxColor
+from src.operator.transformer.arithmetic.count_hole import CountHole
 from src.operator.transformer.shadow import Shadow
 from src.operator.transformer.keep_mesh import KeepMesh
 from src.operator.transformer.picker.pick_rectangle import RectanglePicker
@@ -69,6 +70,8 @@ def run_transform(p: Problem, command: str) -> Problem:
         return NCell.problem(p)
     elif command == "max_color":
         return MaxColor.problem(p)
+    elif command == "count_hole":
+        return CountHole.problem(p)
     elif command == "fill_rectangle":
         return FillRectangle.problem(p)
     elif command == "interior_dir4_zero":

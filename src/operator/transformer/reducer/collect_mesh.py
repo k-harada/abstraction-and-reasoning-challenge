@@ -53,7 +53,7 @@ def align_xy(x0_arr: np.array, y0_arr: np.array, x1_arr: np.array, y1_arr: np.ar
     len_x_max = max([len(x) for x in x_list_all])
     len_y_max = max([len(y) for y in y_list_all])
 
-    assert len_x_max * len_y_max <= n
+    assert 0 < len_x_max * len_y_max <= n
     # eval 158 is a good example
     # try
     xl, yl = 0, 0

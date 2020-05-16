@@ -11,4 +11,5 @@ class AutoPaste:
     @classmethod
     def problem(cls, p: Problem, full: bool) -> Problem:
         q = PasteColor.problem(p, full)
+        # print(q)
         return color_change(q)
