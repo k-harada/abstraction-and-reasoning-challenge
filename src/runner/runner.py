@@ -129,6 +129,7 @@ class Runner:
     def auto_run(self, time_limit=0.2) -> None:
         t0 = time.time()
         t1 = 0
+        v_max = 0
 
         # initial
         if len(self.heap_queue) == 0:
@@ -139,7 +140,7 @@ class Runner:
             for op in static_solvers:
                 self._pre_solve(p, op)
             d = eval_distance(p)
-            heappush(self.heap_queue, (0, 0, 0, p))
+            heappush(self.heap_queue, (0, 0, p))
             heappush(self.heap_res, (d, 0, 0, p))
 
             # all ones benchmark
@@ -156,7 +157,7 @@ class Runner:
                     q = self._run_map(p, op)
                     # evaluate
                     d = eval_distance(q)
-                    heappush(self.heap_queue, (1, 0, self.cnt, q))
+                    heappush(self.heap_queue, (1, self.cnt, q))
                     heappush(self.heap_res, (d, 0, self.cnt, q))
                     self.cnt += 1
                 except AssertionError:
@@ -166,8 +167,8 @@ class Runner:
 
         # main search
         while len(self.heap_queue) > 0:
-            prev_d, v, cnt_old, p = heappop(self.heap_queue)
-            # print("prev_d", prev_d, cnt_old, p)
+            v, cnt_old, p = heappop(self.heap_queue)
+            v_max = max(v_max, v + 1)
             # print(p.history)
             p: Problem
             for op in transformers:
@@ -182,7 +183,7 @@ class Runner:
                     # evaluate
                     d = eval_distance(q)
                     if d > 0:
-                        heappush(self.heap_queue, (v + 1 + d // 10000, v + 1, self.cnt, q))
+                        heappush(self.heap_queue, (v + 1, self.cnt, q))
                     heappush(self.heap_res, (d, v + 1, self.cnt, q))
                 except AssertionError:
                     pass
@@ -199,7 +200,7 @@ class Runner:
                     # evaluate
                     d = eval_distance(q)
                     if d > 0:
-                        heappush(self.heap_queue, (v + 1 + d // 10000, v + 1, self.cnt, q))
+                        heappush(self.heap_queue, (v + 1, self.cnt, q))
                     heappush(self.heap_res, (d, v + 1, self.cnt, q))
                 except AssertionError:
                     pass
@@ -226,13 +227,13 @@ class Runner:
             heappush(self.heap_res, (d, v, c, r))
             if d == 0:
                 if self.verbose:
-                    print(f'Solved {self.name} in {round(time.time() - t0, 3)} seconds, v={v}, cnt={self.cnt}')
+                    print(f'Solved {self.name} in {round(time.time() - t0, 3)} seconds, v={v_max}, cnt={self.cnt}')
                     print(r.history)
                     break
             # break by time
             if time.time() >= t0 + time_limit:
                 if self.verbose:
-                    print(f'Failed to solve {self.name} in {round(time.time() - t0, 3)} seconds, v={v}, cnt={self.cnt}')
+                    print(f'Failed to solve {self.name} in {round(time.time() - t0, 3)} seconds, v={v_max}, cnt={self.cnt}')
                 break
 
         return None
@@ -342,6 +343,12 @@ class Runner:
 
 
 if __name__ == "__main__":
+    p_test = Runner(6, file_list="eval", verbose=True)
+    p_test.auto_run(time_limit=10.0)
+    p_test = Runner(46, file_list="eval", verbose=True)
+    p_test.auto_run(time_limit=10.0)
+    p_test = Runner(58, file_list="eval", verbose=True)
+    p_test.auto_run(time_limit=10.0)
     for ind in range(100):
         p_test = Runner(ind, file_list="eval", verbose=True)
         p_test.auto_run(time_limit=1.0)

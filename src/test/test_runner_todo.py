@@ -41,6 +41,11 @@ def test_261():
     p = Runner(261, verbose=True)
 
 
+def test_336():
+    p = Runner(336, verbose=True)
+    p.run("color_change")
+
+
 def test_406():
     p = Runner(6, "eval", verbose=True)
     p.run("shadow_bool")
@@ -85,6 +90,7 @@ if __name__ == "__main__":
     test_61()
     test_140()
     test_261()
+    test_336()
     test_406()
     test_411()
     test_446()
