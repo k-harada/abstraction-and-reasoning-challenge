@@ -228,7 +228,7 @@ class Runner:
                 if self.verbose:
                     print(f'Solved {self.name} in {round(time.time() - t0, 3)} seconds, v={v}, cnt={self.cnt}')
                     print(r.history)
-                break
+                    break
             # break by time
             if time.time() >= t0 + time_limit:
                 if self.verbose:
@@ -343,5 +343,5 @@ class Runner:
 
 if __name__ == "__main__":
     for ind in range(100):
-        p_test = Runner(ind, verbose=True)
+        p_test = Runner(ind, file_list="eval", verbose=True)
         p_test.auto_run(time_limit=1.0)
