@@ -28,7 +28,8 @@ def connect_diagonal(x_arr, background) -> np.array:
                         i_d_list.append(i)
             if len(i_d_list) >= 2:
                 for i in range(i_d_list[0], i_d_list[-1] + 1):
-                    new_x_arr[i, i - d] = c
+                    if x_arr[i, i - d] == background:
+                        new_x_arr[i, i - d] = c
         # left-down
         for d in range(sum_max):
             i_d_list = [0]
@@ -39,7 +40,8 @@ def connect_diagonal(x_arr, background) -> np.array:
                         i_d_list.append(i)
             if len(i_d_list) >= 2:
                 for i in range(i_d_list[0], i_d_list[-1] + 1):
-                    new_x_arr[i, d - i] = c
+                    if x_arr[i, d - i] == background:
+                        new_x_arr[i, d - i] = c
 
     return new_x_arr
 

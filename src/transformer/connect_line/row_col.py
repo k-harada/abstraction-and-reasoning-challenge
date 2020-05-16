@@ -20,13 +20,17 @@ def connect_row_col(x_arr, background) -> np.array:
             if c in list(x_arr[i, :]):
                 j0 = min([j for j in range(x_arr.shape[1]) if x_arr[i, j] == c])
                 j1 = max([j for j in range(x_arr.shape[1]) if x_arr[i, j] == c])
-                new_x_arr[i, j0:j1 + 1] = c
+                for j in range(j0, j1 + 1):
+                    if x_arr[i, j] == background:
+                        new_x_arr[i, j] = c
         # col
         for j in range(x_arr.shape[1]):
             if c in list(x_arr[:, j]):
                 i0 = min([i for i in range(x_arr.shape[0]) if x_arr[i, j] == c])
                 i1 = max([i for i in range(x_arr.shape[0]) if x_arr[i, j] == c])
-                new_x_arr[i0:i1 + 1, j] = c
+                for i in range(i0, i1 + 1):
+                    if x_arr[i, j] == background:
+                        new_x_arr[i, j] = c
 
     return new_x_arr
 
