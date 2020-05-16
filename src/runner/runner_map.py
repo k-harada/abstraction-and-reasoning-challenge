@@ -1,12 +1,12 @@
 from src.data import Problem
-from src.mapper.map_color import MapColor
-from src.mapper.map_connect import MapConnect
-from src.mapper.map_color_connect import MapColorConnect
-from src.mapper.map_divide import Divide
-from src.mapper.map_multiple import Multiple
-from src.mapper.split_mesh_normal import SplitMesh
-from src.mapper.split_mesh_2 import SplitMeshTwo
-from src.mapper.split_mesh_align import SplitMeshAlign
+from src.operator.mapper.map_color import MapColor
+from src.operator.mapper.map_connect import MapConnect
+from src.operator.mapper.map_color_connect import MapColorConnect
+from src.operator.mapper.map_divide import Divide
+from src.operator.mapper.map_multiple import Multiple
+from src.operator.mapper.split_mesh_normal import SplitMesh
+from src.operator.mapper.split_mesh_2 import SplitMeshTwo
+from src.operator.mapper.split_mesh_align import SplitMeshAlign
 
 
 # initial map

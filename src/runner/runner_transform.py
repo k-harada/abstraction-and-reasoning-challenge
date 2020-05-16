@@ -1,28 +1,29 @@
 from src.data import Problem
-from src.transformer.interior import Interior
-from src.transformer.fill_rectangle import FillRectangle
-from src.transformer.diff_color import DiffColor
-from src.transformer.connect_line.row import ConnectRow
-from src.transformer.connect_line.col import ConnectCol
-from src.transformer.connect_line.row_col import ConnectRowCol
-from src.transformer.connect_line.diagonal import ConnectDiagonal
-from src.reducer.fill_pattern.periodicity_row_col import AutoFillRowColPeriodicity
-from src.reducer.fill_pattern.symmetry_delete import AutoFillLineSymmetryDelete
-from src.reducer.fill_pattern.symmetry_add import AutoFillLineSymmetryAdd
-from src.reducer.fill_pattern.symmetry_full import AutoFillLineSymmetryFull
-from src.reducer.fill_pattern.symmetry_rot import AutoFillRotSymmetry
-from src.reducer.trim_background import TrimBackground
-from src.reducer.collect_mesh import CollectMax
-from src.reducer.fractal import Fractal
-from src.transformer.paste_color import PasteColor
-from src.transformer.switch_color import SwitchColor
-from src.transformer.keep_max_color import KeepMaxColor
-from src.transformer.change_background import ChangeBackground
-from src.transformer.arithmetic.n_cell import NCell
-from src.transformer.arithmetic.arg_sort import ArgSort
-from src.transformer.arithmetic.max_color import MaxColor
-from src.transformer.shadow import Shadow
-from src.transformer.keep_mesh import KeepMesh
+from src.operator.transformer.interior import Interior
+from src.operator.transformer.fill_rectangle import FillRectangle
+from src.operator.transformer.diff_color import DiffColor
+from src.operator.transformer.connect_line.row import ConnectRow
+from src.operator.transformer.connect_line.col import ConnectCol
+from src.operator.transformer.connect_line.row_col import ConnectRowCol
+from src.operator.transformer.connect_line.diagonal import ConnectDiagonal
+from src.operator.transformer.reducer.fill_pattern.periodicity_row_col import AutoFillRowColPeriodicity
+from src.operator.transformer.reducer.fill_pattern.symmetry_delete import AutoFillLineSymmetryDelete
+from src.operator.transformer.reducer.fill_pattern.symmetry_add import AutoFillLineSymmetryAdd
+from src.operator.transformer.reducer.fill_pattern.symmetry_full import AutoFillLineSymmetryFull
+from src.operator.transformer.reducer.fill_pattern.symmetry_rot import AutoFillRotSymmetry
+from src.operator.transformer.reducer.trim_background import TrimBackground
+from src.operator.transformer.reducer.collect_mesh import CollectMax
+from src.operator.transformer.reducer.fractal import Fractal
+from src.operator.transformer.paste_color import PasteColor
+from src.operator.transformer.switch_color import SwitchColor
+from src.operator.transformer.keep_max_color import KeepMaxColor
+from src.operator.transformer.change_background import ChangeBackground
+from src.operator.transformer.arithmetic.n_cell import NCell
+from src.operator.transformer.arithmetic.arg_sort import ArgSort
+from src.operator.transformer.arithmetic.max_color import MaxColor
+from src.operator.transformer.shadow import Shadow
+from src.operator.transformer.keep_mesh import KeepMesh
+from src.operator.transformer.picker.pick_rectangle import RectanglePicker
 
 
 def run_transform(p: Problem, command: str) -> Problem:
@@ -84,5 +85,7 @@ def run_transform(p: Problem, command: str) -> Problem:
         return Shadow.problem(p, "mesh")
     elif command == "keep_mesh":
         return KeepMesh.problem(p)
+    elif command == "pick_rectangle":
+        return RectanglePicker.problem(p)
     else:
         raise NotImplementedError

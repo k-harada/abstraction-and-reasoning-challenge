@@ -42,6 +42,15 @@ class Matter:
         # shape
         self.shape = self.values.shape
 
+    def is_filled_rectangle(self):
+        if min(self.values.shape) == 0:
+            return False
+        color_one = self.values[0, 0]
+        if (self.values == color_one).min() and color_one != self.background_color:
+            return True
+        else:
+            return False
+
     def is_square(self):
         if self.shape[0] == self.shape[1]:
             return True
@@ -148,5 +157,5 @@ class Matter:
 
 
 if __name__ == "__main__":
-    m0 = Matter(np.array([[1, 2, 3], [2, 3, 5], [4, 8, 2]]))
+    m0 = Matter(np.array([[1, 2, 3], [2, 3, 5], [4, 8, 2]]), new=True)
     print(m0.color_count())

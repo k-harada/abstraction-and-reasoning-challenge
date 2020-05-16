@@ -29,6 +29,10 @@ def test_140():
     p = Runner(140, verbose=True)
 
 
+def test_217():
+    p = Runner(217, verbose=True)
+
+
 def test_221():
     p = Runner(221, verbose=True)
 
@@ -42,6 +46,13 @@ def test_406():
     p.run("shadow_bool")
     p.run("switch_color")
     p.run("fractal")
+
+
+def test_411():
+    p = Runner(11, "eval", verbose=True)
+    p.run("color_connect4")
+    p.run("pick_rectangle")
+    p.run("collect_max")
 
 
 def test_446():
@@ -75,6 +86,7 @@ if __name__ == "__main__":
     test_140()
     test_261()
     test_406()
+    test_411()
     test_446()
     test_458()
     test_507()
