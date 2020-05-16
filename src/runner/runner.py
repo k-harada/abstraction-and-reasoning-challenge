@@ -293,6 +293,18 @@ class Runner:
     def eval_distance(self):
         return eval_distance(self.problem_hand)
 
+    def eval_test(self, verbose=False):
+        ac = 0
+        wa = 0
+        for c_x, ans in zip(self.problem_hand.test_x_list, self.answer_list):
+            if c_x.__repr__() == ans:
+                ac += 1
+            else:
+                wa += 1
+                if verbose:
+                    print(self.name, c_x.__repr__(), ans)
+        return ac, wa
+
     @classmethod
     def _run_map(cls, problem: Problem, command: str) -> Problem:
         if command in mappers:

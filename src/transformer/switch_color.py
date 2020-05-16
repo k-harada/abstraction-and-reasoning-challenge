@@ -10,8 +10,10 @@ class SwitchColor:
     @classmethod
     def matter(cls, m: Matter) -> Matter:
         assert m.n_color() <= 2
-        if m.n_color() == 0:
-            return m.deepcopy()
+        if m.is_mesh:
+            return m
+        elif m.n_color() == 0:
+            return m
         elif m.n_color() == 1:
             color_count = m.color_count()
             for c in range(10):

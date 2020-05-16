@@ -8,7 +8,6 @@ VAL_DIFF = 1
 
 
 def eval_distance(problem: Problem) -> np.int:
-
     res_base = 0
     res_fractal = 1
     case_x: Case

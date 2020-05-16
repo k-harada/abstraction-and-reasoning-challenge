@@ -1,6 +1,13 @@
 from src.runner.runner import Runner
 
 
+def test_2():
+    p = Runner(2, verbose=True)
+    p.run("extend_shape")
+    p.run("auto_fill_row_col_periodicity")
+    p.run("keep_max_color")
+
+
 def test_5():
     p = Runner(5, verbose=True)
     for op in ['mesh_align', 'switch_color', 'fit_replace_rule_33']:
@@ -77,7 +84,15 @@ def test_406():
     p.run("fractal")
 
 
+def test_446():
+    p = Runner(46, "eval", verbose=True)
+    p.run("mesh_split")
+    p.run("switch_color")
+    p.run("color_change")
+
+
 if __name__ == "__main__":
+    test_2()
     test_5()
     test_9()
     test_019()
@@ -88,3 +103,4 @@ if __name__ == "__main__":
     test_258()
     test_261()
     test_406()
+    test_446()

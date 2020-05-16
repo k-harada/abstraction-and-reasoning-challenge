@@ -1,6 +1,5 @@
 import numpy as np
 from src.data import Problem, Case, Matter
-from ..color.color_change import color_change
 
 
 def bitwise_case(c: Case) -> Case:
