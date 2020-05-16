@@ -38,7 +38,7 @@ def fit_color_change_rule_one(x_arr, rule):
 
 def color_change(p: Problem) -> Problem:
     assert only_color(p)
-
+    # print(p)
     case_x: Case
     case_y: Case
     case_x_new: Case

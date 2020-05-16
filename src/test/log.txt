@@ -1239,7 +1239,7 @@ eval 156
 Failed to solve eval_156 in 1.002 seconds, v=1, cnt=2738
 eval 157
 Solved eval_157 in 0.27 seconds, v=2, cnt=289
-['divide_row_col', 'auto_fill_line_symmetry_add', 'color_change']
+['divide_row_col', 'reduce_bitwise']
 eval 158
 Failed to solve eval_158 in 1.006 seconds, v=3, cnt=2457
 eval 159

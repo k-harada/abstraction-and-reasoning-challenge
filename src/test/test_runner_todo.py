@@ -10,6 +10,12 @@ def test_2():
 
 def test_5():
     p = Runner(5, verbose=True)
+    p.run("mesh_align")
+    p.run("reduce_bitwise")
+
+
+def test_5_2():
+    p = Runner(5, verbose=True)
     for op in ['mesh_align', 'switch_color', 'fit_replace_rule_33']:
         p.run(op)
 
@@ -108,6 +114,7 @@ def test_446():
 if __name__ == "__main__":
     test_2()
     test_5()
+    test_5_2()
     test_9()
     test_019()
     test_26()

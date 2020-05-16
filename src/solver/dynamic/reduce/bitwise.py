@@ -1,5 +1,6 @@
 import numpy as np
 from src.data import Problem, Case, Matter
+from src.solver.dynamic.color.color_change import color_change
 
 
 def bitwise_case(c: Case) -> Case:
@@ -30,4 +31,14 @@ def reduce_bitwise(p: Problem) -> Problem:
         q.train_x_list.append(bitwise_case(c))
     for c in p.test_x_list:
         q.test_x_list.append(bitwise_case(c))
-    return q
+
+    # modify background
+    q.train_y_list = []
+    for c in p.train_y_list:
+        values = c.repr_values()
+        new_c = c.copy()
+        new_c.matter_list = [Matter(values, background_color=-1, new=True)]
+        new_c.background_color = -1
+        q.train_y_list.append(new_c)
+
+    return color_change(q)
