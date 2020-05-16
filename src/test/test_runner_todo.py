@@ -111,6 +111,18 @@ def test_446():
     p.run("color_change")
 
 
+def test_458():
+    p = Runner(58, "eval", verbose=True)
+    p.run("point_cross")
+    p.run("interior_dir4_zero")
+
+
+def test_467():
+    p = Runner(67, "eval", verbose=True)
+    p.run("shadow_max")
+    p.run("fractal")
+
+
 if __name__ == "__main__":
     test_2()
     test_5()
@@ -128,3 +140,5 @@ if __name__ == "__main__":
     test_425()
     test_433()
     test_446()
+    test_458()
+    test_467()

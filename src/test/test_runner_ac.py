@@ -22,7 +22,8 @@ def test_log():
                     p.run(op)
                 ac, wa = p.eval_test(verbose=True)
                 if wa == 0 and file_kbn[0] == "eval":
-                    print(file_kbn[1], op_list)
+                    # print(file_kbn[1], op_list)
+                    pass
                 if wa > 0:
                     print(op_list)
                     print(ac, wa)

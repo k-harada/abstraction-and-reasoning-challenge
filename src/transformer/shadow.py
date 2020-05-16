@@ -17,9 +17,9 @@ class Shadow:
         elif shadow_type == "same":
             new_case.shadow = new_case.repr_values().copy()
         elif shadow_type == "max":
-            new_case.shadow = (new_case.repr_values() != new_case.max_color()).astype(np.bool)
+            new_case.shadow = (new_case.repr_values() == new_case.max_color()).astype(np.bool)
         elif shadow_type == "min":
-            new_case.shadow = (new_case.repr_values() != new_case.min_color()).astype(np.bool)
+            new_case.shadow = (new_case.repr_values() == new_case.min_color()).astype(np.bool)
         elif shadow_type == "mesh":
             new_case.shadow = keep_mesh_array(new_case.repr_values())
         return new_case
