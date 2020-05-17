@@ -13,6 +13,7 @@ class MaxColor:
         new_case.matter_list = [m.deepcopy() for m in c.matter_list]
         for m in new_case.matter_list:
             m.a = m.max_color()
+        # new_case.matter_list = list(sorted(new_case.matter_list, key=lambda x: -x.a))
         return new_case
 
     @classmethod

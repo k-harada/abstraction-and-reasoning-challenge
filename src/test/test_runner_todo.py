@@ -7,12 +7,6 @@ def test_019():
     # self.assertEqual(p.eval_distance(), 0)
 
 
-def test_20():
-    p = Runner(20, verbose=True)
-    p.run("mesh_split")
-    p.run("collect_max")
-
-
 def test_26():
     p = Runner(26, verbose=True)
     # p.run("auto_fill_rot")
@@ -43,19 +37,13 @@ def test_221():
     p = Runner(221, verbose=True)
 
 
-def test_222():
-    p = Runner(222, verbose=True)
-    p.run("solve_zoom")
-
-
 def test_261():
     p = Runner(261, verbose=True)
 
 
-def test_409():
-    p = Runner(9, "eval", verbose=True)
-    p.run("fusion")
-    p.run("auto_fill_line_symmetry_del")
+def test_440():
+    p = Runner(40, "eval", verbose=True)
+    p.run("connect")
 
 
 def test_507():
@@ -69,13 +57,33 @@ def test_551():
     # p.run("connect_row")
 
 
+def test_555():
+    p = Runner(155, "eval", verbose=True)
+    p.run("trim_background")
+
+
 def test_558():
     p = Runner(158, "eval", verbose=True)
     p.run("trim_background")
 
 
+def test_561():
+    p = Runner(161, "eval", verbose=True)
+    p.run("trim_background")
+
+
 def test_576():
     p = Runner(176, "eval", verbose=True)
+    p.run("trim_background")
+
+
+def test_578():
+    p = Runner(178, "eval", verbose=True)
+    p.run("trim_background")
+
+
+def test_586():
+    p = Runner(186, "eval", verbose=True)
     p.run("trim_background")
 
 
@@ -92,32 +100,12 @@ def test_599():
     p = Runner(199, "eval", verbose=True)
 
 
-def test_711():
-    p = Runner(311, "eval", verbose=True)
-    p.run("shadow_ones")
-    p.run("fractal")
-
-
-def test_714():
-    p = Runner(314, "eval", verbose=True)
-    p.run("drop_duplicates")
+def test_652():
+    p = Runner(252, "eval", verbose=True)
 
 
 def test_719():
     p = Runner(319, "eval", verbose=True)
-
-
-def test_725():
-    p = Runner(325, "eval", verbose=True)
-    p.run("n_color")
-    p.run("transform_zoom")
-
-
-def test_727():
-    p = Runner(327, "eval", verbose=True)
-    p.run("connect")
-    p.run("find_symmetry")
-    p.run("trim_background")
 
 
 def test_756():
@@ -134,10 +122,5 @@ if __name__ == "__main__":
     test_140()
     test_222()
     test_261()
-    test_409()
     test_507()
     test_551()
-    test_711()
-    test_714()
-    test_725()
-    test_727()

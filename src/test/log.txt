@@ -1,1781 +1,1802 @@
 train 0
-Solved train_0 in 0.034 seconds, v=1, cnt=50
+Solved train_0 in 0.035 seconds, v=1, cnt=56
 ['fractal']
 train 1
-Solved train_1 in 0.125 seconds, v=1, cnt=54
+Solved train_1 in 0.096 seconds, v=1, cnt=60
 ['interior_dir4_zero']
 train 2
-Solved train_2 in 4.569 seconds, v=3, cnt=10023
+Solved train_2 in 5.057 seconds, v=3, cnt=16468
 ['extend_shape', 'auto_fill_row_col_periodicity', 'keep_max_color']
 train 3
-Failed to solve train_3 in 10.01 seconds, v=3, cnt=17853
+Failed to solve train_3 in 10.019 seconds, v=3, cnt=23773
 train 4
-Failed to solve train_4 in 10.221 seconds, v=3, cnt=4441
+Failed to solve train_4 in 10.021 seconds, v=3, cnt=10155
 train 5
-Solved train_5 in 0.148 seconds, v=2, cnt=269
+Solved train_5 in 0.107 seconds, v=2, cnt=305
 ['mesh_align', 'reduce_bitwise']
 train 6
-Solved train_6 in 0.045 seconds, v=1, cnt=51
+Solved train_6 in 0.033 seconds, v=1, cnt=57
 ['fill_pattern']
 train 7
-Failed to solve train_7 in 10.007 seconds, v=3, cnt=14030
+Failed to solve train_7 in 10.015 seconds, v=3, cnt=19612
 train 8
-Solved train_8 in 0.656 seconds, v=2, cnt=183
+Solved train_8 in 0.579 seconds, v=2, cnt=207
 ['mesh_2', 'connect_row_col']
 train 9
-Solved train_9 in 1.027 seconds, v=3, cnt=1774
+Solved train_9 in 0.957 seconds, v=3, cnt=2216
 ['connect', 'arg_sort', 'auto_paste']
 train 10
-Failed to solve train_10 in 10.142 seconds, v=3, cnt=6334
+Failed to solve train_10 in 10.176 seconds, v=3, cnt=8196
 train 11
-Failed to solve train_11 in 10.018 seconds, v=3, cnt=16824
+Failed to solve train_11 in 10.013 seconds, v=3, cnt=21768
 train 12
-Failed to solve train_12 in 10.195 seconds, v=2, cnt=1346
+Failed to solve train_12 in 10.253 seconds, v=2, cnt=1778
 train 13
-Solved train_13 in 0.156 seconds, v=2, cnt=97
+Solved train_13 in 0.125 seconds, v=2, cnt=109
 ['color', 'trim_background']
 train 14
-Solved train_14 in 0.056 seconds, v=1, cnt=55
+Solved train_14 in 0.039 seconds, v=1, cnt=61
 ['fit_replace_rule_33']
 train 15
-Solved train_15 in 0.045 seconds, v=1, cnt=55
-['fit_replace_rule_33']
+Solved train_15 in 0.027 seconds, v=1, cnt=61
+['color_change']
 train 16
-Solved train_16 in 0.299 seconds, v=1, cnt=51
+Solved train_16 in 0.24 seconds, v=1, cnt=57
 ['auto_fill_row_col_periodicity']
 train 17
-Failed to solve train_17 in 10.032 seconds, v=3, cnt=7838
+Failed to solve train_17 in 10.165 seconds, v=3, cnt=10645
 train 18
-Solved train_18 in 0.112 seconds, v=2, cnt=180
-['multiple_row_col', 'fit_replace_rule_33']
+Solved train_18 in 0.124 seconds, v=2, cnt=254
+['multiple_row_col', 'fit_replace_rule_33_all']
 train 19
-Solved train_19 in 0.093 seconds, v=1, cnt=54
+Solved train_19 in 0.082 seconds, v=1, cnt=60
 ['auto_fill_line_symmetry_add']
 train 20
-Solved train_20 in 0.222 seconds, v=2, cnt=138
+Solved train_20 in 0.304 seconds, v=2, cnt=156
 ['mesh_split', 'collect_max']
 train 21
-Failed to solve train_21 in 10.042 seconds, v=4, cnt=15792
+Failed to solve train_21 in 10.011 seconds, v=4, cnt=27059
 train 22
-Failed to solve train_22 in 10.011 seconds, v=3, cnt=15401
+Failed to solve train_22 in 10.009 seconds, v=3, cnt=20196
 train 23
-Solved train_23 in 1.867 seconds, v=3, cnt=2076
+Solved train_23 in 1.443 seconds, v=3, cnt=2707
 ['color', 'point_cross', 'color_pile']
 train 24
-Failed to solve train_24 in 10.059 seconds, v=3, cnt=3495
+Failed to solve train_24 in 10.058 seconds, v=3, cnt=4520
 train 25
-Solved train_25 in 0.264 seconds, v=2, cnt=271
-['mesh_align', 'fit_replace_rule_33']
+Solved train_25 in 0.247 seconds, v=2, cnt=307
+['mesh_align', 'reduce_bitwise']
 train 26
-Failed to solve train_26 in 10.032 seconds, v=3, cnt=12477
+Failed to solve train_26 in 10.088 seconds, v=3, cnt=16668
 train 27
-Solved train_27 in 0.058 seconds, v=1, cnt=54
+Solved train_27 in 0.045 seconds, v=1, cnt=61
 ['fill_pattern']
 train 28
-Failed to solve train_28 in 10.022 seconds, v=3, cnt=7275
+Failed to solve train_28 in 10.233 seconds, v=3, cnt=4026
 train 29
-Failed to solve train_29 in 10.004 seconds, v=3, cnt=15621
+Failed to solve train_29 in 10.047 seconds, v=3, cnt=20641
 train 30
-Solved train_30 in 0.038 seconds, v=1, cnt=49
-['trim_background']
+Solved train_30 in 0.036 seconds, v=1, cnt=56
+['mesh_align']
 train 31
-Failed to solve train_31 in 10.005 seconds, v=3, cnt=18457
+Failed to solve train_31 in 10.002 seconds, v=3, cnt=24118
 train 32
-Failed to solve train_32 in 10.002 seconds, v=3, cnt=5947
+Failed to solve train_32 in 10.087 seconds, v=3, cnt=6873
 train 33
-Failed to solve train_33 in 10.031 seconds, v=3, cnt=11922
+Failed to solve train_33 in 10.033 seconds, v=3, cnt=19073
 train 34
-Failed to solve train_34 in 10.012 seconds, v=3, cnt=10160
+Failed to solve train_34 in 10.005 seconds, v=3, cnt=13389
 train 35
-Solved train_35 in 0.219 seconds, v=2, cnt=94
+Solved train_35 in 0.193 seconds, v=2, cnt=106
 ['color', 'trim_background']
 train 36
-Solved train_36 in 0.051 seconds, v=1, cnt=55
+Solved train_36 in 0.046 seconds, v=1, cnt=61
 ['connect_diagonal']
 train 37
-Failed to solve train_37 in 10.015 seconds, v=4, cnt=16005
+Failed to solve train_37 in 10.01 seconds, v=3, cnt=18874
 train 38
-Failed to solve train_38 in 10.006 seconds, v=4, cnt=22884
+Failed to solve train_38 in 10.006 seconds, v=4, cnt=35779
 train 39
-Failed to solve train_39 in 10.002 seconds, v=3, cnt=10978
+Failed to solve train_39 in 10.009 seconds, v=3, cnt=13243
 train 40
-Solved train_40 in 0.051 seconds, v=1, cnt=52
+Solved train_40 in 0.042 seconds, v=1, cnt=58
 ['connect_row']
 train 41
-Failed to solve train_41 in 10.03 seconds, v=3, cnt=12565
+Failed to solve train_41 in 10.038 seconds, v=3, cnt=17895
 train 42
-Failed to solve train_42 in 10.035 seconds, v=3, cnt=12008
+Failed to solve train_42 in 10.006 seconds, v=3, cnt=13437
 train 43
-Failed to solve train_43 in 10.008 seconds, v=3, cnt=12351
+Failed to solve train_43 in 10.026 seconds, v=3, cnt=14171
 train 44
-Solved train_44 in 0.052 seconds, v=1, cnt=55
+Solved train_44 in 0.046 seconds, v=1, cnt=62
 ['connect_row']
 train 45
-Failed to solve train_45 in 10.011 seconds, v=4, cnt=18244
+Failed to solve train_45 in 10.001 seconds, v=4, cnt=25051
 train 46
-Solved train_46 in 0.07 seconds, v=2, cnt=97
+Solved train_46 in 0.051 seconds, v=2, cnt=110
 ['color', 'point_cross']
 train 47
-Failed to solve train_47 in 10.028 seconds, v=4, cnt=11363
+Failed to solve train_47 in 10.002 seconds, v=3, cnt=13339
 train 48
-Solved train_48 in 0.18 seconds, v=2, cnt=97
-['color', 'trim_background']
+Solved train_48 in 0.092 seconds, v=1, cnt=61
+['fusion']
 train 49
-Solved train_49 in 1.288 seconds, v=2, cnt=743
+Solved train_49 in 1.104 seconds, v=2, cnt=894
 ['connect_row_col', 'diff_color']
 train 50
-Failed to solve train_50 in 10.059 seconds, v=3, cnt=4912
+Failed to solve train_50 in 10.012 seconds, v=3, cnt=7851
 train 51
-Solved train_51 in 0.035 seconds, v=1, cnt=55
+Solved train_51 in 0.031 seconds, v=1, cnt=61
 ['keep_mesh']
 train 52
-Failed to solve train_52 in 10.138 seconds, v=3, cnt=16305
+Failed to solve train_52 in 10.118 seconds, v=3, cnt=20932
 train 53
-Failed to solve train_53 in 10.072 seconds, v=3, cnt=1902
+Failed to solve train_53 in 10.247 seconds, v=3, cnt=2509
 train 54
-Failed to solve train_54 in 10.005 seconds, v=3, cnt=12433
+Failed to solve train_54 in 10.03 seconds, v=3, cnt=14706
 train 55
-Failed to solve train_55 in 10.037 seconds, v=4, cnt=9942
+Failed to solve train_55 in 10.027 seconds, v=3, cnt=13337
 train 56
-Solved train_56 in 0.117 seconds, v=2, cnt=221
-['trim_background', 'duplicate']
+Solved train_56 in 0.078 seconds, v=2, cnt=203
+['mesh_align', 'duplicate']
 train 57
-Failed to solve train_57 in 10.44 seconds, v=3, cnt=1386
+Failed to solve train_57 in 10.117 seconds, v=3, cnt=2068
 train 58
-Failed to solve train_58 in 10.048 seconds, v=3, cnt=8957
+Failed to solve train_58 in 10.058 seconds, v=3, cnt=11675
 train 59
-Failed to solve train_59 in 10.003 seconds, v=3, cnt=20737
+Failed to solve train_59 in 10.01 seconds, v=3, cnt=31127
 train 60
-Solved train_60 in 0.224 seconds, v=1, cnt=54
+Solved train_60 in 0.199 seconds, v=1, cnt=60
 ['auto_fill_row_col_periodicity']
 train 61
-Failed to solve train_61 in 10.076 seconds, v=3, cnt=10589
+Failed to solve train_61 in 10.007 seconds, v=3, cnt=16133
 train 62
-Failed to solve train_62 in 10.03 seconds, v=3, cnt=9901
+Failed to solve train_62 in 10.005 seconds, v=3, cnt=11526
 train 63
-Failed to solve train_63 in 10.042 seconds, v=3, cnt=5386
+Failed to solve train_63 in 10.078 seconds, v=3, cnt=6920
 train 64
-Solved train_64 in 0.18 seconds, v=2, cnt=225
+Solved train_64 in 0.147 seconds, v=2, cnt=255
 ['mesh_align', 'change_background']
 train 65
-Failed to solve train_65 in 10.172 seconds, v=3, cnt=5901
+Failed to solve train_65 in 10.021 seconds, v=3, cnt=7311
 train 66
-Solved train_66 in 0.041 seconds, v=1, cnt=51
+Solved train_66 in 0.024 seconds, v=1, cnt=57
 ['divide_row_col']
 train 67
-Failed to solve train_67 in 10.016 seconds, v=3, cnt=6804
+Failed to solve train_67 in 10.005 seconds, v=3, cnt=8781
 train 68
-Failed to solve train_68 in 10.009 seconds, v=3, cnt=18286
+Failed to solve train_68 in 10.009 seconds, v=3, cnt=23727
 train 69
-Failed to solve train_69 in 10.28 seconds, v=3, cnt=3019
+Failed to solve train_69 in 10.103 seconds, v=3, cnt=3880
 train 70
-Solved train_70 in 0.117 seconds, v=1, cnt=52
+Solved train_70 in 0.099 seconds, v=1, cnt=59
 ['auto_fill_line_symmetry_del']
 train 71
-Solved train_71 in 0.487 seconds, v=2, cnt=270
+Solved train_71 in 0.403 seconds, v=2, cnt=306
 ['mesh_align', 'reduce_bitwise']
 train 72
-Failed to solve train_72 in 10.002 seconds, v=3, cnt=16522
+Failed to solve train_72 in 10.012 seconds, v=3, cnt=22306
 train 73
-Solved train_73 in 0.45 seconds, v=1, cnt=54
+Solved train_73 in 0.402 seconds, v=1, cnt=60
 ['auto_fill_line_symmetry_del']
 train 74
-Failed to solve train_74 in 10.02 seconds, v=3, cnt=12009
+Failed to solve train_74 in 10.021 seconds, v=3, cnt=14467
 train 75
-Failed to solve train_75 in 10.016 seconds, v=3, cnt=10418
+Failed to solve train_75 in 10.0 seconds, v=3, cnt=11821
 train 76
-Failed to solve train_76 in 10.138 seconds, v=3, cnt=3923
+Failed to solve train_76 in 10.087 seconds, v=3, cnt=4959
 train 77
-Failed to solve train_77 in 10.006 seconds, v=3, cnt=13944
+Failed to solve train_77 in 10.015 seconds, v=3, cnt=17652
 train 78
-Failed to solve train_78 in 10.004 seconds, v=4, cnt=14932
+Failed to solve train_78 in 10.014 seconds, v=4, cnt=21130
 train 79
-Failed to solve train_79 in 10.108 seconds, v=3, cnt=2849
+Failed to solve train_79 in 10.249 seconds, v=3, cnt=3490
 train 80
-Solved train_80 in 0.057 seconds, v=2, cnt=96
+Solved train_80 in 0.049 seconds, v=2, cnt=108
 ['connect', 'fill_rectangle']
 train 81
-Failed to solve train_81 in 10.039 seconds, v=4, cnt=21721
+Failed to solve train_81 in 10.013 seconds, v=4, cnt=33964
 train 82
-Solved train_82 in 0.083 seconds, v=2, cnt=91
+Solved train_82 in 0.072 seconds, v=2, cnt=103
 ['multiple_row_col', 'rotations']
 train 83
-Failed to solve train_83 in 10.011 seconds, v=3, cnt=15574
+Failed to solve train_83 in 10.019 seconds, v=3, cnt=20686
 train 84
-Failed to solve train_84 in 10.002 seconds, v=3, cnt=3537
+Failed to solve train_84 in 10.007 seconds, v=3, cnt=4813
 train 85
-Failed to solve train_85 in 10.027 seconds, v=3, cnt=4783
+Failed to solve train_85 in 10.06 seconds, v=3, cnt=6870
 train 86
-Solved train_86 in 0.037 seconds, v=1, cnt=52
+Solved train_86 in 0.029 seconds, v=1, cnt=58
 ['rotations']
 train 87
-Failed to solve train_87 in 10.018 seconds, v=4, cnt=14761
+Failed to solve train_87 in 10.012 seconds, v=4, cnt=19906
 train 88
-Failed to solve train_88 in 10.024 seconds, v=3, cnt=7624
+Failed to solve train_88 in 10.035 seconds, v=3, cnt=11185
 train 89
-Failed to solve train_89 in 10.028 seconds, v=3, cnt=9730
+Failed to solve train_89 in 10.003 seconds, v=3, cnt=10645
 train 90
-Failed to solve train_90 in 10.007 seconds, v=4, cnt=17942
+Failed to solve train_90 in 10.006 seconds, v=4, cnt=23139
 train 91
-Solved train_91 in 1.13 seconds, v=2, cnt=828
+Solved train_91 in 0.904 seconds, v=2, cnt=991
 ['connect_col', 'connect_row']
 train 92
-Failed to solve train_92 in 10.109 seconds, v=3, cnt=2463
+Failed to solve train_92 in 10.145 seconds, v=3, cnt=3344
 train 93
-Failed to solve train_93 in 10.005 seconds, v=3, cnt=3535
+Failed to solve train_93 in 10.045 seconds, v=3, cnt=4959
 train 94
-Solved train_94 in 0.044 seconds, v=1, cnt=53
-['fit_replace_rule_33']
+Solved train_94 in 0.034 seconds, v=1, cnt=59
+['fit_replace_rule_33_all']
 train 95
-Failed to solve train_95 in 10.011 seconds, v=3, cnt=2632
+Failed to solve train_95 in 10.074 seconds, v=3, cnt=3341
 train 96
-Failed to solve train_96 in 10.21 seconds, v=3, cnt=2117
+Failed to solve train_96 in 10.196 seconds, v=3, cnt=2509
 train 97
-Failed to solve train_97 in 10.073 seconds, v=3, cnt=2974
+Failed to solve train_97 in 10.037 seconds, v=3, cnt=3731
 train 98
-Failed to solve train_98 in 10.013 seconds, v=3, cnt=13815
+Failed to solve train_98 in 10.014 seconds, v=3, cnt=18828
 train 99
-Solved train_99 in 0.227 seconds, v=2, cnt=269
-['divide_row_col', 'fit_replace_rule_33']
+Solved train_99 in 0.228 seconds, v=2, cnt=305
+['divide_row_col', 'color_pile']
 train 100
-Failed to solve train_100 in 10.036 seconds, v=3, cnt=8612
+Failed to solve train_100 in 10.0 seconds, v=3, cnt=13144
 train 101
-Failed to solve train_101 in 10.009 seconds, v=3, cnt=8182
+Failed to solve train_101 in 10.005 seconds, v=3, cnt=9420
 train 102
-Failed to solve train_102 in 10.044 seconds, v=4, cnt=11188
+Failed to solve train_102 in 10.028 seconds, v=4, cnt=17060
 train 103
-Failed to solve train_103 in 10.027 seconds, v=3, cnt=21295
+Failed to solve train_103 in 10.008 seconds, v=3, cnt=28087
 train 104
-Failed to solve train_104 in 10.01 seconds, v=3, cnt=8740
+Failed to solve train_104 in 10.033 seconds, v=3, cnt=10301
 train 105
-Solved train_105 in 0.077 seconds, v=2, cnt=137
+Solved train_105 in 0.065 seconds, v=2, cnt=155
 ['multiple_row_col', 'rotations']
 train 106
-Failed to solve train_106 in 10.011 seconds, v=4, cnt=20348
+Failed to solve train_106 in 10.008 seconds, v=4, cnt=26469
 train 107
-Failed to solve train_107 in 10.035 seconds, v=3, cnt=14417
+Failed to solve train_107 in 10.012 seconds, v=3, cnt=17114
 train 108
-Failed to solve train_108 in 10.007 seconds, v=3, cnt=6547
+Failed to solve train_108 in 10.016 seconds, v=3, cnt=8047
 train 109
-Solved train_109 in 0.465 seconds, v=1, cnt=51
+Solved train_109 in 0.403 seconds, v=1, cnt=57
 ['auto_fill_row_col_periodicity']
 train 110
-Solved train_110 in 0.778 seconds, v=3, cnt=1688
+Solved train_110 in 0.802 seconds, v=3, cnt=2363
 ['connect', 'keep_max_color', 'trim_background']
 train 111
-Solved train_111 in 0.394 seconds, v=1, cnt=54
+Solved train_111 in 0.347 seconds, v=1, cnt=61
 ['auto_fill_line_symmetry_add']
 train 112
-Solved train_112 in 0.039 seconds, v=1, cnt=52
+Solved train_112 in 0.036 seconds, v=1, cnt=58
 ['auto_fill_line_symmetry_full']
 train 113
-Failed to solve train_113 in 10.006 seconds, v=4, cnt=24517
+Failed to solve train_113 in 10.005 seconds, v=4, cnt=33425
 train 114
-Failed to solve train_114 in 10.009 seconds, v=4, cnt=15489
+Failed to solve train_114 in 10.006 seconds, v=4, cnt=19707
 train 115
-Solved train_115 in 0.099 seconds, v=2, cnt=138
+Solved train_115 in 0.09 seconds, v=2, cnt=156
 ['multiple_row_col', 'rotations']
 train 116
-Solved train_116 in 0.18 seconds, v=1, cnt=54
+Solved train_116 in 0.153 seconds, v=1, cnt=61
 ['auto_fill_line_symmetry_add']
 train 117
-Failed to solve train_117 in 10.071 seconds, v=3, cnt=2892
+Failed to solve train_117 in 10.004 seconds, v=3, cnt=3686
 train 118
-Failed to solve train_118 in 10.03 seconds, v=3, cnt=10246
+Failed to solve train_118 in 10.018 seconds, v=3, cnt=14125
 train 119
-Failed to solve train_119 in 10.049 seconds, v=3, cnt=5946
+Failed to solve train_119 in 10.014 seconds, v=3, cnt=7901
 train 120
-Failed to solve train_120 in 10.039 seconds, v=4, cnt=14975
+Failed to solve train_120 in 10.012 seconds, v=4, cnt=24707
 train 121
-Failed to solve train_121 in 10.001 seconds, v=3, cnt=13729
+Failed to solve train_121 in 10.021 seconds, v=3, cnt=17407
 train 122
-Failed to solve train_122 in 10.003 seconds, v=4, cnt=18973
+Failed to solve train_122 in 10.002 seconds, v=3, cnt=23286
 train 123
-Failed to solve train_123 in 10.035 seconds, v=4, cnt=17808
+Failed to solve train_123 in 10.005 seconds, v=4, cnt=25437
 train 124
-Failed to solve train_124 in 10.012 seconds, v=3, cnt=9813
+Failed to solve train_124 in 10.031 seconds, v=3, cnt=10985
 train 125
-Failed to solve train_125 in 10.009 seconds, v=3, cnt=17809
+Failed to solve train_125 in 10.003 seconds, v=3, cnt=25340
 train 126
-Solved train_126 in 0.048 seconds, v=1, cnt=57
+Solved train_126 in 0.042 seconds, v=1, cnt=63
 ['fit_replace_rule_33']
 train 127
-Failed to solve train_127 in 10.005 seconds, v=3, cnt=7752
+Failed to solve train_127 in 10.025 seconds, v=3, cnt=12556
 train 128
-Solved train_128 in 0.195 seconds, v=2, cnt=266
+Solved train_128 in 0.161 seconds, v=2, cnt=302
 ['collect_max', 'duplicate']
 train 129
-Failed to solve train_129 in 10.021 seconds, v=4, cnt=23659
+Failed to solve train_129 in 10.009 seconds, v=4, cnt=30684
 train 130
-Failed to solve train_130 in 10.02 seconds, v=3, cnt=14503
+Failed to solve train_130 in 10.023 seconds, v=3, cnt=20151
 train 131
-Failed to solve train_131 in 10.031 seconds, v=3, cnt=12740
+Failed to solve train_131 in 10.014 seconds, v=3, cnt=16721
 train 132
-Failed to solve train_132 in 10.02 seconds, v=3, cnt=4700
+Failed to solve train_132 in 10.02 seconds, v=3, cnt=8882
 train 133
-Failed to solve train_133 in 10.032 seconds, v=3, cnt=8396
+Failed to solve train_133 in 10.005 seconds, v=3, cnt=7361
 train 134
-Failed to solve train_134 in 10.04 seconds, v=4, cnt=11492
+Failed to solve train_134 in 10.019 seconds, v=4, cnt=17504
 train 135
-Failed to solve train_135 in 10.023 seconds, v=3, cnt=14331
+Failed to solve train_135 in 10.008 seconds, v=3, cnt=20740
 train 136
-Failed to solve train_136 in 10.589 seconds, v=2, cnt=484
+Failed to solve train_136 in 10.244 seconds, v=2, cnt=698
 train 137
-Failed to solve train_137 in 10.006 seconds, v=4, cnt=12954
+Failed to solve train_137 in 10.021 seconds, v=3, cnt=14613
 train 138
-Solved train_138 in 0.06 seconds, v=2, cnt=96
+Solved train_138 in 0.05 seconds, v=2, cnt=109
 ['connect', 'fill_rectangle']
 train 139
-Solved train_139 in 0.019 seconds, v=1, cnt=50
+Solved train_139 in 0.015 seconds, v=1, cnt=56
 ['rotations']
 train 140
-Failed to solve train_140 in 10.054 seconds, v=3, cnt=2716
+Failed to solve train_140 in 10.089 seconds, v=3, cnt=6035
 train 141
-Solved train_141 in 0.086 seconds, v=2, cnt=137
+Solved train_141 in 0.077 seconds, v=2, cnt=155
 ['multiple_row_col', 'rotations']
 train 142
-Failed to solve train_142 in 10.021 seconds, v=3, cnt=8053
+Failed to solve train_142 in 10.035 seconds, v=3, cnt=11086
 train 143
-Solved train_143 in 0.172 seconds, v=2, cnt=270
-['mesh_align', 'fit_replace_rule_33']
+Solved train_143 in 0.147 seconds, v=2, cnt=306
+['mesh_align', 'reduce_bitwise']
 train 144
-Failed to solve train_144 in 10.037 seconds, v=3, cnt=9038
+Failed to solve train_144 in 10.024 seconds, v=3, cnt=10053
 train 145
-Failed to solve train_145 in 10.035 seconds, v=4, cnt=15964
+Failed to solve train_145 in 10.023 seconds, v=4, cnt=23384
 train 146
-Solved train_146 in 0.077 seconds, v=2, cnt=94
+Solved train_146 in 0.072 seconds, v=2, cnt=106
 ['connect4', 'auto_paste']
 train 147
-Failed to solve train_147 in 10.025 seconds, v=3, cnt=8612
+Failed to solve train_147 in 10.033 seconds, v=3, cnt=12213
 train 148
-Failed to solve train_148 in 10.018 seconds, v=3, cnt=12053
+Failed to solve train_148 in 10.005 seconds, v=3, cnt=12361
 train 149
-Solved train_149 in 0.069 seconds, v=1, cnt=51
+Solved train_149 in 0.03 seconds, v=1, cnt=57
 ['rotations']
 train 150
-Failed to solve train_150 in 10.015 seconds, v=3, cnt=16952
+Failed to solve train_150 in 10.006 seconds, v=3, cnt=21423
 train 151
-Solved train_151 in 0.108 seconds, v=2, cnt=138
+Solved train_151 in 0.1 seconds, v=2, cnt=156
 ['multiple_row_col', 'rotations']
 train 152
-Failed to solve train_152 in 10.012 seconds, v=4, cnt=23016
+Failed to solve train_152 in 10.006 seconds, v=4, cnt=32547
 train 153
-Failed to solve train_153 in 10.021 seconds, v=3, cnt=8139
+Failed to solve train_153 in 10.031 seconds, v=3, cnt=11821
 train 154
-Solved train_154 in 0.042 seconds, v=1, cnt=51
+Solved train_154 in 0.037 seconds, v=1, cnt=57
 ['rotations']
 train 155
-Failed to solve train_155 in 10.011 seconds, v=3, cnt=17898
+Failed to solve train_155 in 10.002 seconds, v=3, cnt=22060
 train 156
-Failed to solve train_156 in 10.018 seconds, v=3, cnt=7579
+Failed to solve train_156 in 10.003 seconds, v=3, cnt=9762
 train 157
-Failed to solve train_157 in 10.047 seconds, v=3, cnt=2891
+Failed to solve train_157 in 10.105 seconds, v=3, cnt=4861
 train 158
-Failed to solve train_158 in 10.011 seconds, v=3, cnt=12137
+Failed to solve train_158 in 10.004 seconds, v=3, cnt=16181
 train 159
-Failed to solve train_159 in 10.012 seconds, v=3, cnt=16049
+Failed to solve train_159 in 10.008 seconds, v=3, cnt=20247
 train 160
-Failed to solve train_160 in 10.024 seconds, v=3, cnt=3149
+Failed to solve train_160 in 10.091 seconds, v=3, cnt=3930
 train 161
-Failed to solve train_161 in 10.002 seconds, v=3, cnt=3662
+Failed to solve train_161 in 10.004 seconds, v=3, cnt=3388
 train 162
-Failed to solve train_162 in 10.064 seconds, v=3, cnt=5733
+Failed to solve train_162 in 10.016 seconds, v=3, cnt=7511
 train 163
-Solved train_163 in 0.125 seconds, v=2, cnt=138
+Solved train_163 in 0.08 seconds, v=2, cnt=156
 ['multiple_row_col', 'rotations']
 train 164
-Failed to solve train_164 in 10.022 seconds, v=3, cnt=5946
+Failed to solve train_164 in 10.038 seconds, v=3, cnt=6186
 train 165
-Failed to solve train_165 in 10.017 seconds, v=3, cnt=13165
+Failed to solve train_165 in 10.018 seconds, v=3, cnt=17207
 train 166
-Failed to solve train_166 in 10.017 seconds, v=3, cnt=15102
+Failed to solve train_166 in 10.01 seconds, v=3, cnt=19609
 train 167
-Failed to solve train_167 in 10.013 seconds, v=3, cnt=17984
+Failed to solve train_167 in 10.01 seconds, v=3, cnt=23677
 train 168
-Solved train_168 in 0.096 seconds, v=2, cnt=97
+Solved train_168 in 0.088 seconds, v=2, cnt=109
 ['connect', 'auto_paste']
 train 169
-Failed to solve train_169 in 10.005 seconds, v=3, cnt=9342
+Failed to solve train_169 in 10.038 seconds, v=3, cnt=11967
 train 170
-Failed to solve train_170 in 10.022 seconds, v=3, cnt=18155
+Failed to solve train_170 in 10.011 seconds, v=3, cnt=26812
 train 171
-Solved train_171 in 0.094 seconds, v=2, cnt=138
+Solved train_171 in 0.08 seconds, v=2, cnt=156
 ['multiple_row_col', 'rotations']
 train 172
-Failed to solve train_172 in 10.026 seconds, v=3, cnt=7666
+Failed to solve train_172 in 10.046 seconds, v=3, cnt=10351
 train 173
-Failed to solve train_173 in 10.0 seconds, v=4, cnt=19189
+Solved train_173 in 0.673 seconds, v=3, cnt=1922
+['color', 'find_symmetry', 'trim_background']
 train 174
-Failed to solve train_174 in 10.068 seconds, v=3, cnt=3018
+Failed to solve train_174 in 10.334 seconds, v=3, cnt=3634
 train 175
-Failed to solve train_175 in 10.004 seconds, v=3, cnt=6930
+Failed to solve train_175 in 10.006 seconds, v=3, cnt=8239
 train 176
-Solved train_176 in 0.323 seconds, v=2, cnt=353
-['trim_background', 'rotations']
+Solved train_176 in 0.139 seconds, v=2, cnt=255
+['mesh_align', 'rotations']
 train 177
-Solved train_177 in 0.148 seconds, v=2, cnt=226
-['color_connect', 'collect_max']
+Solved train_177 in 0.025 seconds, v=1, cnt=60
+['drop_duplicates']
 train 178
-Solved train_178 in 0.034 seconds, v=1, cnt=52
+Solved train_178 in 0.025 seconds, v=1, cnt=58
 ['rotations']
 train 179
-Solved train_179 in 0.225 seconds, v=2, cnt=227
+Solved train_179 in 0.194 seconds, v=2, cnt=257
 ['divide_row_col', 'color_pile']
 train 180
-Failed to solve train_180 in 10.018 seconds, v=3, cnt=16179
+Failed to solve train_180 in 10.006 seconds, v=3, cnt=22307
 train 181
-Failed to solve train_181 in 10.081 seconds, v=3, cnt=4528
+Failed to solve train_181 in 10.105 seconds, v=3, cnt=5942
 train 182
-Failed to solve train_182 in 10.023 seconds, v=4, cnt=15833
+Failed to solve train_182 in 10.017 seconds, v=4, cnt=25636
 train 183
-Solved train_183 in 0.39 seconds, v=2, cnt=226
+Solved train_183 in 0.426 seconds, v=2, cnt=256
 ['mesh_split', 'collect_max']
 train 184
-Failed to solve train_184 in 10.011 seconds, v=3, cnt=4869
+Failed to solve train_184 in 10.002 seconds, v=3, cnt=4469
 train 185
-Failed to solve train_185 in 10.016 seconds, v=3, cnt=8225
+Failed to solve train_185 in 10.013 seconds, v=3, cnt=11429
 train 186
-Failed to solve train_186 in 10.054 seconds, v=3, cnt=6887
+Failed to solve train_186 in 10.05 seconds, v=3, cnt=7358
 train 187
-Failed to solve train_187 in 10.019 seconds, v=4, cnt=21421
+Failed to solve train_187 in 10.014 seconds, v=4, cnt=30240
 train 188
-Failed to solve train_188 in 10.062 seconds, v=4, cnt=15919
+Failed to solve train_188 in 10.011 seconds, v=4, cnt=24754
 train 189
-Failed to solve train_189 in 10.024 seconds, v=3, cnt=14414
+Failed to solve train_189 in 10.023 seconds, v=3, cnt=20002
 train 190
-Failed to solve train_190 in 10.122 seconds, v=3, cnt=3195
+Failed to solve train_190 in 10.004 seconds, v=3, cnt=4472
 train 191
-Failed to solve train_191 in 10.029 seconds, v=3, cnt=11232
+Failed to solve train_191 in 10.02 seconds, v=3, cnt=11328
 train 192
-Failed to solve train_192 in 10.1 seconds, v=3, cnt=3148
+Failed to solve train_192 in 10.111 seconds, v=3, cnt=3929
 train 193
-Failed to solve train_193 in 10.011 seconds, v=4, cnt=22798
+Failed to solve train_193 in 10.025 seconds, v=4, cnt=31858
 train 194
-Failed to solve train_194 in 10.121 seconds, v=3, cnt=1642
+Failed to solve train_194 in 10.178 seconds, v=3, cnt=2214
 train 195
-Solved train_195 in 3.079 seconds, v=3, cnt=2333
+Solved train_195 in 3.295 seconds, v=3, cnt=3000
 ['connect', 'count_hole', 'auto_add_color']
 train 196
-Failed to solve train_196 in 10.018 seconds, v=3, cnt=9516
+Failed to solve train_196 in 10.041 seconds, v=3, cnt=12068
 train 197
-Failed to solve train_197 in 10.091 seconds, v=3, cnt=4997
+Failed to solve train_197 in 10.074 seconds, v=3, cnt=5350
 train 198
-Failed to solve train_198 in 10.001 seconds, v=3, cnt=16347
+Failed to solve train_198 in 10.012 seconds, v=3, cnt=25292
 train 199
-Failed to solve train_199 in 10.026 seconds, v=3, cnt=12133
+Failed to solve train_199 in 10.007 seconds, v=3, cnt=20441
 train 200
-Failed to solve train_200 in 10.018 seconds, v=4, cnt=13772
+Failed to solve train_200 in 10.043 seconds, v=4, cnt=20053
 train 201
-Failed to solve train_201 in 10.121 seconds, v=3, cnt=2677
+Failed to solve train_201 in 10.115 seconds, v=3, cnt=3490
 train 202
-Failed to solve train_202 in 10.054 seconds, v=3, cnt=3925
+Failed to solve train_202 in 10.014 seconds, v=3, cnt=5157
 train 203
-Failed to solve train_203 in 10.002 seconds, v=3, cnt=7323
+Failed to solve train_203 in 10.01 seconds, v=3, cnt=7951
 train 204
-Failed to solve train_204 in 10.032 seconds, v=3, cnt=2114
+Failed to solve train_204 in 10.158 seconds, v=3, cnt=2506
 train 205
-Failed to solve train_205 in 10.018 seconds, v=3, cnt=16352
+Failed to solve train_205 in 10.013 seconds, v=3, cnt=22209
 train 206
-Solved train_206 in 3.218 seconds, v=3, cnt=6160
+Solved train_206 in 3.75 seconds, v=3, cnt=8929
 ['collect_max', 'extend_shape', 'fit_replace_rule_33']
 train 207
-Failed to solve train_207 in 10.081 seconds, v=3, cnt=4395
+Failed to solve train_207 in 10.103 seconds, v=3, cnt=5252
 train 208
-Failed to solve train_208 in 10.006 seconds, v=4, cnt=13083
+Failed to solve train_208 in 10.005 seconds, v=4, cnt=19513
 train 209
-Solved train_209 in 0.096 seconds, v=2, cnt=179
+Solved train_209 in 0.096 seconds, v=2, cnt=253
 ['multiple_row_col', 'rotations']
 train 210
-Solved train_210 in 0.133 seconds, v=2, cnt=223
+Solved train_210 in 0.11 seconds, v=2, cnt=253
 ['multiple_row_col', 'rotations']
 train 211
-Failed to solve train_211 in 10.003 seconds, v=3, cnt=17598
+Failed to solve train_211 in 10.013 seconds, v=3, cnt=19513
 train 212
-Failed to solve train_212 in 10.052 seconds, v=4, cnt=13341
+Failed to solve train_212 in 10.003 seconds, v=3, cnt=18387
 train 213
-Failed to solve train_213 in 10.022 seconds, v=3, cnt=16568
+Failed to solve train_213 in 10.016 seconds, v=3, cnt=23778
 train 214
-Failed to solve train_214 in 10.065 seconds, v=3, cnt=3059
+Failed to solve train_214 in 10.06 seconds, v=3, cnt=3878
 train 215
-Failed to solve train_215 in 10.016 seconds, v=3, cnt=11664
+Failed to solve train_215 in 10.042 seconds, v=3, cnt=10203
 train 216
-Solved train_216 in 0.229 seconds, v=2, cnt=308
-['trim_background', 'fractal']
+Solved train_216 in 0.115 seconds, v=2, cnt=204
+['mesh_align', 'fractal']
 train 217
-Failed to solve train_217 in 10.08 seconds, v=4, cnt=11060
+Solved train_217 in 0.326 seconds, v=2, cnt=255
+['mesh_align', 'drop_duplicates']
 train 218
-Failed to solve train_218 in 10.02 seconds, v=3, cnt=5644
+Failed to solve train_218 in 10.037 seconds, v=3, cnt=6969
 train 219
-Solved train_219 in 0.058 seconds, v=1, cnt=51
+Solved train_219 in 0.051 seconds, v=1, cnt=57
 ['fit_replace_rule_33']
 train 220
-Failed to solve train_220 in 10.01 seconds, v=4, cnt=25977
+Failed to solve train_220 in 10.019 seconds, v=4, cnt=34550
 train 221
-Failed to solve train_221 in 10.045 seconds, v=3, cnt=2547
+Failed to solve train_221 in 10.111 seconds, v=3, cnt=3342
 train 222
-Failed to solve train_221 in 10.045 seconds, v=3, cnt=2547
+Solved train_222 in 0.013 seconds, v=1, cnt=57
+['solve_zoom']
 train 223
-Failed to solve train_223 in 10.002 seconds, v=3, cnt=8870
+Failed to solve train_223 in 10.004 seconds, v=3, cnt=12262
 train 224
-Failed to solve train_224 in 10.02 seconds, v=3, cnt=17640
+Failed to solve train_224 in 10.006 seconds, v=3, cnt=25393
 train 225
-Failed to solve train_225 in 10.017 seconds, v=3, cnt=12434
+Failed to solve train_225 in 10.016 seconds, v=3, cnt=16079
 train 226
-Solved train_226 in 0.132 seconds, v=2, cnt=182
-['divide_row_col', 'fit_replace_rule_33']
+Solved train_226 in 0.103 seconds, v=2, cnt=206
+['divide_row_col', 'reduce_bitwise']
 train 227
-Failed to solve train_227 in 10.014 seconds, v=3, cnt=12953
+Failed to solve train_227 in 10.001 seconds, v=3, cnt=18974
 train 228
-Solved train_228 in 0.464 seconds, v=2, cnt=700
+Solved train_228 in 0.422 seconds, v=2, cnt=845
 ['keep_max_color', 'diff_color']
 train 229
-Failed to solve train_229 in 10.018 seconds, v=3, cnt=11660
+Failed to solve train_229 in 10.0 seconds, v=3, cnt=15785
 train 230
-Failed to solve train_230 in 10.013 seconds, v=4, cnt=22542
+Failed to solve train_230 in 10.003 seconds, v=4, cnt=29607
 train 231
-Failed to solve train_231 in 10.01 seconds, v=3, cnt=16046
+Failed to solve train_231 in 10.011 seconds, v=3, cnt=23135
 train 232
-Failed to solve train_232 in 10.005 seconds, v=4, cnt=13040
+Failed to solve train_232 in 10.022 seconds, v=3, cnt=15838
 train 233
-Failed to solve train_233 in 10.042 seconds, v=3, cnt=3794
+Failed to solve train_233 in 10.017 seconds, v=3, cnt=5401
 train 234
-Failed to solve train_234 in 10.027 seconds, v=4, cnt=18372
+Failed to solve train_234 in 10.013 seconds, v=4, cnt=24364
 train 235
-Solved train_235 in 0.199 seconds, v=2, cnt=270
-['mesh_align', 'fit_replace_rule_33']
+Solved train_235 in 0.151 seconds, v=2, cnt=306
+['mesh_align', 'reduce_bitwise']
 train 236
-Failed to solve train_236 in 10.018 seconds, v=3, cnt=15832
+Failed to solve train_236 in 10.005 seconds, v=3, cnt=23136
 train 237
-Failed to solve train_237 in 10.019 seconds, v=4, cnt=13599
+Failed to solve train_237 in 10.023 seconds, v=4, cnt=22600
 train 238
-Failed to solve train_238 in 10.018 seconds, v=4, cnt=18756
+Failed to solve train_238 in 10.012 seconds, v=4, cnt=25586
 train 239
-Failed to solve train_239 in 10.235 seconds, v=2, cnt=1173
+Failed to solve train_239 in 10.206 seconds, v=2, cnt=1532
 train 240
-Solved train_240 in 0.028 seconds, v=1, cnt=52
+Solved train_240 in 0.022 seconds, v=1, cnt=58
 ['rotations']
 train 241
-Failed to solve train_241 in 10.011 seconds, v=3, cnt=6930
+Failed to solve train_241 in 10.055 seconds, v=3, cnt=3585
 train 242
-Failed to solve train_242 in 10.283 seconds, v=3, cnt=3922
+Failed to solve train_242 in 10.217 seconds, v=3, cnt=5105
 train 243
-Solved train_243 in 1.468 seconds, v=3, cnt=1386
+Solved train_243 in 1.696 seconds, v=3, cnt=1970
 ['mesh_split', 'collect_max', 'rotations']
 train 244
-Failed to solve train_244 in 10.023 seconds, v=3, cnt=12526
+Failed to solve train_244 in 10.007 seconds, v=3, cnt=15497
 train 245
-Failed to solve train_245 in 10.093 seconds, v=3, cnt=2377
+Failed to solve train_245 in 10.069 seconds, v=3, cnt=3100
 train 246
-Failed to solve train_246 in 10.022 seconds, v=4, cnt=13258
+Failed to solve train_246 in 10.005 seconds, v=3, cnt=17458
 train 247
-Failed to solve train_247 in 10.014 seconds, v=3, cnt=11402
+Failed to solve train_247 in 10.014 seconds, v=3, cnt=17207
 train 248
-Solved train_248 in 0.023 seconds, v=1, cnt=51
+Solved train_248 in 0.02 seconds, v=1, cnt=57
 ['multiple_row_col']
 train 249
-Failed to solve train_249 in 10.002 seconds, v=3, cnt=17340
+Failed to solve train_249 in 10.012 seconds, v=3, cnt=22943
 train 250
-Solved train_250 in 0.062 seconds, v=1, cnt=52
+Solved train_250 in 0.047 seconds, v=1, cnt=58
 ['interior_dir4_zero']
 train 251
-Failed to solve train_251 in 10.0 seconds, v=3, cnt=13638
+Failed to solve train_251 in 10.004 seconds, v=3, cnt=15638
 train 252
-Failed to solve train_252 in 10.007 seconds, v=4, cnt=21596
+Failed to solve train_252 in 10.008 seconds, v=4, cnt=33771
 train 253
-Solved train_253 in 0.734 seconds, v=3, cnt=1429
+Solved train_253 in 0.766 seconds, v=3, cnt=1824
 ['connect', 'paste_color', 'fit_replace_rule_33']
 train 254
-Failed to solve train_254 in 10.129 seconds, v=3, cnt=2591
+Failed to solve train_254 in 10.135 seconds, v=3, cnt=2706
 train 255
-Failed to solve train_255 in 10.019 seconds, v=3, cnt=16433
+Failed to solve train_255 in 10.0 seconds, v=3, cnt=23675
 train 256
-Solved train_256 in 0.342 seconds, v=2, cnt=272
+Solved train_256 in 0.293 seconds, v=2, cnt=308
 ['mesh_align', 'color_pile']
 train 257
-Solved train_257 in 0.65 seconds, v=2, cnt=828
+Solved train_257 in 0.607 seconds, v=2, cnt=991
 ['connect_row', 'diff_color']
 train 258
-Solved train_258 in 0.9 seconds, v=3, cnt=1858
-['mesh_2', 'trim_background', 'fit_replace_rule_33']
+Solved train_258 in 0.866 seconds, v=3, cnt=2754
+['mesh_2', 'trim_background', 'color_pile']
 train 259
-Failed to solve train_259 in 10.007 seconds, v=3, cnt=14972
+Failed to solve train_259 in 10.007 seconds, v=3, cnt=18824
 train 260
-Failed to solve train_260 in 10.008 seconds, v=3, cnt=18153
+Failed to solve train_260 in 10.011 seconds, v=3, cnt=25635
 train 261
-Failed to solve train_261 in 10.012 seconds, v=3, cnt=17851
+Failed to solve train_261 in 10.006 seconds, v=3, cnt=24849
 train 262
-Solved train_262 in 0.12 seconds, v=2, cnt=181
+Solved train_262 in 0.099 seconds, v=2, cnt=205
 ['color_connect', 'trim_background']
 train 263
-Failed to solve train_263 in 10.087 seconds, v=4, cnt=14243
+Failed to solve train_263 in 10.017 seconds, v=4, cnt=22550
 train 264
-Failed to solve train_264 in 10.026 seconds, v=3, cnt=4911
+Failed to solve train_264 in 10.013 seconds, v=3, cnt=4566
 train 265
-Solved train_265 in 0.045 seconds, v=1, cnt=51
+Solved train_265 in 0.036 seconds, v=1, cnt=58
 ['fit_replace_rule_33']
 train 266
-Solved train_266 in 0.04 seconds, v=1, cnt=54
+Solved train_266 in 0.032 seconds, v=1, cnt=61
 ['fit_replace_rule_33']
 train 267
-Failed to solve train_267 in 10.027 seconds, v=3, cnt=16347
+Failed to solve train_267 in 10.002 seconds, v=3, cnt=21274
 train 268
-Failed to solve train_268 in 10.008 seconds, v=4, cnt=25120
+Solved train_268 in 0.123 seconds, v=2, cnt=449
+['n_cell', 'transform_zoom']
 train 269
-Failed to solve train_269 in 10.021 seconds, v=3, cnt=5516
+Failed to solve train_269 in 10.001 seconds, v=3, cnt=9518
 train 270
-Failed to solve train_270 in 10.023 seconds, v=4, cnt=15103
+Failed to solve train_270 in 10.015 seconds, v=4, cnt=20149
 train 271
-Solved train_271 in 0.069 seconds, v=2, cnt=94
+Solved train_271 in 0.059 seconds, v=2, cnt=106
 ['connect4', 'auto_paste']
 train 272
-Failed to solve train_272 in 10.027 seconds, v=3, cnt=6461
+Failed to solve train_272 in 10.038 seconds, v=3, cnt=8880
 train 273
-Failed to solve train_273 in 10.044 seconds, v=4, cnt=13858
+Failed to solve train_273 in 10.02 seconds, v=3, cnt=17555
 train 274
-Failed to solve train_274 in 10.008 seconds, v=4, cnt=23056
+Failed to solve train_274 in 10.017 seconds, v=4, cnt=32936
 train 275
-Solved train_275 in 0.029 seconds, v=1, cnt=51
-['fit_replace_rule_33']
+Solved train_275 in 0.025 seconds, v=1, cnt=57
+['color_change']
 train 276
-Solved train_276 in 0.87 seconds, v=3, cnt=1601
+Solved train_276 in 0.893 seconds, v=3, cnt=2019
 ['connect', 'arg_sort', 'auto_paste']
 train 277
-Solved train_277 in 1.491 seconds, v=3, cnt=1472
+Solved train_277 in 1.362 seconds, v=3, cnt=1823
 ['connect', 'paste_color', 'fit_replace_rule_33']
 train 278
-Failed to solve train_278 in 10.041 seconds, v=3, cnt=4655
+Failed to solve train_278 in 10.111 seconds, v=3, cnt=5352
 train 279
-Failed to solve train_279 in 10.046 seconds, v=3, cnt=7065
+Failed to solve train_279 in 10.029 seconds, v=3, cnt=8539
 train 280
-Failed to solve train_280 in 10.106 seconds, v=3, cnt=5430
+Failed to solve train_280 in 10.058 seconds, v=3, cnt=8195
 train 281
-Solved train_281 in 0.044 seconds, v=1, cnt=53
+Solved train_281 in 0.029 seconds, v=1, cnt=59
 ['fit_replace_rule_33']
 train 282
-Failed to solve train_282 in 10.013 seconds, v=3, cnt=17726
+Failed to solve train_282 in 10.0 seconds, v=3, cnt=22550
 train 283
-Failed to solve train_283 in 10.028 seconds, v=3, cnt=10891
+Failed to solve train_283 in 10.01 seconds, v=3, cnt=19368
 train 284
-Failed to solve train_284 in 10.045 seconds, v=3, cnt=2934
+Failed to solve train_284 in 10.007 seconds, v=3, cnt=7213
 train 285
-Failed to solve train_285 in 10.027 seconds, v=3, cnt=13296
+Failed to solve train_285 in 10.017 seconds, v=3, cnt=14660
 train 286
-Solved train_286 in 0.175 seconds, v=1, cnt=52
+Solved train_286 in 0.155 seconds, v=1, cnt=58
 ['auto_fill_line_symmetry_del']
 train 287
-Failed to solve train_287 in 10.009 seconds, v=3, cnt=15921
+Failed to solve train_287 in 10.019 seconds, v=3, cnt=21621
 train 288
-Failed to solve train_288 in 10.001 seconds, v=4, cnt=18671
+Solved train_288 in 0.18 seconds, v=2, cnt=450
+['n_color', 'transform_zoom']
 train 289
-Solved train_289 in 0.258 seconds, v=2, cnt=353
-['trim_background', 'switch_color']
+Solved train_289 in 0.12 seconds, v=2, cnt=255
+['mesh_align', 'switch_color']
 train 290
-Solved train_290 in 0.353 seconds, v=2, cnt=398
-['collect_max', 'fit_replace_rule_33']
+Solved train_290 in 0.327 seconds, v=2, cnt=452
+['collect_max', 'color_change']
 train 291
-Failed to solve train_291 in 10.029 seconds, v=3, cnt=6245
+Failed to solve train_291 in 10.036 seconds, v=3, cnt=7899
 train 292
-Solved train_292 in 3.096 seconds, v=3, cnt=1860
+Solved train_292 in 2.668 seconds, v=3, cnt=2314
 ['color', 'connect_row_col', 'color_pile']
 train 293
-Failed to solve train_293 in 10.004 seconds, v=3, cnt=12953
+Failed to solve train_293 in 10.031 seconds, v=3, cnt=15494
 train 294
-Failed to solve train_294 in 10.006 seconds, v=4, cnt=20562
+Failed to solve train_294 in 10.008 seconds, v=4, cnt=30242
 train 295
-Failed to solve train_295 in 10.013 seconds, v=4, cnt=16051
+Failed to solve train_295 in 10.006 seconds, v=4, cnt=23287
 train 296
-Failed to solve train_296 in 10.011 seconds, v=3, cnt=18586
+Failed to solve train_296 in 10.001 seconds, v=3, cnt=25931
 train 297
-Solved train_297 in 0.086 seconds, v=1, cnt=54
+Solved train_297 in 0.063 seconds, v=1, cnt=60
 ['fit_replace_rule_33']
 train 298
-Failed to solve train_298 in 10.003 seconds, v=3, cnt=22844
+Failed to solve train_298 in 10.01 seconds, v=3, cnt=31861
 train 299
-Solved train_299 in 0.108 seconds, v=2, cnt=141
+Solved train_299 in 0.087 seconds, v=2, cnt=159
 ['connect', 'trim_background']
 train 300
-Failed to solve train_300 in 10.022 seconds, v=3, cnt=16695
+Failed to solve train_300 in 10.017 seconds, v=3, cnt=22012
 train 301
-Failed to solve train_301 in 10.003 seconds, v=3, cnt=12739
+Failed to solve train_301 in 10.035 seconds, v=3, cnt=15152
 train 302
-Failed to solve train_302 in 10.014 seconds, v=3, cnt=5386
+Failed to solve train_302 in 10.023 seconds, v=3, cnt=5254
 train 303
-Solved train_303 in 0.288 seconds, v=2, cnt=653
+Solved train_303 in 0.27 seconds, v=2, cnt=792
 ['shadow_max', 'fractal']
 train 304
-Solved train_304 in 0.128 seconds, v=1, cnt=51
+Solved train_304 in 0.115 seconds, v=1, cnt=57
 ['auto_fill_row_col_periodicity']
 train 305
-Failed to solve train_305 in 10.015 seconds, v=3, cnt=8526
+Failed to solve train_305 in 10.006 seconds, v=3, cnt=11037
 train 306
-Failed to solve train_306 in 10.025 seconds, v=4, cnt=22067
+Solved train_306 in 0.023 seconds, v=1, cnt=57
+['solve_zoom']
 train 307
-Failed to solve train_307 in 10.019 seconds, v=4, cnt=13554
+Failed to solve train_307 in 10.018 seconds, v=4, cnt=16718
 train 308
-Solved train_308 in 0.033 seconds, v=1, cnt=51
-['fit_replace_rule_33']
+Solved train_308 in 0.026 seconds, v=1, cnt=57
+['color_change']
 train 309
-Failed to solve train_309 in 10.006 seconds, v=3, cnt=3148
+Failed to solve train_309 in 10.164 seconds, v=3, cnt=3880
 train 310
-Solved train_310 in 0.052 seconds, v=2, cnt=91
+Solved train_310 in 0.05 seconds, v=2, cnt=103
 ['multiple_row_col', 'rotations']
 train 311
-Failed to solve train_311 in 10.022 seconds, v=3, cnt=14588
+Failed to solve train_311 in 10.021 seconds, v=3, cnt=16426
 train 312
-Failed to solve train_312 in 10.064 seconds, v=3, cnt=6331
+Failed to solve train_312 in 10.042 seconds, v=3, cnt=8978
 train 313
-Failed to solve train_313 in 10.022 seconds, v=3, cnt=10677
+Failed to solve train_313 in 10.029 seconds, v=3, cnt=11479
 train 314
-Failed to solve train_314 in 10.005 seconds, v=4, cnt=20691
+Failed to solve train_314 in 10.002 seconds, v=4, cnt=26468
 train 315
-Failed to solve train_315 in 10.04 seconds, v=4, cnt=15448
+Failed to solve train_315 in 10.022 seconds, v=4, cnt=25540
 train 316
-Solved train_316 in 0.06 seconds, v=1, cnt=53
+Solved train_316 in 0.049 seconds, v=1, cnt=60
 ['fit_replace_rule_33']
 train 317
-Solved train_317 in 0.21 seconds, v=2, cnt=270
+Solved train_317 in 0.151 seconds, v=2, cnt=306
 ['mesh_align', 'extend_shape']
 train 318
-Failed to solve train_318 in 10.023 seconds, v=4, cnt=10717
+Failed to solve train_318 in 10.021 seconds, v=3, cnt=9075
 train 319
-Failed to solve train_319 in 10.031 seconds, v=3, cnt=10031
+Failed to solve train_319 in 10.037 seconds, v=3, cnt=11968
 train 320
-Solved train_320 in 0.243 seconds, v=2, cnt=271
+Solved train_320 in 0.22 seconds, v=2, cnt=307
 ['mesh_align', 'color_pile']
 train 321
-Failed to solve train_321 in 10.015 seconds, v=4, cnt=22369
+Failed to solve train_321 in 10.011 seconds, v=3, cnt=30781
 train 322
-Failed to solve train_322 in 10.107 seconds, v=3, cnt=2500
+Failed to solve train_322 in 10.04 seconds, v=3, cnt=4074
 train 323
-Failed to solve train_323 in 10.003 seconds, v=3, cnt=5944
+Failed to solve train_323 in 10.103 seconds, v=3, cnt=7409
 train 324
-Failed to solve train_324 in 10.002 seconds, v=4, cnt=20048
+Failed to solve train_324 in 10.021 seconds, v=4, cnt=23726
 train 325
-Solved train_325 in 2.42 seconds, v=3, cnt=2845
+Solved train_325 in 3.1 seconds, v=3, cnt=4270
 ['collect_max', 'extend_shape', 'fit_replace_rule_33']
 train 326
-Failed to solve train_326 in 10.026 seconds, v=4, cnt=24263
+Failed to solve train_326 in 10.001 seconds, v=4, cnt=34850
 train 327
-Failed to solve train_327 in 10.013 seconds, v=3, cnt=6162
+Failed to solve train_327 in 10.016 seconds, v=3, cnt=16478
 train 328
-Failed to solve train_328 in 10.014 seconds, v=3, cnt=17983
+Failed to solve train_328 in 10.013 seconds, v=3, cnt=22843
 train 329
-Solved train_329 in 0.108 seconds, v=2, cnt=95
+Solved train_329 in 0.086 seconds, v=2, cnt=107
 ['connect', 'auto_paste']
 train 330
-Solved train_330 in 0.052 seconds, v=1, cnt=53
-['fit_replace_rule_33']
+Solved train_330 in 0.034 seconds, v=1, cnt=59
+['fit_replace_rule_33_all']
 train 331
-Failed to solve train_331 in 10.02 seconds, v=3, cnt=8395
+Failed to solve train_331 in 10.049 seconds, v=3, cnt=8438
 train 332
-Failed to solve train_332 in 10.013 seconds, v=3, cnt=12353
+Failed to solve train_332 in 10.017 seconds, v=3, cnt=13487
 train 333
-Failed to solve train_333 in 10.032 seconds, v=4, cnt=9599
+Failed to solve train_333 in 10.031 seconds, v=3, cnt=11672
 train 334
-Failed to solve train_334 in 10.142 seconds, v=3, cnt=5688
+Failed to solve train_334 in 10.054 seconds, v=3, cnt=8686
 train 335
-Failed to solve train_335 in 10.033 seconds, v=3, cnt=10025
+Failed to solve train_335 in 10.0 seconds, v=3, cnt=14315
 train 336
-Solved train_336 in 0.037 seconds, v=1, cnt=51
-['fit_replace_rule_33']
+Solved train_336 in 0.031 seconds, v=1, cnt=57
+['color_change']
 train 337
-Solved train_337 in 2.149 seconds, v=2, cnt=480
-['interior_dir4_zero', 'fit_replace_rule_33']
+Solved train_337 in 1.779 seconds, v=2, cnt=546
+['interior_dir4_zero', 'color_pile']
 train 338
-Failed to solve train_338 in 10.01 seconds, v=4, cnt=25289
+Failed to solve train_338 in 10.015 seconds, v=4, cnt=33766
 train 339
-Failed to solve train_339 in 10.001 seconds, v=3, cnt=8739
+Failed to solve train_339 in 10.002 seconds, v=3, cnt=9075
 train 340
-Failed to solve train_340 in 10.008 seconds, v=3, cnt=12396
+Failed to solve train_340 in 10.016 seconds, v=3, cnt=16280
 train 341
-Failed to solve train_341 in 10.01 seconds, v=3, cnt=11837
+Failed to solve train_341 in 10.015 seconds, v=3, cnt=15202
 train 342
-Solved train_342 in 0.076 seconds, v=1, cnt=53
+Solved train_342 in 0.064 seconds, v=1, cnt=60
 ['auto_fill_row_col_periodicity']
 train 343
-Failed to solve train_343 in 10.015 seconds, v=3, cnt=15793
+Failed to solve train_343 in 10.016 seconds, v=3, cnt=21229
 train 344
-Failed to solve train_344 in 10.021 seconds, v=3, cnt=9471
+Failed to solve train_344 in 10.025 seconds, v=3, cnt=12898
 train 345
-Solved train_345 in 4.933 seconds, v=3, cnt=6204
+Solved train_345 in 6.283 seconds, v=3, cnt=9224
 ['switch_color', 'collect_max', 'fit_replace_rule_33']
 train 346
-Solved train_346 in 0.147 seconds, v=2, cnt=183
+Solved train_346 in 0.111 seconds, v=2, cnt=207
 ['divide_row_col', 'extend_shape']
 train 347
-Failed to solve train_347 in 10.012 seconds, v=3, cnt=22323
+Failed to solve train_347 in 10.008 seconds, v=3, cnt=30926
 train 348
-Failed to solve train_348 in 10.001 seconds, v=3, cnt=6032
+Failed to solve train_348 in 10.004 seconds, v=3, cnt=8244
 train 349
-Solved train_349 in 1.064 seconds, v=2, cnt=915
+Solved train_349 in 1.074 seconds, v=2, cnt=1090
 ['connect_row_col', 'diff_color']
 train 350
-Failed to solve train_350 in 10.079 seconds, v=4, cnt=8822
+Solved train_350 in 0.624 seconds, v=2, cnt=253
+['fusion', 'auto_fill_line_symmetry_del']
 train 351
-Solved train_351 in 0.036 seconds, v=1, cnt=50
+Solved train_351 in 0.029 seconds, v=1, cnt=56
 ['fit_replace_rule_33']
 train 352
-Failed to solve train_352 in 10.042 seconds, v=3, cnt=7068
+Failed to solve train_352 in 10.033 seconds, v=3, cnt=11385
 train 353
-Failed to solve train_353 in 10.015 seconds, v=3, cnt=11407
+Failed to solve train_353 in 10.021 seconds, v=3, cnt=13830
 train 354
-Solved train_354 in 5.305 seconds, v=3, cnt=5383
+Solved train_354 in 8.24 seconds, v=3, cnt=8485
 ['change_background', 'collect_max', 'fit_replace_rule_33']
 train 355
-Solved train_355 in 0.119 seconds, v=1, cnt=54
+Solved train_355 in 0.1 seconds, v=1, cnt=60
 ['connect_row_col']
 train 356
-Failed to solve train_356 in 10.013 seconds, v=3, cnt=13208
+Failed to solve train_356 in 10.022 seconds, v=3, cnt=18971
 train 357
-Failed to solve train_357 in 10.004 seconds, v=3, cnt=12350
+Failed to solve train_357 in 10.009 seconds, v=3, cnt=19757
 train 358
-Failed to solve train_358 in 10.152 seconds, v=3, cnt=3835
+Failed to solve train_358 in 10.057 seconds, v=3, cnt=4663
 train 359
-Failed to solve train_359 in 10.03 seconds, v=4, cnt=17941
+Failed to solve train_359 in 10.013 seconds, v=4, cnt=26813
 train 360
-Failed to solve train_360 in 10.01 seconds, v=3, cnt=13297
+Failed to solve train_360 in 10.006 seconds, v=3, cnt=19121
 train 361
-Failed to solve train_361 in 10.032 seconds, v=3, cnt=3663
+Failed to solve train_361 in 10.095 seconds, v=3, cnt=4761
 train 362
-Failed to solve train_362 in 10.012 seconds, v=3, cnt=10802
+Failed to solve train_362 in 10.012 seconds, v=3, cnt=13435
 train 363
-Failed to solve train_363 in 10.049 seconds, v=3, cnt=9858
+Failed to solve train_363 in 10.012 seconds, v=3, cnt=9762
 train 364
-Failed to solve train_364 in 10.011 seconds, v=4, cnt=18372
+Failed to solve train_364 in 10.004 seconds, v=4, cnt=22257
 train 365
-Failed to solve train_365 in 10.023 seconds, v=4, cnt=11791
+Failed to solve train_365 in 10.023 seconds, v=3, cnt=12504
 train 366
-Failed to solve train_366 in 10.052 seconds, v=3, cnt=8562
+Failed to solve train_366 in 10.017 seconds, v=3, cnt=10442
 train 367
-Failed to solve train_367 in 10.012 seconds, v=3, cnt=17297
+Failed to solve train_367 in 10.009 seconds, v=3, cnt=22110
 train 368
-Failed to solve train_368 in 10.006 seconds, v=3, cnt=13896
+Failed to solve train_368 in 10.015 seconds, v=3, cnt=16324
 train 369
-Failed to solve train_369 in 10.002 seconds, v=3, cnt=6503
+Failed to solve train_369 in 10.018 seconds, v=3, cnt=11526
 train 370
-Failed to solve train_370 in 10.145 seconds, v=3, cnt=4224
+Failed to solve train_370 in 10.04 seconds, v=3, cnt=5695
 train 371
-Solved train_371 in 0.043 seconds, v=1, cnt=55
+Solved train_371 in 0.039 seconds, v=1, cnt=61
 ['mesh_align']
 train 372
-Failed to solve train_372 in 10.001 seconds, v=3, cnt=24993
+Failed to solve train_372 in 10.011 seconds, v=3, cnt=33869
 train 373
-Solved train_373 in 1.528 seconds, v=3, cnt=1689
+Solved train_373 in 1.521 seconds, v=3, cnt=2119
 ['connect', 'arg_sort', 'auto_paste']
 train 374
-Failed to solve train_374 in 10.026 seconds, v=3, cnt=16046
+Failed to solve train_374 in 10.006 seconds, v=3, cnt=22989
 train 375
-Failed to solve train_375 in 10.034 seconds, v=3, cnt=10239
+Failed to solve train_375 in 10.018 seconds, v=3, cnt=13137
 train 376
-Failed to solve train_376 in 10.04 seconds, v=3, cnt=9039
+Solved train_376 in 0.145 seconds, v=1, cnt=59
+['drop_duplicates']
 train 377
-Failed to solve train_377 in 10.036 seconds, v=3, cnt=12354
+Failed to solve train_377 in 10.032 seconds, v=3, cnt=17458
 train 378
-Failed to solve train_378 in 10.045 seconds, v=3, cnt=10203
+Failed to solve train_378 in 10.003 seconds, v=3, cnt=12017
 train 379
-Solved train_379 in 0.037 seconds, v=1, cnt=51
+Solved train_379 in 0.036 seconds, v=1, cnt=58
 ['rotations']
 train 380
-Failed to solve train_380 in 10.026 seconds, v=3, cnt=11965
+Failed to solve train_380 in 10.002 seconds, v=3, cnt=13878
 train 381
-Failed to solve train_381 in 10.071 seconds, v=3, cnt=2635
+Failed to solve train_381 in 10.049 seconds, v=3, cnt=3687
 train 382
-Failed to solve train_382 in 10.015 seconds, v=3, cnt=8180
+Failed to solve train_382 in 10.056 seconds, v=3, cnt=9321
 train 383
-Failed to solve train_383 in 10.02 seconds, v=3, cnt=7875
+Solved train_383 in 0.213 seconds, v=2, cnt=203
+['mesh_align', 'solve_zoom']
 train 384
-Solved train_384 in 0.042 seconds, v=1, cnt=52
+Solved train_384 in 0.036 seconds, v=1, cnt=59
 ['auto_fill_line_symmetry_full']
 train 385
-Solved train_385 in 0.201 seconds, v=2, cnt=271
-['mesh_align', 'fit_replace_rule_33']
+Solved train_385 in 0.161 seconds, v=2, cnt=307
+['mesh_align', 'reduce_bitwise']
 train 386
-Failed to solve train_386 in 10.097 seconds, v=3, cnt=4786
+Failed to solve train_386 in 10.002 seconds, v=3, cnt=10892
 train 387
-Failed to solve train_387 in 10.014 seconds, v=4, cnt=23270
+Failed to solve train_387 in 10.009 seconds, v=4, cnt=30093
 train 388
-Solved train_388 in 0.286 seconds, v=2, cnt=438
-['switch_color', 'fit_replace_rule_33']
+Solved train_388 in 0.262 seconds, v=2, cnt=498
+['switch_color', 'color_pile']
 train 389
-Failed to solve train_389 in 10.037 seconds, v=3, cnt=8698
+Failed to solve train_389 in 10.012 seconds, v=3, cnt=12752
 train 390
-Failed to solve train_390 in 10.001 seconds, v=3, cnt=7022
+Failed to solve train_390 in 10.028 seconds, v=3, cnt=7657
 train 391
-Failed to solve train_391 in 10.019 seconds, v=3, cnt=14201
+Failed to solve train_391 in 10.014 seconds, v=3, cnt=18975
 train 392
-Failed to solve train_392 in 10.003 seconds, v=4, cnt=14718
+Failed to solve train_392 in 10.017 seconds, v=4, cnt=20690
 train 393
-Failed to solve train_393 in 10.02 seconds, v=4, cnt=21722
+Solved train_393 in 0.129 seconds, v=2, cnt=253
+['fusion', 'auto_fill_row_col_periodicity']
 train 394
-Solved train_394 in 0.122 seconds, v=2, cnt=183
-['divide_row_col', 'fit_replace_rule_33']
+Solved train_394 in 0.103 seconds, v=2, cnt=207
+['divide_row_col', 'reduce_bitwise']
 train 395
-Failed to solve train_395 in 10.036 seconds, v=4, cnt=14070
+Failed to solve train_395 in 10.018 seconds, v=4, cnt=17159
 train 396
-Failed to solve train_396 in 10.018 seconds, v=3, cnt=11149
+Failed to solve train_396 in 10.013 seconds, v=3, cnt=16869
 train 397
-Failed to solve train_397 in 10.0 seconds, v=4, cnt=22325
+Failed to solve train_397 in 10.01 seconds, v=4, cnt=29702
 train 398
-Failed to solve train_398 in 10.015 seconds, v=4, cnt=11318
+Failed to solve train_398 in 10.084 seconds, v=4, cnt=14709
 train 399
-Failed to solve train_399 in 10.023 seconds, v=4, cnt=9425
-training done, AC: 127, total: 416, 0.6947115384615384
+Solved train_399 in 0.709 seconds, v=2, cnt=303
+['fusion', 'auto_fill_line_symmetry_del']
+training done, AC: 135, total: 416, 0.6754807692307692
 eval 0
-Solved eval_0 in 0.055 seconds, v=2, cnt=136
+Solved eval_0 in 0.051 seconds, v=2, cnt=154
 ['multiple_row_col', 'rotations']
 eval 1
-Failed to solve eval_1 in 10.034 seconds, v=3, cnt=6550
+Failed to solve eval_1 in 10.024 seconds, v=3, cnt=9128
 eval 2
-Failed to solve eval_2 in 10.015 seconds, v=3, cnt=9730
+Failed to solve eval_2 in 10.005 seconds, v=3, cnt=10204
 eval 3
-Failed to solve eval_3 in 10.018 seconds, v=3, cnt=13213
+Failed to solve eval_3 in 10.017 seconds, v=3, cnt=17946
 eval 4
-Failed to solve eval_4 in 10.09 seconds, v=3, cnt=2291
+Failed to solve eval_4 in 10.035 seconds, v=3, cnt=4961
 eval 5
-Failed to solve eval_5 in 10.002 seconds, v=3, cnt=4269
+Failed to solve eval_5 in 10.066 seconds, v=3, cnt=4912
 eval 6
-Solved eval_6 in 3.708 seconds, v=3, cnt=6842
+Solved eval_6 in 4.465 seconds, v=3, cnt=10785
 ['change_background', 'shadow_same', 'fractal']
 eval 7
-Solved eval_7 in 1.246 seconds, v=2, cnt=828
+Solved eval_7 in 0.882 seconds, v=2, cnt=991
 ['connect_col', 'connect_row']
 eval 8
-Failed to solve eval_8 in 10.001 seconds, v=3, cnt=11235
+Failed to solve eval_8 in 10.005 seconds, v=3, cnt=19710
 eval 9
-Failed to solve eval_9 in 10.37 seconds, v=3, cnt=1341
+Solved eval_9 in 3.414 seconds, v=2, cnt=254
+['fusion', 'auto_fill_line_symmetry_del']
 eval 10
-Failed to solve eval_10 in 10.081 seconds, v=3, cnt=2162
+Failed to solve eval_10 in 10.02 seconds, v=3, cnt=3492
 eval 11
-Failed to solve eval_10 in 10.081 seconds, v=3, cnt=2162
+Failed to solve eval_11 in 10.037 seconds, v=3, cnt=3635
 eval 12
-Solved eval_12 in 2.54 seconds, v=3, cnt=2119
+Solved eval_12 in 2.736 seconds, v=3, cnt=2756
 ['connect', 'count_hole', 'auto_paste']
 eval 13
-Failed to solve eval_13 in 10.081 seconds, v=3, cnt=2332
+Failed to solve eval_13 in 10.163 seconds, v=3, cnt=3196
 eval 14
-Failed to solve eval_14 in 10.073 seconds, v=4, cnt=13986
+Failed to solve eval_14 in 10.013 seconds, v=4, cnt=20346
 eval 15
-Failed to solve eval_15 in 10.022 seconds, v=3, cnt=12009
+Failed to solve eval_15 in 10.0 seconds, v=3, cnt=15545
 eval 16
-Solved eval_16 in 0.096 seconds, v=2, cnt=137
+Solved eval_16 in 0.085 seconds, v=2, cnt=155
 ['multiple_row_col', 'auto_fill_line_symmetry_full']
 eval 17
-Solved eval_17 in 0.302 seconds, v=2, cnt=314
-['mesh_align', 'fit_replace_rule_33']
+Solved eval_17 in 0.267 seconds, v=2, cnt=356
+['mesh_align', 'reduce_bitwise']
 eval 18
-Failed to solve eval_18 in 10.068 seconds, v=3, cnt=5946
+Failed to solve eval_18 in 10.082 seconds, v=3, cnt=7117
 eval 19
-Failed to solve eval_19 in 10.026 seconds, v=3, cnt=2163
+Failed to solve eval_19 in 10.069 seconds, v=3, cnt=3247
 eval 20
-Failed to solve eval_20 in 10.055 seconds, v=3, cnt=3109
+Failed to solve eval_20 in 10.054 seconds, v=3, cnt=5011
 eval 21
-Failed to solve eval_21 in 10.032 seconds, v=3, cnt=7794
+Failed to solve eval_21 in 10.009 seconds, v=3, cnt=11281
 eval 22
-Failed to solve eval_22 in 10.01 seconds, v=3, cnt=14975
+Failed to solve eval_22 in 10.002 seconds, v=3, cnt=24169
 eval 23
-Failed to solve eval_23 in 10.023 seconds, v=3, cnt=10805
+Failed to solve eval_23 in 10.02 seconds, v=3, cnt=14271
 eval 24
-Failed to solve eval_24 in 10.028 seconds, v=4, cnt=12955
+Failed to solve eval_24 in 10.021 seconds, v=4, cnt=20592
 eval 25
-Solved eval_25 in 0.439 seconds, v=2, cnt=312
+Solved eval_25 in 0.405 seconds, v=2, cnt=354
 ['color_connect4', 'auto_add_color']
 eval 26
-Failed to solve eval_26 in 10.061 seconds, v=4, cnt=13815
+Failed to solve eval_26 in 10.09 seconds, v=4, cnt=20347
 eval 27
-Failed to solve eval_27 in 10.025 seconds, v=3, cnt=9731
+Failed to solve eval_27 in 10.058 seconds, v=3, cnt=12704
 eval 28
-Failed to solve eval_28 in 10.03 seconds, v=3, cnt=4569
+Failed to solve eval_28 in 10.088 seconds, v=3, cnt=5598
 eval 29
-Failed to solve eval_29 in 10.026 seconds, v=3, cnt=8137
+Failed to solve eval_29 in 10.032 seconds, v=3, cnt=11232
 eval 30
-Failed to solve eval_30 in 10.087 seconds, v=3, cnt=2977
+Failed to solve eval_30 in 10.281 seconds, v=3, cnt=3832
 eval 31
-Failed to solve eval_31 in 10.083 seconds, v=3, cnt=3623
+Failed to solve eval_31 in 10.129 seconds, v=3, cnt=4470
 eval 32
-Failed to solve eval_32 in 10.011 seconds, v=3, cnt=11191
+Failed to solve eval_32 in 10.038 seconds, v=3, cnt=12065
 eval 33
-Solved eval_33 in 0.542 seconds, v=2, cnt=872
+Solved eval_33 in 0.442 seconds, v=2, cnt=1041
 ['shadow_mesh', 'fractal']
 eval 34
-Failed to solve eval_34 in 10.15 seconds, v=3, cnt=1817
+Failed to solve eval_34 in 10.117 seconds, v=3, cnt=2461
 eval 35
-Failed to solve eval_35 in 10.003 seconds, v=3, cnt=5947
+Failed to solve eval_35 in 10.044 seconds, v=3, cnt=8539
 eval 36
-Failed to solve eval_36 in 10.022 seconds, v=3, cnt=15744
+Failed to solve eval_36 in 10.016 seconds, v=3, cnt=21615
 eval 37
-Failed to solve eval_37 in 10.086 seconds, v=3, cnt=2592
+Failed to solve eval_37 in 10.098 seconds, v=3, cnt=3981
 eval 38
-Failed to solve eval_38 in 10.056 seconds, v=3, cnt=2463
+Failed to solve eval_38 in 10.056 seconds, v=3, cnt=4373
 eval 39
-Solved eval_39 in 0.369 seconds, v=2, cnt=270
-['mesh_align', 'fit_replace_rule_33']
+Solved eval_39 in 0.361 seconds, v=2, cnt=306
+['mesh_align', 'reduce_bitwise']
 eval 40
-Failed to solve eval_40 in 10.077 seconds, v=3, cnt=1343
+Failed to solve eval_40 in 10.305 seconds, v=3, cnt=1774
 eval 41
-Failed to solve eval_41 in 10.03 seconds, v=4, cnt=13984
+Failed to solve eval_41 in 10.008 seconds, v=4, cnt=20003
 eval 42
-Solved eval_42 in 0.58 seconds, v=2, cnt=785
+Solved eval_42 in 0.631 seconds, v=2, cnt=991
 ['keep_mesh', 'collect_max']
 eval 43
-Failed to solve eval_43 in 10.19 seconds, v=3, cnt=3191
+Failed to solve eval_43 in 10.032 seconds, v=3, cnt=4125
 eval 44
-Failed to solve eval_44 in 10.005 seconds, v=3, cnt=5603
+Failed to solve eval_44 in 10.01 seconds, v=3, cnt=7265
 eval 45
-Failed to solve eval_45 in 10.004 seconds, v=3, cnt=8780
+Failed to solve eval_45 in 10.023 seconds, v=3, cnt=9220
 eval 46
-Solved eval_46 in 6.416 seconds, v=3, cnt=4140
-['mesh_split', 'switch_color', 'fit_replace_rule_33']
+Solved eval_46 in 7.119 seconds, v=3, cnt=5451
+['mesh_split', 'switch_color', 'color_change']
 eval 47
-Failed to solve eval_47 in 10.014 seconds, v=3, cnt=8565
+Failed to solve eval_47 in 10.021 seconds, v=3, cnt=10985
 eval 48
-Solved eval_48 in 0.343 seconds, v=1, cnt=53
+Solved eval_48 in 0.303 seconds, v=1, cnt=59
 ['auto_fill_row_col_periodicity']
 eval 49
-Failed to solve eval_49 in 10.018 seconds, v=3, cnt=5772
+Failed to solve eval_49 in 10.02 seconds, v=3, cnt=13486
 eval 50
-Failed to solve eval_50 in 10.03 seconds, v=3, cnt=7665
+Failed to solve eval_50 in 10.016 seconds, v=3, cnt=10595
 eval 51
-Failed to solve eval_51 in 10.017 seconds, v=3, cnt=2719
+Failed to solve eval_51 in 10.044 seconds, v=3, cnt=4273
 eval 52
-Failed to solve eval_52 in 10.045 seconds, v=3, cnt=2849
+Failed to solve eval_52 in 10.038 seconds, v=3, cnt=3049
 eval 53
-Failed to solve eval_53 in 10.193 seconds, v=3, cnt=2677
+Failed to solve eval_53 in 10.041 seconds, v=3, cnt=3883
 eval 54
-Failed to solve eval_54 in 10.023 seconds, v=4, cnt=19441
+Failed to solve eval_54 in 10.027 seconds, v=4, cnt=27543
 eval 55
-Failed to solve eval_55 in 10.002 seconds, v=4, cnt=13081
+Failed to solve eval_55 in 10.013 seconds, v=3, cnt=16228
 eval 56
-Failed to solve eval_56 in 10.036 seconds, v=3, cnt=7666
+Failed to solve eval_56 in 10.01 seconds, v=3, cnt=9077
 eval 57
-Failed to solve eval_57 in 10.038 seconds, v=3, cnt=5514
+Failed to solve eval_57 in 10.096 seconds, v=3, cnt=6723
 eval 58
-Solved eval_58 in 4.764 seconds, v=2, cnt=1472
+Solved eval_58 in 4.16 seconds, v=2, cnt=1824
 ['point_cross', 'interior_dir4_zero']
 eval 59
-Failed to solve eval_59 in 10.078 seconds, v=3, cnt=6504
+Failed to solve eval_59 in 10.022 seconds, v=3, cnt=7949
 eval 60
-Failed to solve eval_60 in 10.229 seconds, v=3, cnt=1426
+Failed to solve eval_60 in 10.013 seconds, v=3, cnt=1624
 eval 61
-Failed to solve eval_61 in 10.167 seconds, v=3, cnt=3449
+Failed to solve eval_61 in 10.011 seconds, v=3, cnt=4860
 eval 62
-Failed to solve eval_62 in 10.296 seconds, v=3, cnt=2076
+Failed to solve eval_62 in 10.156 seconds, v=3, cnt=5108
 eval 63
-Failed to solve eval_63 in 10.048 seconds, v=3, cnt=6766
+Failed to solve eval_63 in 10.075 seconds, v=3, cnt=9472
 eval 64
-Failed to solve eval_64 in 10.026 seconds, v=3, cnt=8349
+Failed to solve eval_64 in 10.011 seconds, v=3, cnt=11376
 eval 65
-Failed to solve eval_65 in 10.049 seconds, v=4, cnt=13857
+Failed to solve eval_65 in 10.027 seconds, v=3, cnt=16426
 eval 66
-Failed to solve eval_66 in 10.014 seconds, v=3, cnt=14889
+Failed to solve eval_66 in 10.012 seconds, v=3, cnt=17112
 eval 67
-Solved eval_67 in 0.415 seconds, v=2, cnt=654
+Solved eval_67 in 0.369 seconds, v=2, cnt=793
 ['shadow_max', 'fractal']
 eval 68
-Solved eval_68 in 0.379 seconds, v=2, cnt=272
+Solved eval_68 in 0.303 seconds, v=2, cnt=308
 ['mesh_align', 'color_pile']
 eval 69
-Failed to solve eval_69 in 10.015 seconds, v=3, cnt=6804
+Failed to solve eval_69 in 10.008 seconds, v=3, cnt=8732
 eval 70
-Failed to solve eval_70 in 10.013 seconds, v=3, cnt=12052
+Failed to solve eval_70 in 10.023 seconds, v=3, cnt=17260
 eval 71
-Failed to solve eval_71 in 10.025 seconds, v=3, cnt=9169
+Failed to solve eval_71 in 10.066 seconds, v=3, cnt=10937
 eval 72
-Failed to solve eval_72 in 10.016 seconds, v=3, cnt=13256
+Failed to solve eval_72 in 10.007 seconds, v=3, cnt=17113
 eval 73
-Failed to solve eval_73 in 10.034 seconds, v=3, cnt=6978
+Failed to solve eval_73 in 10.093 seconds, v=3, cnt=6186
 eval 74
-Failed to solve eval_74 in 10.003 seconds, v=3, cnt=13213
+Failed to solve eval_74 in 10.008 seconds, v=3, cnt=18387
 eval 75
-Failed to solve eval_75 in 10.048 seconds, v=4, cnt=11707
+Failed to solve eval_75 in 10.032 seconds, v=3, cnt=10399
 eval 76
-Solved eval_76 in 0.146 seconds, v=2, cnt=180
+Solved eval_76 in 0.165 seconds, v=2, cnt=254
 ['multiple_row_col', 'fit_replace_rule_33']
 eval 77
-Solved eval_77 in 7.468 seconds, v=3, cnt=3319
+Solved eval_77 in 9.976 seconds, v=3, cnt=5055
 ['collect_max', 'duplicate', 'fit_replace_rule_33']
 eval 78
-Failed to solve eval_78 in 10.311 seconds, v=3, cnt=1771
+Failed to solve eval_78 in 10.063 seconds, v=3, cnt=2017
 eval 79
-Failed to solve eval_79 in 10.067 seconds, v=3, cnt=10071
+Failed to solve eval_79 in 10.004 seconds, v=3, cnt=10446
 eval 80
-Solved eval_80 in 0.189 seconds, v=2, cnt=183
-['divide_row_col', 'fit_replace_rule_33']
+Solved eval_80 in 0.148 seconds, v=2, cnt=207
+['divide_row_col', 'reduce_bitwise']
 eval 81
-Failed to solve eval_81 in 10.015 seconds, v=3, cnt=18067
+Failed to solve eval_81 in 10.011 seconds, v=3, cnt=24312
 eval 82
-Failed to solve eval_82 in 10.074 seconds, v=3, cnt=4824
+Failed to solve eval_82 in 10.012 seconds, v=3, cnt=8289
 eval 83
-Failed to solve eval_83 in 10.027 seconds, v=3, cnt=8914
+Failed to solve eval_83 in 10.03 seconds, v=3, cnt=11284
 eval 84
-Failed to solve eval_84 in 10.133 seconds, v=3, cnt=4698
+Failed to solve eval_84 in 10.024 seconds, v=3, cnt=6822
 eval 85
-Failed to solve eval_85 in 10.076 seconds, v=3, cnt=3367
+Failed to solve eval_85 in 10.121 seconds, v=3, cnt=4815
 eval 86
-Solved eval_86 in 0.222 seconds, v=2, cnt=270
-['mesh_align', 'fit_replace_rule_33']
+Solved eval_86 in 0.206 seconds, v=2, cnt=306
+['mesh_align', 'reduce_bitwise']
 eval 87
-Failed to solve eval_87 in 10.003 seconds, v=4, cnt=19102
+Failed to solve eval_87 in 10.0 seconds, v=4, cnt=25196
 eval 88
-Failed to solve eval_88 in 10.009 seconds, v=3, cnt=11707
+Failed to solve eval_88 in 10.038 seconds, v=3, cnt=11869
 eval 89
-Solved eval_89 in 2.89 seconds, v=3, cnt=2161
+Solved eval_89 in 3.011 seconds, v=3, cnt=2804
 ['connect', 'count_hole', 'auto_paste']
 eval 90
-Solved eval_90 in 0.353 seconds, v=2, cnt=824
+Solved eval_90 in 0.334 seconds, v=2, cnt=1085
 ['extend_shape', 'fill_pattern']
 eval 91
-Failed to solve eval_91 in 10.019 seconds, v=3, cnt=1345
+Failed to solve eval_91 in 10.101 seconds, v=3, cnt=1826
 eval 92
-Failed to solve eval_92 in 10.017 seconds, v=4, cnt=13728
+Failed to solve eval_92 in 10.029 seconds, v=4, cnt=18631
 eval 93
-Solved eval_93 in 0.223 seconds, v=2, cnt=184
+Solved eval_93 in 0.176 seconds, v=2, cnt=208
 ['divide_row_col', 'color_pile']
 eval 94
-Failed to solve eval_94 in 10.091 seconds, v=3, cnt=2205
+Failed to solve eval_94 in 10.021 seconds, v=3, cnt=3491
 eval 95
-Failed to solve eval_95 in 10.063 seconds, v=3, cnt=1258
+Failed to solve eval_95 in 10.037 seconds, v=3, cnt=1726
 eval 96
-Failed to solve eval_96 in 10.066 seconds, v=3, cnt=3704
+Failed to solve eval_96 in 10.067 seconds, v=3, cnt=7112
 eval 97
-Failed to solve eval_97 in 10.112 seconds, v=3, cnt=2162
+Failed to solve eval_97 in 10.074 seconds, v=3, cnt=3491
 eval 98
-Failed to solve eval_98 in 10.038 seconds, v=4, cnt=11793
+Failed to solve eval_98 in 10.025 seconds, v=3, cnt=13094
 eval 99
-Failed to solve eval_99 in 10.034 seconds, v=3, cnt=8996
+Failed to solve eval_99 in 10.027 seconds, v=3, cnt=13191
 eval 100
-Failed to solve eval_100 in 10.032 seconds, v=3, cnt=3239
+Failed to solve eval_100 in 10.052 seconds, v=3, cnt=4277
 eval 101
-Failed to solve eval_101 in 10.009 seconds, v=3, cnt=3280
+Failed to solve eval_101 in 10.007 seconds, v=3, cnt=4177
 eval 102
-Failed to solve eval_102 in 10.016 seconds, v=3, cnt=8438
+Failed to solve eval_102 in 10.042 seconds, v=3, cnt=10349
 eval 103
-Failed to solve eval_103 in 10.013 seconds, v=3, cnt=6376
+Failed to solve eval_103 in 10.078 seconds, v=3, cnt=7313
 eval 104
-Solved eval_104 in 0.199 seconds, v=2, cnt=139
+Solved eval_104 in 0.14 seconds, v=2, cnt=157
 ['mesh_split', 'switch_color']
 eval 105
-Failed to solve eval_105 in 10.004 seconds, v=3, cnt=7580
+Failed to solve eval_105 in 10.022 seconds, v=3, cnt=15546
 eval 106
-Failed to solve eval_106 in 10.035 seconds, v=3, cnt=7451
+Failed to solve eval_106 in 10.032 seconds, v=3, cnt=10939
 eval 107
-Failed to solve eval_107 in 10.632 seconds, v=3, cnt=1342
+Failed to solve eval_107 in 10.131 seconds, v=2, cnt=1038
 eval 108
-Solved eval_108 in 0.085 seconds, v=2, cnt=136
+Solved eval_108 in 0.066 seconds, v=2, cnt=154
 ['multiple_row_col', 'switch_color']
 eval 109
-Failed to solve eval_109 in 10.018 seconds, v=4, cnt=12440
+Failed to solve eval_109 in 10.016 seconds, v=3, cnt=16673
 eval 110
-Solved eval_110 in 0.498 seconds, v=2, cnt=699
+Solved eval_110 in 0.493 seconds, v=2, cnt=844
 ['shadow_min', 'fractal']
 eval 111
-Failed to solve eval_111 in 10.423 seconds, v=3, cnt=1472
+Failed to solve eval_111 in 10.267 seconds, v=3, cnt=1726
 eval 112
-Failed to solve eval_112 in 10.019 seconds, v=3, cnt=11709
+Failed to solve eval_112 in 10.014 seconds, v=3, cnt=14321
 eval 113
-Failed to solve eval_113 in 10.052 seconds, v=3, cnt=4484
+Failed to solve eval_113 in 10.074 seconds, v=3, cnt=7019
 eval 114
-Failed to solve eval_114 in 10.004 seconds, v=3, cnt=4484
+Failed to solve eval_114 in 10.053 seconds, v=3, cnt=6039
 eval 115
-Failed to solve eval_115 in 10.02 seconds, v=3, cnt=17811
+Failed to solve eval_115 in 10.012 seconds, v=3, cnt=21667
 eval 116
-Failed to solve eval_116 in 10.117 seconds, v=3, cnt=1948
+Failed to solve eval_116 in 10.182 seconds, v=3, cnt=2463
 eval 117
-Failed to solve eval_117 in 10.026 seconds, v=3, cnt=12563
+Failed to solve eval_117 in 10.028 seconds, v=3, cnt=17059
 eval 118
-Failed to solve eval_118 in 10.296 seconds, v=2, cnt=1344
+Failed to solve eval_118 in 10.026 seconds, v=2, cnt=1628
 eval 119
-Failed to solve eval_119 in 10.193 seconds, v=3, cnt=2418
+Failed to solve eval_119 in 10.157 seconds, v=3, cnt=2950
 eval 120
-Failed to solve eval_120 in 10.021 seconds, v=4, cnt=12050
+Failed to solve eval_120 in 10.012 seconds, v=4, cnt=16082
 eval 121
-Solved eval_121 in 0.212 seconds, v=2, cnt=226
+Solved eval_121 in 0.164 seconds, v=2, cnt=256
 ['mesh_align', 'extend_shape']
 eval 122
-Failed to solve eval_122 in 10.03 seconds, v=3, cnt=4482
+Failed to solve eval_122 in 10.036 seconds, v=3, cnt=6577
 eval 123
-Failed to solve eval_123 in 10.011 seconds, v=4, cnt=15233
+Failed to solve eval_123 in 10.014 seconds, v=4, cnt=24266
 eval 124
-Failed to solve eval_124 in 10.106 seconds, v=3, cnt=2375
+Failed to solve eval_124 in 10.176 seconds, v=3, cnt=2999
 eval 125
-Failed to solve eval_125 in 10.018 seconds, v=3, cnt=4440
+Failed to solve eval_125 in 10.051 seconds, v=3, cnt=5548
 eval 126
-Failed to solve eval_126 in 10.021 seconds, v=3, cnt=13208
+Failed to solve eval_126 in 10.004 seconds, v=3, cnt=20245
 eval 127
-Failed to solve eval_127 in 10.005 seconds, v=4, cnt=13082
+Failed to solve eval_127 in 10.021 seconds, v=3, cnt=14906
 eval 128
-Failed to solve eval_128 in 10.176 seconds, v=3, cnt=4226
+Failed to solve eval_128 in 10.086 seconds, v=3, cnt=7852
 eval 129
-Failed to solve eval_129 in 10.073 seconds, v=3, cnt=6031
+Failed to solve eval_129 in 10.045 seconds, v=3, cnt=7361
 eval 130
-Failed to solve eval_130 in 10.036 seconds, v=3, cnt=9901
+Failed to solve eval_130 in 10.037 seconds, v=3, cnt=11771
 eval 131
-Failed to solve eval_131 in 10.186 seconds, v=3, cnt=2117
+Failed to solve eval_131 in 10.065 seconds, v=3, cnt=2656
 eval 132
-Failed to solve eval_132 in 10.001 seconds, v=3, cnt=4699
+Failed to solve eval_132 in 10.067 seconds, v=3, cnt=6676
 eval 133
-Failed to solve eval_133 in 10.024 seconds, v=3, cnt=12391
+Failed to solve eval_133 in 10.018 seconds, v=3, cnt=15932
 eval 134
-Solved eval_134 in 0.128 seconds, v=2, cnt=181
-['connect4', 'collect_max']
+Solved eval_134 in 0.053 seconds, v=2, cnt=107
+['color', 'collect_max']
 eval 135
-Failed to solve eval_135 in 10.024 seconds, v=4, cnt=13126
+Failed to solve eval_135 in 10.027 seconds, v=3, cnt=14270
 eval 136
-Failed to solve eval_136 in 10.076 seconds, v=3, cnt=6803
+Failed to solve eval_136 in 10.055 seconds, v=3, cnt=8780
 eval 137
-Failed to solve eval_137 in 10.088 seconds, v=3, cnt=4656
+Failed to solve eval_137 in 10.048 seconds, v=3, cnt=8832
 eval 138
-Solved eval_138 in 0.124 seconds, v=2, cnt=138
+Solved eval_138 in 0.091 seconds, v=2, cnt=156
 ['multiple_row_col', 'rotations']
 eval 139
-Failed to solve eval_139 in 10.034 seconds, v=3, cnt=7494
+Failed to solve eval_139 in 10.045 seconds, v=3, cnt=10155
 eval 140
-Failed to solve eval_140 in 10.051 seconds, v=3, cnt=6720
+Failed to solve eval_140 in 10.025 seconds, v=3, cnt=10498
 eval 141
-Failed to solve eval_141 in 10.114 seconds, v=2, cnt=1128
+Failed to solve eval_141 in 10.081 seconds, v=2, cnt=1530
 eval 142
-Failed to solve eval_142 in 10.017 seconds, v=3, cnt=8394
+Failed to solve eval_142 in 10.002 seconds, v=3, cnt=10397
 eval 143
-Solved eval_143 in 0.05 seconds, v=1, cnt=52
+Solved eval_143 in 0.038 seconds, v=1, cnt=58
 ['fractal']
 eval 144
-Solved eval_144 in 0.303 seconds, v=2, cnt=227
-['mesh_align', 'fit_replace_rule_33']
+Solved eval_144 in 0.262 seconds, v=2, cnt=257
+['mesh_align', 'reduce_bitwise']
 eval 145
-Failed to solve eval_145 in 10.014 seconds, v=3, cnt=14544
+Failed to solve eval_145 in 10.027 seconds, v=3, cnt=19169
 eval 146
-Failed to solve eval_146 in 10.011 seconds, v=3, cnt=10246
+Failed to solve eval_146 in 10.007 seconds, v=3, cnt=12605
 eval 147
-Failed to solve eval_147 in 10.019 seconds, v=3, cnt=8525
+Failed to solve eval_147 in 10.019 seconds, v=3, cnt=9909
 eval 148
-Failed to solve eval_148 in 10.072 seconds, v=4, cnt=32174
+Solved eval_148 in 0.021 seconds, v=1, cnt=59
+['solve_zoom']
 eval 149
-Failed to solve eval_149 in 10.012 seconds, v=3, cnt=17336
+Failed to solve eval_149 in 10.007 seconds, v=3, cnt=22793
 eval 150
-Failed to solve eval_150 in 10.031 seconds, v=3, cnt=14969
+Failed to solve eval_150 in 10.004 seconds, v=3, cnt=19458
 eval 151
-Failed to solve eval_151 in 10.008 seconds, v=3, cnt=16866
+Failed to solve eval_151 in 10.003 seconds, v=3, cnt=22746
 eval 152
-Failed to solve eval_152 in 10.016 seconds, v=3, cnt=7019
+Failed to solve eval_152 in 10.057 seconds, v=3, cnt=7703
 eval 153
-Failed to solve eval_153 in 10.025 seconds, v=3, cnt=10290
+Failed to solve eval_153 in 10.009 seconds, v=3, cnt=10989
 eval 154
-Solved eval_154 in 0.534 seconds, v=2, cnt=222
+Solved eval_154 in 0.587 seconds, v=2, cnt=252
 ['collect_max', 'fit_replace_rule_33']
 eval 155
-Failed to solve eval_155 in 10.091 seconds, v=3, cnt=4178
+Failed to solve eval_155 in 10.081 seconds, v=3, cnt=5740
 eval 156
-Failed to solve eval_156 in 10.013 seconds, v=4, cnt=25552
+Failed to solve eval_156 in 10.013 seconds, v=3, cnt=35290
 eval 157
-Solved eval_157 in 0.353 seconds, v=2, cnt=314
+Solved eval_157 in 0.319 seconds, v=2, cnt=356
 ['divide_row_col', 'reduce_bitwise']
 eval 158
-Failed to solve eval_158 in 10.075 seconds, v=4, cnt=15448
+Failed to solve eval_158 in 10.002 seconds, v=4, cnt=26177
 eval 159
-Failed to solve eval_159 in 10.01 seconds, v=3, cnt=4996
+Solved eval_159 in 0.825 seconds, v=2, cnt=303
+['fusion', 'auto_fill_line_symmetry_del']
 eval 160
-Failed to solve eval_160 in 10.002 seconds, v=3, cnt=12784
+Failed to solve eval_160 in 10.015 seconds, v=3, cnt=16134
 eval 161
-Solved eval_161 in 0.139 seconds, v=2, cnt=228
+Solved eval_161 in 0.125 seconds, v=2, cnt=258
 ['mesh_split', 'collect_max']
 eval 162
-Failed to solve eval_162 in 10.099 seconds, v=3, cnt=2248
+Failed to solve eval_162 in 10.001 seconds, v=3, cnt=3149
 eval 163
-Failed to solve eval_163 in 10.161 seconds, v=3, cnt=5038
+Failed to solve eval_163 in 10.212 seconds, v=3, cnt=7062
 eval 164
-Failed to solve eval_164 in 10.023 seconds, v=3, cnt=4441
+Failed to solve eval_164 in 10.084 seconds, v=3, cnt=7803
 eval 165
-Failed to solve eval_165 in 10.034 seconds, v=3, cnt=4738
+Failed to solve eval_165 in 10.047 seconds, v=3, cnt=8289
 eval 166
-Solved eval_166 in 0.209 seconds, v=2, cnt=183
+Solved eval_166 in 0.181 seconds, v=2, cnt=207
 ['divide_row_col', 'color_pile']
 eval 167
-Failed to solve eval_167 in 10.004 seconds, v=3, cnt=14289
+Failed to solve eval_167 in 10.003 seconds, v=3, cnt=18045
 eval 168
-Solved eval_168 in 7.619 seconds, v=3, cnt=3798
+Solved eval_168 in 7.536 seconds, v=3, cnt=4963
 ['connect4', 'paste_color', 'fit_replace_rule_33']
 eval 169
-Solved eval_169 in 0.225 seconds, v=2, cnt=309
-['switch_color', 'fit_replace_rule_33']
+Solved eval_169 in 0.202 seconds, v=2, cnt=351
+['switch_color', 'color_change']
 eval 170
-Failed to solve eval_170 in 10.017 seconds, v=4, cnt=19917
+Failed to solve eval_170 in 10.003 seconds, v=4, cnt=25391
 eval 171
-Failed to solve eval_171 in 10.031 seconds, v=3, cnt=9942
+Failed to solve eval_171 in 10.029 seconds, v=3, cnt=7555
 eval 172
-Failed to solve eval_172 in 10.003 seconds, v=3, cnt=9124
+Failed to solve eval_172 in 10.013 seconds, v=3, cnt=15247
 eval 173
-Failed to solve eval_173 in 10.083 seconds, v=3, cnt=6503
+Failed to solve eval_173 in 10.006 seconds, v=3, cnt=8046
 eval 174
-Failed to solve eval_174 in 10.025 seconds, v=3, cnt=16651
+Failed to solve eval_174 in 10.05 seconds, v=3, cnt=23530
 eval 175
-Failed to solve eval_175 in 10.009 seconds, v=3, cnt=12223
+Failed to solve eval_175 in 10.003 seconds, v=3, cnt=16525
 eval 176
-Failed to solve eval_176 in 10.007 seconds, v=4, cnt=14673
+Failed to solve eval_176 in 10.004 seconds, v=4, cnt=22159
 eval 177
-Failed to solve eval_177 in 10.027 seconds, v=3, cnt=13558
+Failed to solve eval_177 in 10.002 seconds, v=3, cnt=17800
 eval 178
-Failed to solve eval_178 in 10.014 seconds, v=4, cnt=13813
+Failed to solve eval_178 in 10.029 seconds, v=3, cnt=13044
 eval 179
-Failed to solve eval_179 in 10.232 seconds, v=3, cnt=1984
+Failed to solve eval_179 in 10.107 seconds, v=3, cnt=2505
 eval 180
-Failed to solve eval_180 in 10.013 seconds, v=3, cnt=7019
+Failed to solve eval_180 in 10.03 seconds, v=3, cnt=15936
 eval 181
-Failed to solve eval_181 in 10.011 seconds, v=3, cnt=12398
+Failed to solve eval_181 in 10.013 seconds, v=3, cnt=15939
 eval 182
-Failed to solve eval_182 in 10.012 seconds, v=3, cnt=12307
+Failed to solve eval_182 in 10.003 seconds, v=3, cnt=13680
 eval 183
-Failed to solve eval_183 in 10.008 seconds, v=3, cnt=3663
+Failed to solve eval_183 in 10.177 seconds, v=3, cnt=4516
 eval 184
-Solved eval_184 in 0.133 seconds, v=2, cnt=139
+Solved eval_184 in 0.114 seconds, v=2, cnt=157
 ['multiple_row_col', 'rotations']
 eval 185
-Failed to solve eval_185 in 10.099 seconds, v=3, cnt=3668
+Failed to solve eval_185 in 10.162 seconds, v=3, cnt=4815
 eval 186
-Failed to solve eval_186 in 10.011 seconds, v=3, cnt=7667
+Failed to solve eval_186 in 10.044 seconds, v=3, cnt=6628
 eval 187
-Failed to solve eval_187 in 10.009 seconds, v=3, cnt=11231
+Failed to solve eval_187 in 10.0 seconds, v=3, cnt=10298
 eval 188
-Failed to solve eval_188 in 10.065 seconds, v=4, cnt=12393
+Failed to solve eval_188 in 10.007 seconds, v=3, cnt=14464
 eval 189
-Failed to solve eval_189 in 10.046 seconds, v=4, cnt=12610
+Failed to solve eval_189 in 10.01 seconds, v=3, cnt=16132
 eval 190
-Failed to solve eval_190 in 10.018 seconds, v=3, cnt=3409
+Failed to solve eval_190 in 10.069 seconds, v=3, cnt=5549
 eval 191
-Failed to solve eval_191 in 10.089 seconds, v=3, cnt=3840
+Failed to solve eval_191 in 10.011 seconds, v=3, cnt=5011
 eval 192
-Failed to solve eval_192 in 10.017 seconds, v=3, cnt=8652
+Failed to solve eval_192 in 10.044 seconds, v=3, cnt=8388
 eval 193
-Failed to solve eval_193 in 10.002 seconds, v=3, cnt=9124
+Failed to solve eval_193 in 10.022 seconds, v=3, cnt=8142
 eval 194
-Failed to solve eval_194 in 10.022 seconds, v=3, cnt=6162
+Failed to solve eval_194 in 10.058 seconds, v=3, cnt=7020
 eval 195
-Failed to solve eval_195 in 10.058 seconds, v=4, cnt=11922
+Failed to solve eval_195 in 10.014 seconds, v=3, cnt=10840
 eval 196
-Solved eval_196 in 0.096 seconds, v=2, cnt=136
+Solved eval_196 in 0.084 seconds, v=2, cnt=154
 ['multiple_row_col', 'rotations']
 eval 197
-Failed to solve eval_197 in 10.138 seconds, v=3, cnt=7107
+Failed to solve eval_197 in 10.021 seconds, v=3, cnt=9371
 eval 198
-Failed to solve eval_198 in 10.001 seconds, v=3, cnt=7449
+Failed to solve eval_198 in 10.27 seconds, v=3, cnt=7164
 eval 199
-Failed to solve eval_199 in 10.001 seconds, v=3, cnt=12392
+Failed to solve eval_199 in 10.022 seconds, v=3, cnt=15002
 eval 200
-Failed to solve eval_200 in 10.016 seconds, v=4, cnt=16740
+Failed to solve eval_200 in 10.017 seconds, v=4, cnt=23533
 eval 201
-Failed to solve eval_201 in 10.069 seconds, v=3, cnt=7107
+Failed to solve eval_201 in 10.02 seconds, v=3, cnt=6921
 eval 202
-Failed to solve eval_202 in 10.008 seconds, v=3, cnt=10246
+Failed to solve eval_202 in 10.0 seconds, v=3, cnt=10498
 eval 203
-Failed to solve eval_203 in 10.133 seconds, v=3, cnt=5423
+Failed to solve eval_203 in 10.047 seconds, v=3, cnt=4366
 eval 204
-Failed to solve eval_204 in 10.009 seconds, v=3, cnt=12137
+Failed to solve eval_204 in 10.011 seconds, v=3, cnt=14809
 eval 205
-Failed to solve eval_205 in 10.054 seconds, v=3, cnt=3711
+Failed to solve eval_205 in 10.836 seconds, v=3, cnt=3933
 eval 206
-Failed to solve eval_206 in 10.096 seconds, v=3, cnt=6245
+Failed to solve eval_206 in 10.187 seconds, v=3, cnt=7801
 eval 207
-Failed to solve eval_207 in 10.205 seconds, v=2, cnt=867
+Failed to solve eval_207 in 10.349 seconds, v=2, cnt=1184
 eval 208
-Failed to solve eval_208 in 10.008 seconds, v=3, cnt=12995
+Failed to solve eval_208 in 10.019 seconds, v=3, cnt=15592
 eval 209
-Failed to solve eval_209 in 10.026 seconds, v=4, cnt=15578
+Failed to solve eval_209 in 10.011 seconds, v=4, cnt=20298
 eval 210
-Failed to solve eval_210 in 10.074 seconds, v=3, cnt=3536
+Failed to solve eval_210 in 10.01 seconds, v=3, cnt=4763
 eval 211
-Failed to solve eval_211 in 10.009 seconds, v=3, cnt=4182
+Failed to solve eval_211 in 10.052 seconds, v=3, cnt=5891
 eval 212
-Solved eval_212 in 0.168 seconds, v=2, cnt=263
+Solved eval_212 in 0.139 seconds, v=2, cnt=299
 ['switch_color', 'fractal']
 eval 213
-Failed to solve eval_213 in 10.011 seconds, v=3, cnt=12479
+Failed to solve eval_213 in 10.003 seconds, v=3, cnt=13631
 eval 214
-Failed to solve eval_214 in 10.025 seconds, v=3, cnt=15186
+Failed to solve eval_214 in 10.012 seconds, v=3, cnt=19019
 eval 215
-Failed to solve eval_215 in 10.001 seconds, v=3, cnt=16952
+Failed to solve eval_215 in 10.012 seconds, v=3, cnt=24413
 eval 216
-Solved eval_216 in 0.172 seconds, v=1, cnt=52
+Solved eval_216 in 0.157 seconds, v=1, cnt=58
 ['auto_fill_line_symmetry_del']
 eval 217
-Failed to solve eval_217 in 10.044 seconds, v=4, cnt=9257
+Failed to solve eval_217 in 10.01 seconds, v=3, cnt=11674
 eval 218
-Failed to solve eval_218 in 10.019 seconds, v=3, cnt=11231
+Failed to solve eval_218 in 10.007 seconds, v=3, cnt=13826
 eval 219
-Solved eval_219 in 0.383 seconds, v=1, cnt=52
+Solved eval_219 in 0.375 seconds, v=1, cnt=58
 ['auto_fill_line_symmetry_del']
 eval 220
-Failed to solve eval_220 in 10.107 seconds, v=3, cnt=3450
+Failed to solve eval_220 in 10.036 seconds, v=3, cnt=4175
 eval 221
-Failed to solve eval_221 in 10.013 seconds, v=3, cnt=3838
+Failed to solve eval_221 in 10.017 seconds, v=3, cnt=5989
 eval 222
-Failed to solve eval_222 in 10.002 seconds, v=4, cnt=19189
+Failed to solve eval_222 in 10.02 seconds, v=4, cnt=27304
 eval 223
-Failed to solve eval_223 in 10.112 seconds, v=3, cnt=4355
+Failed to solve eval_223 in 10.092 seconds, v=3, cnt=5157
 eval 224
-Failed to solve eval_224 in 10.116 seconds, v=4, cnt=11621
+Failed to solve eval_224 in 10.021 seconds, v=3, cnt=13192
 eval 225
-Failed to solve eval_225 in 10.024 seconds, v=3, cnt=13943
+Failed to solve eval_225 in 10.043 seconds, v=3, cnt=17603
 eval 226
-Failed to solve eval_226 in 10.025 seconds, v=3, cnt=6074
+Failed to solve eval_226 in 10.017 seconds, v=3, cnt=8831
 eval 227
-Failed to solve eval_227 in 10.073 seconds, v=3, cnt=2031
+Failed to solve eval_227 in 10.161 seconds, v=3, cnt=2607
 eval 228
-Failed to solve eval_228 in 10.001 seconds, v=3, cnt=9602
+Failed to solve eval_228 in 10.019 seconds, v=3, cnt=14517
 eval 229
-Failed to solve eval_229 in 10.018 seconds, v=3, cnt=4829
+Failed to solve eval_229 in 10.06 seconds, v=3, cnt=6727
 eval 230
-Failed to solve eval_230 in 10.021 seconds, v=3, cnt=6376
+Failed to solve eval_230 in 10.019 seconds, v=3, cnt=7313
 eval 231
-Failed to solve eval_231 in 10.115 seconds, v=3, cnt=2246
+Failed to solve eval_231 in 10.013 seconds, v=3, cnt=2754
 eval 232
-Solved eval_232 in 0.557 seconds, v=1, cnt=52
+Solved eval_232 in 0.492 seconds, v=1, cnt=58
 ['auto_fill_line_symmetry_del']
 eval 233
-Failed to solve eval_233 in 10.172 seconds, v=3, cnt=5130
+Failed to solve eval_233 in 10.007 seconds, v=3, cnt=12264
 eval 234
-Failed to solve eval_234 in 10.01 seconds, v=3, cnt=6977
+Failed to solve eval_234 in 10.007 seconds, v=3, cnt=10498
 eval 235
-Failed to solve eval_235 in 10.058 seconds, v=4, cnt=12740
+Failed to solve eval_235 in 10.005 seconds, v=3, cnt=17701
 eval 236
-Failed to solve eval_236 in 10.071 seconds, v=3, cnt=4613
+Failed to solve eval_236 in 10.002 seconds, v=3, cnt=9714
 eval 237
-Failed to solve eval_237 in 10.05 seconds, v=3, cnt=6677
+Failed to solve eval_237 in 10.022 seconds, v=3, cnt=8342
 eval 238
-Failed to solve eval_238 in 10.014 seconds, v=3, cnt=5859
+Failed to solve eval_238 in 10.028 seconds, v=3, cnt=7214
 eval 239
-Failed to solve eval_239 in 10.015 seconds, v=3, cnt=4830
+Failed to solve eval_239 in 10.066 seconds, v=3, cnt=6825
 eval 240
-Failed to solve eval_240 in 10.012 seconds, v=3, cnt=10460
+Failed to solve eval_240 in 10.006 seconds, v=3, cnt=13878
 eval 241
-Failed to solve eval_241 in 10.015 seconds, v=3, cnt=15189
+Failed to solve eval_241 in 10.004 seconds, v=3, cnt=17944
 eval 242
-Failed to solve eval_242 in 10.024 seconds, v=3, cnt=5040
+Failed to solve eval_242 in 10.088 seconds, v=3, cnt=5938
 eval 243
-Failed to solve eval_243 in 10.024 seconds, v=3, cnt=3708
+Failed to solve eval_243 in 10.023 seconds, v=3, cnt=4862
 eval 244
-Failed to solve eval_244 in 10.112 seconds, v=3, cnt=2549
+Failed to solve eval_244 in 10.043 seconds, v=3, cnt=3736
 eval 245
-Failed to solve eval_245 in 10.026 seconds, v=3, cnt=10201
+Failed to solve eval_245 in 10.016 seconds, v=3, cnt=12506
 eval 246
-Failed to solve eval_246 in 10.002 seconds, v=3, cnt=5258
+Failed to solve eval_246 in 10.028 seconds, v=3, cnt=6333
 eval 247
-Failed to solve eval_247 in 10.086 seconds, v=3, cnt=3496
+Failed to solve eval_247 in 10.062 seconds, v=3, cnt=4619
 eval 248
-Failed to solve eval_248 in 10.191 seconds, v=2, cnt=610
+Failed to solve eval_248 in 10.008 seconds, v=2, cnt=793
 eval 249
-Failed to solve eval_249 in 10.026 seconds, v=3, cnt=13553
+Failed to solve eval_249 in 10.012 seconds, v=3, cnt=16325
 eval 250
-Failed to solve eval_250 in 10.073 seconds, v=3, cnt=4568
+Failed to solve eval_250 in 10.067 seconds, v=3, cnt=6086
 eval 251
-Failed to solve eval_251 in 10.026 seconds, v=4, cnt=17768
+Failed to solve eval_251 in 10.015 seconds, v=4, cnt=23333
 eval 252
-Failed to solve eval_252 in 10.128 seconds, v=4, cnt=12481
+Failed to solve eval_252 in 10.013 seconds, v=3, cnt=15495
 eval 253
-Failed to solve eval_253 in 10.004 seconds, v=3, cnt=13467
+Failed to solve eval_253 in 10.005 seconds, v=3, cnt=18187
 eval 254
-Failed to solve eval_254 in 10.072 seconds, v=3, cnt=4095
+Failed to solve eval_254 in 10.013 seconds, v=3, cnt=5204
 eval 255
-Solved eval_255 in 0.813 seconds, v=2, cnt=782
+Solved eval_255 in 0.746 seconds, v=2, cnt=939
 ['connect_row', 'diff_color']
 eval 256
-Failed to solve eval_256 in 10.002 seconds, v=3, cnt=9039
+Failed to solve eval_256 in 10.043 seconds, v=3, cnt=11230
 eval 257
-Failed to solve eval_257 in 10.016 seconds, v=3, cnt=3665
+Failed to solve eval_257 in 10.079 seconds, v=3, cnt=4322
 eval 258
-Failed to solve eval_258 in 10.153 seconds, v=3, cnt=3193
+Failed to solve eval_258 in 10.042 seconds, v=3, cnt=4470
 eval 259
-Failed to solve eval_259 in 10.255 seconds, v=3, cnt=4054
+Failed to solve eval_259 in 10.015 seconds, v=3, cnt=5108
 eval 260
-Failed to solve eval_260 in 10.049 seconds, v=3, cnt=8053
+Failed to solve eval_260 in 10.013 seconds, v=3, cnt=10547
 eval 261
-Failed to solve eval_261 in 10.041 seconds, v=3, cnt=2376
+Failed to solve eval_261 in 10.021 seconds, v=3, cnt=3392
 eval 262
-Failed to solve eval_262 in 10.024 seconds, v=3, cnt=7535
+Failed to solve eval_262 in 10.032 seconds, v=3, cnt=12309
 eval 263
-Failed to solve eval_263 in 10.011 seconds, v=4, cnt=15445
+Failed to solve eval_263 in 10.006 seconds, v=4, cnt=22009
 eval 264
-Solved eval_264 in 0.164 seconds, v=2, cnt=98
+Solved eval_264 in 0.131 seconds, v=2, cnt=110
 ['connect', 'auto_paste']
 eval 265
-Failed to solve eval_265 in 10.028 seconds, v=4, cnt=11230
+Failed to solve eval_265 in 10.03 seconds, v=3, cnt=11277
 eval 266
-Solved eval_266 in 0.455 seconds, v=1, cnt=52
+Solved eval_266 in 0.42 seconds, v=1, cnt=58
 ['auto_fill_line_symmetry_del']
 eval 267
-Failed to solve eval_267 in 10.016 seconds, v=4, cnt=15148
+Failed to solve eval_267 in 10.014 seconds, v=4, cnt=23140
 eval 268
-Failed to solve eval_268 in 10.02 seconds, v=4, cnt=16995
+Failed to solve eval_268 in 10.014 seconds, v=4, cnt=25491
 eval 269
-Failed to solve eval_269 in 10.031 seconds, v=4, cnt=13127
+Failed to solve eval_269 in 10.001 seconds, v=3, cnt=15888
 eval 270
-Failed to solve eval_270 in 10.043 seconds, v=3, cnt=10934
+Failed to solve eval_270 in 10.006 seconds, v=3, cnt=13683
 eval 271
-Failed to solve eval_271 in 10.014 seconds, v=3, cnt=8307
+Failed to solve eval_271 in 10.0 seconds, v=3, cnt=11328
 eval 272
-Failed to solve eval_272 in 10.029 seconds, v=3, cnt=3968
+Failed to solve eval_272 in 10.102 seconds, v=3, cnt=6480
 eval 273
-Failed to solve eval_273 in 10.103 seconds, v=3, cnt=4957
+Failed to solve eval_273 in 10.007 seconds, v=3, cnt=7166
 eval 274
-Failed to solve eval_274 in 10.003 seconds, v=4, cnt=14417
+Failed to solve eval_274 in 10.007 seconds, v=3, cnt=20200
 eval 275
-Failed to solve eval_275 in 10.001 seconds, v=4, cnt=13812
+Failed to solve eval_275 in 10.016 seconds, v=4, cnt=22353
 eval 276
-Failed to solve eval_276 in 10.018 seconds, v=4, cnt=18630
+Failed to solve eval_276 in 10.003 seconds, v=4, cnt=28578
 eval 277
-Failed to solve eval_277 in 10.014 seconds, v=3, cnt=2979
+Failed to solve eval_277 in 10.028 seconds, v=3, cnt=3736
 eval 278
-Failed to solve eval_278 in 10.002 seconds, v=3, cnt=9209
+Failed to solve eval_278 in 10.02 seconds, v=3, cnt=12699
 eval 279
-Failed to solve eval_279 in 10.0 seconds, v=3, cnt=6465
+Failed to solve eval_279 in 10.013 seconds, v=3, cnt=8639
 eval 280
-Failed to solve eval_280 in 10.333 seconds, v=2, cnt=355
+Failed to solve eval_280 in 10.976 seconds, v=2, cnt=452
 eval 281
-Failed to solve eval_281 in 10.012 seconds, v=3, cnt=1770
+Failed to solve eval_281 in 10.096 seconds, v=3, cnt=2310
 eval 282
-Failed to solve eval_282 in 10.015 seconds, v=3, cnt=10289
+Failed to solve eval_282 in 10.019 seconds, v=3, cnt=14614
 eval 283
-Failed to solve eval_283 in 10.018 seconds, v=3, cnt=3966
+Failed to solve eval_283 in 10.015 seconds, v=3, cnt=4959
 eval 284
-Failed to solve eval_284 in 10.029 seconds, v=4, cnt=12054
+Failed to solve eval_284 in 10.005 seconds, v=3, cnt=15645
 eval 285
-Solved eval_285 in 0.136 seconds, v=2, cnt=138
+Solved eval_285 in 0.124 seconds, v=2, cnt=156
 ['multiple_row_col', 'rotations']
 eval 286
-Failed to solve eval_286 in 10.024 seconds, v=3, cnt=6417
+Failed to solve eval_286 in 10.089 seconds, v=3, cnt=8193
 eval 287
-Failed to solve eval_287 in 10.078 seconds, v=3, cnt=5040
+Failed to solve eval_287 in 10.011 seconds, v=3, cnt=5644
 eval 288
-Failed to solve eval_288 in 10.018 seconds, v=4, cnt=17986
+Failed to solve eval_288 in 10.008 seconds, v=3, cnt=23876
 eval 289
-Failed to solve eval_289 in 10.033 seconds, v=3, cnt=11316
+Failed to solve eval_289 in 10.006 seconds, v=3, cnt=15982
 eval 290
-Failed to solve eval_290 in 10.01 seconds, v=4, cnt=13080
+Failed to solve eval_290 in 10.001 seconds, v=4, cnt=17305
 eval 291
-Failed to solve eval_291 in 10.036 seconds, v=3, cnt=5774
+Failed to solve eval_291 in 10.042 seconds, v=3, cnt=8146
 eval 292
-Failed to solve eval_292 in 10.04 seconds, v=3, cnt=10203
+Failed to solve eval_292 in 10.012 seconds, v=3, cnt=16428
 eval 293
-Failed to solve eval_293 in 10.005 seconds, v=4, cnt=31999
+Failed to solve eval_293 in 10.003 seconds, v=4, cnt=40824
 eval 294
-Failed to solve eval_294 in 10.077 seconds, v=3, cnt=4527
+Failed to solve eval_294 in 10.078 seconds, v=3, cnt=4961
 eval 295
-Failed to solve eval_295 in 10.022 seconds, v=3, cnt=11060
+Failed to solve eval_295 in 10.024 seconds, v=3, cnt=10446
 eval 296
-Solved eval_296 in 0.14 seconds, v=2, cnt=137
+Solved eval_296 in 0.106 seconds, v=2, cnt=155
 ['multiple_row_col', 'rotations']
 eval 297
-Failed to solve eval_297 in 10.03 seconds, v=3, cnt=2850
+Failed to solve eval_297 in 10.048 seconds, v=3, cnt=4030
 eval 298
-Failed to solve eval_298 in 10.037 seconds, v=4, cnt=12867
+Failed to solve eval_298 in 10.003 seconds, v=3, cnt=16670
 eval 299
-Failed to solve eval_299 in 10.03 seconds, v=3, cnt=7320
+Failed to solve eval_299 in 10.006 seconds, v=3, cnt=9418
 eval 300
-Solved eval_300 in 0.371 seconds, v=1, cnt=53
+Solved eval_300 in 0.353 seconds, v=1, cnt=59
 ['auto_fill_row_col_periodicity']
 eval 301
-Failed to solve eval_301 in 10.005 seconds, v=3, cnt=5215
+Failed to solve eval_301 in 10.034 seconds, v=3, cnt=7215
 eval 302
-Failed to solve eval_302 in 10.006 seconds, v=3, cnt=17211
+Failed to solve eval_302 in 10.001 seconds, v=3, cnt=23090
 eval 303
-Failed to solve eval_303 in 10.057 seconds, v=3, cnt=3195
+Failed to solve eval_303 in 10.045 seconds, v=3, cnt=4423
 eval 304
-Failed to solve eval_304 in 10.014 seconds, v=4, cnt=20907
+Failed to solve eval_304 in 10.006 seconds, v=4, cnt=28772
 eval 305
-Failed to solve eval_305 in 10.024 seconds, v=4, cnt=18111
+Failed to solve eval_305 in 10.003 seconds, v=4, cnt=22157
 eval 306
-Failed to solve eval_306 in 10.012 seconds, v=2, cnt=1210
+Failed to solve eval_306 in 10.263 seconds, v=2, cnt=1623
 eval 307
-Failed to solve eval_307 in 10.002 seconds, v=4, cnt=18412
+Failed to solve eval_307 in 10.009 seconds, v=4, cnt=23675
 eval 308
-Solved eval_308 in 0.512 seconds, v=1, cnt=53
+Solved eval_308 in 0.478 seconds, v=1, cnt=59
 ['auto_fill_row_col_periodicity']
 eval 309
-Failed to solve eval_309 in 10.014 seconds, v=4, cnt=18756
+Failed to solve eval_309 in 10.004 seconds, v=4, cnt=23626
 eval 310
-Failed to solve eval_310 in 10.185 seconds, v=3, cnt=4397
+Failed to solve eval_310 in 10.045 seconds, v=3, cnt=6431
 eval 311
-Failed to solve eval_311 in 10.027 seconds, v=4, cnt=17035
+Solved eval_311 in 0.392 seconds, v=2, cnt=791
+['shadow_ones', 'fractal']
 eval 312
-Failed to solve eval_312 in 10.04 seconds, v=4, cnt=16308
+Failed to solve eval_312 in 10.015 seconds, v=4, cnt=23874
 eval 313
-Failed to solve eval_313 in 10.059 seconds, v=3, cnt=6718
+Failed to solve eval_313 in 10.071 seconds, v=3, cnt=7703
 eval 314
-Failed to solve eval_314 in 10.038 seconds, v=4, cnt=12910
+Solved eval_314 in 0.039 seconds, v=1, cnt=59
+['drop_duplicates']
 eval 315
-Failed to solve eval_315 in 10.023 seconds, v=3, cnt=7795
+Failed to solve eval_315 in 10.026 seconds, v=3, cnt=10400
 eval 316
-Failed to solve eval_316 in 10.03 seconds, v=3, cnt=10932
+Failed to solve eval_316 in 10.015 seconds, v=3, cnt=15102
 eval 317
-Failed to solve eval_317 in 10.004 seconds, v=4, cnt=20093
+Failed to solve eval_317 in 10.012 seconds, v=4, cnt=28040
 eval 318
-Solved eval_318 in 0.18 seconds, v=2, cnt=182
+Solved eval_318 in 0.153 seconds, v=2, cnt=206
 ['divide_row_col', 'extend_shape']
 eval 319
-Failed to solve eval_319 in 10.003 seconds, v=3, cnt=4441
+Failed to solve eval_319 in 10.031 seconds, v=3, cnt=7117
 eval 320
-Failed to solve eval_320 in 10.01 seconds, v=3, cnt=14284
+Failed to solve eval_320 in 10.006 seconds, v=3, cnt=15933
 eval 321
-Failed to solve eval_321 in 10.188 seconds, v=2, cnt=522
+Failed to solve eval_321 in 10.799 seconds, v=2, cnt=791
 eval 322
-Failed to solve eval_322 in 10.082 seconds, v=3, cnt=6376
+Failed to solve eval_322 in 10.017 seconds, v=3, cnt=8441
 eval 323
-Failed to solve eval_323 in 10.013 seconds, v=4, cnt=13514
+Failed to solve eval_323 in 10.019 seconds, v=3, cnt=16182
 eval 324
-Failed to solve eval_324 in 10.034 seconds, v=3, cnt=10802
+Failed to solve eval_324 in 10.005 seconds, v=3, cnt=11720
 eval 325
-Failed to solve eval_325 in 10.016 seconds, v=4, cnt=17767
+Solved eval_325 in 0.15 seconds, v=2, cnt=302
+['n_color', 'transform_zoom']
 eval 326
-Failed to solve eval_326 in 10.012 seconds, v=3, cnt=10288
+Failed to solve eval_326 in 10.029 seconds, v=3, cnt=10595
 eval 327
-Failed to solve eval_327 in 10.064 seconds, v=3, cnt=4526
+Solved eval_327 in 3.295 seconds, v=3, cnt=2167
+['color', 'find_symmetry', 'trim_background']
 eval 328
-Failed to solve eval_328 in 10.01 seconds, v=4, cnt=11622
+Failed to solve eval_328 in 10.085 seconds, v=3, cnt=13830
 eval 329
-Failed to solve eval_329 in 10.054 seconds, v=3, cnt=8307
+Failed to solve eval_329 in 10.011 seconds, v=3, cnt=9612
 eval 330
-Failed to solve eval_330 in 10.113 seconds, v=3, cnt=2851
+Failed to solve eval_330 in 10.261 seconds, v=3, cnt=3786
 eval 331
-Failed to solve eval_331 in 10.007 seconds, v=3, cnt=3967
+Failed to solve eval_331 in 10.095 seconds, v=3, cnt=5254
 eval 332
-Failed to solve eval_332 in 10.604 seconds, v=2, cnt=826
+Failed to solve eval_332 in 10.444 seconds, v=2, cnt=1137
 eval 333
-Failed to solve eval_333 in 10.088 seconds, v=3, cnt=8226
+Failed to solve eval_333 in 10.042 seconds, v=3, cnt=10303
 eval 334
-Failed to solve eval_334 in 10.001 seconds, v=3, cnt=6504
+Failed to solve eval_334 in 10.064 seconds, v=3, cnt=8929
 eval 335
-Failed to solve eval_335 in 10.013 seconds, v=3, cnt=9215
+Failed to solve eval_335 in 10.026 seconds, v=3, cnt=10548
 eval 336
-Failed to solve eval_336 in 10.409 seconds, v=3, cnt=1384
+Failed to solve eval_336 in 10.383 seconds, v=3, cnt=1626
 eval 337
-Failed to solve eval_337 in 10.169 seconds, v=3, cnt=2762
+Failed to solve eval_337 in 10.054 seconds, v=3, cnt=3930
 eval 338
-Failed to solve eval_338 in 10.047 seconds, v=3, cnt=8906
+Failed to solve eval_338 in 10.046 seconds, v=3, cnt=10687
 eval 339
-Solved eval_339 in 0.158 seconds, v=2, cnt=227
+Solved eval_339 in 0.138 seconds, v=2, cnt=257
 ['mesh_align', 'extend_shape']
 eval 340
-Failed to solve eval_340 in 10.011 seconds, v=4, cnt=9855
+Solved eval_340 in 0.07 seconds, v=1, cnt=57
+['drop_duplicates']
 eval 341
-Failed to solve eval_341 in 10.365 seconds, v=3, cnt=4226
+Failed to solve eval_341 in 10.081 seconds, v=3, cnt=5304
 eval 342
-Failed to solve eval_342 in 10.05 seconds, v=3, cnt=4181
+Failed to solve eval_342 in 10.025 seconds, v=3, cnt=4959
 eval 343
-Failed to solve eval_343 in 10.0 seconds, v=3, cnt=6073
+Failed to solve eval_343 in 10.072 seconds, v=3, cnt=8635
 eval 344
-Solved eval_344 in 0.132 seconds, v=2, cnt=182
-['divide_row_col', 'fit_replace_rule_33']
+Solved eval_344 in 0.11 seconds, v=2, cnt=206
+['divide_row_col', 'reduce_bitwise']
 eval 345
-Failed to solve eval_345 in 10.004 seconds, v=3, cnt=7150
+Failed to solve eval_345 in 10.029 seconds, v=3, cnt=11772
 eval 346
-Failed to solve eval_346 in 10.25 seconds, v=3, cnt=2248
+Failed to solve eval_346 in 10.126 seconds, v=3, cnt=3491
 eval 347
-Failed to solve eval_347 in 10.015 seconds, v=3, cnt=7962
+Failed to solve eval_347 in 10.017 seconds, v=3, cnt=12600
 eval 348
-Failed to solve eval_348 in 10.145 seconds, v=3, cnt=10764
+Failed to solve eval_348 in 10.002 seconds, v=3, cnt=13832
 eval 349
-Failed to solve eval_349 in 10.008 seconds, v=3, cnt=10972
+Failed to solve eval_349 in 10.004 seconds, v=3, cnt=15295
 eval 350
-Failed to solve eval_350 in 10.641 seconds, v=2, cnt=394
+Failed to solve eval_350 in 10.017 seconds, v=2, cnt=497
 eval 351
-Failed to solve eval_351 in 10.007 seconds, v=4, cnt=20389
+Failed to solve eval_351 in 10.02 seconds, v=4, cnt=29260
 eval 352
-Failed to solve eval_352 in 10.191 seconds, v=3, cnt=1428
+Solved eval_352 in 2.78 seconds, v=2, cnt=255
+['fusion', 'auto_fill_line_symmetry_del']
 eval 353
-Failed to solve eval_353 in 10.086 seconds, v=3, cnt=3235
+Failed to solve eval_353 in 10.035 seconds, v=3, cnt=4469
 eval 354
-Failed to solve eval_354 in 10.009 seconds, v=3, cnt=13210
+Failed to solve eval_354 in 10.002 seconds, v=3, cnt=15787
 eval 355
-Failed to solve eval_355 in 10.007 seconds, v=4, cnt=18501
+Failed to solve eval_355 in 10.011 seconds, v=4, cnt=25736
 eval 356
-Failed to solve eval_356 in 10.045 seconds, v=3, cnt=6761
+Failed to solve eval_356 in 10.061 seconds, v=3, cnt=9664
 eval 357
-Failed to solve eval_357 in 10.198 seconds, v=3, cnt=1644
+Failed to solve eval_357 in 10.12 seconds, v=3, cnt=2117
 eval 358
-Failed to solve eval_358 in 10.006 seconds, v=3, cnt=2763
+Failed to solve eval_358 in 10.034 seconds, v=3, cnt=3490
 eval 359
-Failed to solve eval_359 in 10.031 seconds, v=4, cnt=13471
+Failed to solve eval_359 in 10.015 seconds, v=3, cnt=18191
 eval 360
-Failed to solve eval_360 in 10.0 seconds, v=4, cnt=16133
+Failed to solve eval_360 in 10.007 seconds, v=4, cnt=28527
 eval 361
-Failed to solve eval_361 in 10.04 seconds, v=3, cnt=10592
+Failed to solve eval_361 in 10.006 seconds, v=3, cnt=13440
 eval 362
-Failed to solve eval_362 in 10.006 seconds, v=3, cnt=12606
+Failed to solve eval_362 in 10.023 seconds, v=3, cnt=17060
 eval 363
-Failed to solve eval_363 in 10.03 seconds, v=4, cnt=23655
+Failed to solve eval_363 in 10.009 seconds, v=4, cnt=31463
 eval 364
-Failed to solve eval_364 in 10.031 seconds, v=3, cnt=5898
+Failed to solve eval_364 in 10.005 seconds, v=3, cnt=5250
 eval 365
-Solved eval_365 in 0.214 seconds, v=1, cnt=51
+Solved eval_365 in 0.197 seconds, v=1, cnt=57
 ['auto_fill_row_col_periodicity']
 eval 366
-Solved eval_366 in 0.317 seconds, v=2, cnt=228
+Solved eval_366 in 0.292 seconds, v=2, cnt=258
 ['mesh_align', 'color_pile']
 eval 367
-Failed to solve eval_367 in 10.011 seconds, v=3, cnt=11062
+Failed to solve eval_367 in 10.014 seconds, v=3, cnt=14515
 eval 368
-Failed to solve eval_368 in 10.059 seconds, v=4, cnt=12611
+Failed to solve eval_368 in 10.016 seconds, v=3, cnt=18387
 eval 369
-Failed to solve eval_369 in 10.076 seconds, v=3, cnt=4397
+Failed to solve eval_369 in 10.023 seconds, v=3, cnt=6234
 eval 370
-Failed to solve eval_370 in 10.021 seconds, v=3, cnt=9510
+Failed to solve eval_370 in 10.02 seconds, v=3, cnt=11081
 eval 371
-Solved eval_371 in 4.698 seconds, v=2, cnt=696
+Solved eval_371 in 6.142 seconds, v=2, cnt=841
 ['change_background', 'auto_fill_row_col_periodicity']
 eval 372
-Solved eval_372 in 0.297 seconds, v=2, cnt=228
+Solved eval_372 in 0.247 seconds, v=2, cnt=258
 ['divide_row_col', 'color_pile']
 eval 373
-Failed to solve eval_373 in 10.022 seconds, v=3, cnt=9946
+Failed to solve eval_373 in 10.007 seconds, v=3, cnt=12116
 eval 374
-Failed to solve eval_374 in 10.021 seconds, v=4, cnt=14677
+Failed to solve eval_374 in 10.018 seconds, v=3, cnt=19418
 eval 375
-Failed to solve eval_375 in 10.02 seconds, v=4, cnt=16779
+Failed to solve eval_375 in 10.023 seconds, v=3, cnt=21569
 eval 376
-Failed to solve eval_376 in 10.012 seconds, v=3, cnt=16481
+Failed to solve eval_376 in 10.016 seconds, v=3, cnt=19808
 eval 377
-Failed to solve eval_377 in 10.009 seconds, v=4, cnt=22840
+Failed to solve eval_377 in 10.016 seconds, v=4, cnt=29995
 eval 378
-Failed to solve eval_378 in 10.027 seconds, v=3, cnt=4654
+Failed to solve eval_378 in 10.039 seconds, v=3, cnt=5498
 eval 379
-Failed to solve eval_379 in 10.051 seconds, v=3, cnt=5301
+Failed to solve eval_379 in 10.028 seconds, v=3, cnt=6921
 eval 380
-Failed to solve eval_380 in 10.025 seconds, v=3, cnt=2764
+Failed to solve eval_380 in 10.06 seconds, v=3, cnt=4030
 eval 381
-Failed to solve eval_381 in 10.021 seconds, v=3, cnt=8053
+Failed to solve eval_381 in 10.09 seconds, v=3, cnt=10547
 eval 382
-Failed to solve eval_382 in 10.302 seconds, v=3, cnt=2031
+Failed to solve eval_382 in 10.04 seconds, v=3, cnt=3294
 eval 383
-Failed to solve eval_383 in 10.482 seconds, v=3, cnt=1729
+Solved eval_383 in 2.106 seconds, v=2, cnt=255
+['fusion', 'auto_fill_line_symmetry_del']
 eval 384
-Failed to solve eval_384 in 10.018 seconds, v=3, cnt=13643
+Failed to solve eval_384 in 10.021 seconds, v=3, cnt=18191
 eval 385
-Failed to solve eval_385 in 10.03 seconds, v=4, cnt=13169
+Failed to solve eval_385 in 10.004 seconds, v=4, cnt=20395
 eval 386
-Failed to solve eval_386 in 10.109 seconds, v=3, cnt=2848
+Failed to solve eval_386 in 10.083 seconds, v=3, cnt=4421
 eval 387
-Solved eval_387 in 0.11 seconds, v=1, cnt=50
+Solved eval_387 in 0.096 seconds, v=1, cnt=56
 ['auto_fill_line_symmetry_del']
 eval 388
-Failed to solve eval_388 in 10.005 seconds, v=3, cnt=10117
+Failed to solve eval_388 in 10.065 seconds, v=3, cnt=10547
 eval 389
-Failed to solve eval_389 in 10.066 seconds, v=3, cnt=4614
+Failed to solve eval_389 in 10.003 seconds, v=3, cnt=8735
 eval 390
-Failed to solve eval_390 in 10.074 seconds, v=3, cnt=5258
+Failed to solve eval_390 in 10.015 seconds, v=3, cnt=6481
 eval 391
-Solved eval_391 in 0.562 seconds, v=1, cnt=52
+Solved eval_391 in 0.511 seconds, v=1, cnt=58
 ['auto_fill_line_symmetry_del']
 eval 392
-Failed to solve eval_392 in 10.016 seconds, v=3, cnt=13771
+Failed to solve eval_392 in 10.021 seconds, v=3, cnt=16769
 eval 393
-Failed to solve eval_393 in 10.026 seconds, v=4, cnt=23919
+Failed to solve eval_393 in 10.014 seconds, v=4, cnt=30097
 eval 394
-Failed to solve eval_394 in 10.02 seconds, v=3, cnt=15746
+Failed to solve eval_394 in 10.005 seconds, v=3, cnt=23088
 eval 395
-Failed to solve eval_395 in 10.075 seconds, v=3, cnt=1944
+Failed to solve eval_395 in 10.046 seconds, v=3, cnt=3439
 eval 396
-Failed to solve eval_396 in 10.393 seconds, v=2, cnt=695
+Failed to solve eval_396 in 10.37 seconds, v=2, cnt=988
 eval 397
-Failed to solve eval_397 in 10.301 seconds, v=3, cnt=1554
+Failed to solve eval_397 in 10.09 seconds, v=3, cnt=2261
 eval 398
-Failed to solve eval_398 in 10.033 seconds, v=3, cnt=8354
+Failed to solve eval_398 in 10.048 seconds, v=3, cnt=9665
 eval 399
-Failed to solve eval_399 in 10.004 seconds, v=3, cnt=6936
-evaluation done, AC: 68, total: 419, 0.837708830548926
+Failed to solve eval_399 in 10.038 seconds, v=3, cnt=10450
+evaluation done, AC: 77, total: 419, 0.8162291169451074

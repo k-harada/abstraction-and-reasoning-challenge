@@ -24,11 +24,13 @@ from src.operator.transformer.arithmetic.arg_sort import ArgSort
 from src.operator.transformer.arithmetic.max_color import MaxColor
 from src.operator.transformer.arithmetic.count_hole import CountHole
 from src.operator.transformer.zoom import ZoomTransformer
+from src.operator.transformer.duplicate import DuplicateTransformer
 from src.operator.transformer.shadow import Shadow
 from src.operator.transformer.keep_mesh import KeepMesh
 from src.operator.transformer.arithmetic.find_rectangle import RectangleFinder
 from src.operator.transformer.arithmetic.find_symmetry import SymmetryFinder
 from src.operator.transformer.reducer.drop_duplicates import DropDuplicates
+from src.operator.transformer.arithmetic.sort import Sort
 
 
 def run_transform(p: Problem, command: str) -> Problem:
@@ -102,7 +104,13 @@ def run_transform(p: Problem, command: str) -> Problem:
         return SymmetryFinder.problem(p)
     elif command == "transform_zoom":
         return ZoomTransformer.problem(p)
+    elif command == "transform_duplicate":
+        return DuplicateTransformer.problem(p)
     elif command == "drop_duplicates":
         return DropDuplicates.problem(p)
+    elif command == "sort_ascending":
+        return Sort.problem(p, descending=False)
+    elif command == "sort_descending":
+        return Sort.problem(p, descending=True)
     else:
         raise NotImplementedError
