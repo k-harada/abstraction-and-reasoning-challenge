@@ -68,26 +68,26 @@ def test_711():
     p = Runner(311, "eval", verbose=True)
 
 
-def test_814():
+def test_714():
     p = Runner(314, "eval", verbose=True)
 
 
-def test_819():
+def test_719():
     p = Runner(319, "eval", verbose=True)
 
 
-def test_825():
+def test_725():
     p = Runner(325, "eval", verbose=True)
 
 
-def test_827():
+def test_727():
     p = Runner(327, "eval", verbose=True)
 
 
-def test_783():
-    p = Runner(383, "eval", verbose=True)
-    p.run("fusion")
-    p.run("auto_fill_line_symmetry_del")
+def test_756():
+    p = Runner(356, "eval", verbose=True)
+    p.run("color")
+    # p.run("rotations_each")
 
 
 if __name__ == "__main__":
@@ -97,4 +97,3 @@ if __name__ == "__main__":
     test_140()
     test_261()
     test_507()
-    test_783()

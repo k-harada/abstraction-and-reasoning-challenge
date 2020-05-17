@@ -37,7 +37,18 @@ class MapColor:
         assert len(arr_list) >= 2
         res_list = []
         for arr in arr_list:
-            m = Matter(arr[0], background_color=m.background_color, new=True)
+            x_arr = arr[0]
+            # trim
+            x_sum = (x_arr != m.background_color).sum(axis=1)
+            y_sum = (x_arr != m.background_color).sum(axis=0)
+
+            min_x = min([i for i in range(x_arr.shape[0]) if x_sum[i]])
+            max_x = max([i for i in range(x_arr.shape[0]) if x_sum[i]])
+            min_y = min([i for i in range(x_arr.shape[1]) if y_sum[i]])
+            max_y = max([i for i in range(x_arr.shape[1]) if y_sum[i]])
+
+            new_values = x_arr[min_x:max_x + 1, min_y:max_y + 1].copy()
+            m = Matter(new_values, min_x, min_y, background_color=m.background_color, new=True)
             m.color = arr[1]
             res_list.append(m)
 
