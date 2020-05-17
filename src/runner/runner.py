@@ -28,7 +28,8 @@ usual_transformers = [
     "max_color", "keep_max_color", "change_background",
     "fill_rectangle", "connect_row", "connect_col", "connect_row_col", "connect_diagonal",
     "shadow_bool", "shadow_same", "shadow_max", "shadow_min", "shadow_mesh", "shadow_ones", "keep_mesh",
-    "find_rectangle", "find_symmetry", "count_hole", "transform_zoom", "transform_duplicate", "drop_duplicates"
+    "find_rectangle", "find_symmetry", "count_hole", "transform_zoom", "transform_duplicate", "drop_duplicates",
+    "rectangle_hole_simple", "rectangle_hole_mesh", "rectangle_hole_mesh_x"
 ]
 transformers = reducers + usual_transformers
 
@@ -143,7 +144,7 @@ class Runner:
             for op in static_solvers:
                 self._pre_solve(p, op)
             d = eval_distance(p)
-            heappush(self.heap_queue, (0, 0, p))
+            heappush(self.heap_queue, (0, d, 0, p))
             heappush(self.heap_res, (d, 0, 0, p))
 
             # all ones benchmark
@@ -160,7 +161,7 @@ class Runner:
                     q = self._run_map(p, op)
                     # evaluate
                     d = eval_distance(q)
-                    heappush(self.heap_queue, (1, self.cnt, q))
+                    heappush(self.heap_queue, (1, d, self.cnt, q))
                     heappush(self.heap_res, (d, 0, self.cnt, q))
                     self.cnt += 1
                 except AssertionError:
@@ -170,7 +171,7 @@ class Runner:
 
         # main search
         while len(self.heap_queue) > 0:
-            v, cnt_old, p = heappop(self.heap_queue)
+            v, d_old, cnt_old, p = heappop(self.heap_queue)
             v_max = max(v_max, v + 1)
             # print(p.history)
             p: Problem
@@ -186,7 +187,7 @@ class Runner:
                     # evaluate
                     d = eval_distance(q)
                     if d > 0:
-                        heappush(self.heap_queue, (v + 1, self.cnt, q))
+                        heappush(self.heap_queue, (v + 1, d, self.cnt, q))
                     heappush(self.heap_res, (d, v + 1, self.cnt, q))
                 except AssertionError:
                     pass
@@ -203,7 +204,7 @@ class Runner:
                     # evaluate
                     d = eval_distance(q)
                     if d > 0:
-                        heappush(self.heap_queue, (v + 1, self.cnt, q))
+                        heappush(self.heap_queue, (v + 1, d, self.cnt, q))
                     heappush(self.heap_res, (d, v + 1, self.cnt, q))
                 except AssertionError:
                     pass

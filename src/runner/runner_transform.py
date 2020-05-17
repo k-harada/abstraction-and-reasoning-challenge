@@ -24,6 +24,7 @@ from src.operator.transformer.arithmetic.arg_sort import ArgSort
 from src.operator.transformer.arithmetic.max_color import MaxColor
 from src.operator.transformer.arithmetic.count_hole import CountHole
 from src.operator.transformer.zoom import ZoomTransformer
+from src.operator.transformer.rectangle_hole import RectangleHole
 from src.operator.transformer.duplicate import DuplicateTransformer
 from src.operator.transformer.shadow import Shadow
 from src.operator.transformer.keep_mesh import KeepMesh
@@ -118,5 +119,11 @@ def run_transform(p: Problem, command: str) -> Problem:
         return Freq.problem(p)
     elif command == "hash_freq":
         return HashFreq.problem(p)
+    elif command == "rectangle_hole_simple":
+        return RectangleHole.problem(p, hole_type="simple")
+    elif command == "rectangle_hole_mesh":
+        return RectangleHole.problem(p, hole_type="mesh")
+    elif command == "rectangle_hole_mesh_x":
+        return RectangleHole.problem(p, hole_type="mesh_x")
     else:
         raise NotImplementedError
