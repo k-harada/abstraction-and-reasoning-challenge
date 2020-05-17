@@ -36,18 +36,21 @@ def fusion_arr_test(x_arr: np.array, c_suggest: int = 0):
     c = c_suggest
     x_arr_x = (x_arr == c).sum(axis=1)
     x_arr_y = (x_arr == c).sum(axis=0)
-    x0 = min([i for i in range(x_arr.shape[0]) if x_arr_x[i] > 0])
-    x1 = max([i for i in range(x_arr.shape[0]) if x_arr_x[i] > 0]) + 1
-    y0 = min([j for j in range(x_arr.shape[1]) if x_arr_y[j] > 0])
-    y1 = max([j for j in range(x_arr.shape[1]) if x_arr_y[j] > 0]) + 1
+    if (x_arr == c).sum() > 0:
+        x0 = min([i for i in range(x_arr.shape[0]) if x_arr_x[i] > 0])
+        x1 = max([i for i in range(x_arr.shape[0]) if x_arr_x[i] > 0]) + 1
+        y0 = min([j for j in range(x_arr.shape[1]) if x_arr_y[j] > 0])
+        y1 = max([j for j in range(x_arr.shape[1]) if x_arr_y[j] > 0]) + 1
 
-    if (x1 - x0) * (y1 - y0) == (x_arr == c).sum():
-        return x0, x1, y0, y1, c
+        if (x1 - x0) * (y1 - y0) == (x_arr == c).sum():
+            return x0, x1, y0, y1, c
 
     # search
     for c in range(10):
         x_arr_x = (x_arr == c).sum(axis=1)
         x_arr_y = (x_arr == c).sum(axis=0)
+        if (x_arr == c).sum() == 0:
+            continue
         x0 = min([i for i in range(x_arr.shape[0]) if x_arr_x[i] > 0])
         x1 = max([i for i in range(x_arr.shape[0]) if x_arr_x[i] > 0]) + 1
         y0 = min([j for j in range(x_arr.shape[1]) if x_arr_y[j] > 0])
