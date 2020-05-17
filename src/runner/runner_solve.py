@@ -7,6 +7,7 @@ from src.operator.solver.dynamic.pattern.fill_pattern import fill_pattern
 from src.operator.solver.dynamic.replace.point_around import fit_replace_rule_33, fit_replace_rule_33_all
 from src.operator.solver.dynamic.shape.duplicate import duplicate
 from src.operator.solver.dynamic.shape.extend_shape import extend_shape
+from src.operator.solver.dynamic.shape.zoom import ZoomSolver
 from src.operator.solver.dynamic.color.color_change import color_change
 from src.operator.solver.dynamic.color.color_pile import color_pile
 from src.operator.solver.dynamic.reduce.bitwise import reduce_bitwise
@@ -67,6 +68,8 @@ def run_solve(p: Problem, command: str) -> Problem:
         q = AutoPaste.problem(p, full=True)
     elif command == "auto_add_color":
         q = AutoAddColor.problem(p)
+    elif command == "solve_zoom":
+        q = ZoomSolver.problem(p)
     else:
         raise NotImplementedError
 

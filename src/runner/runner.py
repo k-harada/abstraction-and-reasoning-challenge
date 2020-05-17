@@ -32,7 +32,7 @@ usual_transformers = [
 transformers = reducers + usual_transformers
 
 dynamic_solvers = [
-    "duplicate", "extend_shape", "point_cross"
+    "duplicate", "extend_shape", "point_cross", "solve_zoom"
 ]
 final_solvers = [
     "reduce_bitwise", "color_pile",

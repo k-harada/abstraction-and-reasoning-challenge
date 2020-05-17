@@ -37,6 +37,11 @@ def test_221():
     p = Runner(221, verbose=True)
 
 
+def test_222():
+    p = Runner(222, verbose=True)
+    p.run("solve_zoom")
+
+
 def test_261():
     p = Runner(261, verbose=True)
 
@@ -98,6 +103,7 @@ if __name__ == "__main__":
     test_26()
     test_61()
     test_140()
+    test_222()
     test_261()
     test_507()
     test_727()
