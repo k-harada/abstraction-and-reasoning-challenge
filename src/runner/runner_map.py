@@ -7,6 +7,7 @@ from src.operator.mapper.map_multiple import Multiple
 from src.operator.mapper.split_mesh_normal import SplitMesh
 from src.operator.mapper.split_mesh_2 import SplitMeshTwo
 from src.operator.mapper.split_mesh_align import SplitMeshAlign
+from src.operator.mapper.fusion import Fusion
 
 
 # initial map
@@ -36,6 +37,8 @@ def run_map(p: Problem, command: str) -> Problem:
         q = SplitMeshAlign.problem(p)
     elif command == "mesh_split":
         q = SplitMesh.problem(p)
+    elif command == "fusion":
+        q = Fusion.problem(p)
     else:
         raise NotImplementedError
 

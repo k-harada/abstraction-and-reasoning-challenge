@@ -1,5 +1,11 @@
+import os
+import json
 import numpy as np
 from src.data.case import Case
+
+
+train_file_list = list(sorted(os.listdir(os.path.join(os.path.dirname(__file__), "../../input/training/"))))
+eval_file_list = list(sorted(os.listdir(os.path.join(os.path.dirname(__file__), "../../input/evaluation/"))))
 
 
 class Problem:
@@ -99,3 +105,17 @@ class Problem:
             else:
                 wa += 1
         return ac, ac + wa
+
+    @staticmethod
+    def load(i, kbn="train"):
+        if kbn == "train":
+            with open(os.path.join(os.path.dirname(__file__), f"../../input/training/{train_file_list[i]}"), "r") as f:
+                data = json.load(f)
+                p = Problem()
+                p.initialize(data)
+        else:
+            with open(os.path.join(os.path.dirname(__file__), f"../../input/evaluation/{eval_file_list[i]}"), "r") as f:
+                data = json.load(f)
+                p = Problem()
+                p.initialize(data)
+        return p

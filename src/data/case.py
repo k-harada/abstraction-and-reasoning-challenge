@@ -18,6 +18,10 @@ class Case:
         self.color_delete = None
         self.repr_values_ = None
         self.shadow = None  # np.array, for fractal etc, rarely set
+        self.display_x0 = None
+        self.display_x1 = None
+        self.display_y0 = None
+        self.display_y1 = None
         if new or copy:
             pass
         else:
@@ -35,6 +39,10 @@ class Case:
         self.color_delete = None
         self.repr_values_ = values
         self.shadow = None  # for fractal etc
+        self.display_x0 = None
+        self.display_x1 = None
+        self.display_y0 = None
+        self.display_y1 = None
 
     def color_count(self):
         """
@@ -88,10 +96,18 @@ class Case:
         new_case.color_delete = self.color_delete
         new_case.repr_values_ = None
         new_case.shadow = self.shadow
+        new_case.display_x0 = self.display_x0
+        new_case.display_x1 = self.display_x1
+        new_case.display_y0 = self.display_y0
+        new_case.display_y1 = self.display_y1
         return new_case
 
     def __repr__(self):
-        return "|" + "|".join(["".join(map(str, x)) for x in self.repr_values()]) + "|"
+        if self.display_x0 is not None and self.display_x1 is not None and self.display_y0 is not None and self.display_y1 is not None:
+            repr_values = self.repr_values()[self.display_x0:self.display_x1, self.display_y0:self.display_y1]
+        else:
+            repr_values = self.repr_values()
+        return "|" + "|".join(["".join(map(str, x)) for x in repr_values]) + "|"
 
     def repr_values(self) -> np.array:
 

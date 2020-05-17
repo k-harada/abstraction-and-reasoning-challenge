@@ -41,54 +41,53 @@ def test_261():
     p = Runner(261, verbose=True)
 
 
-def test_336():
-    p = Runner(336, verbose=True)
-    p.run("color_change")
-
-
-def test_406():
-    p = Runner(6, "eval", verbose=True)
-    p.run("shadow_bool")
-    p.run("switch_color")
-    p.run("fractal")
-
-
-def test_411():
-    p = Runner(11, "eval", verbose=True)
-    p.run("color_connect4")
-    p.run("pick_rectangle")
-    p.run("collect_max")
-
-
-def test_412():
-    p = Runner(12, "eval", verbose=True)
-    p.run("connect")
-    p.run("count_hole")
-    p.run("auto_paste")
-
-
-def test_446():
-    p = Runner(46, "eval", verbose=True)
-    p.run("mesh_split")
-    p.run("switch_color")
-    p.run("color_change")
-
-
-def test_458():
-    p = Runner(58, "eval", verbose=True)
-    p.run("point_cross")
-    p.run("interior_dir4_zero")
-
-
 def test_507():
     p = Runner(107, "eval", verbose=True)
     p.run("auto_fill_line_symmetry_del")
 
 
-def test_508():
-    p = Runner(108, "eval", verbose=True)
-    p.run("duplicate")
-    p.run("switch_color")
+def test_576():
+    p = Runner(176, "eval", verbose=True)
+    p.run("trim_background")
+
+
+def test_588():
+    p = Runner(188, "eval", verbose=True)
+    p.run("trim_background")
+
+
+def test_598():
+    p = Runner(198, "eval", verbose=True)
+
+
+def test_599():
+    p = Runner(199, "eval", verbose=True)
+
+
+def test_711():
+    p = Runner(311, "eval", verbose=True)
+
+
+def test_814():
+    p = Runner(314, "eval", verbose=True)
+
+
+def test_819():
+    p = Runner(319, "eval", verbose=True)
+
+
+def test_825():
+    p = Runner(325, "eval", verbose=True)
+
+
+def test_827():
+    p = Runner(327, "eval", verbose=True)
+
+
+def test_783():
+    p = Runner(383, "eval", verbose=True)
+    p.run("fusion")
+    p.run("auto_fill_line_symmetry_del")
 
 
 if __name__ == "__main__":
@@ -97,11 +96,5 @@ if __name__ == "__main__":
     test_61()
     test_140()
     test_261()
-    test_336()
-    test_406()
-    test_411()
-    test_412()
-    test_446()
-    test_458()
     test_507()
-    test_508()
+    test_783()

@@ -16,7 +16,7 @@ static_solvers = [
 ]
 mappers = [
     "color", "connect", "connect4", "mesh_split", "mesh_2", "mesh_align", "divide_row_col",
-    "multiple_row_col", "color_connect", "color_connect4"
+    "multiple_row_col", "color_connect", "color_connect4", "fusion"
 ]
 reducers = [
     "auto_fill_row_col_periodicity", "diff_color", "collect_max", "fractal",
@@ -35,8 +35,9 @@ dynamic_solvers = [
     "duplicate", "extend_shape", "point_cross"
 ]
 final_solvers = [
-    "fit_replace_rule_33", "fit_replace_rule_33_all", "reduce_bitwise", "color_change", "color_pile",
-    "rotations", "fill_pattern", "auto_paste", "auto_paste_full", "auto_add_color"
+    "reduce_bitwise", "color_pile",
+    "rotations", "fill_pattern", "auto_paste", "auto_paste_full", "auto_add_color", "color_change",
+    "fit_replace_rule_33_all", "fit_replace_rule_33"
 ]
 solvers = dynamic_solvers + final_solvers
 
@@ -344,12 +345,6 @@ class Runner:
 
 
 if __name__ == "__main__":
-    p_test = Runner(6, file_list="eval", verbose=True)
-    p_test.auto_run(time_limit=10.0)
-    p_test = Runner(46, file_list="eval", verbose=True)
-    p_test.auto_run(time_limit=10.0)
-    p_test = Runner(58, file_list="eval", verbose=True)
-    p_test.auto_run(time_limit=10.0)
     for ind in range(100):
         p_test = Runner(ind, file_list="eval", verbose=True)
         p_test.auto_run(time_limit=1.0)

@@ -75,7 +75,6 @@ def only_color(p: Problem) -> bool:
         return False
 
     for case_x, case_y in zip(p.train_x_list, p.train_y_list):
-        # print(case_x.__repr__(), case_y.__repr__())
         x_values_bool = (case_x.repr_values() == case_x.background_color).astype(np.int)
         y_values_bool = (case_y.repr_values() == case_y.background_color).astype(np.int)
         if (x_values_bool * y_values_bool).sum() == x_values_bool.sum() == y_values_bool.sum():
