@@ -947,8 +947,7 @@ Failed to solve eval_9 in 10.37 seconds, v=3, cnt=1341
 eval 10
 Failed to solve eval_10 in 10.081 seconds, v=3, cnt=2162
 eval 11
-Solved eval_11 in 9.953 seconds, v=3, cnt=2718
-['color_connect', 'pick_rectangle', 'collect_max']
+Failed to solve eval_10 in 10.081 seconds, v=3, cnt=2162
 eval 12
 Solved eval_12 in 2.54 seconds, v=3, cnt=2119
 ['connect', 'count_hole', 'auto_paste']

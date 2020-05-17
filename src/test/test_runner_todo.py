@@ -82,6 +82,9 @@ def test_725():
 
 def test_727():
     p = Runner(327, "eval", verbose=True)
+    p.run("connect")
+    p.run("find_symmetry")
+    p.run("trim_background")
 
 
 def test_756():
@@ -97,3 +100,4 @@ if __name__ == "__main__":
     test_140()
     test_261()
     test_507()
+    test_727()

@@ -24,7 +24,8 @@ from src.operator.transformer.arithmetic.max_color import MaxColor
 from src.operator.transformer.arithmetic.count_hole import CountHole
 from src.operator.transformer.shadow import Shadow
 from src.operator.transformer.keep_mesh import KeepMesh
-from src.operator.transformer.picker.pick_rectangle import RectanglePicker
+from src.operator.transformer.arithmetic.find_rectangle import RectangleFinder
+from src.operator.transformer.arithmetic.find_symmetry import SymmetryFinder
 
 
 def run_transform(p: Problem, command: str) -> Problem:
@@ -88,7 +89,9 @@ def run_transform(p: Problem, command: str) -> Problem:
         return Shadow.problem(p, "mesh")
     elif command == "keep_mesh":
         return KeepMesh.problem(p)
-    elif command == "pick_rectangle":
-        return RectanglePicker.problem(p)
+    elif command == "find_rectangle":
+        return RectangleFinder.problem(p)
+    elif command == "find_symmetry":
+        return SymmetryFinder.problem(p)
     else:
         raise NotImplementedError

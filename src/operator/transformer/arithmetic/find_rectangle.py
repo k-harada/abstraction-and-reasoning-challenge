@@ -1,24 +1,28 @@
 from src.data import Problem, Case, Matter
 
 
-class RectanglePicker:
+class RectangleFinder:
 
     def __init__(self):
         pass
 
     @classmethod
-    def matter(cls, m: Matter) -> bool:
-        if m.is_filled_rectangle() and min(m.shape[0], m.shape[1]) >= 3:
-            return True
+    def matter(cls, m: Matter) -> Matter:
+        new_matter = m.deepcopy()
+        if new_matter.is_filled_rectangle() and min(new_matter.shape[0], new_matter.shape[1]) >= 3:
+            if new_matter.is_square():
+                new_matter.a = 2
+            else:
+                new_matter.a = 1
         else:
-            return False
+            new_matter.a = 0
+        return new_matter
 
     @classmethod
     def case(cls, c: Case) -> Case:
         assert len(c.matter_list) > 1
         new_case: Case = c.copy()
-        new_case.matter_list = [m for m in c.matter_list if cls.matter(m)]
-        assert len(new_case.matter_list) > 0
+        new_case.matter_list = [cls.matter(m) for m in c.matter_list]
         return new_case
 
     @classmethod
