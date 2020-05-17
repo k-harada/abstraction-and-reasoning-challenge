@@ -21,6 +21,8 @@ class SplitMeshAlign:
         arr_list, mesh_arr = split_by_mesh(m.values, m.background_color)
         res_list = []
 
+        assert len(arr_list) > 0
+
         # split and align
         arr_0 = arr_list[0][0]
         for arr, _ in arr_list:  # drop position

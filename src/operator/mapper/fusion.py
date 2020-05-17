@@ -11,6 +11,7 @@ def fusion_arr_train(x_arr: np.array, y_arr: np.array):
     for c in range(10):
         # first criteria
         if (x_arr == c).sum() != y_arr.shape[0] * y_arr.shape[1]:
+            # print(c, (x_arr == c).sum(), y_arr.shape)
             continue
         x_arr_x = (x_arr == c).sum(axis=1)
         x_arr_y = (x_arr == c).sum(axis=0)
@@ -20,6 +21,7 @@ def fusion_arr_train(x_arr: np.array, y_arr: np.array):
         y1 = max([j for j in range(x_arr.shape[1]) if x_arr_y[j] > 0]) + 1
         # criteria
         if x1 - x0 != y_arr.shape[0] or y1 - y0 != y_arr.shape[1]:
+            # print(c, x1 - x0, y1 - y0, y_arr.shape)
             continue
         new_y_arr = x_arr.copy()
         new_y_arr[x0:x1, y0:y1] = y_arr
@@ -82,10 +84,10 @@ class Fusion:
         return new_case_x
 
     @classmethod
-    def case_y(cls, c_y: Case, y_arr, x0: int, x1: int, y0: int, y1: int) -> Case:
+    def case_y(cls, c_y: Case, new_y_arr, x0: int, x1: int, y0: int, y1: int) -> Case:
         new_case_y = c_y.copy()
-        new_case_y.matter_list = [cls.matter_y(c_y.matter_list[0], y_arr)]
-        new_case_y.shape = y_arr.shape
+        new_case_y.matter_list = [cls.matter_y(c_y.matter_list[0], new_y_arr)]
+        new_case_y.shape = new_y_arr.shape
         new_case_y.display_x0 = x0
         new_case_y.display_x1 = x1
         new_case_y.display_y0 = y0
@@ -108,6 +110,7 @@ class Fusion:
             x_arr = c_x.repr_values()
             y_arr = c_y.repr_values()
             new_y_arr, x0, x1, y0, y1, c = fusion_arr_train(x_arr, y_arr)
+            # print(new_y_arr)
             # print(new_y_arr, x0, x1, y0, y1, c)
             q.train_x_list.append(cls.case_x(c_x, x0, x1, y0, y1))
             q.train_y_list.append(cls.case_y(c_y, new_y_arr, x0, x1, y0, y1))

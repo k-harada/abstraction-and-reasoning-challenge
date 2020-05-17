@@ -7,6 +7,12 @@ def test_019():
     # self.assertEqual(p.eval_distance(), 0)
 
 
+def test_20():
+    p = Runner(20, verbose=True)
+    p.run("mesh_split")
+    p.run("collect_max")
+
+
 def test_26():
     p = Runner(26, verbose=True)
     # p.run("auto_fill_rot")
@@ -46,9 +52,26 @@ def test_261():
     p = Runner(261, verbose=True)
 
 
+def test_409():
+    p = Runner(9, "eval", verbose=True)
+    p.run("fusion")
+    p.run("auto_fill_line_symmetry_del")
+
+
 def test_507():
     p = Runner(107, "eval", verbose=True)
     p.run("auto_fill_line_symmetry_del")
+
+
+def test_551():
+    p = Runner(151, "eval", verbose=True)
+    # p.run("auto_fill_line_symmetry_full")
+    # p.run("connect_row")
+
+
+def test_558():
+    p = Runner(158, "eval", verbose=True)
+    p.run("trim_background")
 
 
 def test_576():
@@ -71,10 +94,13 @@ def test_599():
 
 def test_711():
     p = Runner(311, "eval", verbose=True)
+    p.run("shadow_ones")
+    p.run("fractal")
 
 
 def test_714():
     p = Runner(314, "eval", verbose=True)
+    p.run("drop_duplicates")
 
 
 def test_719():
@@ -102,11 +128,16 @@ def test_756():
 
 if __name__ == "__main__":
     test_019()
+    test_20()
     test_26()
     test_61()
     test_140()
     test_222()
     test_261()
+    test_409()
     test_507()
+    test_551()
+    test_711()
+    test_714()
     test_725()
     test_727()

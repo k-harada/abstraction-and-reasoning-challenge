@@ -6,10 +6,10 @@ from .case import point_cross_cnt_case, point_cross_fit_case
 def point_cross_cnt(p: Problem) -> np.array:
 
     res_problem = np.zeros((10, 5), dtype=int)
-
     c_x: Case
     c_y: Case
     for c_x, c_y in zip(p.train_x_list, p.train_y_list):
+        assert c_x.shape == c_y.shape
         y_arr = c_y.repr_values()
         res_case = point_cross_cnt_case(c_x, y_arr)
         for x, c in res_case:

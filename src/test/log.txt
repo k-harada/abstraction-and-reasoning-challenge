@@ -513,8 +513,7 @@ Failed to solve train_220 in 10.01 seconds, v=4, cnt=25977
 train 221
 Failed to solve train_221 in 10.045 seconds, v=3, cnt=2547
 train 222
-Solved train_222 in 7.056 seconds, v=4, cnt=19014
-['color', 'shadow_same', 'switch_color', 'fractal']
+Failed to solve train_221 in 10.045 seconds, v=3, cnt=2547
 train 223
 Failed to solve train_223 in 10.002 seconds, v=3, cnt=8870
 train 224

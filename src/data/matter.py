@@ -41,6 +41,9 @@ class Matter:
         self.values = values
         # shape
         self.shape = self.values.shape
+        if min(self.shape) == 0:
+            print(values)
+            raise ValueError
 
     def is_filled_rectangle(self):
         if min(self.values.shape) == 0:

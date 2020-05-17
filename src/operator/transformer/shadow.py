@@ -1,6 +1,7 @@
 import numpy as np
 from src.data import Problem, Case
 from src.operator.transformer.keep_mesh import keep_mesh_array
+from src.common.trivial_reducer import trivial_reducer
 
 
 class Shadow:
@@ -12,16 +13,19 @@ class Shadow:
     def case(cls, c: Case, shadow_type: str) -> Case:
         new_case: Case = c.copy()
         new_case.matter_list = c.matter_list[:]
+        repr_values = trivial_reducer(c)
         if shadow_type == "bool":
-            new_case.shadow = (new_case.repr_values() != c.background_color).astype(np.bool)
+            new_case.shadow = (repr_values != c.background_color).astype(np.bool)
         elif shadow_type == "same":
-            new_case.shadow = new_case.repr_values().copy()
+            new_case.shadow = repr_values.copy()
         elif shadow_type == "max":
-            new_case.shadow = (new_case.repr_values() == new_case.max_color()).astype(np.bool)
+            new_case.shadow = (repr_values == new_case.max_color()).astype(np.bool)
         elif shadow_type == "min":
-            new_case.shadow = (new_case.repr_values() == new_case.min_color()).astype(np.bool)
+            new_case.shadow = (repr_values == new_case.min_color()).astype(np.bool)
         elif shadow_type == "mesh":
-            new_case.shadow = keep_mesh_array(new_case.repr_values())
+            new_case.shadow = keep_mesh_array(repr_values)
+        elif shadow_type == "ones":
+            new_case.shadow = np.ones(repr_values.shape, dtype=np.bool)
         return new_case
 
     @classmethod

@@ -17,7 +17,7 @@ def test_log():
             # print(row, file_kbn)
             if flag and row[0] == "[":
                 op_list = eval(row.strip())
-                p = Runner(int(file_kbn[1]), file_kbn[0], verbose=False)
+                p = Runner(int(file_kbn[1]), file_kbn[0], verbose=True)
                 for op in op_list:
                     p.run(op)
                 ac, wa = p.eval_test(verbose=True)

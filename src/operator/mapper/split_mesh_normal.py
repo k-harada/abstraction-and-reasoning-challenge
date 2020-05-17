@@ -101,7 +101,8 @@ def split_by_mesh(x_arr, background=0):
 
     for r0, r1 in zip(r0_list, r1_list):
         for c0, c1 in zip(c0_list, c1_list):
-            res_list.append((x_arr[r0:r1, c0:c1], (r0, c0)))
+            if r1 > r0 and c1 > c0:
+                res_list.append((x_arr[r0:r1, c0:c1], (r0, c0)))
 
     return res_list, mesh
 

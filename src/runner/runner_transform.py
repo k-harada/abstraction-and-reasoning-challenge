@@ -28,6 +28,7 @@ from src.operator.transformer.shadow import Shadow
 from src.operator.transformer.keep_mesh import KeepMesh
 from src.operator.transformer.arithmetic.find_rectangle import RectangleFinder
 from src.operator.transformer.arithmetic.find_symmetry import SymmetryFinder
+from src.operator.transformer.reducer.drop_duplicates import DropDuplicates
 
 
 def run_transform(p: Problem, command: str) -> Problem:
@@ -91,6 +92,8 @@ def run_transform(p: Problem, command: str) -> Problem:
         return Shadow.problem(p, "min")
     elif command == "shadow_mesh":
         return Shadow.problem(p, "mesh")
+    elif command == "shadow_ones":
+        return Shadow.problem(p, "ones")
     elif command == "keep_mesh":
         return KeepMesh.problem(p)
     elif command == "find_rectangle":
@@ -99,5 +102,7 @@ def run_transform(p: Problem, command: str) -> Problem:
         return SymmetryFinder.problem(p)
     elif command == "transform_zoom":
         return ZoomTransformer.problem(p)
+    elif command == "drop_duplicates":
+        return DropDuplicates.problem(p)
     else:
         raise NotImplementedError

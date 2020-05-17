@@ -26,8 +26,8 @@ usual_transformers = [
     "interior_dir4_zero", "trim_background", "paste_color", "paste_color_full", "switch_color",
     "n_cell", "n_color", "arg_sort", "max_color", "keep_max_color", "change_background",
     "fill_rectangle", "connect_row", "connect_col", "connect_row_col", "connect_diagonal",
-    "shadow_bool", "shadow_same", "shadow_max", "shadow_min", "shadow_mesh", "keep_mesh",
-    "find_rectangle", "find_symmetry", "count_hole", "transform_zoom"
+    "shadow_bool", "shadow_same", "shadow_max", "shadow_min", "shadow_mesh", "shadow_ones", "keep_mesh",
+    "find_rectangle", "find_symmetry", "count_hole", "transform_zoom", "drop_duplicates"
 ]
 transformers = reducers + usual_transformers
 
@@ -236,6 +236,7 @@ class Runner:
             if time.time() >= t0 + time_limit:
                 if self.verbose:
                     print(f'Failed to solve {self.name} in {round(time.time() - t0, 3)} seconds, v={v_max}, cnt={self.cnt}')
+                    # print(self.time_record)
                 break
 
         return None
