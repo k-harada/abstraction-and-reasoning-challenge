@@ -31,6 +31,8 @@ from src.operator.transformer.arithmetic.find_rectangle import RectangleFinder
 from src.operator.transformer.arithmetic.find_symmetry import SymmetryFinder
 from src.operator.transformer.reducer.drop_duplicates import DropDuplicates
 from src.operator.transformer.arithmetic.sort import Sort
+from src.operator.transformer.arithmetic.hash_count import HashFreq
+from src.operator.transformer.arithmetic.frequency import Freq
 
 
 def run_transform(p: Problem, command: str) -> Problem:
@@ -112,5 +114,9 @@ def run_transform(p: Problem, command: str) -> Problem:
         return Sort.problem(p, descending=False)
     elif command == "sort_descending":
         return Sort.problem(p, descending=True)
+    elif command == "freq":
+        return Freq.problem(p)
+    elif command == "hash_freq":
+        return HashFreq.problem(p)
     else:
         raise NotImplementedError

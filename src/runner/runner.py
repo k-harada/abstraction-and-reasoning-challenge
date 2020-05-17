@@ -24,7 +24,7 @@ reducers = [
 ]
 usual_transformers = [
     "interior_dir4_zero", "trim_background", "paste_color", "paste_color_full", "switch_color",
-    "n_cell", "n_color", "arg_sort", "sort_ascending", "sort_descending",
+    "n_cell", "n_color", "arg_sort", "sort_ascending", "sort_descending", "freq", "hash_freq",
     "max_color", "keep_max_color", "change_background",
     "fill_rectangle", "connect_row", "connect_col", "connect_row_col", "connect_diagonal",
     "shadow_bool", "shadow_same", "shadow_max", "shadow_min", "shadow_mesh", "shadow_ones", "keep_mesh",

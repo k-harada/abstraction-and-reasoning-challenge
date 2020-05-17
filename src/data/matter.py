@@ -132,12 +132,18 @@ class Matter:
 
     def paste_color(self, color_add=None):
         if color_add is None:
-            assert self.a is not None
-            new_matter = self.copy()
-            new_values = self.values.copy()
-            new_values[self.values != self.background_color] = self.a % 10
-            new_matter.set_values(new_values)
-            return new_matter
+            if self.a is None:
+                new_matter = self.copy()
+                new_values = self.values.copy()
+                new_values[self.values != self.background_color] = self.max_color()
+                new_matter.set_values(new_values)
+                return new_matter
+            else:
+                new_matter = self.copy()
+                new_values = self.values.copy()
+                new_values[self.values != self.background_color] = self.a % 10
+                new_matter.set_values(new_values)
+                return new_matter
         else:
             new_matter = self.copy()
             new_values = self.values.copy()
@@ -147,11 +153,16 @@ class Matter:
 
     def paste_color_full(self, color_add=None):
         if color_add is None:
-            assert self.a is not None
-            new_matter = self.copy()
-            new_values = (self.a % 10) * np.ones(self.values.shape, dtype=np.int)
-            new_matter.set_values(new_values)
-            return new_matter
+            if self.a is None:
+                new_matter = self.copy()
+                new_values = self.max_color() * np.ones(self.values.shape, dtype=np.int)
+                new_matter.set_values(new_values)
+                return new_matter
+            else:
+                new_matter = self.copy()
+                new_values = (self.a % 10) * np.ones(self.values.shape, dtype=np.int)
+                new_matter.set_values(new_values)
+                return new_matter
         else:
             new_matter = self.copy()
             new_values = color_add * np.ones(self.values.shape, dtype=np.int)

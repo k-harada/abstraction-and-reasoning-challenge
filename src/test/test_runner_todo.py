@@ -21,12 +21,23 @@ def test_64():
     p = Runner(64, verbose=True)
 
 
+def test_78():
+    p = Runner(78, verbose=True)
+    p.run("color_connect")
+    p.run("hash_freq")
+    p.run("trim_background")
+
+
 def test_134():
     p = Runner(134, verbose=True)
 
 
 def test_140():
     p = Runner(140, verbose=True)
+
+
+def test_203():
+    p = Runner(203, verbose=True)
 
 
 def test_217():
@@ -116,11 +127,10 @@ def test_756():
 
 if __name__ == "__main__":
     test_019()
-    test_20()
     test_26()
     test_61()
+    test_78()
     test_140()
-    test_222()
     test_261()
     test_507()
     test_551()

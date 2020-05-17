@@ -33,8 +33,6 @@ class MapColor:
     def matter(cls, m: Matter) -> List[Matter]:
 
         arr_list = cls.array(m.values, m.background_color)
-        # avoid meaningless
-        assert len(arr_list) >= 2
         res_list = []
         for arr in arr_list:
             x_arr = arr[0]

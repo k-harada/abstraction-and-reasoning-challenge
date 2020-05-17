@@ -2,25 +2,25 @@ import numpy as np
 from src.data import Problem, Case, Matter
 
 
-class Freq:
+class HashFreq:
     def __init__(self):
         pass
 
     @classmethod
-    def case(cls, c: Case, descending: bool = False) -> Case:
+    def case(cls, c: Case) -> Case:
+        m: Matter
         new_case = c.copy()
         counter = dict()
         for m in c.matter_list:
-            assert m.a is not None
-            if m.a not in counter.keys():
-                counter[m.a] = 1
+            k = str(m.values)
+            if k not in counter.keys():
+                counter[k] = 1
             else:
-                counter[m.a] += 1
-
+                counter[k] += 1
         new_case.matter_list = []
         for m in c.matter_list:
             new_m = m.deepcopy()
-            new_m.a = counter[new_m.a]
+            new_m.a = counter[str(m.values)]
             new_case.matter_list.append(new_m)
 
         new_case.matter_list = list(sorted(new_case.matter_list, key=lambda x: -x.a))
