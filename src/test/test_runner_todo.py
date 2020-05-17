@@ -83,6 +83,8 @@ def test_719():
 
 def test_725():
     p = Runner(325, "eval", verbose=True)
+    p.run("n_color")
+    p.run("transform_zoom")
 
 
 def test_727():
@@ -106,4 +108,5 @@ if __name__ == "__main__":
     test_222()
     test_261()
     test_507()
+    test_725()
     test_727()

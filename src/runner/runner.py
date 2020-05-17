@@ -24,10 +24,10 @@ reducers = [
 ]
 usual_transformers = [
     "interior_dir4_zero", "trim_background", "paste_color", "paste_color_full", "switch_color",
-    "n_cell", "arg_sort", "max_color", "keep_max_color", "change_background",
+    "n_cell", "n_color", "arg_sort", "max_color", "keep_max_color", "change_background",
     "fill_rectangle", "connect_row", "connect_col", "connect_row_col", "connect_diagonal",
     "shadow_bool", "shadow_same", "shadow_max", "shadow_min", "shadow_mesh", "keep_mesh",
-    "find_rectangle", "find_symmetry", "count_hole"
+    "find_rectangle", "find_symmetry", "count_hole", "transform_zoom"
 ]
 transformers = reducers + usual_transformers
 

@@ -19,9 +19,11 @@ from src.operator.transformer.switch_color import SwitchColor
 from src.operator.transformer.keep_max_color import KeepMaxColor
 from src.operator.transformer.change_background import ChangeBackground
 from src.operator.transformer.arithmetic.n_cell import NCell
+from src.operator.transformer.arithmetic.n_color import NColor
 from src.operator.transformer.arithmetic.arg_sort import ArgSort
 from src.operator.transformer.arithmetic.max_color import MaxColor
 from src.operator.transformer.arithmetic.count_hole import CountHole
+from src.operator.transformer.zoom import ZoomTransformer
 from src.operator.transformer.shadow import Shadow
 from src.operator.transformer.keep_mesh import KeepMesh
 from src.operator.transformer.arithmetic.find_rectangle import RectangleFinder
@@ -69,6 +71,8 @@ def run_transform(p: Problem, command: str) -> Problem:
         return ArgSort.problem(p)
     elif command == "n_cell":
         return NCell.problem(p)
+    elif command == "n_color":
+        return NColor.problem(p)
     elif command == "max_color":
         return MaxColor.problem(p)
     elif command == "count_hole":
@@ -93,5 +97,7 @@ def run_transform(p: Problem, command: str) -> Problem:
         return RectangleFinder.problem(p)
     elif command == "find_symmetry":
         return SymmetryFinder.problem(p)
+    elif command == "transform_zoom":
+        return ZoomTransformer.problem(p)
     else:
         raise NotImplementedError
