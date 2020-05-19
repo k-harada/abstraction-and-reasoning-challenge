@@ -9,6 +9,8 @@ from src.runner.runner_transform import run_transform
 from src.runner.evaluator import eval_distance
 from src.runner.runner_solve import pre_solve, run_solve
 from src.runner.one_bennchmark import BenchMark
+from src.adityaork.tree import predict_from_json
+
 
 static_solvers = [
     "set_problem_color", "set_is_pattern", "set_is_periodic_row", "set_is_periodic_col",
@@ -55,6 +57,7 @@ class Runner:
         self.problem_hand = None
         self.verbose = verbose
         self.name = ""
+        self.task_json = None
         self.json_name = ""
         # answer
         self.answer_list = []
@@ -92,6 +95,7 @@ class Runner:
         if file_list == "train":
             with open(os.path.join(os.path.dirname(__file__), f"../../input/training/{train_file_list[i]}"), "r") as f:
                 data = json.load(f)
+                self.task_json = data
                 self.json_name = train_file_list[i][:-5]
                 if self.verbose:
                     print("train", i)
@@ -103,6 +107,7 @@ class Runner:
         else:
             with open(os.path.join(os.path.dirname(__file__), f"../../input/evaluation/{eval_file_list[i]}"), "r") as f:
                 data = json.load(f)
+                self.task_json = data
                 self.json_name = eval_file_list[i][:-5]
                 if self.verbose:
                     print("eval", i)
@@ -132,6 +137,20 @@ class Runner:
             raise NotImplementedError
 
     def auto_run(self, time_limit=0.2) -> None:
+
+        # tree
+        if time_limit > 10.0:
+            try:
+                cnt_special = -1
+                q_list = predict_from_json(self.task_json)
+                for q in q_list:
+                    d = eval_distance(q)
+                    heappush(self.heap_queue, (0, d, cnt_special, q))
+                    heappush(self.heap_res, (d, 0, cnt_special, q))
+                    cnt_special -= 1
+            except:
+                pass
+
         t0 = time.time()
         t1 = 0
         v_max = 0
@@ -153,16 +172,6 @@ class Runner:
                 d = eval_distance(q)
                 heappush(self.heap_res, (d, 0, self.cnt, q))
                 self.cnt += 1
-
-            # fit_replace_rule_33(to be replaced by trees)
-            # try:
-            #    q = self._run_solve(p, "fit_replace_rule_33")
-            #    # evaluate
-            #    d = eval_distance(q)
-            #    heappush(self.heap_res, (d, 0, self.cnt, q))
-            #    self.cnt += 1
-            # except AssertionError:
-            #    pass
 
             # mappers and reducers
             for op in mappers:
@@ -347,6 +356,8 @@ class Runner:
 
 
 if __name__ == "__main__":
+    p_test = Runner(11, file_list="train", verbose=True)
+    p_test.auto_run(time_limit=12.0)
     for ind in range(100):
         p_test = Runner(ind, file_list="train", verbose=True)
         p_test.auto_run(time_limit=1.0)
