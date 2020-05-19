@@ -46,6 +46,6 @@ def run_local(kbn="training", time_limit=0.2, verbose=True):
 
 
 if __name__ == "__main__":
-    tle = 10.0
+    tle = 11.0
     run_local(kbn="training", time_limit=tle, verbose=True)
     run_local(kbn="evaluation", time_limit=tle, verbose=True)
