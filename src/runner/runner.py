@@ -39,9 +39,10 @@ dynamic_solvers = [
 final_solvers = [
     "reduce_bitwise", "color_pile",
     "rotations", "fill_pattern", "auto_paste", "auto_paste_full", "auto_add_color", "color_change",
-    "fit_replace_rule_33_all", "fit_replace_rule_33"
+    "fit_replace_rule_33_all",
 ]
-solvers = dynamic_solvers + final_solvers
+special_solvers = ["fit_replace_rule_33"]
+solvers = dynamic_solvers + final_solvers + special_solvers
 
 train_file_list = list(sorted(os.listdir(os.path.join(os.path.dirname(__file__), "../../input/training/"))))
 eval_file_list = list(sorted(os.listdir(os.path.join(os.path.dirname(__file__), "../../input/evaluation/"))))
@@ -152,6 +153,16 @@ class Runner:
                 d = eval_distance(q)
                 heappush(self.heap_res, (d, 0, self.cnt, q))
                 self.cnt += 1
+
+            # fit_replace_rule_33(to be replaced by trees)
+            # try:
+            #    q = self._run_solve(p, "fit_replace_rule_33")
+            #    # evaluate
+            #    d = eval_distance(q)
+            #    heappush(self.heap_res, (d, 0, self.cnt, q))
+            #    self.cnt += 1
+            # except AssertionError:
+            #    pass
 
             # mappers and reducers
             for op in mappers:
@@ -313,41 +324,29 @@ class Runner:
 
     @classmethod
     def _run_map(cls, problem: Problem, command: str) -> Problem:
-        if command in mappers:
-            new_problem = run_map(problem, command)
-            new_problem.history.append(command)
-            return new_problem
-        else:
-            raise NotImplementedError
+        new_problem = run_map(problem, command)
+        new_problem.history.append(command)
+        return new_problem
 
     @classmethod
     def _run_transform(cls, problem: Problem, command: str) -> Problem:
-        if command in transformers:
-            new_problem = run_transform(problem, command)
-            new_problem.history.append(command)
-            return new_problem
-        else:
-            raise NotImplementedError
+        new_problem = run_transform(problem, command)
+        new_problem.history.append(command)
+        return new_problem
 
     @classmethod
     def _pre_solve(cls, problem: Problem, command: str) -> None:
-        if command in static_solvers:
-            pre_solve(problem, command)
-            return None
-        else:
-            raise NotImplementedError
+        pre_solve(problem, command)
+        return None
 
     @classmethod
     def _run_solve(cls, problem: Problem, command: str) -> Problem:
-        if command in dynamic_solvers or command in final_solvers:
-            new_problem = run_solve(problem, command)
-            new_problem.history.append(command)
-            return new_problem
-        else:
-            raise NotImplementedError
+        new_problem = run_solve(problem, command)
+        new_problem.history.append(command)
+        return new_problem
 
 
 if __name__ == "__main__":
     for ind in range(100):
-        p_test = Runner(ind, file_list="eval", verbose=True)
+        p_test = Runner(ind, file_list="train", verbose=True)
         p_test.auto_run(time_limit=1.0)

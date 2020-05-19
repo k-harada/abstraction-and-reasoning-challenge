@@ -4,7 +4,8 @@ from src.operator.solver.static.is_pattern import set_is_pattern
 from src.operator.solver.static.is_periodic import set_is_periodic_row, set_is_periodic_col
 from src.operator.solver.static.is_symmetry import set_is_line_symmetry_row, set_is_line_symmetry_col, set_is_rot_symmetry
 from src.operator.solver.dynamic.pattern.fill_pattern import fill_pattern
-from src.operator.solver.dynamic.replace.point_around import fit_replace_rule_33, fit_replace_rule_33_all
+from src.operator.solver.dynamic.replace.point_around import fit_replace_rule_33
+from src.operator.solver.dynamic.replace.point_around.fit_replace_rule_33_all import FitRuleOne33All
 from src.operator.solver.dynamic.shape.duplicate import duplicate
 from src.operator.solver.dynamic.shape.extend_shape import extend_shape
 from src.operator.solver.dynamic.shape.zoom import ZoomSolver
@@ -47,7 +48,7 @@ def run_solve(p: Problem, command: str) -> Problem:
     elif command == "fit_replace_rule_33":
         q = fit_replace_rule_33(p)
     elif command == "fit_replace_rule_33_all":
-        q = fit_replace_rule_33_all(p)
+        q = FitRuleOne33All.problem(p)
     elif command == "duplicate":
         q = duplicate(p)
     elif command == "extend_shape":
