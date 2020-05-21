@@ -14,7 +14,7 @@ from src.adityaork.tree import predict_from_json
 
 static_solvers = [
     "set_problem_color", "set_is_pattern", "set_is_periodic_row", "set_is_periodic_col",
-    "set_is_line_symmetry_row", "set_is_line_symmetry_col",  # "set_is_rot_symmetry"
+    "set_is_line_symmetry_row", "set_is_line_symmetry_col",  "set_is_rot_symmetry"
 ]
 mappers = [
     "color", "connect", "connect4", "mesh_split", "mesh_2", "mesh_align", "divide_row_col",
@@ -22,7 +22,7 @@ mappers = [
 ]
 reducers = [
     "auto_fill_row_col_periodicity", "diff_color", "collect_max", "fractal",
-    "auto_fill_line_symmetry_del", "auto_fill_line_symmetry_add", "auto_fill_line_symmetry_full",  # "auto_fill_rot"
+    "auto_fill_line_symmetry_del", "auto_fill_line_symmetry_add", "auto_fill_line_symmetry_full", "auto_fill_rot"
 ]
 usual_transformers = [
     "interior_dir4_zero", "trim_background", "paste_color", "paste_color_full", "switch_color",
@@ -31,7 +31,7 @@ usual_transformers = [
     "fill_rectangle", "connect_row", "connect_col", "connect_row_col", "connect_diagonal",
     "shadow_bool", "shadow_same", "shadow_max", "shadow_min", "shadow_mesh", "shadow_ones", "keep_mesh",
     "find_rectangle", "find_symmetry", "count_hole", "transform_zoom", "transform_duplicate", "drop_duplicates",
-    "rectangle_hole_simple", "rectangle_hole_mesh", "rectangle_hole_mesh_x"
+    "rectangle_hole_simple", "rectangle_hole_mesh", "rectangle_hole_mesh_x", "keep_rectangle"
 ]
 transformers = reducers + usual_transformers
 
@@ -356,8 +356,6 @@ class Runner:
 
 
 if __name__ == "__main__":
-    p_test = Runner(11, file_list="train", verbose=True)
-    p_test.auto_run(time_limit=12.0)
     for ind in range(100):
         p_test = Runner(ind, file_list="train", verbose=True)
         p_test.auto_run(time_limit=1.0)

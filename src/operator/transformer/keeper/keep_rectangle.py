@@ -20,6 +20,7 @@ class RectangleKeeper:
         m: Matter
         new_case = c.copy()
         new_case.matter_list = [m for m in c.matter_list if cls.matter(m)]
+        assert len(new_case.matter_list) > 0
         return new_case
 
     @classmethod

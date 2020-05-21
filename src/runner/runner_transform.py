@@ -34,6 +34,7 @@ from src.operator.transformer.reducer.drop_duplicates import DropDuplicates
 from src.operator.transformer.arithmetic.sort import Sort
 from src.operator.transformer.arithmetic.hash_count import HashFreq
 from src.operator.transformer.arithmetic.frequency import Freq
+from src.operator.transformer.keeper.keep_rectangle import RectangleKeeper
 
 
 def run_transform(p: Problem, command: str) -> Problem:
@@ -125,5 +126,7 @@ def run_transform(p: Problem, command: str) -> Problem:
         return RectangleHole.problem(p, hole_type="mesh")
     elif command == "rectangle_hole_mesh_x":
         return RectangleHole.problem(p, hole_type="mesh_x")
+    elif command == "keep_rectangle":
+        return RectangleKeeper.problem(p)
     else:
         raise NotImplementedError

@@ -12,51 +12,56 @@ def is_rot_symmetry_point(x_arr: np.array, background: np.int) -> np.array:
     for i0 in range(x_arr.shape[0]):
         for j0 in range(x_arr.shape[1]):
 
-            # pre-find
-            fail = False
-            for i in range(1, min(i0, x_arr.shape[0] - i0)):
-                if background != x_arr[i0 - i, j0] != x_arr[i0 + i, j0] != background:
-                    fail = True
-                    break
-            if fail:
+            # right-down
+            x_arr_1 = x_arr[i0:, j0:]
+            # right-up
+            x_arr_2 = x_arr[i0::-1, j0:].transpose()
+            # left-up
+            x_arr_3 = x_arr[i0::-1, j0::-1]
+            # left-down
+            x_arr_4 = x_arr[i0:, j0::-1].transpose()
+
+            new_shape_0 = max([x_arr_1.shape[0], x_arr_2.shape[0], x_arr_3.shape[0], x_arr_4.shape[0]])
+            new_shape_1 = max([x_arr_1.shape[1], x_arr_2.shape[1], x_arr_3.shape[1], x_arr_4.shape[1]])
+
+            x_arr_1_exp = background * np.ones((new_shape_0, new_shape_1), dtype=np.int64)
+            x_arr_1_exp[:x_arr_1.shape[0], :x_arr_1.shape[1]] = x_arr_1
+            x_arr_2_exp = background * np.ones((new_shape_0, new_shape_1), dtype=np.int64)
+            x_arr_2_exp[:x_arr_2.shape[0], :x_arr_2.shape[1]] = x_arr_2
+            x_arr_3_exp = background * np.ones((new_shape_0, new_shape_1), dtype=np.int64)
+            x_arr_3_exp[:x_arr_3.shape[0], :x_arr_3.shape[1]] = x_arr_3
+            x_arr_4_exp = background * np.ones((new_shape_0, new_shape_1), dtype=np.int64)
+            x_arr_4_exp[:x_arr_4.shape[0], :x_arr_4.shape[1]] = x_arr_4
+
+            # break if gap
+            if ((x_arr_1_exp != x_arr_2_exp) * (x_arr_1_exp != background) * (x_arr_2_exp != background)).sum():
+                res_arr[i0, j0] = -2
+                continue
+            # break if gap
+            if ((x_arr_1_exp != x_arr_3_exp) * (x_arr_1_exp != background) * (x_arr_3_exp != background)).sum():
+                res_arr[i0, j0] = -2
+                continue
+            # break if gap
+            if ((x_arr_1_exp != x_arr_4_exp) * (x_arr_1_exp != background) * (x_arr_4_exp != background)).sum():
+                res_arr[i0, j0] = -2
+                continue
+            # break if gap
+            if ((x_arr_2_exp != x_arr_3_exp) * (x_arr_2_exp != background) * (x_arr_3_exp != background)).sum():
+                res_arr[i0, j0] = -2
+                continue
+            # break if gap
+            if ((x_arr_2_exp != x_arr_4_exp) * (x_arr_2_exp != background) * (x_arr_4_exp != background)).sum():
+                res_arr[i0, j0] = -2
+                continue
+            # break if gap
+            if ((x_arr_3_exp != x_arr_4_exp) * (x_arr_3_exp != background) * (x_arr_4_exp != background)).sum():
+                res_arr[i0, j0] = -2
                 continue
 
-            for i in range(max(x_arr.shape)):
-                for j in range(max(x_arr.shape)):
-                    if i0 - i >= 0 and j0 - j >= 0:
-                        v1 = x_arr[i0 - i, j0 - j]
-                    else:
-                        v1 = background
-                    if i0 - j >= 0 and j0 + i < x_arr.shape[1]:
-                        v2 = x_arr[i0 - j, j0 + i]
-                    else:
-                        v2 = background
-                    if i0 + i < x_arr.shape[0] and j0 + j < x_arr.shape[1]:
-                        v3 = x_arr[i0 + i, j0 + j]
-                    else:
-                        v3 = background
-                    if i0 + j < x_arr.shape[0] and j0 - i >= 0:
-                        v4 = x_arr[i0 + j, j0 - i]
-                    else:
-                        v4 = background
-                    # print(i0, j0, [v1, v2, v3, v4])
-                    # score
-                    vs_uni = np.unique(np.array([v1, v2, v3, v4]))
-                    if vs_uni.shape[0] >= 3:
-                        res_arr[i0, j0] = -2
-                    elif vs_uni.shape[0] == 2 and background not in [v1, v2, v3, v4]:
-                        res_arr[i0, j0] = -2
-                    else:
-                        c = [v1, v2, v3, v4].count(background)
-                        # print(i0, j0, c, [v1, v2, v3, v4])
-                        res_arr[i0, j0] += (4 - c) * (3 - c)
+            score_arr = (x_arr_1_exp != background).astype(np.int64) + (x_arr_2_exp != background).astype(np.int64) + \
+                        (x_arr_3_exp != background).astype(np.int64) + (x_arr_4_exp != background).astype(np.int64)
 
-                    # break if -1
-                    if res_arr[i0, j0] == -2:
-                        break
-                # break if -1
-                if res_arr[i0, j0] == -2:
-                    break
+            res_arr[i0, j0] = (score_arr * (score_arr - 1)).sum()
 
     return res_arr // 2
 
@@ -71,41 +76,57 @@ def is_rot_symmetry_valley(x_arr: np.array, background: np.int) -> np.array:
     # center point
     for i0 in range(x_arr.shape[0] - 1):
         for j0 in range(x_arr.shape[1] - 1):
-            for i in range(max(x_arr.shape) - 1):
-                for j in range(max(x_arr.shape) - 1):
-                    if i0 - i >= 0 and j0 - j >= 0:
-                        v1 = x_arr[i0 - i, j0 - j]
-                    else:
-                        v1 = background
-                    if i0 - j >= 0 and j0 + 1 + i < x_arr.shape[1]:
-                        v2 = x_arr[i0 - j, j0 + 1 + i]
-                    else:
-                        v2 = background
-                    if i0 + 1 + i < x_arr.shape[0] and j0 + 1 + j < x_arr.shape[1]:
-                        v3 = x_arr[i0 + 1 + i, j0 + 1 + j]
-                    else:
-                        v3 = background
-                    if i0 + 1 + j < x_arr.shape[0] and j0 - i >= 0:
-                        v4 = x_arr[i0 + 1 + j, j0 - i]
-                    else:
-                        v4 = background
-                    # print(i0, j0, [v1, v2, v3, v4])
-                    # score
-                    vs_uni = np.unique(np.array([v1, v2, v3, v4]))
-                    if vs_uni.shape[0] >= 3:
-                        res_arr[i0, j0] = -1
-                    elif vs_uni.shape[0] == 2 and background not in [v1, v2, v3, v4]:
-                        res_arr[i0, j0] = -1
-                    else:
-                        c = [v1, v2, v3, v4].count(background)
-                        res_arr[i0, j0] += (4 - c) * (3 - c)
 
-                    # break if -1
-                    if res_arr[i0, j0] == -1:
-                        break
-                # break if -1
-                if res_arr[i0, j0] == -1:
-                    break
+            # right-down
+            x_arr_1 = x_arr[i0 + 1:, j0 + 1:]
+            # right-up
+            x_arr_2 = x_arr[i0::-1, j0 + 1:].transpose()
+            # left-up
+            x_arr_3 = x_arr[i0::-1, j0::-1]
+            # left-down
+            x_arr_4 = x_arr[i0 + 1:, j0::-1].transpose()
+
+            new_shape_0 = max([x_arr_1.shape[0], x_arr_2.shape[0], x_arr_3.shape[0], x_arr_4.shape[0]])
+            new_shape_1 = max([x_arr_1.shape[1], x_arr_2.shape[1], x_arr_3.shape[1], x_arr_4.shape[1]])
+
+            x_arr_1_exp = background * np.ones((new_shape_0, new_shape_1), dtype=np.int64)
+            x_arr_1_exp[:x_arr_1.shape[0], :x_arr_1.shape[1]] = x_arr_1
+            x_arr_2_exp = background * np.ones((new_shape_0, new_shape_1), dtype=np.int64)
+            x_arr_2_exp[:x_arr_2.shape[0], :x_arr_2.shape[1]] = x_arr_2
+            x_arr_3_exp = background * np.ones((new_shape_0, new_shape_1), dtype=np.int64)
+            x_arr_3_exp[:x_arr_3.shape[0], :x_arr_3.shape[1]] = x_arr_3
+            x_arr_4_exp = background * np.ones((new_shape_0, new_shape_1), dtype=np.int64)
+            x_arr_4_exp[:x_arr_4.shape[0], :x_arr_4.shape[1]] = x_arr_4
+
+            # break if gap
+            if ((x_arr_1_exp != x_arr_2_exp) * (x_arr_1_exp != background) * (x_arr_2_exp != background)).sum():
+                res_arr[i0, j0] = -1
+                continue
+            # break if gap
+            if ((x_arr_1_exp != x_arr_3_exp) * (x_arr_1_exp != background) * (x_arr_3_exp != background)).sum():
+                res_arr[i0, j0] = -1
+                continue
+            # break if gap
+            if ((x_arr_1_exp != x_arr_4_exp) * (x_arr_1_exp != background) * (x_arr_4_exp != background)).sum():
+                res_arr[i0, j0] = -1
+                continue
+            # break if gap
+            if ((x_arr_2_exp != x_arr_3_exp) * (x_arr_2_exp != background) * (x_arr_3_exp != background)).sum():
+                res_arr[i0, j0] = -1
+                continue
+            # break if gap
+            if ((x_arr_2_exp != x_arr_4_exp) * (x_arr_2_exp != background) * (x_arr_4_exp != background)).sum():
+                res_arr[i0, j0] = -1
+                continue
+            # break if gap
+            if ((x_arr_3_exp != x_arr_4_exp) * (x_arr_3_exp != background) * (x_arr_4_exp != background)).sum():
+                res_arr[i0, j0] = -1
+                continue
+
+            score_arr = (x_arr_1_exp != background).astype(np.int64) + (x_arr_2_exp != background).astype(np.int64) + \
+                        (x_arr_3_exp != background).astype(np.int64) + (x_arr_4_exp != background).astype(np.int64)
+
+            res_arr[i0, j0] = (score_arr * (score_arr - 1)).sum()
 
     return res_arr
 
@@ -229,7 +250,10 @@ class AutoFillRotSymmetry:
     def case(cls, c: Case) -> Case:
         assert c.shape[0] > 2 and c.shape[1] > 2
         new_case = c.copy()
-        new_values = cls.array(c.repr_values(), c.background_color)
+        if c.color_delete is None:
+            new_values = cls.array(c.repr_values(), c.background_color)
+        else:
+            new_values = cls.array(c.repr_values(), c.color_delete)
         new_case.matter_list = [Matter(new_values, background_color=c.background_color, new=True)]
         return new_case
 
@@ -244,45 +268,27 @@ class AutoFillRotSymmetry:
 
 if __name__ == "__main__":
     import time
-    x = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+    pp = Problem.load(19)
+    pp.is_rot_symmetry = True
     t0 = time.time()
-    print(is_rot_symmetry_point(x, 0))
+    qq = AutoFillRotSymmetry.problem(pp)
     print(time.time() - t0)
-    x = np.array([[3, 2, 3], [0, 6, 0], [3, 0, 3]])
+    print(qq)
+    pp = Problem.load(26)
+    pp.is_rot_symmetry = True
     t0 = time.time()
-    print(is_rot_symmetry_point(x, 0))
+    qq = AutoFillRotSymmetry.problem(pp)
     print(time.time() - t0)
-    x = np.array([[1, 2, 1], [2, 5, 2], [1, 2, 1]])
+    print(qq)
+    pp = Problem.load(107, "eval")
+    print(pp)
+    pp.is_rot_symmetry = True
+    pp.color_delete = 6
+    for cc in pp.train_x_list:
+        cc.color_delete = 6
+    for cc in pp.test_x_list:
+        cc.color_delete = 6
     t0 = time.time()
-    print(is_rot_symmetry_point(x, 0))
+    qq = AutoFillRotSymmetry.problem(pp)
     print(time.time() - t0)
-    x = np.array([[1, 2, 1], [2, 5, 2], [1, 2, 1]])
-    t0 = time.time()
-    print(is_rot_symmetry_valley(x, 0))
-    print(time.time() - t0)
-    x = np.array([[1, 2, 3], [3, 4, 4], [2, 4, 4]])
-    t0 = time.time()
-    print(is_rot_symmetry_valley(x, 0))
-    print(time.time() - t0)
-
-    x = np.array([[3, 2, 3], [0, 6, 0], [3, 0, 3]])
-    t0 = time.time()
-    print(fill_rot_symmetry_point(x, 0, 1, 1))
-    print(time.time() - t0)
-    x = np.array([[1, 2, 0], [3, 4, 0], [0, 0, 0]])
-    t0 = time.time()
-    print(fill_rot_symmetry_valley(x, 0, 1, 1))
-    print(time.time() - t0)
-
-    x = np.array([[3, 2, 3], [0, 6, 0], [3, 0, 3]])
-    t0 = time.time()
-    print(AutoFillRotSymmetry.array(x, 0))
-    print(time.time() - t0)
-    x = np.array([
-        [0, 0, 0, 2, 2, 0, 0, 0], [0, 0, 0, 2, 2, 0, 0, 0], [0, 0, 0, 2, 2, 0, 0, 0], [2, 2, 2, 2, 2, 2, 2, 2],
-        [2, 2, 2, 2, 2, 2, 2, 2], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]
-    ])
-    t0 = time.time()
-    print(AutoFillRotSymmetry.array(x, 0))
-    print(time.time() - t0)
-
+    print(qq)

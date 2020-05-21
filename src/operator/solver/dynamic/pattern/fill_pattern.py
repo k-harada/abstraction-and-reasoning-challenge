@@ -1,51 +1,87 @@
 import numpy as np
 from src.data import Problem, Case, Matter
+from src.operator.solver.common.shape import is_same, is_constant
 
 
-def fill_pattern(p: Problem) -> Problem:
-    assert p.is_pattern
-
-    # assert
-    case_x: Case
+def is_pattern_y(p: Problem) -> bool:
+    flag, n_row, n_col = is_constant(p)
+    if not flag:
+        return False
+    pattern_arr = np.zeros((n_row, n_col), dtype=int)
     case_y: Case
-    for case_x, case_y in zip(p.train_x_list, p.train_y_list):
+    for i, case_y in enumerate(p.train_y_list):
+        pattern_arr += (10 ** i) * case_y.repr_values()
+    if np.unique(pattern_arr).shape[0] > pattern_arr.shape[0] * pattern_arr.shape[1] // 10:
+        return False
+    return True
+
+
+def get_pattern_arr(p: Problem) -> np.array:
+    flag, n_row, n_col = is_constant(p)
+    assert flag
+    assert is_same(p)
+    pattern_arr = np.zeros((n_row, n_col), dtype=int)
+    case_y: Case
+    for i, case_y in enumerate(p.train_y_list):
+        pattern_arr += (10 ** i) * case_y.repr_values()
+    return pattern_arr
+
+
+class FillPattern:
+
+    def __init__(self):
+        pass
+
+    @classmethod
+    def array(cls, x_arr: np.array, pattern_arr: np.array, color_del: int) -> np.array:
+        new_x_arr = x_arr.copy()
         # equal or background
-        x_values = case_x.repr_values()
-        y_values = case_y.repr_values()
-        assert x_values.shape == y_values.shape
+        for v in np.unique(pattern_arr):
+            v_unique = np.unique(x_arr[pattern_arr == v])
+            assert 1 <= v_unique.shape[0] <= 2
+            if v_unique.shape[0] == 2:
+                if v_unique[0] == color_del:
+                    new_color = v_unique[1]
+                elif v_unique[1] == color_del:
+                    new_color = v_unique[0]
+                else:
+                    raise AssertionError
+                # set values
+                new_x_arr[pattern_arr == v] = new_color
 
-        for i in range(x_values.shape[0]):
-            for j in range(x_values.shape[1]):
-                assert x_values[i, j] == case_x.background_color or x_values[i, j] == y_values[i, j]
+        return new_x_arr
 
-        # all color appear
-        x_cnt = case_x.color_count()
-        y_cnt = case_y.color_count()
-        for c in range(10):
-            if y_cnt[c] > 0:
-                assert x_cnt[c] > 0
+    @classmethod
+    def case(cls, c_x: Case, pattern_arr: np.array) -> Case:
+        x_values = c_x.repr_values()
+        if c_x.color_delete is None:
+            new_x_values = cls.array(x_values, pattern_arr, c_x.background_color)
+        else:
+            new_x_values = cls.array(x_values, pattern_arr, c_x.color_delete)
+        new_case: Case = c_x.copy()
+        new_case.matter_list = [Matter(new_x_values, new=True)]
+        return new_case
 
-    q: Problem
-    q = p.copy()
-    q.train_x_list = []
-    c_x: Case
-    c_y: Case
-    for c_x, c_y in zip(p.train_x_list, p.train_y_list):
-        c_x_new = c_x.copy()
-        c_x_new.matter_list = [Matter(c_y.repr_values(), new=True)]
-        q.train_x_list.append(c_x_new)
+    @classmethod
+    def problem(cls, p: Problem) -> Problem:
+        assert p.is_pattern
+        pattern_arr = get_pattern_arr(p)
 
-    q.test_x_list = []
-    base_values = p.train_y_list[0].repr_values()
-    for c_x in p.test_x_list:
-        old_values = c_x.repr_values()
-        new_values = np.ones(c_x.shape, dtype=np.int) * c_x.background_color
-        assert old_values.shape == base_values.shape
-        for i in range(old_values.shape[0]):
-            for j in range(old_values.shape[1]):
-                if old_values[i, j] != c_x.background_color and new_values[i, j] == c_x.background_color:
-                    new_values[base_values == base_values[i, j]] = old_values[i, j]
-        c_x_new = c_x.copy()
-        c_x_new.matter_list = [Matter(new_values, new=True)]
-        q.test_x_list.append(c_x_new)
-    return q
+        q: Problem = p.copy()
+        q.train_x_list = []
+        q.test_x_list = []
+
+        q.train_x_list = [cls.case(c_x, pattern_arr) for c_x in p.train_x_list]
+        q.test_x_list = [cls.case(c_x, pattern_arr) for c_x in p.test_x_list]
+        return q
+
+
+if __name__ == "__main__":
+    import time
+    pp = Problem.load(111, "eval")
+    pp.is_pattern = True
+    t0 = time.time()
+    qq = FillPattern.problem(pp)
+    print(time.time() - t0)
+    print(qq)
+

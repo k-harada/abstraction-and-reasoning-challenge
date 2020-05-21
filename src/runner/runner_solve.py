@@ -3,7 +3,7 @@ from src.operator.solver.static.color import set_problem_color
 from src.operator.solver.static.is_pattern import set_is_pattern
 from src.operator.solver.static.is_periodic import set_is_periodic_row, set_is_periodic_col
 from src.operator.solver.static.is_symmetry import set_is_line_symmetry_row, set_is_line_symmetry_col, set_is_rot_symmetry
-from src.operator.solver.dynamic.pattern.fill_pattern import fill_pattern
+from src.operator.solver.dynamic.pattern.fill_pattern import FillPattern
 from src.operator.solver.dynamic.replace.point_around import fit_replace_rule_33
 from src.operator.solver.dynamic.replace.point_around.fit_replace_rule_33_all import FitRuleOne33All
 from src.operator.solver.dynamic.shape.duplicate import duplicate
@@ -44,7 +44,7 @@ def pre_solve(p: Problem, command: str) -> None:
 def run_solve(p: Problem, command: str) -> Problem:
     q: Problem
     if command == "fill_pattern":
-        q = fill_pattern(p)
+        q = FillPattern.problem(p)
     elif command == "fit_replace_rule_33":
         q = fit_replace_rule_33(p)
     elif command == "fit_replace_rule_33_all":

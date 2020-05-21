@@ -1,16 +1,20 @@
 from src.runner.runner import Runner
 
 
-def test_019():
-    p = Runner(19)
-    # p.run("auto_fill_rot")
-    # self.assertEqual(p.eval_distance(), 0)
+def test_19():
+    p = Runner(19, verbose=True)
+    p.run("auto_fill_rot")
 
 
 def test_26():
     p = Runner(26, verbose=True)
-    # p.run("auto_fill_rot")
-    # p.run("diff_color")
+    p.run("auto_fill_rot")
+    p.run("diff_color")
+
+
+def test_38():
+    p = Runner(38, verbose=True)
+    p.run("trim_background")
 
 
 def test_61():
@@ -57,9 +61,23 @@ def test_440():
     p.run("connect")
 
 
+def test_488():
+    p = Runner(88, "eval", verbose=True)
+    p.run("connect")
+    p.run("count_hole")
+    p.run("freq")
+    p.run("sort_ascending")
+    p.run("trim_background")
+
+
 def test_507():
     p = Runner(107, "eval", verbose=True)
-    p.run("auto_fill_line_symmetry_del")
+    p.run("auto_fill_rot")
+
+
+def test_511():
+    p = Runner(111, "eval", verbose=True)
+    p.run("fill_pattern")
 
 
 def test_551():
@@ -75,7 +93,7 @@ def test_555():
 
 def test_558():
     p = Runner(158, "eval", verbose=True)
-    p.run("trim_background")
+    p.run("map")
 
 
 def test_561():
@@ -126,11 +144,14 @@ def test_756():
 
 
 if __name__ == "__main__":
-    test_019()
+    test_19()
     test_26()
+    test_38()
     test_61()
     test_78()
     test_140()
     test_261()
+    test_488()
     test_507()
+    test_511()
     test_551()
