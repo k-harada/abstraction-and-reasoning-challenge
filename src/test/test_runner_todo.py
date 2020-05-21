@@ -99,7 +99,6 @@ def test_555():
 
 def test_558():
     p = Runner(158, "eval", verbose=True)
-    p.run("map")
 
 
 def test_561():
