@@ -18,7 +18,7 @@ class PasteColor:
     def case(cls, c: Case, full: bool) -> Case:
         new_case: Case = c.copy()
         m: Matter
-        new_case.matter_list = [cls.matter(m, full) for m in c.matter_list]
+        new_case.matter_list = [m if m.is_mesh else cls.matter(m, full) for m in c.matter_list]
         return new_case
 
     @classmethod

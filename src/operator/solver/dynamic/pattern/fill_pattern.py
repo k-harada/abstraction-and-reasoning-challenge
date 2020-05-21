@@ -34,6 +34,7 @@ class FillPattern:
 
     @classmethod
     def array(cls, x_arr: np.array, pattern_arr: np.array, color_del: int) -> np.array:
+        assert x_arr.shape == pattern_arr.shape
         new_x_arr = x_arr.copy()
         # equal or background
         for v in np.unique(pattern_arr):

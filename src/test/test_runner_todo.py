@@ -17,6 +17,10 @@ def test_38():
     p.run("trim_background")
 
 
+def test_58():
+    p = Runner(58, verbose=True)
+
+
 def test_61():
     p = Runner(61, verbose=True)
 

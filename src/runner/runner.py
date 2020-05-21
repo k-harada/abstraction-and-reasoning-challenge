@@ -31,7 +31,7 @@ usual_transformers = [
     "fill_rectangle", "connect_row", "connect_col", "connect_row_col", "connect_diagonal",
     "shadow_bool", "shadow_same", "shadow_max", "shadow_min", "shadow_mesh", "shadow_ones", "keep_mesh",
     "find_rectangle", "find_symmetry", "count_hole", "transform_zoom", "transform_duplicate", "drop_duplicates",
-    "rectangle_hole_simple", "rectangle_hole_mesh", "rectangle_hole_mesh_x", "keep_rectangle"
+    "rectangle_hole_simple", "rectangle_hole_mesh", "rectangle_hole_mesh_x", "keep_rectangle", "keep_max"
 ]
 transformers = reducers + usual_transformers
 
@@ -343,6 +343,8 @@ class Runner:
 
 
 if __name__ == "__main__":
+    p_test = Runner(58, file_list="train", verbose=True)
+    p_test.auto_run(time_limit=100.0)
     for ind in range(100):
         p_test = Runner(ind, file_list="train", verbose=True)
         p_test.auto_run(time_limit=1.0)

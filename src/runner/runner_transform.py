@@ -35,6 +35,7 @@ from src.operator.transformer.arithmetic.sort import Sort
 from src.operator.transformer.arithmetic.hash_count import HashFreq
 from src.operator.transformer.arithmetic.frequency import Freq
 from src.operator.transformer.keeper.keep_rectangle import RectangleKeeper
+from src.operator.transformer.keeper.keep_max import MaxKeeper
 
 
 def run_transform(p: Problem, command: str) -> Problem:
@@ -128,5 +129,7 @@ def run_transform(p: Problem, command: str) -> Problem:
         return RectangleHole.problem(p, hole_type="mesh_x")
     elif command == "keep_rectangle":
         return RectangleKeeper.problem(p)
+    elif command == "keep_max":
+        return MaxKeeper.problem(p)
     else:
         raise NotImplementedError
