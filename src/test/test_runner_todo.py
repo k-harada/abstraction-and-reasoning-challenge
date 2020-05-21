@@ -56,6 +56,12 @@ def test_261():
     p = Runner(261, verbose=True)
 
 
+def test_388():
+    p = Runner(388, verbose=True)
+    p.run("switch_color")
+    p.run("color_change")
+
+
 def test_440():
     p = Runner(40, "eval", verbose=True)
     p.run("connect")
@@ -151,6 +157,7 @@ if __name__ == "__main__":
     test_78()
     test_140()
     test_261()
+    test_388()
     test_488()
     test_507()
     test_511()

@@ -2,7 +2,7 @@ import numpy as np
 import numba
 from src.data import Problem, Case, Matter
 from src.common.trivial_reducer import trivial_reducer
-from src.operator.solver.common.color import only_color
+from src.operator.solver.common.shape import is_same
 
 
 @numba.jit('i8[:](i8[:, :], i8[:, :])', nopython=True)
@@ -37,7 +37,7 @@ def fit_color_change_rule_one(x_arr, rule):
 
 
 def color_change(p: Problem) -> Problem:
-    assert only_color(p)
+    assert is_same(p)
     # print(p)
     case_x: Case
     case_y: Case
@@ -81,7 +81,11 @@ def color_change(p: Problem) -> Problem:
     for c in range(10):
         if (change_vec == c).sum() >= 3:
             change_vec[change_vec == -2] = c
-
+    # fill
+    if (change_vec == np.arange(10)).sum() >= 3:
+        for c in range(10):
+            if change_vec[c] == -2:
+                change_vec[c] = c
     q: Problem
     q = p.copy()
     q.train_x_list = []
