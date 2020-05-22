@@ -343,8 +343,6 @@ class Runner:
 
 
 if __name__ == "__main__":
-    p_test = Runner(58, file_list="train", verbose=True)
-    p_test.auto_run(time_limit=100.0)
     for ind in range(100):
         p_test = Runner(ind, file_list="train", verbose=True)
         p_test.auto_run(time_limit=1.0)

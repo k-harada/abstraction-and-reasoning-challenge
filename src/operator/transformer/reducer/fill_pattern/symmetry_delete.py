@@ -1,5 +1,6 @@
 import numpy as np
 from src.data import Problem, Case, Matter
+from src.operator.transformer.reducer.fill_pattern.fill_somewhere import FillSomewhere
 
 
 def is_line_symmetry_row(x_arr: np.array, background: np.int) -> np.array:
@@ -208,7 +209,20 @@ class AutoFillLineSymmetryDelete:
             q.test_x_list = [cls.case_col(c) for c in p.test_x_list]
         else:
             raise AssertionError
-        return q
+
+        # check if some more to do
+        res = 0
+        c: Case
+        for c in q.train_x_list:
+            if c.color_delete is not None:
+                res += (c.repr_values() == c.color_delete).sum()
+        for c in q.test_x_list:
+            if c.color_delete is not None:
+                res += (c.repr_values() == c.color_delete).sum()
+        if res == 0:
+            return q
+        else:
+            return FillSomewhere.problem(q)
 
 
 if __name__ == "__main__":
@@ -230,3 +244,15 @@ if __name__ == "__main__":
     y = x.transpose()
     print(y)
     print(fill_symmetry_col(y, 0, 1, False))
+    pp = Problem.load(391, "eval")
+    pp.is_line_symmetry_row = True
+    pp.is_line_symmetry_col = True
+    pp.color_delete = 9
+    for cc in pp.train_x_list:
+        cc.color_delete = 9
+    for cc in pp.test_x_list:
+        cc.color_delete = 9
+    print(pp)
+    qq = AutoFillLineSymmetryDelete.problem(pp)
+    print(qq)
+    print(qq.eval_distance())
