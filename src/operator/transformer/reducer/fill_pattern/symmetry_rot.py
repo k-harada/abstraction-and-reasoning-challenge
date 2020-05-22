@@ -63,6 +63,12 @@ def is_rot_symmetry_point(x_arr: np.array, background: np.int) -> np.array:
 
             res_arr[i0, j0] = (score_arr * (score_arr - 1)).sum()
 
+    # center is best
+    if x_arr.shape[0] == x_arr.shape[1] and x_arr.shape[0] % 2 == 1:
+        if res_arr[x_arr.shape[0] // 2, x_arr.shape[1] // 2] > 0:
+            res_arr[x_arr.shape[0] // 2, x_arr.shape[1] // 2] = res_arr.max()
+    # print(res_arr)
+
     return res_arr // 2
 
 
@@ -128,6 +134,10 @@ def is_rot_symmetry_valley(x_arr: np.array, background: np.int) -> np.array:
 
             res_arr[i0, j0] = (score_arr * (score_arr - 1)).sum()
 
+    # center is best
+    if x_arr.shape[0] == x_arr.shape[1] and x_arr.shape[0] % 2 == 0:
+        if res_arr[x_arr.shape[0] // 2 - 1, x_arr.shape[1] // 2 - 1] > 0:
+            res_arr[x_arr.shape[0] // 2 - 1, x_arr.shape[1] // 2 - 1] = res_arr.max()
     return res_arr
 
 
@@ -221,11 +231,22 @@ class AutoFillRotSymmetry:
         pass
 
     @classmethod
-    def array(cls, x_arr: np.array, background: np.int) -> np.array:
+    def array(cls, x_arr: np.array, background: np.int, full: bool) -> np.array:
         res_arr_1 = is_rot_symmetry_point(x_arr, background)
         res_arr_2 = is_rot_symmetry_valley(x_arr, background)
         # print(res_arr_1, res_arr_2)
         assert res_arr_1.max() > 0 or res_arr_2.max() > 0
+
+        if full:
+            assert x_arr.shape[0] == x_arr.shape[1]
+            if x_arr.shape[0] % 2 == 1:
+                m = x_arr.shape[0] // 2
+                assert res_arr_1[m, m] > 0
+                return fill_rot_symmetry_point(x_arr, background, m, m)
+            else:
+                m = x_arr.shape[0] // 2 - 1
+                assert res_arr_2[m, m] > 0
+                return fill_rot_symmetry_valley(x_arr, background, m, m)
 
         if res_arr_1.max() >= res_arr_2.max():
             m = -1
@@ -247,22 +268,22 @@ class AutoFillRotSymmetry:
             return fill_rot_symmetry_valley(x_arr, background, i0, j0)
 
     @classmethod
-    def case(cls, c: Case) -> Case:
+    def case(cls, c: Case, full) -> Case:
         assert c.shape[0] > 2 and c.shape[1] > 2
         new_case = c.copy()
         if c.color_delete is None:
-            new_values = cls.array(c.repr_values(), c.background_color)
+            new_values = cls.array(c.repr_values(), c.background_color, full)
         else:
-            new_values = cls.array(c.repr_values(), c.color_delete)
+            new_values = cls.array(c.repr_values(), c.color_delete, full)
         new_case.matter_list = [Matter(new_values, background_color=c.background_color, new=True)]
         return new_case
 
     @classmethod
-    def problem(cls, p: Problem) -> Problem:
+    def problem(cls, p: Problem, full: bool = False) -> Problem:
         assert p.is_rot_symmetry
         q: Problem = p.copy()
-        q.train_x_list = [cls.case(c) for c in p.train_x_list]
-        q.test_x_list = [cls.case(c) for c in p.test_x_list]
+        q.train_x_list = [cls.case(c, full) for c in p.train_x_list]
+        q.test_x_list = [cls.case(c, full) for c in p.test_x_list]
         return q
 
 
@@ -290,5 +311,12 @@ if __name__ == "__main__":
         cc.color_delete = 6
     t0 = time.time()
     qq = AutoFillRotSymmetry.problem(pp)
+    print(time.time() - t0)
+    print(qq)
+    pp = Problem.load(243, "eval")
+    print(pp)
+    pp.is_rot_symmetry = True
+    t0 = time.time()
+    qq = AutoFillRotSymmetry.problem(pp, True)
     print(time.time() - t0)
     print(qq)

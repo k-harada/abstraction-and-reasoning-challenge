@@ -7,6 +7,7 @@ from src.operator.solver.dynamic.pattern.fill_pattern import FillPattern
 from src.operator.solver.dynamic.replace.point_around import fit_replace_rule_33
 from src.operator.solver.dynamic.replace.point_around.fit_replace_rule_33_all import FitRuleOne33All
 from src.operator.solver.dynamic.shape.duplicate import duplicate
+from src.operator.solver.dynamic.shape.divide import divide
 from src.operator.solver.dynamic.shape.extend_shape import extend_shape
 from src.operator.solver.dynamic.shape.zoom import ZoomSolver
 from src.operator.solver.dynamic.color.color_change import color_change
@@ -51,6 +52,8 @@ def run_solve(p: Problem, command: str) -> Problem:
         q = FitRuleOne33All.problem(p)
     elif command == "duplicate":
         q = duplicate(p)
+    elif command == "divide":
+        q = divide(p)
     elif command == "extend_shape":
         q = extend_shape(p)
     elif command == "color_change":

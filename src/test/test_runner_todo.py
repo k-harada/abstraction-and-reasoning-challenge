@@ -1,24 +1,13 @@
 from src.runner.runner import Runner
 
 
-def test_19():
-    p = Runner(19, verbose=True)
-    p.run("auto_fill_rot")
-
-
-def test_26():
-    p = Runner(26, verbose=True)
-    p.run("auto_fill_rot")
-    p.run("diff_color")
-
-
-def test_38():
-    p = Runner(38, verbose=True)
-    p.run("trim_background")
-
-
 def test_58():
     p = Runner(58, verbose=True)
+    p.run("mesh_split")
+    p.run("n_cell")
+    p.run("keep_max")
+    p.run("max_color")
+    p.run("paste_color_full")
 
 
 def test_61():
@@ -27,13 +16,6 @@ def test_61():
 
 def test_64():
     p = Runner(64, verbose=True)
-
-
-def test_78():
-    p = Runner(78, verbose=True)
-    p.run("color_connect")
-    p.run("hash_freq")
-    p.run("trim_background")
 
 
 def test_134():
@@ -60,12 +42,6 @@ def test_261():
     p = Runner(261, verbose=True)
 
 
-def test_388():
-    p = Runner(388, verbose=True)
-    p.run("switch_color")
-    p.run("color_change")
-
-
 def test_440():
     p = Runner(40, "eval", verbose=True)
     p.run("connect")
@@ -78,16 +54,6 @@ def test_488():
     p.run("freq")
     p.run("sort_ascending")
     p.run("trim_background")
-
-
-def test_507():
-    p = Runner(107, "eval", verbose=True)
-    p.run("auto_fill_rot")
-
-
-def test_511():
-    p = Runner(111, "eval", verbose=True)
-    p.run("fill_pattern")
 
 
 def test_551():
@@ -153,15 +119,9 @@ def test_756():
 
 
 if __name__ == "__main__":
-    test_19()
-    test_26()
-    test_38()
+    test_58()
     test_61()
-    test_78()
     test_140()
     test_261()
-    test_388()
     test_488()
-    test_507()
-    test_511()
     test_551()

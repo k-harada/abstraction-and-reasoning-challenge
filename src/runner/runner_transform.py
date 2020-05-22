@@ -58,7 +58,9 @@ def run_transform(p: Problem, command: str) -> Problem:
     elif command == "auto_fill_line_symmetry_full":
         return AutoFillLineSymmetryFull.problem(p)
     elif command == "auto_fill_rot":
-        return AutoFillRotSymmetry.problem(p)
+        return AutoFillRotSymmetry.problem(p, False)
+    elif command == "auto_fill_rot_full":
+        return AutoFillRotSymmetry.problem(p, True)
     elif command == "trim_background":
         return TrimBackground.problem(p)
     elif command == "collect_max":

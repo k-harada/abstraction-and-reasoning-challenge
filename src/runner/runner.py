@@ -22,7 +22,8 @@ mappers = [
 ]
 reducers = [
     "auto_fill_row_col_periodicity", "diff_color", "collect_max", "fractal",
-    "auto_fill_line_symmetry_del", "auto_fill_line_symmetry_add", "auto_fill_line_symmetry_full", "auto_fill_rot"
+    "auto_fill_line_symmetry_del", "auto_fill_line_symmetry_add", "auto_fill_line_symmetry_full",
+    "auto_fill_rot", "auto_fill_rot_full"
 ]
 usual_transformers = [
     "interior_dir4_zero", "trim_background", "paste_color", "paste_color_full", "switch_color",
@@ -36,7 +37,7 @@ usual_transformers = [
 transformers = reducers + usual_transformers
 
 dynamic_solvers = [
-    "duplicate", "extend_shape", "point_cross", "solve_zoom"
+    "duplicate", "divide", "extend_shape", "point_cross", "solve_zoom"
 ]
 final_solvers = [
     "reduce_bitwise", "color_pile",
@@ -343,6 +344,8 @@ class Runner:
 
 
 if __name__ == "__main__":
+    p_test = Runner(58, file_list="train", verbose=True)
+    p_test.auto_run(time_limit=100.0)
     for ind in range(100):
         p_test = Runner(ind, file_list="train", verbose=True)
         p_test.auto_run(time_limit=1.0)
