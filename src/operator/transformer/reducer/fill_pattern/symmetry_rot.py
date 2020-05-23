@@ -63,11 +63,19 @@ def is_rot_symmetry_point(x_arr: np.array, background: np.int) -> np.array:
 
             res_arr[i0, j0] = (score_arr * (score_arr - 1)).sum()
 
-    # center is best
-    if x_arr.shape[0] == x_arr.shape[1] and x_arr.shape[0] % 2 == 1:
-        if res_arr[x_arr.shape[0] // 2, x_arr.shape[1] // 2] > 0:
-            res_arr[x_arr.shape[0] // 2, x_arr.shape[1] // 2] = res_arr.max()
-    # print(res_arr)
+            # center should be same
+            if 1 <= score_arr[0, 1] <= 2:
+                flag_todo = 1
+            elif 1 <= score_arr[1, 1] <= 2:
+                flag_todo = 1
+            else:
+                flag_todo = 0
+            if flag_todo == 1:
+                # unless it is the center
+                if i0 == j0 == x_arr.shape[0] // 2 and x_arr.shape[0] == x_arr.shape[1] and x_arr.shape[0] % 2 == 1:
+                    pass
+                else:
+                    res_arr[i0, j0] = -2
 
     return res_arr // 2
 
@@ -133,11 +141,14 @@ def is_rot_symmetry_valley(x_arr: np.array, background: np.int) -> np.array:
                         (x_arr_3_exp != background).astype(np.int64) + (x_arr_4_exp != background).astype(np.int64)
 
             res_arr[i0, j0] = (score_arr * (score_arr - 1)).sum()
+            # center should be same
+            if 1 <= score_arr[0, 0] <= 2:
+                # unless it is the center
+                if i0 == j0 == x_arr.shape[0] // 2 - 1 and x_arr.shape[0] == x_arr.shape[1] and x_arr.shape[0] % 2 == 0:
+                    pass
+                else:
+                    res_arr[i0, j0] = -1
 
-    # center is best
-    if x_arr.shape[0] == x_arr.shape[1] and x_arr.shape[0] % 2 == 0:
-        if res_arr[x_arr.shape[0] // 2 - 1, x_arr.shape[1] // 2 - 1] > 0:
-            res_arr[x_arr.shape[0] // 2 - 1, x_arr.shape[1] // 2 - 1] = res_arr.max()
     return res_arr
 
 
@@ -296,6 +307,12 @@ if __name__ == "__main__":
     print(time.time() - t0)
     print(qq)
     pp = Problem.load(26)
+    pp.is_rot_symmetry = True
+    t0 = time.time()
+    qq = AutoFillRotSymmetry.problem(pp)
+    print(time.time() - t0)
+    print(qq)
+    pp = Problem.load(360)
     pp.is_rot_symmetry = True
     t0 = time.time()
     qq = AutoFillRotSymmetry.problem(pp)

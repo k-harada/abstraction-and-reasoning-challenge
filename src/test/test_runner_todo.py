@@ -1,6 +1,13 @@
 from src.runner.runner import Runner
 
 
+def test_124():
+    p = Runner(124, verbose=True)
+    p.run("change_background")
+    # p.run("map_interior_exterior")
+    # p.run("auto_paste_a")
+
+
 def test_58():
     p = Runner(58, verbose=True)
     p.run("mesh_split")
@@ -12,22 +19,24 @@ def test_58():
 
 def test_61():
     p = Runner(61, verbose=True)
+    # symmetry
 
 
 def test_64():
     p = Runner(64, verbose=True)
 
 
+def test_85():
+    p = Runner(85, verbose=True)
+
+
 def test_134():
     p = Runner(134, verbose=True)
+    p.run("divide")
 
 
 def test_140():
     p = Runner(140, verbose=True)
-
-
-def test_203():
-    p = Runner(203, verbose=True)
 
 
 def test_217():
@@ -96,14 +105,6 @@ def test_588():
     p.run("trim_background")
 
 
-def test_598():
-    p = Runner(198, "eval", verbose=True)
-
-
-def test_599():
-    p = Runner(199, "eval", verbose=True)
-
-
 def test_652():
     p = Runner(252, "eval", verbose=True)
 
@@ -119,8 +120,10 @@ def test_756():
 
 
 if __name__ == "__main__":
+    test_124()
     test_58()
     test_61()
+    test_134()
     test_140()
     test_261()
     test_488()

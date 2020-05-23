@@ -20,6 +20,8 @@ from src.operator.transformer.keep_max_color import KeepMaxColor
 from src.operator.transformer.change_background import ChangeBackground
 from src.operator.transformer.arithmetic.n_cell import NCell
 from src.operator.transformer.arithmetic.n_color import NColor
+from src.operator.transformer.arithmetic.min_max import MinMax
+from src.operator.transformer.arithmetic.mod_2 import Mod2
 from src.operator.transformer.arithmetic.arg_sort import ArgSort
 from src.operator.transformer.arithmetic.max_color import MaxColor
 from src.operator.transformer.arithmetic.count_hole import CountHole
@@ -81,10 +83,16 @@ def run_transform(p: Problem, command: str) -> Problem:
         return ArgSort.problem(p)
     elif command == "n_cell":
         return NCell.problem(p)
+    elif command == "n_cell_keep_none":
+        return NCell.problem(p, True)
     elif command == "n_color":
         return NColor.problem(p)
     elif command == "max_color":
         return MaxColor.problem(p)
+    elif command == "min_max":
+        return MinMax.problem(p)
+    elif command == "mod_2":
+        return Mod2.problem(p)
     elif command == "count_hole":
         return CountHole.problem(p)
     elif command == "fill_rectangle":

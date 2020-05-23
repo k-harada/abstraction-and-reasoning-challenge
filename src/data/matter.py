@@ -147,7 +147,13 @@ class Matter:
         else:
             new_matter = self.copy()
             new_values = self.values.copy()
-            new_values[self.values != self.background_color] = color_add
+            # print(color_add, self.background_color)
+            if color_add != self.background_color:
+                new_values[self.values != self.background_color] = color_add
+            else:
+                new_values[self.values != self.background_color] = color_add
+                new_values[self.values == self.background_color] = (color_add + 1) % 10
+                new_matter.background_color = (color_add + 1) % 10
             new_matter.set_values(new_values)
             return new_matter
 

@@ -18,7 +18,8 @@ static_solvers = [
 ]
 mappers = [
     "color", "connect", "connect4", "mesh_split", "mesh_2", "mesh_align", "divide_row_col",
-    "multiple_row_col", "color_connect", "color_connect4", "fusion"
+    "multiple_row_col", "color_connect", "color_connect4", "fusion",
+    "map_interior", "map_interior_in", "map_interior_pierce"
 ]
 reducers = [
     "auto_fill_row_col_periodicity", "diff_color", "collect_max", "fractal",
@@ -27,7 +28,8 @@ reducers = [
 ]
 usual_transformers = [
     "interior_dir4_zero", "trim_background", "paste_color", "paste_color_full", "switch_color",
-    "n_cell", "n_color", "arg_sort", "sort_ascending", "sort_descending", "freq", "hash_freq",
+    "n_cell", "n_cell_keep_none", "n_color", "min_max", "mod_2", "arg_sort", "sort_ascending", "sort_descending",
+    "freq", "hash_freq",
     "max_color", "keep_max_color", "change_background",
     "fill_rectangle", "connect_row", "connect_col", "connect_row_col", "connect_diagonal",
     "shadow_bool", "shadow_same", "shadow_max", "shadow_min", "shadow_mesh", "shadow_ones", "keep_mesh",
@@ -42,7 +44,7 @@ dynamic_solvers = [
 final_solvers = [
     "reduce_bitwise", "color_pile",
     "rotations", "fill_pattern", "auto_paste", "auto_paste_full", "auto_add_color", "color_change",
-    "fit_replace_rule_33_all",
+    "auto_paste_a", "fit_replace_rule_33_all",
 ]
 special_solvers = ["fit_replace_rule_33"]
 solvers = dynamic_solvers + final_solvers + special_solvers
@@ -344,8 +346,8 @@ class Runner:
 
 
 if __name__ == "__main__":
-    p_test = Runner(58, file_list="train", verbose=True)
-    p_test.auto_run(time_limit=100.0)
+    # p_test = Runner(58, file_list="train", verbose=True)
+    # p_test.auto_run(time_limit=100.0)
     for ind in range(100):
         p_test = Runner(ind, file_list="train", verbose=True)
         p_test.auto_run(time_limit=1.0)

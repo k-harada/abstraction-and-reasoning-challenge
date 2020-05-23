@@ -9,13 +9,16 @@ class RectangleFinder:
     @classmethod
     def matter(cls, m: Matter) -> Matter:
         new_matter = m.deepcopy()
-        if new_matter.is_filled_rectangle() and min(new_matter.shape[0], new_matter.shape[1]) >= 3:
+        if new_matter.is_filled_rectangle():
             if new_matter.is_square():
                 new_matter.a = 2
             else:
                 new_matter.a = 1
         else:
-            new_matter.a = 0
+            if m.a is not None:
+                new_matter.a = 0
+            else:
+                new_matter.a = None
         return new_matter
 
     @classmethod

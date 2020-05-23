@@ -8,6 +8,8 @@ from src.operator.mapper.split_mesh_normal import SplitMesh
 from src.operator.mapper.split_mesh_2 import SplitMeshTwo
 from src.operator.mapper.split_mesh_align import SplitMeshAlign
 from src.operator.mapper.fusion import Fusion
+from src.operator.mapper.map_interior import MapInterior
+from src.operator.mapper.map_interior_pierce import MapInteriorPierce
 
 
 # initial map
@@ -39,6 +41,12 @@ def run_map(p: Problem, command: str) -> Problem:
         q = SplitMesh.problem(p)
     elif command == "fusion":
         q = Fusion.problem(p)
+    elif command == "map_interior":
+        q = MapInterior.problem(p, boundary_none=False)
+    elif command == "map_interior_in":
+        q = MapInterior.problem(p, boundary_none=True)
+    elif command == "map_interior_pierce":
+        q = MapInteriorPierce.problem(p, allow_diagonal=False, boundary_none=True)
     else:
         raise NotImplementedError
 

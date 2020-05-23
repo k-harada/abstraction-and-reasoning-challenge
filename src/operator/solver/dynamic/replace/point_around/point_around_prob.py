@@ -1,6 +1,6 @@
 import numpy as np
 from src.data import Problem, Case, Matter
-from .point_around_arr import *
+from src.operator.solver.dynamic.replace.point_around.point_around_arr import *
 
 
 def fit_replace_rule_33(p: Problem) -> Problem:
@@ -81,3 +81,11 @@ def fit_replace_rule_33_all(p: Problem) -> Problem:
         q.test_x_list.append(c_x_new)
 
     return q
+
+
+if __name__ == "__main__":
+    pp = Problem.load(378, "eval")
+    print(pp.eval_distance())
+    qq = fit_replace_rule_33(pp)
+    print(qq.eval_distance())
+    print(qq)
