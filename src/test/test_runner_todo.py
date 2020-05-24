@@ -8,6 +8,14 @@ def test_124():
     # p.run("auto_paste_a")
 
 
+# mesh
+def test_607():
+    p = Runner(207, "eval", verbose=True)
+    p.run("mesh")
+    p.run("reduce_max")
+    print(p.problem_hand)
+
+
 def test_58():
     p = Runner(58, verbose=True)
     p.run("mesh_split")
@@ -74,10 +82,6 @@ def test_551():
 def test_555():
     p = Runner(155, "eval", verbose=True)
     p.run("trim_background")
-
-
-def test_558():
-    p = Runner(158, "eval", verbose=True)
 
 
 def test_561():

@@ -2,6 +2,7 @@ from src.data import Problem
 from src.operator.transformer.interior import Interior
 from src.operator.transformer.fill_rectangle import FillRectangle
 from src.operator.transformer.diff_color import DiffColor
+from src.operator.transformer.align import Align
 from src.operator.transformer.connect_line.row import ConnectRow
 from src.operator.transformer.connect_line.col import ConnectCol
 from src.operator.transformer.connect_line.row_col import ConnectRowCol
@@ -141,5 +142,7 @@ def run_transform(p: Problem, command: str) -> Problem:
         return RectangleKeeper.problem(p)
     elif command == "keep_max":
         return MaxKeeper.problem(p)
+    elif command == "align":
+        return Align.problem(p)
     else:
         raise NotImplementedError
