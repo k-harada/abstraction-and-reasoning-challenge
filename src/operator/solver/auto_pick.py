@@ -131,7 +131,7 @@ class AutoPick:
     @classmethod
     def fit_max(cls, test_list):
         for ca in test_list:
-            max_a = min([ma.a for ma in ca.matter_list])
+            max_a = max([ma.a for ma in ca.matter_list])
             ca.y_list = [max_a == ma.a for ma in ca.matter_list]
         return None
 
@@ -225,6 +225,10 @@ class AutoPick:
 
 if __name__ == "__main__":
     pp = Problem.load(178, "eval")
+    qq = MapConnect.problem(pp, allow_diagonal=True)
+    rr = AutoPick.problem(qq)
+    print(rr)
+    pp = Problem.load(235, "eval")
     qq = MapConnect.problem(pp, allow_diagonal=True)
     rr = AutoPick.problem(qq)
     print(rr)
