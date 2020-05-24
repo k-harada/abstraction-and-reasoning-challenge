@@ -44,7 +44,7 @@ dynamic_solvers = [
 final_solvers = [
     "reduce_bitwise", "color_pile",
     "rotations", "fill_pattern", "auto_paste", "auto_paste_full", "auto_add_color", "color_change",
-    "auto_paste_a", "fit_replace_rule_33_all",
+    "auto_paste_a", "fit_replace_rule_33_all", "auto_pick"
 ]
 special_solvers = ["fit_replace_rule_33"]
 solvers = dynamic_solvers + final_solvers + special_solvers
@@ -346,8 +346,6 @@ class Runner:
 
 
 if __name__ == "__main__":
-    # p_test = Runner(2, file_list="eval", verbose=True)
-    # p_test.auto_run(time_limit=100.0)
     for ind in range(100):
         p_test = Runner(ind, file_list="train", verbose=True)
         p_test.auto_run(time_limit=1.0)

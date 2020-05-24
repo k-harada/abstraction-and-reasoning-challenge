@@ -11,9 +11,10 @@ def test_124():
 # mesh
 def test_607():
     p = Runner(207, "eval", verbose=True)
-    p.run("mesh")
-    p.run("reduce_max")
-    print(p.problem_hand)
+    p.run("mesh_split")
+    p.run("collect_max")
+
+    # print(p.problem_hand)
 
 
 def test_58():
@@ -125,6 +126,7 @@ def test_756():
 
 if __name__ == "__main__":
     test_124()
+    test_607()
     test_58()
     test_61()
     test_134()
