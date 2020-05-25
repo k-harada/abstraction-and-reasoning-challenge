@@ -112,6 +112,15 @@ def test_588():
 
 def test_652():
     p = Runner(252, "eval", verbose=True)
+    p.run("color")
+    p.run("auto_keep")
+    p.run("align")
+
+
+def test_654():
+    p = Runner(254, "eval", verbose=True)
+    p.run("connect")
+    p.run("auto_keep")
 
 
 def test_719():
@@ -141,4 +150,6 @@ if __name__ == "__main__":
     test_261()
     test_488()
     test_551()
+    test_652()
+    test_654()
     test_738()

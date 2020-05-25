@@ -19,6 +19,7 @@ from src.operator.solver.dynamic.color.auto_paste import AutoPaste
 from src.operator.solver.dynamic.color.auto_paste_a import AutoPasteA
 from src.operator.solver.dynamic.color.auto_add_color import AutoAddColor
 from src.operator.solver.auto_pick import AutoPick
+from src.operator.solver.auto_keep import AutoKeep
 
 
 # initial solver
@@ -80,6 +81,8 @@ def run_solve(p: Problem, command: str) -> Problem:
         q = ZoomSolver.problem(p)
     elif command == "auto_pick":
         q = AutoPick.problem(p)
+    elif command == "auto_keep":
+        q = AutoKeep.problem(p)
     else:
         raise NotImplementedError
 
