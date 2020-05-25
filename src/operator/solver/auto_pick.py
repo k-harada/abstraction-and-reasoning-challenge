@@ -1,3 +1,4 @@
+from typing import List
 import numpy as np
 from src.data import Problem, Case, Matter
 from src.operator.mapper.map_connect import MapConnect
@@ -39,6 +40,7 @@ class AbstractMatter:
         self.is_symmetry = res
         self.ind = ind
         self.hash = hash_count
+        self.n_noise = (m.values != m.max_color()).sum()
         self.a = None
         self.y = None
 
@@ -182,8 +184,13 @@ class AutoPick:
             return cls.fit_min(test_list)
         if cls.eval_max(train_list):
             return cls.fit_max(test_list)
-
-        raise AssertionError
+        # is_symmetry
+        cls.set_a(train_list, test_list, 'n_noise')
+        if cls.eval_min(train_list):
+            return cls.fit_min(test_list)
+        if cls.eval_max(train_list):
+            return cls.fit_max(test_list)
+        raise ValueError
 
     @classmethod
     def case_fit(cls, c: Case, ca: AbstractCase):
@@ -221,6 +228,30 @@ class AutoPick:
         q.train_x_list = [cls.case_fit(c, ca) for c, ca in zip(p.train_x_list, train_list)]
         q.test_x_list = [cls.case_fit(c, ca) for c, ca in zip(p.test_x_list, test_list)]
         return q
+
+
+def hand_pick_case(c: Case, ind: int) -> Case:
+    new_case: Case = c.copy()
+    new_matter: Matter = c.matter_list[ind % len(c.matter_list)].deepcopy()
+    new_matter.x0 = 0
+    new_matter.y0 = 0
+    new_case.matter_list = [new_matter]
+    new_case.shape = new_matter.shape
+    return new_case
+
+
+def hand_pick(p: Problem) -> List[Problem]:
+    q0: Problem = p.copy()
+    q0.train_x_list = [hand_pick_case(c, 0) for c in p.train_x_list]
+    q0.test_x_list = [hand_pick_case(c, 0) for c in p.test_x_list]
+    q1: Problem = p.copy()
+    q1.train_x_list = [hand_pick_case(c, 1) for c in p.train_x_list]
+    q1.test_x_list = [hand_pick_case(c, 1) for c in p.test_x_list]
+    q2: Problem = p.copy()
+    q2.train_x_list = [hand_pick_case(c, 2) for c in p.train_x_list]
+    q2.test_x_list = [hand_pick_case(c, 2) for c in p.test_x_list]
+
+    return [q0, q1, q2]
 
 
 if __name__ == "__main__":

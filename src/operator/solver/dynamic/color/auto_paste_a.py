@@ -2,6 +2,25 @@ import numpy as np
 from src.data import Problem, Case, Matter
 
 
+def is_monotone(color_dict):
+    a = -1000
+    b = -1000
+    v = -1000
+    for k in sorted(color_dict.keys()):
+        if color_dict[k] != v:
+            v = color_dict[k]
+            if a == -1000:
+                a = k
+            elif b == -1000:
+                b = k
+            else:
+                return False, -1
+    if b == -1000:
+        return True, a
+    else:
+        return True, b
+
+
 class AutoPasteA:
 
     def __init__(self):
@@ -10,8 +29,17 @@ class AutoPasteA:
     @classmethod
     def matter(cls, m: Matter, color_dict: dict) -> Matter:
         if m.a is not None:
-            assert m.a in color_dict.keys()
-            new_matter = m.paste_color(color_dict[m.a])
+            if m.a in color_dict.keys():
+                new_matter = m.paste_color(color_dict[m.a])
+            else:
+                flag, bar = is_monotone(color_dict)
+                if flag:
+                    if m.a >= flag:
+                        new_matter = m.paste_color(color_dict[max(color_dict.keys())])
+                    else:
+                        new_matter = m.paste_color(color_dict[min(color_dict.keys())])
+                else:
+                    raise AssertionError
             return new_matter
         else:
             return m
@@ -63,3 +91,28 @@ class AutoPasteA:
         q.train_x_list = [cls.case(c, color_dict) for c in p.train_x_list]
         q.test_x_list = [cls.case(c, color_dict) for c in p.test_x_list]
         return q
+
+
+if __name__ == "__main__":
+    d = dict()
+    d[0] = 1
+    d[4] = 1
+    d[10] = 1
+    print(is_monotone(d))
+    d = dict()
+    d[0] = 1
+    d[4] = 1
+    d[10] = 5
+    d[12] = 5
+    print(is_monotone(d))
+    d = dict()
+    d[0] = 1
+    d[4] = 5
+    d[10] = 5
+    d[12] = 1
+    print(is_monotone(d))
+    d[0] = 1
+    d[4] = 5
+    d[10] = 15
+    d[12] = 21
+    print(is_monotone(d))

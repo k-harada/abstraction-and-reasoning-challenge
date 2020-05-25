@@ -118,6 +118,13 @@ def test_719():
     p = Runner(319, "eval", verbose=True)
 
 
+def test_738():
+    p = Runner(338, "eval", verbose=True)
+    p.run("change_background")
+    p.run("connect4")
+    p.run("auto_paste_a")
+
+
 def test_756():
     p = Runner(356, "eval", verbose=True)
     p.run("color")
@@ -134,3 +141,4 @@ if __name__ == "__main__":
     test_261()
     test_488()
     test_551()
+    test_738()

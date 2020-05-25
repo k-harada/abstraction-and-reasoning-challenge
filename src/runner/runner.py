@@ -10,6 +10,7 @@ from src.runner.evaluator import eval_distance
 from src.runner.runner_solve import pre_solve, run_solve
 from src.runner.one_bennchmark import BenchMark
 from src.adityaork.tree import predict_from_json
+from src.operator.solver.auto_pick import hand_pick
 
 
 static_solvers = [
@@ -179,6 +180,35 @@ class Runner:
                 if self.verbose:
                     self.time_record[op] += time.time() - t1
 
+            # for background
+            p = self.original_problem.copy()
+            # static solvers
+            for op in static_solvers:
+                self._pre_solve(p, op)
+            # change background
+            try:
+                p = self._run_transform(p, "change_background")
+                d = eval_distance(p)
+                heappush(self.heap_queue, (0, d, self.cnt, p))
+                heappush(self.heap_res, (d, 1, self.cnt, p))
+                self.cnt += 1
+                for op in mappers:
+                    if self.verbose:
+                        t1 = time.time()
+                    try:
+                        q = self._run_map(p, op)
+                        # evaluate
+                        d = eval_distance(q)
+                        heappush(self.heap_queue, (1, d, self.cnt, q))
+                        heappush(self.heap_res, (d, 0, self.cnt, q))
+                        self.cnt += 1
+                    except AssertionError:
+                        pass
+                    if self.verbose:
+                        self.time_record[op] += time.time() - t1
+            except AssertionError:
+                pass
+
         # main search
         while len(self.heap_queue) > 0:
             v, d_old, cnt_old, p = heappop(self.heap_queue)
@@ -231,6 +261,17 @@ class Runner:
                     # evaluate
                     d = eval_distance(q)
                     heappush(self.heap_res, (d, v + 1, self.cnt, q))
+                except ValueError:
+                    # auto_pick_failed
+                    q0, q1, q2 = hand_pick(p)
+                    # evaluate
+                    d = 1
+                    self.cnt += 1
+                    heappush(self.heap_res, (d, v + 1, self.cnt, q0))
+                    self.cnt += 1
+                    heappush(self.heap_res, (d, v + 1, self.cnt, q1))
+                    self.cnt += 1
+                    heappush(self.heap_res, (d, v + 1, self.cnt, q2))
                 except AssertionError:
                     pass
                 if self.verbose:
@@ -346,6 +387,8 @@ class Runner:
 
 
 if __name__ == "__main__":
+    p_test = Runner(338, file_list="eval", verbose=True)
+    p_test.auto_run(time_limit=1.0)
     for ind in range(100):
-        p_test = Runner(ind, file_list="train", verbose=True)
+        p_test = Runner(ind, file_list="eval", verbose=True)
         p_test.auto_run(time_limit=1.0)

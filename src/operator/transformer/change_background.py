@@ -30,4 +30,12 @@ class ChangeBackground:
         q: Problem = p.copy()
         q.train_x_list = [cls.case(c) for c in p.train_x_list]
         q.test_x_list = [cls.case(c) for c in p.test_x_list]
+        background_colors = []
+        for c in q.train_x_list:
+            background_colors.append(c.background_color)
+        for c in q.test_x_list:
+            background_colors.append(c.background_color)
+        if len(set(background_colors)) == 1:
+            assert background_colors[0] != 0
+            q.background_color = background_colors[0]
         return q
