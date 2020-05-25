@@ -33,7 +33,8 @@ usual_transformers = [
     "freq", "hash_freq",
     "max_color", "keep_max_color", "change_background",
     "fill_rectangle", "connect_row", "connect_col", "connect_row_col", "connect_diagonal", "align",
-    "shadow_bool", "shadow_same", "shadow_max", "shadow_min", "shadow_mesh", "shadow_ones", "keep_mesh",
+    "shadow_bool", "shadow_same", "shadow_max", "shadow_min", "shadow_mesh", "shadow_ones", "shadow_problem_max",
+    "keep_mesh",
     "find_rectangle", "find_symmetry", "count_hole", "transform_zoom", "transform_duplicate", "drop_duplicates",
     "rectangle_hole_simple", "rectangle_hole_mesh", "rectangle_hole_mesh_x", "keep_rectangle", "keep_max"
 ]
@@ -387,8 +388,6 @@ class Runner:
 
 
 if __name__ == "__main__":
-    p_test = Runner(338, file_list="eval", verbose=True)
-    p_test.auto_run(time_limit=1.0)
     for ind in range(100):
         p_test = Runner(ind, file_list="eval", verbose=True)
         p_test.auto_run(time_limit=1.0)

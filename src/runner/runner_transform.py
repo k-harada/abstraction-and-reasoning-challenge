@@ -112,6 +112,8 @@ def run_transform(p: Problem, command: str) -> Problem:
         return Shadow.problem(p, "mesh")
     elif command == "shadow_ones":
         return Shadow.problem(p, "ones")
+    elif command == "shadow_problem_max":
+        return Shadow.problem(p, "problem_max")
     elif command == "keep_mesh":
         return KeepMesh.problem(p)
     elif command == "find_rectangle":
