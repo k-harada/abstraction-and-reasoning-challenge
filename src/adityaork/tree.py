@@ -135,7 +135,9 @@ def get_flips(inp, oup):
 def gettaskxy(task_json, aug, around_size, bl_cols, flip=True):
     X = []
     Y = []
-    for pair in task_json['train']:
+    for i, pair in enumerate(task_json['train']):
+        if i == 0:
+            continue
         inp, oup = pair["input"], pair["output"]
         tx, ty = get_xy(inp, oup, around_size)
         X.extend(tx)
@@ -323,9 +325,9 @@ def predict_from_json(task_json):
         X3, Y3 = gettaskxy(task_json, True, 3, bl_cols, isflip)
         X5, Y5 = gettaskxy(task_json, True, 5, bl_cols, isflip)
 
-        model_1 = BaggingClassifier(base_estimator=DecisionTreeClassifier(), n_estimators=100).fit(X1, Y1)
-        model_3 = BaggingClassifier(base_estimator=DecisionTreeClassifier(), n_estimators=100).fit(X3, Y3)
-        model_5 = BaggingClassifier(base_estimator=DecisionTreeClassifier(), n_estimators=100).fit(X5, Y5)
+        model_1 = BaggingClassifier(base_estimator=DecisionTreeClassifier(min_samples_leaf=2), n_estimators=10).fit(X1, Y1)
+        model_3 = BaggingClassifier(base_estimator=DecisionTreeClassifier(min_samples_leaf=2), n_estimators=10).fit(X3, Y3)
+        model_5 = BaggingClassifier(base_estimator=DecisionTreeClassifier(min_samples_leaf=2), n_estimators=10).fit(X5, Y5)
 
         p1 = get_problem_from_model(task_json, model_1, 1)
         p1.history.append("tree_1")
@@ -336,3 +338,65 @@ def predict_from_json(task_json):
         return [p1, p3, p5]
     else:
         return []
+
+
+def create_json_from_p(p: Problem):
+    task_json = dict()
+    task_json['train'] = []
+    task_json['test'] = []
+    for c_x, c_y in zip(p.train_x_list, p.train_y_list):
+        task_json['train'].append({
+            "input": c_x.repr_values().tolist(),
+            "output": c_y.repr_values().tolist()
+        })
+    for c_x in p.test_x_list:
+        task_json['test'].append({
+            "input": c_x.repr_values().tolist()
+        })
+    return task_json
+
+
+def transform_tree(p: Problem, size=1):
+
+    task_json = create_json_from_p(p)
+
+    assert inp_oup_dim_same(task_json)
+    a_size = get_a_size(task_json)
+    bl_cols = get_bl_cols(task_json)
+
+    isflip = False
+
+    if size == 1:
+        X1, Y1 = gettaskxy(task_json, True, 1, bl_cols, isflip)
+        model_1 = BaggingClassifier(base_estimator=DecisionTreeClassifier(min_samples_leaf=2), n_estimators=10).fit(X1, Y1)
+        p1 = get_problem_from_model(task_json, model_1, 1)
+        p1.history.append("tree_1")
+        return p1
+    elif size == 3:
+        X3, Y3 = gettaskxy(task_json, True, 3, bl_cols, isflip)
+        model_3 = BaggingClassifier(base_estimator=DecisionTreeClassifier(min_samples_leaf=2), n_estimators=10).fit(X3, Y3)
+        p3 = get_problem_from_model(task_json, model_3, 3)
+        p3.history.append("tree_3")
+        return p3
+    elif size == 5:
+        X5, Y5 = gettaskxy(task_json, True, 5, bl_cols, isflip)
+        model_5 = BaggingClassifier(base_estimator=DecisionTreeClassifier(min_samples_leaf=2), n_estimators=10).fit(X5, Y5)
+        p5 = get_problem_from_model(task_json, model_5, 5)
+        p5.history.append("tree_5")
+        return p5
+
+
+if __name__ == "__main__":
+    import time
+    t0 = time.time()
+    pp = Problem.load(35, "eval")
+    qq = transform_tree(pp, 3)
+    print(qq)
+    print(qq.eval_distance())
+    rr = transform_tree(qq, 3)
+    print(rr)
+    print(rr.eval_distance())
+    ss = transform_tree(rr, 3)
+    print(ss)
+    print(ss.eval_distance())
+    print(time.time() - t0)

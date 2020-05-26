@@ -1,9 +1,8 @@
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import BaggingClassifier
 from src.data import Problem, Case, Matter
 
-
-# useless
 
 def tree_x(x_arr: np.array, ext: int = -1):
 
@@ -37,7 +36,7 @@ class DecisionTreeDirect:
         pass
 
     @classmethod
-    def build_tree_from_problem(cls, p: Problem):
+    def build_tree_from_problem(cls, p: Problem) -> None:
         c_x: Case
         c_y: Case
         feature_arr_list = []
@@ -49,32 +48,32 @@ class DecisionTreeDirect:
             target_list.append(c_y.repr_values().reshape(-1, ))
         feature_arr_all = np.concatenate(feature_arr_list, axis=0)
         target_all = np.concatenate(target_list, axis=0)
-        model = DecisionTreeClassifier()
-        model.fit(feature_arr_all, target_all)
-        return model
+        cls.model = BaggingClassifier(DecisionTreeClassifier(), n_estimators=100)
+        cls.model.fit(feature_arr_all, target_all)
+        return None
 
     @classmethod
-    def array(cls, x_arr: np.array, model: DecisionTreeClassifier, background: int):
-        predict_class = model.predict(tree_x(x_arr))
-        predict_prob_1 = model.predict_proba(tree_x(x_arr, ext=-1))
-        predict_prob_2 = model.predict_proba(tree_x(x_arr, ext=10))
+    def array(cls, x_arr: np.array, background: int):
+        predict_class = cls.model.predict(tree_x(x_arr))
+        predict_prob_1 = cls.model.predict_proba(tree_x(x_arr, ext=-1))
+        predict_prob_2 = cls.model.predict_proba(tree_x(x_arr, ext=10))
         predict_prob = np.minimum(predict_prob_1, predict_prob_2)
-        predict_class[predict_prob.max(axis=1) < 1] = background
+        predict_class[predict_prob.max(axis=1) < 1] = x_arr.reshape((-1, ))[predict_prob.max(axis=1) < 1]
         return predict_class.reshape(x_arr.shape)
 
     @classmethod
-    def case(cls, c: Case, model: DecisionTreeClassifier) -> Case:
-        new_values = cls.array(c.repr_values(), model, c.background_color)
+    def case(cls, c: Case) -> Case:
+        new_values = cls.array(c.repr_values(), c.background_color)
         new_case: Case = c.copy()
         new_case.matter_list = [Matter(new_values, background_color=c.background_color, new=True)]
         return new_case
 
     @classmethod
     def problem_one(cls, p: Problem) -> Problem:
-        model = cls.build_tree_from_problem(p)
+        cls.build_tree_from_problem(p)
         q: Problem = p.copy()
-        q.train_x_list = [cls.case(c, model) for c in p.train_x_list]
-        q.test_x_list = [cls.case(c, model) for c in p.test_x_list]
+        q.train_x_list = [cls.case(c) for c in p.train_x_list]
+        q.test_x_list = [cls.case(c) for c in p.test_x_list]
         return q
 
     @classmethod
@@ -94,6 +93,8 @@ if __name__ == "__main__":
     print(pp)
     qq = DecisionTreeDirect.problem(pp)
     print(qq)
+    rr = DecisionTreeDirect.problem(qq)
+    print(rr)
     pp = Problem.load(179, "eval")
     qq = DecisionTreeDirect.problem(pp)
     print(qq)

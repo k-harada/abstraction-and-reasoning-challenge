@@ -251,7 +251,7 @@ class AutoKeep:
                 return cls.fit_geq_c(test_list, c_int)
             if cls.eval_eq_c(train_list, c_int):
                 return cls.fit_eq_c(test_list, c_int)
-        raise ValueError
+        raise AssertionError
 
     @classmethod
     def case_fit(cls, c: Case, ca: AbstractCase):

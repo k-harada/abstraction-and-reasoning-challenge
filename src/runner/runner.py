@@ -143,6 +143,20 @@ class Runner:
 
     def auto_run(self, time_limit=0.2) -> None:
 
+        # tree
+        if time_limit > 10.0:
+            try:
+                cnt_special = -1
+                q_list = predict_from_json(self.task_json)
+                for q in q_list:
+                    d = eval_distance(q) + 2
+                    heappush(self.heap_queue, (0, d, cnt_special, q))
+                    heappush(self.heap_res, (d, 0, cnt_special, q))
+                    cnt_special -= 1
+            except:
+                pass
+
+        self.heap_queue = []
         t0 = time.time()
         t1 = 0
         v_max = 0
@@ -228,7 +242,10 @@ class Runner:
                     # evaluate
                     d = eval_distance(q)
                     if d > 0:
-                        heappush(self.heap_queue, (v + 1, d, self.cnt, q))
+                        if v <= 2:
+                            heappush(self.heap_queue, (v + 1, d, self.cnt, q))
+                        else:
+                            heappush(self.heap_queue, (d, v + 1, self.cnt, q))
                     heappush(self.heap_res, (d, v + 1, self.cnt, q))
                 except AssertionError:
                     pass
@@ -245,7 +262,10 @@ class Runner:
                     # evaluate
                     d = eval_distance(q)
                     if d > 0:
-                        heappush(self.heap_queue, (v + 1, d, self.cnt, q))
+                        if v <= 2:
+                            heappush(self.heap_queue, (v + 1, d, self.cnt, q))
+                        else:
+                            heappush(self.heap_queue, (d, v + 1, self.cnt, q))
                     heappush(self.heap_res, (d, v + 1, self.cnt, q))
                 except AssertionError:
                     pass
@@ -388,6 +408,9 @@ class Runner:
 
 
 if __name__ == "__main__":
+    p_test = Runner(49, file_list="eval", verbose=True)
+    p_test.auto_run(time_limit=12.0)
+
     for ind in range(100):
         p_test = Runner(ind, file_list="eval", verbose=True)
         p_test.auto_run(time_limit=1.0)

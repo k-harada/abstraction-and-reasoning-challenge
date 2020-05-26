@@ -1,0 +1,45 @@
+train 0
+Solved train_0 in 0.052 seconds, v=1, cnt=86
+['fractal']
+train 1
+Solved train_1 in 0.171 seconds, v=1, cnt=94
+['interior_dir4_zero']
+train 2
+Solved train_2 in 1.172 seconds, v=3, cnt=4569
+['extend_shape', 'auto_fill_row_col_periodicity', 'keep_max_color']
+train 3
+Failed to solve train_3 in 11.029 seconds, v=3, cnt=26449
+train 4
+Failed to solve train_4 in 11.031 seconds, v=3, cnt=10789
+train 5
+Solved train_5 in 0.092 seconds, v=2, cnt=232
+['change_background', 'mesh_align', 'reduce_bitwise']
+train 6
+Solved train_6 in 0.067 seconds, v=1, cnt=89
+['fill_pattern']
+train 7
+Failed to solve train_7 in 11.033 seconds, v=3, cnt=18310
+train 8
+Solved train_8 in 1.083 seconds, v=2, cnt=372
+['mesh_2', 'connect_row_col']
+train 9
+Solved train_9 in 3.526 seconds, v=3, cnt=9204
+['connect', 'arg_sort', 'auto_paste']
+train 10
+Failed to solve train_10 in 11.792 seconds, v=3, cnt=12380
+train 11
+Failed to solve train_11 in 11.039 seconds, v=3, cnt=23142
+train 12
+Failed to solve train_12 in 11.123 seconds, v=2, cnt=2926
+train 13
+Solved train_13 in 0.38 seconds, v=2, cnt=508
+['color', 'trim_background']
+train 14
+Failed to solve train_14 in 11.023 seconds, v=3, cnt=22174
+train 15
+Solved train_15 in 0.045 seconds, v=1, cnt=93
+['color_change']
+train 16
+Solved train_16 in 0.447 seconds, v=1, cnt=88
+['auto_fill_row_col_periodicity']
+train 17
